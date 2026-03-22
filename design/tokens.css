@@ -1,0 +1,114 @@
+/* ═══════════════════════════════════════════════════════════════════
+   f00tnotes — Design Tokens
+   Dark theme. Monochromatic base. IBM Plex Mono + Pretendard.
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* ── Color: Background ─────────────────────────────────────────── */
+  --bg:              #0C0C0C;   /* page background                   */
+  --bg-raised:       #141414;   /* cards, panels                     */
+  --bg-elevated:     #1C1C1C;   /* modals, dropdowns, hover surfaces */
+  --bg-hover:        #1A1A1A;   /* interactive hover state           */
+
+  /* ── Color: Border ─────────────────────────────────────────────── */
+  --border-subtle:   #1E1E1E;   /* very faint dividers               */
+  --border:          #2A2A2A;   /* standard dividers                 */
+  --border-strong:   #3A3A3A;   /* emphasized borders                */
+
+  /* ── Color: Text ───────────────────────────────────────────────── */
+  --text-1:          #F0F0F0;   /* primary — headings, body          */
+  --text-2:          #888888;   /* secondary — meta, labels          */
+  --text-3:          #4A4A4A;   /* tertiary — placeholders, disabled */
+  --text-inv:        #0C0C0C;   /* on light/inverted surfaces        */
+
+  /* ── Color: Accent ─────────────────────────────────────────────── */
+  /* Single accent: cold white-green — used sparingly                 */
+  --accent:          #E8F5E0;   /* subtle highlight, active states   */
+  --accent-muted:    rgba(232, 245, 224, 0.12);  /* tinted backgrounds */
+
+  /* ── Color: Semantic ───────────────────────────────────────────── */
+  --c-error:         #FF4444;
+  --c-warn:          #F5A623;
+  --c-ok:            #4ADE80;
+
+  /* ── Typography: Family ────────────────────────────────────────── */
+  --font-mono:  'IBM Plex Mono', 'Menlo', monospace;   /* brand, nav, code  */
+  --font-sans:  'Pretendard', -apple-system, 'Apple SD Gothic Neo',
+                'Inter', sans-serif;                    /* body, prose       */
+
+  /* ── Typography: Scale ─────────────────────────────────────────── */
+  --text-xs:     11px;
+  --text-sm:     13px;
+  --text-base:   15px;
+  --text-md:     17px;
+  --text-lg:     20px;
+  --text-xl:     24px;
+  --text-2xl:    30px;
+  --text-3xl:    38px;
+  --text-4xl:    48px;
+  --text-5xl:    60px;
+
+  /* ── Typography: Weight ────────────────────────────────────────── */
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  /* ── Typography: Line Height ───────────────────────────────────── */
+  --lh-tight:    1.2;
+  --lh-snug:     1.4;
+  --lh-normal:   1.6;
+  --lh-relaxed:  1.75;
+  --lh-loose:    1.9;
+
+  /* ── Typography: Letter Spacing ────────────────────────────────── */
+  --ls-tight:    -0.03em;
+  --ls-snug:     -0.02em;
+  --ls-normal:    0em;
+  --ls-wide:      0.04em;
+  --ls-wider:     0.08em;
+  --ls-widest:    0.14em;
+
+  /* ── Spacing ────────────────────────────────────────────────────── */
+  --sp-1:    4px;
+  --sp-2:    8px;
+  --sp-3:    12px;
+  --sp-4:    16px;
+  --sp-5:    20px;
+  --sp-6:    24px;
+  --sp-8:    32px;
+  --sp-10:   40px;
+  --sp-12:   48px;
+  --sp-16:   64px;
+  --sp-20:   80px;
+  --sp-24:   96px;
+  --sp-32:  128px;
+
+  /* ── Layout ─────────────────────────────────────────────────────── */
+  --nav-h:          56px;
+  --sidebar-w:      220px;
+  --content-max:    720px;
+  --page-max:      1200px;
+  --page-pad:       48px;    /* horizontal page padding, desktop    */
+  --page-pad-mob:   20px;    /* horizontal page padding, mobile     */
+
+  /* ── Border Radius ──────────────────────────────────────────────── */
+  --r-sm:    4px;
+  --r-md:    8px;
+  --r-lg:    12px;
+  --r-full:  9999px;
+
+  /* ── Shadow ─────────────────────────────────────────────────────── */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.5);
+  --shadow-md:  0 4px 16px rgba(0,0,0,0.6);
+  --shadow-lg:  0 12px 40px rgba(0,0,0,0.7);
+
+  /* ── Transition ─────────────────────────────────────────────────── */
+  --ease:       cubic-bezier(0.16, 1, 0.3, 1);
+  --duration:   160ms;
+  --t-fast:     80ms;
+  --t-base:     160ms;
+  --t-slow:     300ms;
+}

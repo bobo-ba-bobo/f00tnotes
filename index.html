@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>f00tnotes¹</title>
+  <style>
+    /* ─── FONTS ─────────────────────────────────────────────── */
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('/fonts/Pretendard-Light.ttf') format('truetype');
+      font-weight: 300;
+    }
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('/fonts/Pretendard-Regular.ttf') format('truetype');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('/fonts/Pretendard-Medium.ttf') format('truetype');
+      font-weight: 500;
+    }
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('/fonts/Pretendard-SemiBold.ttf') format('truetype');
+      font-weight: 600;
+    }
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('/fonts/Pretendard-Bold.ttf') format('truetype');
+      font-weight: 700;
+    }
+    @font-face {
+      font-family: 'IBMPlexMono';
+      src: url('/fonts/IBMPlexMono-Regular.ttf') format('truetype');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'IBMPlexMono';
+      src: url('/fonts/IBMPlexMono-Bold.ttf') format('truetype');
+      font-weight: 700;
+    }
+
+    /* ─── TOKENS ────────────────────────────────────────────── */
+    :root {
+      --bg:          #0C0C0C;
+      --bg-raised:   #141414;
+      --bg-elevated: #1C1C1C;
+      --border-s:    #1E1E1E;
+      --border:      #2A2A2A;
+      --border-h:    #3A3A3A;
+      --text-1:      #F0F0F0;
+      --text-2:      #888888;
+      --text-3:      #4A4A4A;
+      --accent:      #E8F5E0;
+      --nav-h:       56px;
+      --page-max:    1200px;
+      --pad:         48px;
+    }
+
+    /* ─── RESET ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', -apple-system, 'Apple SD Gothic Neo', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--text-1);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── NAV ───────────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      height: var(--nav-h);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border-s);
+      display: flex; align-items: center;
+      padding: 0 var(--pad);
+    }
+
+    .brand {
+      font-family: 'IBMPlexMono', monospace;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: -0.02em;
+      color: var(--text-1);
+      display: flex; align-items: baseline; gap: 1px;
+    }
+    .brand sup {
+      font-size: 8px;
+      font-weight: 400;
+      color: var(--text-3);
+      letter-spacing: 0;
+    }
+
+    .nav-sep { flex: 1; }
+
+    .nav-links {
+      display: flex; gap: 28px; list-style: none; align-items: center;
+    }
+    .nav-links a {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-3);
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--text-1); }
+
+    .nav-sub {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-3);
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      cursor: pointer;
+      background: none;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .nav-sub:hover { color: var(--text-1); border-color: var(--border-h); }
+
+    /* ─── PAGE ──────────────────────────────────────────────── */
+    .page {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
+
+    /* ─── HERO ──────────────────────────────────────────────── */
+    .hero {
+      padding: 80px 0 64px;
+      border-bottom: 1px solid var(--border-s);
+    }
+    .hero-eyebrow {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-3);
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text-1);
+      margin-bottom: 20px;
+      max-width: 640px;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--text-2);
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-2);
+      line-height: 1.7;
+      max-width: 480px;
+    }
+
+    /* ─── FILTER TABS ───────────────────────────────────────── */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-s);
+      overflow-x: auto;
+    }
+    .filter-btn {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-3);
+      padding: 6px 16px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.15s;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+    }
+    .filter-btn:first-child { padding-left: 0; }
+    .filter-btn:hover { color: var(--text-2); }
+    .filter-btn.active {
+      color: var(--text-1);
+      border-bottom-color: var(--text-1);
+    }
+
+    /* ─── GRID ──────────────────────────────────────────────── */
+    .grid-section {
+      padding: 48px 0 120px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border-s);
+      border: 1px solid var(--border-s);
+    }
+
+    /* ─── CARD ──────────────────────────────────────────────── */
+    .card {
+      background: var(--bg);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      cursor: pointer;
+      transition: background 0.15s;
+      text-decoration: none;
+    }
+    .card:hover { background: var(--bg-raised); }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card-issue {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-3);
+    }
+    .card-dot {
+      width: 2px; height: 2px;
+      background: var(--text-3);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.35;
+      color: var(--text-1);
+    }
+
+    .card-body {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+    .card-tags {
+      display: flex; gap: 6px; flex-wrap: wrap;
+    }
+    .tag {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-2);
+      padding: 3px 8px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      background: var(--bg-raised);
+    }
+    .card-arrow {
+      font-size: 16px;
+      color: var(--text-3);
+      transition: color 0.15s, transform 0.15s;
+    }
+    .card:hover .card-arrow {
+      color: var(--text-1);
+      transform: translate(2px, -2px);
+    }
+
+    /* ─── FEATURED CARD (첫 번째, 넓은 카드) ───────────────── */
+    .card.featured {
+      grid-column: span 2;
+      padding: 40px;
+    }
+    .card.featured .card-title {
+      font-size: 26px;
+      letter-spacing: -0.03em;
+    }
+    .card.featured .card-body {
+      font-size: 14px;
+      max-width: 520px;
+    }
+
+    /* ─── COMING SOON 카드 ──────────────────────────────────── */
+    .card.empty {
+      background: var(--bg);
+      cursor: default;
+      opacity: 0.4;
+    }
+    .card.empty:hover { background: var(--bg); }
+    .card-coming {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-3);
+    }
+
+    /* ─── NEWSLETTER ────────────────────────────────────────── */
+    .newsletter {
+      border-top: 1px solid var(--border-s);
+      padding: 64px 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 48px;
+    }
+    .newsletter-left { flex: 1; max-width: 400px; }
+    .newsletter-label {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-3);
+      margin-bottom: 12px;
+    }
+    .newsletter-title {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      color: var(--text-1);
+    }
+    .newsletter-form {
+      display: flex; gap: 8px; flex: 1; max-width: 480px;
+      align-self: flex-end;
+    }
+    .newsletter-input {
+      flex: 1;
+      background: var(--bg-raised);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 10px 14px;
+      font-family: 'Pretendard', sans-serif;
+      font-size: 14px;
+      color: var(--text-1);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .newsletter-input::placeholder { color: var(--text-3); }
+    .newsletter-input:focus { border-color: var(--border-h); }
+    .newsletter-btn {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: var(--text-1);
+      color: var(--bg);
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .newsletter-btn:hover { background: #fff; }
+
+    /* ─── FOOTER ────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border-s);
+      padding: 32px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-brand {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-1);
+    }
+    .footer-brand sup { font-size: 8px; font-weight: 400; color: var(--text-3); }
+    .footer-copy {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 11px;
+      color: var(--text-3);
+      letter-spacing: 0.04em;
+    }
+    .footer-links {
+      display: flex; gap: 24px; list-style: none;
+    }
+    .footer-links a {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-3);
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--text-1); }
+
+    /* ─── RESPONSIVE ────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      :root { --pad: 24px; }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .card.featured { grid-column: span 2; }
+      .hero-title { font-size: 36px; }
+      .newsletter { flex-direction: column; }
+      .newsletter-form { max-width: 100%; }
+    }
+    @media (max-width: 600px) {
+      :root { --pad: 20px; }
+      .grid { grid-template-columns: 1fr; }
+      .card.featured { grid-column: span 1; }
+      .hero-title { font-size: 28px; }
+      footer { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─────────────────────────────────────────────── -->
+  <nav>
+    <a href="index.html" class="brand">f00tnotes<sup>1</sup></a>
+    <span class="nav-sep"></span>
+    <ul class="nav-links">
+      <li><a href="#">Research</a></li>
+      <li><a href="#">About</a></li>
+      <li><button class="nav-sub">Subscribe</button></li>
+    </ul>
+  </nav>
+
+  <div class="page">
+
+    <!-- ─── HERO ───────────────────────────────────────────── -->
+    <section class="hero">
+      <p class="hero-eyebrow">f00tnotes¹ — Independent Tech Research</p>
+      <h1 class="hero-title">The footnotes<br><em>everyone skips.</em></h1>
+      <p class="hero-desc">
+        기술 산업의 핵심을 짚는 독립 리서치. 화려한 발표 뒤에 숨은 실질적 의미를 분석합니다.
+      </p>
+    </section>
+
+    <!-- ─── FILTER ──────────────────────────────────────────── -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterCards('all', this)">All</button>
+      <button class="filter-btn" onclick="filterCards('ai', this)">AI / ML</button>
+      <button class="filter-btn" onclick="filterCards('semi', this)">Semiconductors</button>
+      <button class="filter-btn" onclick="filterCards('space', this)">Space</button>
+      <button class="filter-btn" onclick="filterCards('biotech', this)">Biotech</button>
+      <button class="filter-btn" onclick="filterCards('fintech', this)">Fintech</button>
+    </div>
+
+    <!-- ─── GRID ────────────────────────────────────────────── -->
+    <section class="grid-section">
+      <div class="grid" id="grid">
+
+        <!-- W12 NVIDIA — featured -->
+        <a class="card featured" href="research/2026-W12_NVIDIA-GTC/report_en.html" data-tags="ai semi">
+          <div class="card-meta">
+            <span class="card-issue">2026 · W12</span>
+            <span class="card-dot"></span>
+            <span class="card-issue">Latest</span>
+          </div>
+          <div class="card-title">NVIDIA GTC 2026 —<br>It's Not About the Chips Anymore</div>
+          <div class="card-body">
+            GB300, NVLink 5세대, 로봇 파운데이션 모델. Jensen Huang의 키노트가 말하지 않은 것 — NVIDIA가 어디서 마진을 만드는지, 그리고 CUDA lock-in이 왜 소프트웨어 문제가 아닌지.
+          </div>
+          <div class="card-footer">
+            <div class="card-tags">
+              <span class="tag">AI / ML</span>
+              <span class="tag">Semiconductors</span>
+              <span class="tag">Infrastructure</span>
+            </div>
+            <span class="card-arrow">↗</span>
+          </div>
+        </a>
+
+        <!-- W11 Niantic -->
+        <a class="card" href="research/niantic-spatial.html" data-tags="ar infra">
+          <div class="card-meta">
+            <span class="card-issue">2026 · W11</span>
+          </div>
+          <div class="card-title">Niantic's Spatial Intelligence Layer</div>
+          <div class="card-body">
+            AR을 넘어 공간 데이터 인프라로. Niantic이 10년간 쌓아온 것의 진짜 가치와 그 전략적 의미.
+          </div>
+          <div class="card-footer">
+            <div class="card-tags">
+              <span class="tag">AR / XR</span>
+              <span class="tag">Infrastructure</span>
+            </div>
+            <span class="card-arrow">↗</span>
+          </div>
+        </a>
+
+        <!-- Coming soon × 4 -->
+        <div class="card empty">
+          <span class="card-coming">Coming · W13</span>
+        </div>
+        <div class="card empty">
+          <span class="card-coming">Coming · W13</span>
+        </div>
+        <div class="card empty">
+          <span class="card-coming">Coming · W14</span>
+        </div>
+        <div class="card empty">
+          <span class="card-coming">Coming · W14</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── NEWSLETTER ──────────────────────────────────────── -->
+    <section class="newsletter">
+      <div class="newsletter-left">
+        <p class="newsletter-label">Weekly Research</p>
+        <h2 class="newsletter-title">매주 놓치지 말아야 할<br>기술 산업 분석.</h2>
+      </div>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input class="newsletter-input" type="email" placeholder="your@email.com" />
+        <button class="newsletter-btn">Subscribe</button>
+      </form>
+    </section>
+
+  </div><!-- /page -->
+
+  <!-- ─── FOOTER ───────────────────────────────────────────── -->
+  <div class="page">
+    <footer>
+      <span class="footer-brand">f00tnotes<sup>1</sup></span>
+      <span class="footer-copy">© 2026</span>
+      <ul class="footer-links">
+        <li><a href="#">Research</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </footer>
+  </div>
+
+  <script>
+    function filterCards(tag, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('#grid .card:not(.empty)');
+      cards.forEach(card => {
+        if (tag === 'all') {
+          card.style.display = '';
+        } else {
+          const tags = card.dataset.tags || '';
+          card.style.display = tags.includes(tag) ? '' : 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

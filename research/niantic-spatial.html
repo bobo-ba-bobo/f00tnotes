@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Niantic Spatial — f00tnotes Research</title>
+  <style>
+    /* ─── FONTS ─────────────────────────────────────────────────────────── */
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('../fonts/Pretendard-Light.ttf') format('truetype');
+      font-weight: 300;
+    }
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('../fonts/Pretendard-Regular.ttf') format('truetype');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('../fonts/Pretendard-Medium.ttf') format('truetype');
+      font-weight: 500;
+    }
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('../fonts/Pretendard-SemiBold.ttf') format('truetype');
+      font-weight: 600;
+    }
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('../fonts/Pretendard-Bold.ttf') format('truetype');
+      font-weight: 700;
+    }
+    @font-face {
+      font-family: 'IBMPlexMono';
+      src: url('../fonts/IBMPlexMono-Regular.ttf') format('truetype');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'IBMPlexMono';
+      src: url('../fonts/IBMPlexMono-Bold.ttf') format('truetype');
+      font-weight: 700;
+    }
+
+    /* ─── TOKENS ────────────────────────────────────────────────────────── */
+    :root {
+      --bg:           #0C0C0C;
+      --bg-hover:     #1C1C1C;
+      --bg-subtle:    #161616;
+      --text-1:       #F0F0F0;
+      --text-2:       #888888;
+      --text-3:       #4A4A4A;
+      --border:       #2A2A2A;
+      --border-dark:  #3A3A3A;
+      --blue:         #E8F5E0;
+      --blue-hover:   #FFFFFF;
+      --ink:          #F0F0F0;
+      --nav-h:        56px;
+      --sidebar-w:    220px;
+      --content-max:  760px;
+    }
+
+    /* ─── RESET & BASE ──────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Pretendard', -apple-system, 'Apple SD Gothic Neo', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text-1);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--text-2); text-decoration: none; }
+    a:hover { color: var(--text-1); text-decoration: none; }
+
+    /* ─── NAV ───────────────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 48px;
+      gap: 32px;
+    }
+
+    .nav-brand {
+      font-family: 'IBMPlexMono', monospace;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .nav-sep { flex: 1; }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-2);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--text-1); text-decoration: none; }
+
+    /* ─── PAGE LAYOUT ───────────────────────────────────────────────────── */
+    .page {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: grid;
+      grid-template-columns: var(--sidebar-w) 1fr;
+      gap: 64px;
+    }
+
+    /* ─── SIDEBAR ───────────────────────────────────────────────────────── */
+    .sidebar {
+      position: sticky;
+      top: var(--nav-h);
+      height: calc(100vh - var(--nav-h));
+      padding-top: 52px;
+      overflow-y: auto;
+    }
+
+    .sidebar-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .sidebar-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--text-1);
+      flex-shrink: 0;
+    }
+    .sidebar-label span {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-1);
+    }
+
+    .toc { list-style: none; }
+    .toc li + li { margin-top: 2px; }
+
+    .toc a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--text-3);
+      text-decoration: none;
+      padding: 5px 0;
+      transition: color 0.15s;
+      line-height: 1.4;
+    }
+    .toc a:hover { color: var(--text-1); text-decoration: none; }
+    .toc a.active { color: var(--text-1); font-weight: 500; }
+
+    .toc-marker {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+      opacity: 0.4;
+    }
+
+    .sidebar-meta {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .sidebar-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-bottom: 16px;
+    }
+    .sidebar-meta-label {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-3);
+    }
+    .sidebar-meta-value {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-2);
+    }
+
+    /* ─── MAIN CONTENT ──────────────────────────────────────────────────── */
+    .content {
+      max-width: var(--content-max);
+      padding: 52px 0 120px;
+    }
+
+    /* ─── OVERVIEW CARD ─────────────────────────────────────────────────── */
+    .overview {
+      padding-bottom: 40px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .company-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .company-name {
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+    .company-tagline {
+      margin-top: 6px;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-2);
+      line-height: 1.5;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 18px;
+    }
+    .tag {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border: 1px solid var(--border-dark);
+      border-radius: 2px;
+      color: var(--text-2);
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 28px;
+    }
+    .meta-cell {
+      background: var(--bg);
+      padding: 14px 18px;
+    }
+    .meta-cell-label {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-3);
+      margin-bottom: 4px;
+    }
+    .meta-cell-value {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-1);
+    }
+
+    .report-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 11.5px;
+      color: var(--text-3);
+    }
+    .report-meta-dot { opacity: 0.4; }
+
+    /* ─── SECTIONS ──────────────────────────────────────────────────────── */
+    .section {
+      scroll-margin-top: calc(var(--nav-h) + 28px);
+      padding-top: 44px;
+    }
+    .section + .section {
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-3);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-1);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    strong { font-weight: 600; color: var(--ink); }
+
+    /* ─── CALLOUT / THESIS BOX ───────────────────────────────────────────── */
+    .callout {
+      background: var(--bg-subtle);
+      border-left: 2px solid var(--border-dark);
+      padding: 20px 24px;
+      margin: 24px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .callout p {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-2);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    /* ─── STAT ROW ──────────────────────────────────────────────────────── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 28px 0;
+    }
+    .stat-cell {
+      background: var(--bg);
+      padding: 20px 22px;
+    }
+    .stat-cell-num {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-cell-label {
+      font-size: 12.5px;
+      font-weight: 400;
+      color: var(--text-2);
+    }
+
+    /* ─── TIMELINE ──────────────────────────────────────────────────────── */
+    .timeline { margin: 28px 0; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 20px;
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
+      align-items: start;
+    }
+    .timeline-item:last-child { border-bottom: 1px solid var(--border); }
+    .timeline-year {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-3);
+      padding-top: 1px;
+    }
+    .timeline-body p {
+      font-size: 14.5px;
+      margin-bottom: 0;
+      color: var(--text-1);
+    }
+
+    /* ─── DATA TABLE ────────────────────────────────────────────────────── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      margin: 24px 0;
+    }
+    .data-table th {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-3);
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-dark);
+      background: var(--bg-hover);
+    }
+    .data-table td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-1);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: var(--bg-hover); }
+    .td-label { font-weight: 600; color: var(--ink); white-space: nowrap; }
+
+    /* ─── FOOTNOTES ─────────────────────────────────────────────────────── */
+    .fn-ref {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-3);
+      vertical-align: super;
+      line-height: 0;
+      cursor: default;
+    }
+
+    .footnotes {
+      margin-top: 60px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+    .footnotes-label {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-3);
+      margin-bottom: 16px;
+    }
+    .footnote-item {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
+    .footnote-num {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-3);
+      padding-top: 2px;
+    }
+
+    /* ─── ORDERED LIST ──────────────────────────────────────────────────── */
+    .prose-list {
+      margin: 16px 0 16px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .prose-list li {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 4px;
+      font-size: 15px;
+      color: var(--text-1);
+      line-height: 1.75;
+      margin-bottom: 8px;
+    }
+    .prose-list li .li-num {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-3);
+      padding-top: 4px;
+    }
+
+    /* bullet list */
+    .bullet-list { list-style: none; margin: 14px 0 14px 0; padding: 0; }
+    .bullet-list li {
+      font-size: 15px;
+      color: var(--text-1);
+      line-height: 1.75;
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+    .bullet-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--text-3);
+      font-size: 13px;
+    }
+
+    /* ─── COMPANY CARDS (Similar Companies) ────────────────────────────── */
+    .company-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 24px 0;
+    }
+    .company-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 18px 20px;
+      transition: background 0.15s;
+    }
+    .company-card:hover { background: var(--bg-hover); }
+    .company-card-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .company-card-desc {
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.5;
+    }
+    .company-card-tag {
+      display: inline-block;
+      margin-top: 10px;
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-3);
+      padding: 2px 7px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+    }
+
+    /* ─── RESPONSIVE ────────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .page { grid-template-columns: 1fr; gap: 0; padding: 0 24px; }
+      .sidebar { display: none; }
+      .meta-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-row { grid-template-columns: repeat(2, 1fr); }
+      .company-cards { grid-template-columns: 1fr; }
+    }
+
+    /* ─── SCROLLBAR ─────────────────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─────────────────────────────────────────────────────────────── -->
+<nav>
+  <a class="nav-brand" href="../index.html">f00tnotes<sup style="font-size:8px;font-weight:400;color:var(--text-3);vertical-align:super;">1</sup></a>
+  <div class="nav-sep"></div>
+  <ul class="nav-links">
+    <li><a href="#">Research</a></li>
+    <li><a href="#">Card News</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+</nav>
+
+<!-- ─── PAGE ─────────────────────────────────────────────────────────────── -->
+<div class="page">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-label">
+      <div class="sidebar-dot"></div>
+      <span>Memo</span>
+    </div>
+
+    <ul class="toc">
+      <li><a href="#overview"><span class="toc-marker"></span>Overview</a></li>
+      <li><a href="#thesis"><span class="toc-marker"></span>Thesis</a></li>
+      <li><a href="#founding"><span class="toc-marker"></span>Founding Story</a></li>
+      <li><a href="#product"><span class="toc-marker"></span>Product</a></li>
+      <li><a href="#market"><span class="toc-marker"></span>Market</a></li>
+      <li><a href="#business-model"><span class="toc-marker"></span>Business Model</a></li>
+      <li><a href="#opportunities"><span class="toc-marker"></span>Key Opportunities</a></li>
+      <li><a href="#risks"><span class="toc-marker"></span>Key Risks</a></li>
+      <li><a href="#summary"><span class="toc-marker"></span>Summary</a></li>
+      <li><a href="#similar"><span class="toc-marker"></span>Similar Companies</a></li>
+    </ul>
+
+    <div class="sidebar-meta">
+      <div class="sidebar-meta-item">
+        <span class="sidebar-meta-label">Published</span>
+        <span class="sidebar-meta-value">March 2026</span>
+      </div>
+      <div class="sidebar-meta-item">
+        <span class="sidebar-meta-label">Read time</span>
+        <span class="sidebar-meta-value">~12 min</span>
+      </div>
+      <div class="sidebar-meta-item">
+        <span class="sidebar-meta-label">Authors</span>
+        <span class="sidebar-meta-value">f00tnotes Team</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <!-- OVERVIEW -->
+    <section id="overview" class="overview">
+      <div class="company-row">
+        <div>
+          <div class="company-name">Niantic Spatial</div>
+          <div class="company-tagline">Building spatial AI infrastructure on top of 30 billion images<br>collected by Pokémon GO players worldwide.</div>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Spatial AI</span>
+        <span class="tag">Robotics Infrastructure</span>
+        <span class="tag">Visual Positioning</span>
+        <span class="tag">Last-Mile Delivery</span>
+        <span class="tag">Spin-off</span>
+      </div>
+
+      <div class="meta-grid">
+        <div class="meta-cell">
+          <div class="meta-cell-label">Founded</div>
+          <div class="meta-cell-value">2024</div>
+        </div>
+        <div class="meta-cell">
+          <div class="meta-cell-label">HQ</div>
+          <div class="meta-cell-value">San Francisco, CA</div>
+        </div>
+        <div class="meta-cell">
+          <div class="meta-cell-label">Parent</div>
+          <div class="meta-cell-value">Niantic, Inc.</div>
+        </div>
+        <div class="meta-cell">
+          <div class="meta-cell-label">Stage</div>
+          <div class="meta-cell-value">Early / Growth</div>
+        </div>
+      </div>
+
+      <div class="report-meta">
+        <span>f00tnotes Research</span>
+        <span class="report-meta-dot">·</span>
+        <span>Issue No.001</span>
+        <span class="report-meta-dot">·</span>
+        <span>Source: MIT Technology Review</span>
+      </div>
+    </section>
+
+    <!-- THESIS -->
+    <section id="thesis" class="section">
+      <div class="section-label">Thesis</div>
+      <h2>Game as Data Engine</h2>
+
+      <p>
+        Pokémon GO is widely known as a mobile AR game. Less understood is that over its decade of operation, Niantic quietly built what may be the world's largest repository of real-world spatial image data — an estimated <strong>30 billion geotagged images</strong> collected by hundreds of millions of players walking through cities, scanning landmarks, and exploring neighborhoods.
+      </p>
+
+      <div class="callout">
+        <p>Niantic Spatial's core bet: the spatial data moat created by a game is now more valuable than the game itself — and that moat can be converted into AI infrastructure for robotics, autonomous navigation, and the physical internet.</p>
+      </div>
+
+      <p>
+        In 2024, Niantic spun out its spatial AI division as a standalone entity, Niantic Spatial, with the explicit goal of commercializing this data asset. The first meaningful proof point is a partnership with <strong>Coco Robotics</strong>, a last-mile delivery robot company in Los Angeles — signaling a "game → data → AI model → industrial application" value chain that few companies have managed to execute.
+      </p>
+    </section>
+
+    <!-- FOUNDING STORY -->
+    <section id="founding" class="section">
+      <div class="section-label">Founding Story</div>
+      <h2>Ten Years in the Making</h2>
+
+      <p>
+        Niantic was founded in 2010 as an internal Google startup, spun out independently in 2015. Its original thesis was augmented reality games as a platform — but the deeper asset being accumulated was something few investors initially appreciated: dense, real-world spatial imagery at scale.
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2010</div>
+          <div class="timeline-body"><p>Founded inside Google as an internal startup. Early focus on location-based gaming and AR experiences.</p></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2015</div>
+          <div class="timeline-body"><p>Spun out from Google as an independent company with $30M Series A. Alphabet, Nintendo, and The Pokémon Company participate.</p></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2016</div>
+          <div class="timeline-body"><p><strong>Pokémon GO launches.</strong> Within two weeks: 100M+ downloads, players collectively walking hundreds of millions of km. Landmark scanning begins accumulating spatial data at unprecedented scale.</p></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2019</div>
+          <div class="timeline-body"><p>Launches Niantic Lightship — developer platform for building AR apps on top of its spatial infrastructure. Begins monetizing the data layer beyond games.</p></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2021</div>
+          <div class="timeline-body"><p>Raises $300M at a $9B valuation. Officially positions itself as "the real-world metaverse company." AR scanning expanded across Pokémon GO player base.</p></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-body"><p><strong>Niantic Spatial spun off.</strong> Dedicated entity focused on commercializing VPS, World Model AI, and spatial data for B2B industrial applications. First partnership: Coco Robotics.</p></div>
+        </div>
+      </div>
+
+      <p>
+        The spin-off structure reflects a deliberate strategic pivot: the gaming business and the spatial AI business have different customers, revenue models, and growth trajectories. Separating them allows Niantic Spatial to pursue enterprise contracts without the consumer gaming narrative obscuring its pitch.
+      </p>
+    </section>
+
+    <!-- PRODUCT -->
+    <section id="product" class="section">
+      <div class="section-label">Product</div>
+      <h2>The Spatial AI Stack</h2>
+
+      <p>
+        Niantic Spatial's product is a layered technical stack — from raw data to developer-facing APIs — that enables any application requiring precise real-world location awareness.
+      </p>
+
+      <h3>1. VPS (Visual Positioning System)</h3>
+      <p>
+        VPS replaces GPS with camera-based localization. Rather than triangulating satellite signals — which suffer from <strong>urban canyon effects</strong><span class="fn-ref">[1]</span> that cause 20–50m errors in dense cities — VPS matches real-time camera frames against a pre-built 3D map of the environment to determine position. Accuracy reaches centimeter-level, even indoors and underground where GPS fails entirely.
+      </p>
+      <p>
+        The critical differentiator: the 3D map underlying VPS was built from Pokémon GO player scans. No competitor has a comparable dataset. Building an equivalent from scratch would require years of dedicated field capture and billions of dollars in operational cost.
+      </p>
+
+      <h3>2. World Model</h3>
+      <p>
+        Beyond positioning, Niantic Spatial is developing a <strong>World Model</strong> — an AI that understands spatial context, not just coordinates. It can distinguish whether a given location is a sidewalk, a building entrance, or a road crossing; infer foot traffic patterns; and understand the semantic meaning of physical environments.
+      </p>
+      <p>
+        This moves the product from "where am I" (GPS-equivalent) to "what is this place" — a capability critical for autonomous systems making real-world decisions.
+      </p>
+
+      <h3>3. Lightship AR SDK</h3>
+      <p>
+        The developer-facing platform allowing third-party apps to access Niantic's spatial data and VPS capabilities. Positioned as an infrastructure layer for AR developers, similar to how AWS provides compute infrastructure without dictating what runs on top of it.
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-cell">
+          <div class="stat-cell-num">30B+</div>
+          <div class="stat-cell-label">Geotagged images in dataset</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-cell-num">~cm</div>
+          <div class="stat-cell-label">VPS positioning accuracy</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-cell-num">10yr</div>
+          <div class="stat-cell-label">Time to accumulate the dataset</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARKET -->
+    <section id="market" class="section">
+      <div class="section-label">Market</div>
+      <h2>Where Spatial AI Gets Deployed</h2>
+
+      <p>
+        Niantic Spatial sits at the intersection of several large and fast-growing markets, each of which requires precise real-world spatial understanding as a foundational capability.
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Segment</th>
+            <th>Relevance</th>
+            <th>Key Players</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-label">Autonomous Delivery Robots</td>
+            <td>Last-mile logistics; urban sidewalk navigation requires cm-level accuracy</td>
+            <td>Coco Robotics, Starship, Serve Robotics</td>
+          </tr>
+          <tr>
+            <td class="td-label">AR / Spatial Computing</td>
+            <td>Apple Vision Pro, smart glasses require world-anchored AR; VPS is foundational</td>
+            <td>Apple, Meta, Google</td>
+          </tr>
+          <tr>
+            <td class="td-label">Autonomous Vehicles</td>
+            <td>HD map building and localization in GPS-degraded urban environments</td>
+            <td>Waymo, Cruise, Mobileye</td>
+          </tr>
+          <tr>
+            <td class="td-label">Industrial Robotics</td>
+            <td>Factory floor navigation and warehouse automation at precise locations</td>
+            <td>Boston Dynamics, ABB, Locus Robotics</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        The autonomous delivery robotics market alone is projected to reach <strong>$80B+ by 2030</strong><span class="fn-ref">[2]</span>, with last-mile delivery representing approximately 50% of total logistics cost. The inability to navigate reliably in dense urban environments is the primary technical barrier — which is exactly what Niantic Spatial's VPS addresses.
+      </p>
+    </section>
+
+    <!-- BUSINESS MODEL -->
+    <section id="business-model" class="section">
+      <div class="section-label">Business Model</div>
+      <h2>Selling Infrastructure, Not Software</h2>
+
+      <p>
+        Niantic Spatial's commercial model mirrors infrastructure platform businesses — charging for access to capabilities rather than end applications.
+      </p>
+
+      <h3>Primary Revenue Streams</h3>
+      <ul class="bullet-list">
+        <li><strong>API / SDK Licensing:</strong> Enterprise contracts granting access to VPS and spatial data APIs. Coco Robotics represents the first announced B2B customer in the robotics vertical.</li>
+        <li><strong>Data Licensing:</strong> Selling access to the underlying 30B image dataset for AI training and HD map building to autonomous vehicle and robotics companies.</li>
+        <li><strong>Custom Integration:</strong> Professional services for enterprise deployments requiring tailored spatial models or city-specific data enrichment.</li>
+      </ul>
+
+      <h3>The Infrastructure Moat</h3>
+      <p>
+        Unlike software businesses where competitors can replicate features, Niantic Spatial's moat is the dataset — and datasets of this type accumulate over years, not quarters. A competitor starting today would need to deploy hardware infrastructure globally <em>or</em> find an equivalent crowdsourcing mechanism, both of which face significant scale and cost challenges.
+      </p>
+
+      <div class="callout">
+        <p>The analogy is not Google Maps competing on UI — it's Google Maps competing on the density of Street View imagery. You can build a better interface overnight; you cannot replicate ten years of walking data overnight.</p>
+      </div>
+    </section>
+
+    <!-- OPPORTUNITIES -->
+    <section id="opportunities" class="section">
+      <div class="section-label">Key Opportunities</div>
+      <h2>What Could Go Right</h2>
+
+      <ol class="prose-list">
+        <li>
+          <span class="li-num">01</span>
+          <span><strong>Robotics as a beachhead, spatial computing as the upside.</strong> Delivery robots are a tractable first customer — high pain point, clear ROI, willingness to pay. But the larger prize is spatial computing platforms (Apple Vision Pro, Meta Orion) that need world-anchored localization at scale. Niantic Spatial is positioning itself as the invisible infrastructure layer beneath both.</span>
+        </li>
+        <li>
+          <span class="li-num">02</span>
+          <span><strong>The data flywheel compounds.</strong> Every new customer deployment generates additional real-world scan data that improves the model. Unlike pure software, quality improves with usage. This creates a winner-takes-most dynamic if Niantic Spatial can sign enough early enterprise customers to create feedback loops ahead of competitors.</span>
+        </li>
+        <li>
+          <span class="li-num">03</span>
+          <span><strong>GPS-independence becomes a regulatory requirement.</strong> As autonomous systems proliferate in urban environments, regulators may require redundant localization that does not depend on GPS. Niantic Spatial would be uniquely positioned to serve as the backup — and eventually the primary — positioning layer for certified autonomous systems.</span>
+        </li>
+        <li>
+          <span class="li-num">04</span>
+          <span><strong>International coverage advantage.</strong> Pokémon GO had near-global player penetration. The resulting dataset covers cities across Asia, Europe, and South America — markets where incumbent HD map providers (primarily US and EU focused) have sparse coverage. This opens markets that competitors structurally cannot serve yet.</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- RISKS -->
+    <section id="risks" class="section">
+      <div class="section-label">Key Risks</div>
+      <h2>What Could Go Wrong</h2>
+
+      <ol class="prose-list">
+        <li>
+          <span class="li-num">01</span>
+          <span><strong>Go-to-market execution risk.</strong> Having a great dataset is not the same as building a successful B2B enterprise sales motion. Niantic is primarily a consumer company. Selling into robotics procurement cycles, integrating with ROS<span class="fn-ref">[3]</span>-based robot software stacks, and managing enterprise SLAs requires capabilities Niantic Spatial is building from scratch.</span>
+        </li>
+        <li>
+          <span class="li-num">02</span>
+          <span><strong>Dataset freshness and maintenance.</strong> Physical environments change constantly — new buildings, construction, demolished landmarks. Keeping 30B images current requires a continuous data pipeline. As Pokémon GO engagement declines<span class="fn-ref">[4]</span>, the primary data collection mechanism weakens. Niantic Spatial needs to build alternative update pipelines before this becomes a quality problem.</span>
+        </li>
+        <li>
+          <span class="li-num">03</span>
+          <span><strong>Privacy and regulatory exposure.</strong> A database of 30 billion images of public spaces, including incidental captures of people and private property, represents significant regulatory risk in the EU (GDPR), and increasingly in the US. Any enforcement action or mandatory data deletion could materially impair the core asset.</span>
+        </li>
+        <li>
+          <span class="li-num">04</span>
+          <span><strong>Well-funded competitors with alternative approaches.</strong> Apple, Google, and Microsoft all have large-scale spatial mapping programs. LiDAR-based approaches (Mobileye, HERE HD Live Map) offer different but overlapping capabilities. The camera-only VPS approach is cost-competitive but may face performance ceilings in edge cases that richer sensor stacks handle better.</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- SUMMARY -->
+    <section id="summary" class="section">
+      <div class="section-label">Summary</div>
+      <h2>Bottom Line</h2>
+
+      <p>
+        Niantic Spatial is attempting one of the more interesting infrastructure pivots in recent tech history: converting a consumer gaming data asset into B2B spatial AI infrastructure. The core insight — that game mechanics can be designed to crowdsource the physical world at scale — is validated. The 30 billion image dataset is real and defensible in the near term.
+      </p>
+      <p>
+        The open questions are commercial: Can a consumer-DNA company build enterprise go-to-market? Can the dataset stay fresh as the game that generates it matures? And can Niantic Spatial land enough customer deployments fast enough to create the data feedback loop before better-capitalized competitors build equivalent coverage via alternative means?
+      </p>
+      <p>
+        The Coco Robotics partnership is a meaningful first proof point. The next 12–18 months — measured in the number of additional enterprise contracts signed and the quality of VPS performance data published — will determine whether this is a genuinely differentiated infrastructure business or a dataset looking for a business model.
+      </p>
+
+      <div class="callout">
+        <p>"게임 → 데이터 수집 → AI 모델 → 산업 적용" — 이 밸류체인을 실증한 대표 사례. 하지만 데이터 자산이 있다는 것과 그것으로 사업을 만든다는 것은 다른 문제다.</p>
+      </div>
+    </section>
+
+    <!-- SIMILAR COMPANIES -->
+    <section id="similar" class="section">
+      <div class="section-label">Similar Companies</div>
+      <h2>Related Spaces to Watch</h2>
+
+      <div class="company-cards">
+        <div class="company-card">
+          <div class="company-card-name">Coco Robotics</div>
+          <div class="company-card-desc">Autonomous sidewalk delivery robots. First announced VPS integration partner. LA-based, Series B.</div>
+          <span class="company-card-tag">Last-Mile Delivery</span>
+        </div>
+        <div class="company-card">
+          <div class="company-card-name">Serve Robotics</div>
+          <div class="company-card-desc">Uber-backed sidewalk delivery robot. Publicly traded (SERV). Direct competitor to Coco in urban delivery.</div>
+          <span class="company-card-tag">Last-Mile Delivery</span>
+        </div>
+        <div class="company-card">
+          <div class="company-card-name">Matterport</div>
+          <div class="company-card-desc">3D digital twin platform for buildings. Different use case (indoor, static) but similar spatial data moat logic.</div>
+          <span class="company-card-tag">Spatial AI</span>
+        </div>
+        <div class="company-card">
+          <div class="company-card-name">HERE Technologies</div>
+          <div class="company-card-desc">HD mapping platform for autonomous vehicles. Established competitor in the spatial data infrastructure space.</div>
+          <span class="company-card-tag">HD Mapping</span>
+        </div>
+        <div class="company-card">
+          <div class="company-card-name">Overture Maps Foundation</div>
+          <div class="company-card-desc">Open map data consortium (Amazon, Meta, Microsoft, TomTom). Long-term threat to proprietary spatial data moats.</div>
+          <span class="company-card-tag">Open Data</span>
+        </div>
+        <div class="company-card">
+          <div class="company-card-name">Immersal (Hexagon)</div>
+          <div class="company-card-desc">Visual positioning SDK for AR applications. Direct VPS competitor, acquired by Hexagon in 2023.</div>
+          <span class="company-card-tag">VPS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTNOTES -->
+    <div class="footnotes">
+      <div class="footnotes-label">Footnotes</div>
+      <div class="footnote-item">
+        <span class="footnote-num">[1]</span>
+        <span><strong>Urban canyon effect:</strong> In dense city environments, GPS satellite signals reflect off tall building faces before reaching the receiver, causing the receiver to calculate a position based on the longer reflected path rather than the direct line-of-sight. Errors of 20–100m are common in Manhattan-density environments.</span>
+      </div>
+      <div class="footnote-item">
+        <span class="footnote-num">[2]</span>
+        <span>Market size estimates for autonomous delivery robots vary widely by source and definition. The $80B figure reflects total addressable market including last-mile logistics software and hardware, per McKinsey Global Institute (2023). Near-term deployed robot fleet valuations are substantially smaller.</span>
+      </div>
+      <div class="footnote-item">
+        <span class="footnote-num">[3]</span>
+        <span><strong>ROS (Robot Operating System):</strong> The dominant open-source middleware framework used by most commercial robot manufacturers. Enterprise robot software typically requires ROS-compatible APIs and drivers — a non-trivial integration requirement for companies without existing robotics engineering teams.</span>
+      </div>
+      <div class="footnote-item">
+        <span class="footnote-num">[4]</span>
+        <span>Pokémon GO's daily active users peaked in mid-2016 at approximately 45M and have declined to an estimated 5–8M as of 2024 per Sensor Tower. While still a large game, the rate of new spatial data collection is meaningfully lower than at peak engagement, raising questions about dataset freshness over time.</span>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ─── ACTIVE TOC HIGHLIGHT ─────────────────────────────────────────────── -->
+<script>
+  const sections = document.querySelectorAll('.section, .overview');
+  const tocLinks = document.querySelectorAll('.toc a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const id = entry.target.id;
+        const active = document.querySelector(`.toc a[href="#${id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

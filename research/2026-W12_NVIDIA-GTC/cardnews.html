@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>f00tnotes | NVIDIA GTC 2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg:      #0c0c0c;
+  --bg2:     #141414;
+  --bg3:     #1e1e1e;
+  --text:    #efefef;
+  --text2:   #aaaaaa;
+  --text3:   #555555;
+  --border:  #252525;
+  --white:   #ffffff;
+}
+
+body {
+  background: #181818;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 20px;
+  gap: 28px;
+  font-family: 'Inter', -apple-system, 'Malgun Gothic', sans-serif;
+}
+
+/* ─── Viewport ─── */
+.card-viewport {
+  width: 540px;
+  height: 540px;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+}
+
+.card {
+  width: 1080px;
+  height: 1080px;
+  transform: scale(0.5);
+  transform-origin: top left;
+  background: var(--bg);
+  color: var(--text);
+  display: none;
+  flex-direction: column;
+  padding: 80px;
+  position: relative;
+}
+
+.card.active { display: flex; }
+
+/* ─── Nav ─── */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav button {
+  background: #2a2a2a;
+  color: #ccc;
+  border: none;
+  padding: 10px 24px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
+  letter-spacing: 0.05em;
+  transition: background 0.15s;
+}
+
+.nav button:hover:not(:disabled) { background: #383838; }
+.nav button:disabled { opacity: 0.25; cursor: not-allowed; }
+
+.nav .counter {
+  color: #555;
+  font-size: 14px;
+  min-width: 56px;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+/* ─── Card Shell ─── */
+.c-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 64px;
+}
+
+.c-tag {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text3);
+  font-weight: 500;
+}
+
+.c-num {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--text3);
+}
+
+.c-footer {
+  position: absolute;
+  bottom: 64px;
+  left: 80px;
+  right: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+
+.brand {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text3);
+}
+
+.src {
+  font-size: 13px;
+  color: var(--text3);
+}
+
+/* ─── Typography ─── */
+h2 {
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  margin-bottom: 36px;
+  color: var(--white);
+}
+
+h2 .muted { color: var(--text3); }
+
+.body {
+  font-size: 26px;
+  line-height: 1.72;
+  color: var(--text);
+  font-weight: 400;
+}
+
+.body strong { color: var(--white); font-weight: 700; }
+.body em { color: var(--text2); font-style: italic; }
+
+/* ─── Annotation Marker ─── */
+.mk {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: var(--white);
+  color: var(--bg);
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 800;
+  margin: 0 3px;
+  vertical-align: middle;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.mk.sm {
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+}
+
+/* ─── Annotation Block ─── */
+.notes {
+  margin-top: auto;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-bottom: 100px;
+}
+
+.note {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.note-term {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  min-width: 160px;
+  flex-shrink: 0;
+  padding-top: 3px;
+}
+
+.note-def {
+  font-size: 19px;
+  color: var(--text2);
+  line-height: 1.55;
+}
+
+/* ─── Table ─── */
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 22px;
+  margin-bottom: 28px;
+}
+
+.tbl th {
+  text-align: left;
+  padding: 14px 18px;
+  color: var(--text3);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+
+.tbl td {
+  padding: 18px 18px;
+  border-bottom: 1px solid #181818;
+  vertical-align: middle;
+  line-height: 1.4;
+}
+
+.tbl tr:last-child td { border-bottom: none; }
+
+.tbl .stage { font-weight: 700; color: var(--white); font-size: 22px; }
+.tbl .desc  { color: var(--text2); font-size: 19px; }
+
+.chip {
+  font-size: 16px;
+  font-weight: 700;
+  background: var(--bg3);
+  padding: 7px 16px;
+  display: inline-block;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.chip.nv {
+  background: var(--white);
+  color: var(--bg);
+}
+
+.tbl tr.hl td { background: #161616; }
+
+/* ─── Stack ─── */
+.stack {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.stack-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 28px;
+  border: 1px solid var(--border);
+}
+
+.stack-row:not(:last-child) { border-bottom: none; }
+
+.stack-name { font-size: 24px; font-weight: 700; color: var(--white); }
+.stack-sub  { font-size: 18px; color: var(--text2); margin-top: 4px; }
+.stack-tag  { font-size: 14px; letter-spacing: 0.1em; color: var(--text3); text-transform: uppercase; }
+
+/* ─── Timeline ─── */
+.tl { display: flex; flex-direction: column; }
+
+.tl-row {
+  display: flex;
+  gap: 36px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.tl-row:last-child { border-bottom: none; }
+
+.tl-year {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text3);
+  min-width: 96px;
+  letter-spacing: 0.06em;
+  padding-top: 4px;
+  flex-shrink: 0;
+}
+
+.tl-title { font-size: 26px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+.tl-sub   { font-size: 18px; font-weight: 400; color: var(--text3); margin-left: 10px; }
+.tl-desc  { font-size: 20px; color: var(--text2); line-height: 1.5; }
+
+/* ─── Divider ─── */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin: 32px 0;
+}
+
+/* ─── Cover ─── */
+.cover-eyebrow {
+  font-size: 14px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 28px;
+}
+
+.cover-title {
+  font-size: 76px;
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -3px;
+  color: var(--white);
+  margin-bottom: 36px;
+}
+
+.cover-sub {
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--text2);
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+.cover-line {
+  width: 56px;
+  height: 3px;
+  background: var(--white);
+  margin: 36px 0;
+}
+
+/* ─── Big Stat ─── */
+.bignum { font-size: 120px; font-weight: 900; letter-spacing: -5px; line-height: 1; color: var(--white); }
+.bigunit { font-size: 32px; font-weight: 300; color: var(--text2); margin-top: 6px; letter-spacing: 0.02em; }
+.biglabel { font-size: 22px; color: var(--text2); margin-top: 16px; line-height: 1.4; }
+
+/* ─── Two col ─── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+
+</style>
+</head>
+<body>
+
+<div class="card-viewport" id="vp">
+
+  <!-- ══════════════════════════════════
+       CARD 01 — COVER
+  ══════════════════════════════════ -->
+  <div class="card active" id="c1">
+    <div class="c-header">
+      <span class="c-tag">f00tnotes research</span>
+      <span class="c-num">01 / 10</span>
+    </div>
+
+    <div style="flex:1; display:flex; align-items:flex-end;">
+      <div>
+        <div class="cover-eyebrow">NVIDIA GTC 2025 분석</div>
+        <div class="cover-title">칩 전쟁의 끝,<br>생태계 전쟁의<br>시작</div>
+        <div class="cover-line"></div>
+        <div class="cover-sub">
+          젠슨 황이 이번 GTC에서 말한 것은<br>
+          더 빠른 칩이 아니었다.
+        </div>
+      </div>
+    </div>
+
+    <div class="c-footer">
+      <span class="brand">f00tnotes</span>
+      <span class="src">2026 · AI Infrastructure</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       CARD 02 — $1T PIPELINE
+  ══════════════════════════════════ -->
+  <div class="card" id="c2">
+    <div class="c-header">
+      <span class="c-tag">파이프라인</span>
+      <span class="c-num">02 / 10</span>
+    </div>
+
+    <h2>2027년까지<br>수주잔고 <span style="color:var(--white)">$1조</span></h2>
+
+    <div class="body" style="margin-bottom:32px;">
+      <span class="mk">1</span> <strong>Blackwell</strong>과
+      <span class="mk">2</span> <strong>Rubin</strong>을 합산한
+      2027년까지의 <span class="mk">3</span> <strong>수주잔고</strong>가
+      <strong>$1T</strong>에 달한다.<br><br>
+      2025년 GTC 발표 대비 <strong>2배</strong> 증가한 수치이며,
+      2026년 하이퍼스케일러 CapEx 전망치 $600B를
+      기준으로 읽어야 한다.
+    </div>
+
+    <div class="notes">
+      <div class="note">
+        <span class="mk">1</span>
+        <div class="note-term">Blackwell</div>
+        <div class="note-def">H100의 후속 GPU. 현재 NVIDIA 데이터센터용 최신 세대. 2024년 출하 시작.</div>
+      </div>
+      <div class="note">
+        <span class="mk">2</span>
+        <div class="note-term">Rubin</div>
+        <div class="note-def">Blackwell의 후속 세대. HBM4 최초 탑재. 2026년 하이퍼스케일러 배포 진행 중.</div>
+      </div>
+      <div class="note">
+        <span class="mk">3</span>
+        <div class="note-term">수주잔고 (Pipeline)</div>
+        <div class="note-def">아직 납품하지 않았지만 계약이 완료된 주문량. 미래 매출 가시성의 핵심 지표.</div>
+      </div>
+    </div>
+
+    <div class="c-footer">
+      <span class="brand">f00tnotes</span>
+      <span class="src">NVIDIA GTC 2025</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       CARD 03 — HYPERSCALER CAPEX
+  ══════════════════════════════════ -->
+  <div class="card" id="c3">
+    <div class="c-header">
+      <span class="c-tag">시장 맥락</span>
+      <span class="c-num">03 / 10</span>
+    </div>
+
+    <h2><span class="mk" style="font-size:28px;width:36px;height:36px;line-height:36px;">1</span>하이퍼스케일러<br>2026 설비투자 <strong>$600B</strong></h2>
+
+    <div class="body" style="margin-bottom: 28px;">
+      <span class="mk">2</span> AWS · Azure · Google · Oracle.
+      이 네 회사가 2026년 서버·GPU·냉각 등
+      <strong>물리 인프라</strong>에 쏟아붓는 금액이 $600B이다.<br><br>
+      NVIDIA의 $1T 파이프라인은
+      이 숫자를 배경으로 읽어야 한다.<br>
+      <em>"그 돈의 상당 부분이 우리 생태계로 흘러온다."</em>
+      — 젠슨 황
+    </div>
+
+    <div class="notes">
+      <div class="note">
+        <span class="mk">1</span>
+        <div class="note-term">하이퍼스케일러</div>
+        <div class="note-def">수십만 대의 서버를 운영하는 초대형 클라우드 사업자. 전 세계 AI 컴퓨팅 수요의 대부분을 차지함.</div>
+      </div>
+      <div class="note">
+        <span class="mk">2</span>
+        <div class="note-term">CapEx (설비투자)</div>
+        <div class="note-def">Capital Expenditure. 서버·GPU·전력·냉각 등 인프라에 대한 자본 지출. 비용(OpEx)이 아닌 자산 투자.</div>
+      </div>
+      <div class="note">
+        <span class="mk">3</span>
+        <div class="note-term">$1T vs $600B</div>
+        <div class="note-def">하이퍼스케일러가 $600B를 쓸 때 NVIDIA가 얼마를 가져가느냐가 핵심. 파이프라인 $1T는 자신감의 수치적 표현.</div>
+      </div>
+    </div>
+
+    <div class="c-footer">
+      <span class="brand">f00tnotes</span>
+      <span class="src">NVIDIA GTC 2025</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       CARD 04 — VERA RUBIN
+  ══════════════════════════════════ -->
+  <div class="card" id="c4">
+    <div class="c-header">
+      <span class="c-tag">차세대 플랫폼</span>
+      <span class="c-num">04 / 10</span>
+    </div>
+
+    <h2>Vera Rubin:<br>단순한 <span class="muted">후속작이</span><br><span class="muted">아니다</span></h2>
+
+    <div class="body" style="margin-bottom:28px;">
+      이미 <strong>Azure</strong> 배포 중.
+      AWS · Google · Oracle 진행 중.<br><br>
+      세계 최초로 <span class="mk">1</span> <strong>HBM4</strong>를 탑재했다.
+      결과는 <strong>와트당 인퍼런스 처리량 10배↑</strong>,
+      <strong>토큰당 비용 10분의 1↓</strong>.<br><br>
+      스펙보다 중요한 것은 — 이게 GPU만의 이야기가 아니라는 점이다.
+      <span class="mk">2</span> <strong>Vera CPU</strong>도 함께 발표됐다.
+    </div>
+
+    <div class="notes">
+      <div class="note">
+        <span class="mk">1</span>
+        <div class="note-term">HBM4</div>
+        <div class="note-def">6세대 고대역폭 메모리(High Bandwidth Memory). GPU와 나란히 붙어 데이터를 공급하는 역할. 대역폭이 클수록 GPU가 기다리는 시간이 줄어 처리 속도 향상.</div>
+      </div>
+      <div class="note">
+        <span class="mk">2</span>
+        <div class="note-term">Vera CPU</div>
+        <div class="note-def">Blackwell 세대 Grace CPU의 후속. 와트당 성능 2배. 256개 탑재 독립 CPU 랙으로도 출시 예정. AMD·인텔의 영역에 도전장.</div>
+      </div>
+    </div>
+
+    <div class="c-footer">
+      <span class="brand">f00tnotes</span>
+      <span class="src">NVIDIA GTC 2025</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       CARD 05 — CPU:GPU = 1:1
+  ══════════════════════════════════ -->
+  <div class="card" id="c5">
+    <div class="c-header">
+      <span class="c-tag">구조 변화</span>
+      <span class="c-num">05 / 10</span>
+    </div>
+
+    <h2>CPU : GPU<br>= <strong>1 : 1</strong><br>시대가 온다</h2>
+
+    <div class="body" style="margin-bottom:28px;">
+      <span class="mk">1</span> <strong>에이전틱 AI</strong>가 요구하는
+      오케스트레이션·스케줄링·메모리 관리는
+      GPU의 <span class="mk">2</span> <strong>병렬 처리</strong>에 맞지 않는다.<br><br>
+      이 워크로드는 <strong>CPU가 더 잘한다</strong>.<br>
+      Vera CPU는 이 흐름의 선제 대응이다.
+      엔비디아는 AMD · 인텔의 영역에 직접 진입했다.
+    </div>
+
+    <div class="notes">
+      <div class="note">
+        <span class="mk">1</span>
+        <div class="note-term">에이전틱 AI</div>
+        <div class="note-def">단순 Q&A를 넘어, 여러 단계 작업을 스스로 계획·실행하는 AI. 순서대로 처리해야 하는 작업이 많아 GPU의 병렬 구조가 비효율적임.</div>
+      </div>
+      <div class="note">
+        <span class="mk">2</span>
+        <div class="note-term">병렬 처리 vs 순차 처리</div>
+        <div class="note-def">GPU는 수천 개 코어로 같은 작업을 동시에 처리. CPU는 적은 코어로 복잡한 로직을 순서대로 처리. 에이전트 AI는 후자에 가까움.</div>
+      </div>
+      <div class="note">
+        <span class="mk">3</span>
+        <div class="note-term">왜 1:1인가</div>
+        <div class="note-def">기존 서버는 CPU 1~2개에 GPU 8개 구조. AI 에이전트 확산으로 CPU 수요가 증가하며 비율이 수렴할 것으로 전망.</div>
+      </div>
+    </div>
+
+    <div class="c-footer">
+      <span class="brand">f00tnotes</span>
+      <span class="src">NVIDIA GTC 2025</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       CARD 06 — LPU + 3-stage
+  ══════════════════════════════════ -->
+  <div class="card" id="c6">
+    <div class="c-header">
+      <span class="c-tag">추론 인프라</span>
+      <span class="c-num">06 / 10</span>
+    </div>
+
+    <h2>AI 추론의 3단계,<br><span class="muted">NVIDIA가</span> 전부 채웠다</h2>
+
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>단계</th>
+          <th>하는 일</th>
+          <th>담당 칩</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="stage">트레이닝</span></td>
+          <td><span class="desc">모델 학습</span></td>
+          <td><span class="chip nv">Rubin GPU</span></td>
+        </tr>
+        <tr>
+          <td><span class="stage">프리필</span></td>
+          <td><span class="desc">프롬프트 읽기</span></td>
+          <td><span class="chip nv">Rubin GPU</span></td>
+        </tr>
+        <tr class="hl">
+          <td><span class="stage">디코드 <span class="mk sm">1</span></span></td>
+          <td><span class="desc">토큰 생성 — 비용의 핵심</span></td>
+          <td><span class="chip nv">Groq 3 LPU <span class="mk sm">2</span></span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="notes">
+      <div class="note">
+        <span class="mk">1</span>
+        <div class="note-term">디코드 (Decode)</div>
+        <div class="note-def">AI가 답변을 한 토큰씩 생성하는 단계. 사용자가 실제로 '기다리는' 구간이며, 추론 비용 대부분이 여기서 발생함.</div>
+      </div>
+      <div class="note">
+        <span class="mk">2</span>
+        <div class="note-term">Groq 3 LPU</div>
+        <div class="note-def">디코드 특화 프로세서. 500MB SRAM, 150TB/s 대역폭. 삼성 생산, 3분기 출하. 구글·아마존 커스텀 칩은 3단계 중 1개만 커버. NVIDIA는 전부.</div>
+      </div>
+    </div>
+
+    <div class="c-footer">
+      <span class="brand">f00tnotes</span>
+      <span class="src">NVIDIA GTC 2025</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       CARD 07 — CUDA → NEMOCLAW
+  ══════════════════════════════════ -->
+  <div class="card" id="c7">
+    <div class="c-header">
+      <span class="c-tag">소프트웨어 해자</span>
+      <span class="c-num">07 / 10</span>
+    </div>
+
+    <h2><span class="mk" style="width:36px;height:36px;font-size:18px;line-height:36px;">1</span> CUDA의 성공 공식을<br>다시 꺼냈다</h2>
+
+    <div class="body" style="margin-bottom: 36px;">
+      젠슨 황:
+      <em>"Linux와 HTML이 필수 인프라였듯,<br>
+      이제 모든 기업은 AI 에이전트 전략이 있어야 한다."</em><br><br>
+      <span class="mk">2</span> <strong>NemoClaw</strong>는 특정 클라우드·모델에
+      종속되지 않고 멀티스텝 에이전트를 배포할 수 있는
+      기업용 플랫폼이다.
+    </div>
+
+    <div class="stack">
+      <div class="stack-row" style="border-radius:6px 6px 0 0; background:var(--bg3);">
+        <div>
+          <div class="stack-name">NemoClaw</div>
+          <div class="stack-sub">기업용 AI 에이전트 플랫폼</div>
+        </div>
+        <div class="stack-tag">신규</div>
+      </div>
+      <div class="stack-row" style="background:var(--bg2);">
+        <div>
+          <div class="stack-name">Dynamo</div>
+          <div class="stack-sub">인퍼런스 오케스트레이션 레이어</div>
+        </div>
+        <div class="stack-tag">신규</div>
+      </div>
+      <div class="stack-row" style="border-radius:0 0 6px 6px;">
+        <div>
+          <div class="stack-name">CUDA</div>
+          <div class="stack-sub">GPU 프로그래밍 생태계 — 2006년~</div>
+        </div>
+        <div class="stack-tag" style="color:#fff;">기반</div>
+      </div>
+    </div>
+
+    <div class="c-footer">
+      <span class="brand">f00tnotes</span>
+      <span class="src">NVIDIA GTC 2025</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       CARD 08 — MOAT DEEPDIVE
+  ══════════════════════════════════ -->
+  <div class="card" id="c8">
+    <div class="c-header">
+      <span class="c-tag">소프트웨어 해자</span>
+      <span class="c-num">08 / 10</span>
+    </div>
+
+    <h2>점유율은 떨어져도,<br><span class="muted">플랫폼은 남는다</span></h2>
+
+    <div class="body" style="margin-bottom:28px;">
+      NVIDIA의 데이터센터 <span class="mk">1</span> <strong>점유율</strong>은
+      향후 점진적으로 하락할 가능성이 높다.<br><br>
+      그러나 <span class="mk">2</span> <strong>CUDA</strong>를 기반으로
+      쌓인 수백만 개발자·연구자·기업의 워크로드는
+      다른 플랫폼으로 이전할 <strong>현실적인 경로가 없다</strong>.<br><br>
+      소프트웨어 생태계는 자본으로 복제되지 않는다.
+    </div>
+
+    <div class="notes">
+      <div class="note">
+        <span class="mk">1</span>
+        <div class="note-term">점유율 하락 압력</div>
+        <div class="note-def">AMD MI300X, 구글 TPU v5, 아마존 Trainium2 등 대안 칩이 빠르게 개선 중. 특히 인퍼런스 영역에서 가격 경쟁이 가열됨.</div>
+      </div>
+      <div class="note">
+        <span class="mk">2</span>
+        <div class="note-term">CUDA 락인의 깊이</div>
+        <div class="note-def">2006년 출시 이후 PyTorch, TensorFlow 등 주요 ML 프레임워크 전체가 CUDA 기반으로 구축됨. 이 스택을 다른 칩으로 옮기는 비용은 막대함.</div>
+      </div>
+      <div class="note">
+        <span class="mk">3</span>
+        <div class="note-term">구조적 위치 vs 점유율</div>
+        <div class="note-def">점유율은 분기별로 변하지만, 생태계 의존도는 수년에 걸쳐 형성됨. 단기 점유율로 NVIDIA의 해자를 판단하면 오독 가능.</div>
+      </div>
+    </div>
+
+    <div class="c-footer">
+      <span class="brand">f00tnotes</span>
+      <span class="src">NVIDIA GTC 2025</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       CARD 09 — ROADMAP
+  ══════════════════════════════════ -->
+  <div class="card" id="c9">
+    <div class="c-header">
+      <span class="c-tag">로드맵</span>
+      <span class="c-num">09 / 10</span>
+    </div>
+
+    <h2>이미 예고된<br>2027 — 2028</h2>
+
+    <div class="tl" style="margin-bottom:32px;">
+      <div class="tl-row">
+        <div class="tl-year">2027 H2</div>
+        <div>
+          <div class="tl-title">Kyber <span class="tl-sub"><span class="mk sm">1</span> 수직형 랙</span></div>
+          <div class="tl-desc">단일 랙에 GPU 144개 수용. Vera Rubin Ultra 적용.<br>밀도↑, 레이턴시↓</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-year">2028</div>
+        <div>
+          <div class="tl-title">Feynman <span class="tl-sub"><span class="mk sm">2</span> 1.6nm</span></div>
+          <div class="tl-desc">차세대 GPU · LPU · CPU 전체 포함.<br>현재 최첨단 대비 두 세대 앞선 공정.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="notes">
+      <div class="note">
+        <span class="mk">1</span>
+        <div class="note-term">수직형 랙</div>
+        <div class="note-def">기존 서버는 수평(눕혀서) 배열. 수직형은 세워서 쌓아 같은 공간에 더 많은 GPU 집적. 칩 간 거리가 줄어 레이턴시(신호 전달 지연)도 낮아짐.</div>
+      </div>
+      <div class="note">
+        <span class="mk">2</span>
+        <div class="note-term">1.6nm 공정</div>
+        <div class="note-def">반도체 회로의 선폭. 작을수록 같은 면적에 더 많은 트랜지스터 집적 → 성능↑, 전력↓. 현재 최첨단 양산은 TSMC 3nm/2nm 수준.</div>
+      </div>
+    </div>
+
+    <div class="c-footer">
+      <span class="brand">f00tnotes</span>
+      <span class="src">NVIDIA GTC 2025</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════
+       CARD 10 — CONCLUSION
+  ══════════════════════════════════ -->
+  <div class="card" id="c10">
+    <div class="c-header">
+      <span class="c-tag">결론</span>
+      <span class="c-num">10 / 10</span>
+    </div>
+
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; padding-bottom:100px;">
+      <div style="font-size:14px; letter-spacing:0.2em; text-transform:uppercase; color:var(--text3); margin-bottom:28px;">
+        Takeaway
+      </div>
+
+      <div style="font-size:58px; font-weight:900; line-height:1.08; letter-spacing:-2.5px; color:var(--white); margin-bottom:48px;">
+        칩은<br>복제된다.<br>
+        <span style="color:var(--text3);">생태계는<br>복제되지<br>않는다.</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="body" style="font-size:23px; color:var(--text2); line-height:1.75;">
+        CUDA → NemoClaw → Dynamo로 이어지는<br>
+        소프트웨어 스택은 10년에 걸쳐 쌓인 해자다.<br><br>
+        시장 점유율이 압축되더라도,<br>
+        <strong style="color:var(--text);">구조적 위치는 흔들리지 않는다.</strong>
+      </div>
+    </div>
+
+    <div class="c-footer">
+      <span class="brand">f00tnotes</span>
+      <span class="src">출처: Capital EDGE</span>
+    </div>
+  </div>
+
+</div><!-- end viewport -->
+
+<!-- Navigation -->
+<div class="nav">
+  <button id="prev" onclick="go(-1)" disabled>← 이전</button>
+  <span class="counter" id="ctr">1 / 10</span>
+  <button id="next" onclick="go(1)">다음 →</button>
+</div>
+
+<script>
+let cur = 1;
+const total = 10;
+
+function go(dir) {
+  document.getElementById('c' + cur).classList.remove('active');
+  cur = Math.min(Math.max(cur + dir, 1), total);
+  document.getElementById('c' + cur).classList.add('active');
+  document.getElementById('ctr').textContent = cur + ' / ' + total;
+  document.getElementById('prev').disabled = cur === 1;
+  document.getElementById('next').disabled = cur === total;
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') go(1);
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   go(-1);
+});
+</script>
+
+</body>
+</html>
