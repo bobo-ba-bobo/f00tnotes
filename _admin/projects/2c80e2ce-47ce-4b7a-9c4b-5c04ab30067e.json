@@ -1,0 +1,102 @@
+{
+  "id": "2c80e2ce-47ce-4b7a-9c4b-5c04ab30067e",
+  "title": "AI 에이전트는 모델이 아니다",
+  "manager": "Bobo",
+  "dueDate": "",
+  "cards": [
+    {
+      "kind": "cover",
+      "eyebrow": "f00tnotes",
+      "title": "AI 에이전트는 모델이 아니다",
+      "body": "정보가 들어와서 답이 나가기까지 7개의 레이어가 있다. 모델만 바꾸는 사람은 이 구조를 모른다.",
+      "footnote": "",
+      "imageQuery": "AI system architecture abstract",
+      "index": 1
+    },
+    {
+      "kind": "content",
+      "eyebrow": "Layer 1",
+      "title": "Ingestion — 입력 수집",
+      "body": "텍스트, 이미지, 오디오, 웹훅까지 모든 신호를 모델이 읽을 수 있는 형태로 바꾼다. 가장 큰 병목은 컨텍스트 윈도우다.",
+      "footnote": "",
+      "imageQuery": "data stream flowing into server",
+      "index": 2
+    },
+    {
+      "kind": "content",
+      "eyebrow": "Layer 2",
+      "title": "Context — 프롬프트 조립",
+      "body": "시스템 프롬프트, 문서, 대화 기록, 현재 질문을 하나로 합친다. 같은 모델이라도 조립 방식에 따라 성능이 크게 갈린다. 프롬프트 엔지니어링의 대부분이 여기다.",
+      "footnote": "",
+      "imageQuery": "engineer writing code laptop",
+      "index": 3
+    },
+    {
+      "kind": "content",
+      "eyebrow": "Layer 3",
+      "title": "Memory — 기억",
+      "body": "작업 기억, 에피소드 기억, 의미 기억(RAG), 절차 기억. 질문을 임베딩해 벡터 검색으로 관련 정보를 끌어온다.",
+      "footnote": "",
+      "imageQuery": "library archive knowledge retrieval",
+      "index": 4
+    },
+    {
+      "kind": "content",
+      "eyebrow": "Layer 4",
+      "title": "Security — 보안과 안전",
+      "body": "입력과 출력 양방향에서 위험을 차단한다. 최소 권한 원칙을 지키고, 결제나 삭제 같은 고위험 행동엔 반드시 사람 승인이 필요하다.",
+      "footnote": "",
+      "imageQuery": "security shield digital protection",
+      "index": 5
+    },
+    {
+      "kind": "content",
+      "eyebrow": "Layer 5",
+      "title": "Reasoning — 추론과 계획",
+      "body": "에이전트의 두뇌. Chain-of-Thought, ReAct, Tree of Thought로 목표를 이해하고 단계를 짠다. 목표를 잘게 쪼개 툴 호출로 연결한다.",
+      "footnote": "",
+      "imageQuery": "person thinking planning whiteboard",
+      "index": 6
+    },
+    {
+      "kind": "content",
+      "eyebrow": "Layer 6",
+      "title": "Action — 행동과 실행",
+      "body": "모델의 언어가 실제 결과로 바뀌는 지점. 파일 읽기, 코드 실행, 웹 검색, DB 조회. 큰 일은 오케스트레이터가 서브에이전트들에게 나눠 병렬 처리한다.",
+      "footnote": "",
+      "imageQuery": "robot arm automation factory",
+      "index": 7
+    },
+    {
+      "kind": "content",
+      "eyebrow": "Layer 7",
+      "title": "Output — 출력과 검증",
+      "body": "내부 상태를 사람이 쓸 수 있는 형태로 바꾼다. 후처리로 팩트체크하고 품질이 기준 미달이면 추론 레이어로 되돌려 다시 만든다.",
+      "footnote": "",
+      "imageQuery": "dashboard report screen result",
+      "index": 8
+    },
+    {
+      "kind": "content",
+      "eyebrow": "핵심 인사이트",
+      "title": "최적화 순서가 있다",
+      "body": "Context와 Memory부터 최적화하라. 성능 개선 ROI가 가장 높은 레이어다. 실패도 가장 자주 이 두 곳에서 터진다.",
+      "footnote": "",
+      "imageQuery": "engineer optimizing performance graph",
+      "index": 9
+    },
+    {
+      "kind": "outro",
+      "eyebrow": "f00tnotes",
+      "title": "레이어를 알면 해법이 보인다",
+      "body": "모델 교체 전에 7개 레이어를 먼저 점검하라. 어느 레이어가 막혔는지 알면 무엇을 고쳐야 하는지 보인다.",
+      "footnote": "",
+      "imageQuery": "team discussing technology solution",
+      "index": 10
+    }
+  ],
+  "createdBy": "Bobo",
+  "createdAt": "2026-06-07T06:49:06.027Z",
+  "updatedAt": "2026-06-07T06:49:06.027Z",
+  "cardCount": 10
+}
