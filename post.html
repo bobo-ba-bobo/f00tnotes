@@ -79,6 +79,7 @@
     .nav-sub:hover { color: var(--text-1); border-color: var(--border-h); }
 
     /* ─── ARTICLE ───────────────────────────────────────────── */
+    .art-top { max-width: 1080px; margin: 0 auto; padding: 0 var(--pad); }
     .article { max-width: 680px; margin: 0 auto; padding: 0 var(--pad); }
     .back {
       display: inline-block;
@@ -89,19 +90,41 @@
     }
     .back:hover { color: var(--text-1); }
 
-    .art-header { padding: 40px 0; border-bottom: 1px solid var(--border-s); }
-    .art-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
-    .art-issue {
+    /* 2단 에디토리얼 헤더 (좌: 텍스트, 우: 커버) */
+    .art-header {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px;
+      align-items: center;
+      padding: 48px 0 56px;
+    }
+    .art-eyebrow {
+      font-family: 'IBMPlexMono', monospace;
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em;
+      color: var(--text-2); margin-bottom: 22px;
+    }
+    .art-title {
+      font-size: 44px; font-weight: 600;
+      letter-spacing: -0.03em; line-height: 1.12;
+      color: var(--text-1);
+    }
+    .art-lede {
+      margin-top: 24px;
+      font-size: 18px; line-height: 1.7; color: var(--text-2);
+    }
+    .art-meta {
+      display: flex; align-items: center; gap: 10px;
+      margin-top: 28px;
       font-family: 'IBMPlexMono', monospace;
       font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em;
       color: var(--text-3);
     }
     .art-dot { width: 2px; height: 2px; background: var(--text-3); border-radius: 50%; }
-    .art-title {
-      font-size: 40px; font-weight: 600;
-      letter-spacing: -0.03em; line-height: 1.15;
-      color: var(--text-1);
+    .art-cover { margin: 0; }
+    .art-cover img {
+      width: 100%; aspect-ratio: 3 / 2; object-fit: cover;
+      border-radius: 10px; border: 1px solid var(--border-s); display: block;
     }
+    .art-divider { max-width: 1080px; margin: 0 auto; padding: 0 var(--pad); }
+    .art-divider hr { border: none; border-top: 1px solid var(--border-s); }
 
     /* ─── 본문 (렌더된 마크다운) ────────────────────────────── */
     .art-body { padding: 48px 0 100px; }
@@ -164,10 +187,16 @@
     .footer-links a:hover { color: var(--text-1); }
 
     /* ─── RESPONSIVE ────────────────────────────────────────── */
-    @media (max-width: 900px) { :root { --pad: 24px; } .art-title { font-size: 32px; } }
+    @media (max-width: 900px) {
+      :root { --pad: 24px; }
+      .art-header { grid-template-columns: 1fr; gap: 28px; padding: 32px 0 40px; }
+      .art-cover { order: -1; }
+      .art-title { font-size: 34px; }
+    }
     @media (max-width: 600px) {
       :root { --pad: 20px; }
-      .art-title { font-size: 26px; }
+      .art-title { font-size: 27px; }
+      .art-lede { font-size: 16px; }
       .art-body p { font-size: 15px; }
       footer { flex-direction: column; gap: 16px; }
     }
@@ -186,23 +215,33 @@
     </ul>
   </nav>
 
-  <article class="article">
-
+  <div class="art-top">
     <a href="/research" class="back">← Research</a>
-
     <header class="art-header">
-      <div class="art-meta">
-        <span class="art-issue" id="art-no">No.</span>
-        <span class="art-dot"></span>
-        <span class="art-issue" id="art-date"></span>
+      <div class="art-head-text">
+        <div class="art-eyebrow" id="art-cat">RESEARCH</div>
+        <h1 class="art-title" id="art-title">Loading</h1>
+        <p class="art-lede" id="art-lede" hidden></p>
+        <div class="art-meta">
+          <span id="art-no">No.</span>
+          <span class="art-dot"></span>
+          <span id="art-date"></span>
+          <span class="art-dot" id="art-author-dot" hidden></span>
+          <span id="art-author" hidden></span>
+        </div>
       </div>
-      <h1 class="art-title" id="art-title">Loading</h1>
+      <figure class="art-cover" id="art-cover-wrap" hidden>
+        <img id="art-cover" alt="" />
+      </figure>
     </header>
+  </div>
 
+  <div class="art-divider"><hr /></div>
+
+  <article class="article">
     <div class="art-body" id="art-body">
       <p>불러오는 중…</p>
     </div>
-
   </article>
 
   <!-- ─── FOOTER ───────────────────────────────────────────── -->

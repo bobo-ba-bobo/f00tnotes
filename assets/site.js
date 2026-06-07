@@ -73,6 +73,12 @@
     var bodyEl = document.getElementById('art-body');
     var noEl = document.getElementById('art-no');
     var dateEl = document.getElementById('art-date');
+    var catEl = document.getElementById('art-cat');
+    var ledeEl = document.getElementById('art-lede');
+    var coverWrap = document.getElementById('art-cover-wrap');
+    var coverImg = document.getElementById('art-cover');
+    var authorEl = document.getElementById('art-author');
+    var authorDot = document.getElementById('art-author-dot');
 
     function fail(msg) { if (bodyEl) bodyEl.innerHTML = '<p>' + esc(msg) + '</p>'; }
 
@@ -86,6 +92,13 @@
       if (titleEl) titleEl.textContent = post.title;
       if (noEl) noEl.textContent = 'No. ' + post.no;
       if (dateEl) dateEl.textContent = fmtDate(post.createdAt);
+      if (catEl) catEl.textContent = (post.category || 'Research').toUpperCase();
+      if (ledeEl && post.subtitle) { ledeEl.textContent = post.subtitle; ledeEl.hidden = false; }
+      if (authorEl && post.createdBy) {
+        authorEl.textContent = post.createdBy; authorEl.hidden = false;
+        if (authorDot) authorDot.hidden = false;
+      }
+      if (coverWrap && coverImg && post.cover) { coverImg.src = post.cover; coverWrap.hidden = false; }
 
       var mdPath = post.publishedPath || '';
       if (mdPath.charAt(0) !== '/') mdPath = '/' + mdPath;
@@ -93,10 +106,12 @@
         if (!res.ok) throw new Error('md fetch failed');
         return res.text();
       }).then(function (md) {
-        // 헤더에 제목을 이미 표시하므로, 본문 첫 H1이 제목과 동일하면 제거
+        // 헤더가 제목/리드문/커버를 이미 보여주므로 본문 맨 앞 중복 제거
         md = md.replace(/^\s*#\s+(.*)\n?/, function (m, t) {
           return t.trim() === String(post.title).trim() ? '' : m;
         });
+        md = md.replace(/^\s*\*[^\n*][^\n]*\*\s*\n?/, '');        // 선두 이탤릭 리드문
+        md = md.replace(/^\s*!\[[^\]]*\]\([^)]*\)\s*\n?/, '');    // 선두 커버 이미지
         bodyEl.innerHTML = (typeof marked !== 'undefined')
           ? marked.parse(md)
           : '<pre>' + esc(md) + '</pre>';
