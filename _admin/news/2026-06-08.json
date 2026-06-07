@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-08",
+  "count": 6,
+  "generatedAt": "2026-06-07T15:00:58.405Z",
+  "items": [
+    {
+      "title": "AI 마켓 인텔리전스 플랫폼 AlphaSense, 3억 5000만 달러 대규모 펀딩 유치",
+      "summary": "기업용 AI 리서치 플랫폼 AlphaSense가 3억5천만 달러 투자를 유치하며 글로벌 엔터프라이즈 AI 경쟁 가속화를 예고했다.",
+      "url": "https://vcnewsdaily.com/",
+      "source": "VC News Daily",
+      "category": "펀딩"
+    },
+    {
+      "title": "Mistral AI, 직원 1000명 돌파하며 2026년 매출 1조 달성 목표 공개",
+      "summary": "프랑스 AI 스타트업 Mistral이 AI NOW 서밋에서 2026년 연매출 11억 달러 목표와 공격적 성장 전략을 발표했다.",
+      "url": "https://venturebeat.com/",
+      "source": "VentureBeat",
+      "category": "AI"
+    },
+    {
+      "title": "a16z 주도로 AI 개인 비서 스타트업 Town, 5500만 달러 시리즈A 유치",
+      "summary": "앤드리슨호로위츠가 리드한 개인화 AI 어시스턴트 Town이 시리즈A로 5500만 달러를 조달했다.",
+      "url": "https://vcnewsdaily.com/",
+      "source": "VC News Daily",
+      "category": "펀딩"
+    },
+    {
+      "title": "Robinhood, 일반 투자자 대상 두 번째 리테일 벤처 펀드 RVII 상장 준비",
+      "summary": "Robinhood가 초기 단계까지 포함하는 RVII 펀드 비공개 등록을 신청해 소매 투자자의 VC 접근 확대를 추진한다.",
+      "url": "https://techcrunch.com/2026/05/11/riding-an-ai-rally-robinhood-preps-second-retail-venture-ipo/",
+      "source": "TechCrunch",
+      "category": "IPO"
+    },
+    {
+      "title": "한국 스타트업 1분기 지분 투자 전년 대비 34.52% 급증",
+      "summary": "2026년 1분기 한국 스타트업 투자가 63건 4억8200만 달러를 기록하며 반등 흐름이 확인됐다.",
+      "url": "https://www.issueinsight.co.kr/news/articleView.html?idxno=2677",
+      "source": "이슈인사이트",
+      "category": "시장"
+    },
+    {
+      "title": "한국 중기부, TIPS 지원 스타트업 620개로 확대하고 예산 39.9% 증액",
+      "summary": "중소벤처기업부가 2026년 TIPS 예산을 6684억 원으로 늘려 정책 지원 스타트업 생태계 강화에 나섰다.",
+      "url": "https://www.issueinsight.co.kr/news/articleView.html?idxno=2677",
+      "source": "이슈인사이트",
+      "category": "정책"
+    }
+  ]
+}
