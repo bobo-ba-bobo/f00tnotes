@@ -84,18 +84,12 @@
     }
 
     .brand {
-      font-family: 'IBMPlexMono', monospace;
-      font-weight: 700;
-      font-size: 14px;
-      letter-spacing: -0.02em;
-      color: var(--text-1);
-      display: flex; align-items: baseline; gap: 1px;
+      display: flex; align-items: center;
     }
-    .brand sup {
-      font-size: 8px;
-      font-weight: 400;
-      color: var(--text-3);
-      letter-spacing: 0;
+    .brand img {
+      height: 22px;
+      width: auto;
+      display: block;
     }
 
     .nav-sep { flex: 1; }
@@ -389,14 +383,8 @@
       align-items: center;
       justify-content: space-between;
     }
-    .footer-brand {
-      font-family: 'IBMPlexMono', monospace;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--text-1);
-    }
-    .footer-brand sup { font-size: 8px; font-weight: 400; color: var(--text-3); }
+    .footer-brand { display: flex; align-items: center; }
+    .footer-brand img { height: 20px; width: auto; display: block; }
     .footer-copy {
       font-family: 'IBMPlexMono', monospace;
       font-size: 11px;
@@ -438,7 +426,7 @@
 
   <!-- ─── NAV ─────────────────────────────────────────────── -->
   <nav>
-    <a href="index.html" class="brand">f00tnotes<sup>1</sup></a>
+    <a href="index.html" class="brand"><img src="assets/f00tnotes-logo.png" alt="f00tnotes¹"></a>
     <span class="nav-sep"></span>
     <ul class="nav-links">
       <li><a href="#">Research</a></li>
@@ -545,7 +533,7 @@
   <!-- ─── FOOTER ───────────────────────────────────────────── -->
   <div class="page">
     <footer>
-      <span class="footer-brand">f00tnotes<sup>1</sup></span>
+      <span class="footer-brand"><img src="assets/f00tnotes-logo.png" alt="f00tnotes¹"></span>
       <span class="footer-copy">© 2026</span>
       <ul class="footer-links">
         <li><a href="#">Research</a></li>
