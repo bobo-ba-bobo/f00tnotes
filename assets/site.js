@@ -2,7 +2,7 @@
 (function () {
   'use strict';
 
-  var POSTS_INDEX = '_admin/posts/index.json';
+  var POSTS_INDEX = '/_admin/posts/index.json';
 
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
@@ -45,7 +45,7 @@
       var display = posts.slice().reverse(); // 최신 먼저
       grid.innerHTML = display.map(function (p) {
         return '' +
-          '<a class="card" href="post.html?id=' + encodeURIComponent(p.id) + '">' +
+          '<a class="card" href="/post?id=' + encodeURIComponent(p.id) + '">' +
             '<div class="card-meta">' +
               '<span class="card-issue">No. ' + p.no + '</span>' +
               '<span class="card-dot"></span>' +
@@ -87,7 +87,9 @@
       if (noEl) noEl.textContent = 'No. ' + post.no;
       if (dateEl) dateEl.textContent = fmtDate(post.createdAt);
 
-      return fetch(post.publishedPath, { cache: 'no-store' }).then(function (res) {
+      var mdPath = post.publishedPath || '';
+      if (mdPath.charAt(0) !== '/') mdPath = '/' + mdPath;
+      return fetch(mdPath, { cache: 'no-store' }).then(function (res) {
         if (!res.ok) throw new Error('md fetch failed');
         return res.text();
       }).then(function (md) {
