@@ -1,49 +1,49 @@
 {
   "date": "2026-06-08",
   "count": 6,
-  "generatedAt": "2026-06-07T15:00:58.405Z",
+  "generatedAt": "2026-06-07T23:10:57.943Z",
   "items": [
     {
-      "title": "AI 마켓 인텔리전스 플랫폼 AlphaSense, 3억 5000만 달러 대규모 펀딩 유치",
-      "summary": "기업용 AI 리서치 플랫폼 AlphaSense가 3억5천만 달러 투자를 유치하며 글로벌 엔터프라이즈 AI 경쟁 가속화를 예고했다.",
-      "url": "https://vcnewsdaily.com/",
-      "source": "VC News Daily",
+      "title": "Supabase, AI 개발 플랫폼 5억 달러 조달하며 기업가치 105억 달러 달성",
+      "summary": "GIC 주도로 Series D 5억 달러를 유치한 Supabase가 오픈소스 AI 앱 빌더 시장의 핵심 인프라로 급부상했다.",
+      "url": "https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/",
+      "source": "Crunchbase News",
       "category": "펀딩"
     },
     {
-      "title": "Mistral AI, 직원 1000명 돌파하며 2026년 매출 1조 달성 목표 공개",
-      "summary": "프랑스 AI 스타트업 Mistral이 AI NOW 서밋에서 2026년 연매출 11억 달러 목표와 공격적 성장 전략을 발표했다.",
-      "url": "https://venturebeat.com/",
-      "source": "VentureBeat",
-      "category": "AI"
-    },
-    {
-      "title": "a16z 주도로 AI 개인 비서 스타트업 Town, 5500만 달러 시리즈A 유치",
-      "summary": "앤드리슨호로위츠가 리드한 개인화 AI 어시스턴트 Town이 시리즈A로 5500만 달러를 조달했다.",
-      "url": "https://vcnewsdaily.com/",
-      "source": "VC News Daily",
+      "title": "Ramp, 핀테크 지출관리 플랫폼 7억 5천만 달러 조달로 글로벌 최대 규모 핀테크 라운드",
+      "summary": "Iconiq, GIC, OTPP 주도로 7.5억 달러를 확보한 Ramp가 이번 주 글로벌 벤처 최대 라운드를 기록했다.",
+      "url": "https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/",
+      "source": "Crunchbase News",
       "category": "펀딩"
     },
     {
-      "title": "Robinhood, 일반 투자자 대상 두 번째 리테일 벤처 펀드 RVII 상장 준비",
-      "summary": "Robinhood가 초기 단계까지 포함하는 RVII 펀드 비공개 등록을 신청해 소매 투자자의 VC 접근 확대를 추진한다.",
-      "url": "https://techcrunch.com/2026/05/11/riding-an-ai-rally-robinhood-preps-second-retail-venture-ipo/",
-      "source": "TechCrunch",
+      "title": "SpaceX, 6월 8일 IPO 로드쇼 시작하며 1.75조 달러 상장 임박",
+      "summary": "S-1 공개 후 로드쇼에 돌입한 SpaceX가 6월 11일 가격 결정을 앞두고 역대 최대 규모 IPO를 예고했다.",
+      "url": "https://aifundingtracker.com/top-50-ai-startups/",
+      "source": "AI Funding Tracker",
       "category": "IPO"
     },
     {
-      "title": "한국 스타트업 1분기 지분 투자 전년 대비 34.52% 급증",
-      "summary": "2026년 1분기 한국 스타트업 투자가 63건 4억8200만 달러를 기록하며 반등 흐름이 확인됐다.",
-      "url": "https://www.issueinsight.co.kr/news/articleView.html?idxno=2677",
-      "source": "이슈인사이트",
+      "title": "Anthropic, Series H 9650억 달러 기업가치로 OpenAI 제치고 AI 민간 1위 등극",
+      "summary": "65억 달러 Series H 완료 후 기업가치 9650억 달러를 기록한 Anthropic이 처음으로 OpenAI를 추월했다.",
+      "url": "https://aifundingtracker.com/top-50-ai-startups/",
+      "source": "AI Funding Tracker",
+      "category": "AI"
+    },
+    {
+      "title": "AI 붐이 220개 이상 유니콘 '좀비화', 프리-ChatGPT 스타트업 생태계 위기",
+      "summary": "PitchBook 분석에 따르면 2021년 고점 투자 유니콘 68%가 가치 하락하며 AI 전환 실패 기업이 투자 절벽에 직면했다.",
+      "url": "https://www.cnbc.com/2026/06/01/ai-startup-valuations-pre-chatgpt.html",
+      "source": "CNBC",
       "category": "시장"
     },
     {
-      "title": "한국 중기부, TIPS 지원 스타트업 620개로 확대하고 예산 39.9% 증액",
-      "summary": "중소벤처기업부가 2026년 TIPS 예산을 6684억 원으로 늘려 정책 지원 스타트업 생태계 강화에 나섰다.",
-      "url": "https://www.issueinsight.co.kr/news/articleView.html?idxno=2677",
-      "source": "이슈인사이트",
-      "category": "정책"
+      "title": "퓨리오사AI, 국민성장펀드서 8000억 수혈에도 감사보고서에 계속기업 불확실성 경고",
+      "summary": "2025년 순손실 8334억에 완전자본잠식 상태인 퓨리오사AI가 대규모 투자 유치에도 존속 우려를 받고 있다.",
+      "url": "https://outstanding.kr/",
+      "source": "아웃스탠딩",
+      "category": "펀딩"
     }
   ]
 }
