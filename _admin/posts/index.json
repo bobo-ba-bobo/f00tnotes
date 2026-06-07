@@ -1,14 +1,5 @@
 [
   {
-    "id": "11b60bda-c9cf-4efc-9468-93fb1786a451",
-    "title": "__edtest2",
-    "status": "published",
-    "createdBy": "Bobo",
-    "createdAt": "2026-06-07T15:14:38.418Z",
-    "updatedAt": "2026-06-07T15:14:40.561Z",
-    "publishedPath": "research/posts/edtest2.md"
-  },
-  {
     "id": "b029846b-6a2a-484a-aed5-a4060352f262",
     "title": "제목 없음",
     "status": "draft",
