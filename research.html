@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>f00tnotes¹</title>
+  <title>Research - f00tnotes¹</title>
   <style>
     /* ─── FONTS ─────────────────────────────────────────────── */
     @font-face {
@@ -82,18 +82,9 @@
       display: flex; align-items: center;
       padding: 0 var(--pad);
     }
-
-    .brand {
-      display: flex; align-items: center;
-    }
-    .brand img {
-      height: 22px;
-      width: auto;
-      display: block;
-    }
-
+    .brand { display: flex; align-items: center; }
+    .brand img { height: 22px; width: auto; display: block; }
     .nav-sep { flex: 1; }
-
     .nav-links {
       display: flex; gap: 28px; list-style: none; align-items: center;
     }
@@ -107,7 +98,7 @@
       transition: color 0.15s;
     }
     .nav-links a:hover { color: var(--text-1); }
-
+    .nav-links a.active { color: var(--text-1); }
     .nav-sub {
       font-family: 'IBMPlexMono', monospace;
       font-size: 11px;
@@ -133,8 +124,7 @@
 
     /* ─── HERO ──────────────────────────────────────────────── */
     .hero {
-      padding: 80px 0 64px;
-      border-bottom: 1px solid var(--border-s);
+      padding: 80px 0 48px;
     }
     .hero-eyebrow {
       font-family: 'IBMPlexMono', monospace;
@@ -153,10 +143,7 @@
       margin-bottom: 20px;
       max-width: 640px;
     }
-    .hero-title em {
-      font-style: normal;
-      color: var(--text-2);
-    }
+    .hero-title em { font-style: normal; color: var(--text-2); }
     .hero-desc {
       font-size: 16px;
       color: var(--text-2);
@@ -197,10 +184,7 @@
     }
 
     /* ─── GRID ──────────────────────────────────────────────── */
-    .grid-section {
-      padding: 48px 0 120px;
-    }
-
+    .grid-section { padding: 48px 0 120px; }
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -221,12 +205,7 @@
       text-decoration: none;
     }
     .card:hover { background: var(--bg-raised); }
-
-    .card-meta {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    .card-meta { display: flex; align-items: center; gap: 10px; }
     .card-issue {
       font-family: 'IBMPlexMono', monospace;
       font-size: 10px;
@@ -240,7 +219,6 @@
       border-radius: 50%;
       flex-shrink: 0;
     }
-
     .card-title {
       font-size: 18px;
       font-weight: 600;
@@ -248,23 +226,19 @@
       line-height: 1.35;
       color: var(--text-1);
     }
-
     .card-body {
       font-size: 13px;
       color: var(--text-2);
       line-height: 1.7;
       flex: 1;
     }
-
     .card-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-top: 8px;
     }
-    .card-tags {
-      display: flex; gap: 6px; flex-wrap: wrap;
-    }
+    .card-tags { display: flex; gap: 6px; flex-wrap: wrap; }
     .tag {
       font-family: 'IBMPlexMono', monospace;
       font-size: 10px;
@@ -286,20 +260,6 @@
       transform: translate(2px, -2px);
     }
 
-    /* ─── FEATURED CARD (첫 번째, 넓은 카드) ───────────────── */
-    .card.featured {
-      grid-column: span 2;
-      padding: 40px;
-    }
-    .card.featured .card-title {
-      font-size: 26px;
-      letter-spacing: -0.03em;
-    }
-    .card.featured .card-body {
-      font-size: 14px;
-      max-width: 520px;
-    }
-
     /* ─── COMING SOON 카드 ──────────────────────────────────── */
     .card.empty {
       background: var(--bg);
@@ -314,66 +274,6 @@
       letter-spacing: 0.14em;
       color: var(--text-3);
     }
-
-    /* ─── NEWSLETTER ────────────────────────────────────────── */
-    .newsletter {
-      border-top: 1px solid var(--border-s);
-      padding: 64px 0;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 48px;
-    }
-    .newsletter-left { flex: 1; max-width: 400px; }
-    .newsletter-label {
-      font-family: 'IBMPlexMono', monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-3);
-      margin-bottom: 12px;
-    }
-    .newsletter-title {
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      line-height: 1.3;
-      color: var(--text-1);
-    }
-    .newsletter-form {
-      display: flex; gap: 8px; flex: 1; max-width: 480px;
-      align-self: flex-end;
-    }
-    .newsletter-input {
-      flex: 1;
-      background: var(--bg-raised);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 10px 14px;
-      font-family: 'Pretendard', sans-serif;
-      font-size: 14px;
-      color: var(--text-1);
-      outline: none;
-      transition: border-color 0.15s;
-    }
-    .newsletter-input::placeholder { color: var(--text-3); }
-    .newsletter-input:focus { border-color: var(--border-h); }
-    .newsletter-btn {
-      font-family: 'IBMPlexMono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      background: var(--text-1);
-      color: var(--bg);
-      border: none;
-      border-radius: 4px;
-      padding: 10px 20px;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.15s;
-    }
-    .newsletter-btn:hover { background: #fff; }
 
     /* ─── FOOTER ────────────────────────────────────────────── */
     footer {
@@ -391,9 +291,7 @@
       color: var(--text-3);
       letter-spacing: 0.04em;
     }
-    .footer-links {
-      display: flex; gap: 24px; list-style: none;
-    }
+    .footer-links { display: flex; gap: 24px; list-style: none; }
     .footer-links a {
       font-family: 'IBMPlexMono', monospace;
       font-size: 11px;
@@ -408,15 +306,11 @@
     @media (max-width: 900px) {
       :root { --pad: 24px; }
       .grid { grid-template-columns: repeat(2, 1fr); }
-      .card.featured { grid-column: span 2; }
       .hero-title { font-size: 36px; }
-      .newsletter { flex-direction: column; }
-      .newsletter-form { max-width: 100%; }
     }
     @media (max-width: 600px) {
       :root { --pad: 20px; }
       .grid { grid-template-columns: 1fr; }
-      .card.featured { grid-column: span 1; }
       .hero-title { font-size: 28px; }
       footer { flex-direction: column; gap: 16px; }
     }
@@ -429,7 +323,7 @@
     <a href="index.html" class="brand"><img src="assets/f00tnotes-logo.png" alt="f00tnotes¹"></a>
     <span class="nav-sep"></span>
     <ul class="nav-links">
-      <li><a href="research.html">Research</a></li>
+      <li><a href="research.html" class="active">Research</a></li>
       <li><a href="about.html">About</a></li>
       <li><button class="nav-sub">Subscribe</button></li>
     </ul>
@@ -439,10 +333,10 @@
 
     <!-- ─── HERO ───────────────────────────────────────────── -->
     <section class="hero">
-      <p class="hero-eyebrow">f00tnotes¹ - 한국 유일의 독립 리서치</p>
-      <h1 class="hero-title">The footnotes<br><em>everyone skips.</em></h1>
+      <p class="hero-eyebrow">Research</p>
+      <h1 class="hero-title">모두가 건너뛴<br><em>각주의 기록.</em></h1>
       <p class="hero-desc">
-        뉴스도, 기술도, 세상의 현상도 본문만 읽어서는 절반밖에 알 수 없습니다. 진짜 이해는 모두가 그냥 넘기는 각주에서 시작됩니다. f00tnotes는 그 각주를 끝까지 파고들어, 한국 유일의 깊이를 담은 독립 리서치를 씁니다.
+        매주 한 편씩, 뉴스와 기술과 현상의 본문 뒤에 숨은 각주를 끝까지 파고든 독립 리서치를 모읍니다.
       </p>
     </section>
 
@@ -451,18 +345,6 @@
       <div class="grid" id="grid">
         <div class="card empty"><span class="card-coming">Loading</span></div>
       </div>
-    </section>
-
-    <!-- ─── NEWSLETTER ──────────────────────────────────────── -->
-    <section class="newsletter">
-      <div class="newsletter-left">
-        <p class="newsletter-label">Weekly Research</p>
-        <h2 class="newsletter-title">매주 놓치지 말아야 할<br>기술 산업 분석.</h2>
-      </div>
-      <form class="newsletter-form" onsubmit="return false;">
-        <input class="newsletter-input" type="email" placeholder="your@email.com" />
-        <button class="newsletter-btn">Subscribe</button>
-      </form>
     </section>
 
   </div><!-- /page -->
