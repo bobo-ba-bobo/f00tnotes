@@ -1,14 +1,5 @@
 [
   {
-    "id": "bcb12277-039e-441a-9f3b-1770f8aa0233",
-    "title": "__fmt",
-    "status": "published",
-    "createdBy": "Bobo",
-    "createdAt": "2026-06-07T15:19:55.978Z",
-    "updatedAt": "2026-06-07T15:19:58.468Z",
-    "publishedPath": "research/posts/fmt.md"
-  },
-  {
     "id": "74da371f-4c6b-4352-9bcd-30d522a0fb54",
     "title": "제목 없음",
     "status": "draft",
