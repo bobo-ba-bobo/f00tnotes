@@ -1,0 +1,17 @@
+{
+  "id": "11530dd9-3ec9-4ada-94c2-5d42446409e7",
+  "title": "__selftest",
+  "manager": "dainy",
+  "dueDate": "2026-06-20",
+  "cards": [
+    {
+      "kind": "cover",
+      "title": "테스트",
+      "index": 1
+    }
+  ],
+  "createdBy": "Bobo",
+  "createdAt": "2026-06-07T06:43:06.675Z",
+  "updatedAt": "2026-06-07T06:43:06.675Z",
+  "cardCount": 1
+}
