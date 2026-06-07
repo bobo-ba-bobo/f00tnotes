@@ -1,9 +1,10 @@
 {
   "id": "2b60138c-8bb3-4f57-9e64-4289a7772269",
   "title": "__edtest",
-  "status": "draft",
+  "status": "published",
   "blocks": [],
   "createdBy": "Bobo",
   "createdAt": "2026-06-07T15:14:05.847Z",
-  "updatedAt": "2026-06-07T15:14:05.847Z"
+  "updatedAt": "2026-06-07T15:14:08.386Z",
+  "publishedPath": "research/posts/edtest.md"
 }
