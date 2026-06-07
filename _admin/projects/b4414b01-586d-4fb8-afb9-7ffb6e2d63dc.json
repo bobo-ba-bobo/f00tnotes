@@ -1,0 +1,16 @@
+{
+  "id": "b4414b01-586d-4fb8-afb9-7ffb6e2d63dc",
+  "title": "__iatest",
+  "manager": "Bobo",
+  "dueDate": "",
+  "cards": [
+    {
+      "kind": "cover",
+      "title": "t"
+    }
+  ],
+  "createdBy": "Bobo",
+  "createdAt": "2026-06-07T14:30:39.682Z",
+  "updatedAt": "2026-06-07T14:30:39.682Z",
+  "cardCount": 1
+}
