@@ -1,5 +1,15 @@
 [
   {
+    "id": "2c80e2ce-47ce-4b7a-9c4b-5c04ab30067e",
+    "title": "AI 에이전트는 모델이 아니다",
+    "manager": "Bobo",
+    "dueDate": "",
+    "createdBy": "Bobo",
+    "createdAt": "2026-06-07T06:49:06.027Z",
+    "updatedAt": "2026-06-07T06:49:06.027Z",
+    "cardCount": 10
+  },
+  {
     "id": "ebb1da75-2c88-4a59-b5e4-c5a9456129b3",
     "title": "모델만 바꾸면 끝날 줄 알았나",
     "manager": "Bobo",
