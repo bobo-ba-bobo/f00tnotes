@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-10",
+  "count": 6,
+  "generatedAt": "2026-06-09T23:10:58.566Z",
+  "items": [
+    {
+      "title": "Anthropic, SEC에 비공개 IPO 신청... 기업가치 1조 달러 첫 AI 스타트업 될까",
+      "summary": "Anthropic이 6월 1일 SEC에 비공개 IPO를 공식 신청, 기업가치 1조 달러의 첫 AI 스타트업 가능성이 주목된다.",
+      "url": "https://www.tradingkey.com/kr/analysis/stocks/us-stocks/261951088-anthropic-ipo-claude-ai-tradingkey",
+      "source": "TradingKey",
+      "category": "IPO"
+    },
+    {
+      "title": "SpaceX, 6월 8일 로드쇼 시작... 1.75조 달러 역대 최대 IPO 카운트다운",
+      "summary": "SpaceX가 6월 8일 IPO 로드쇼를 개시하며 1.75조 달러 기업가치 목표로 공개 시장 데뷔를 준비 중이다.",
+      "url": "https://aifundingtracker.com/top-50-ai-startups/",
+      "source": "AI Funding Tracker",
+      "category": "IPO"
+    },
+    {
+      "title": "Ramp, 7.5억 달러 조달로 이번 주 최대 딜... Supabase도 105억 달러 밸류에이션 달성",
+      "summary": "이번 주 Ramp가 7.5억 달러, Supabase가 5억 달러를 유치하며 핀테크와 AI 개발 툴 투자 열기가 지속됐다.",
+      "url": "https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/",
+      "source": "Crunchbase News",
+      "category": "펀딩"
+    },
+    {
+      "title": "Impulse Space, 우주 추진 기술에 5억 달러 Series D 유치... 누적 10억 달러 돌파",
+      "summary": "우주 추진 시스템 스타트업 Impulse Space가 5억 달러 Series D를 마감하며 누적 투자 10억 달러를 넘어섰다.",
+      "url": "https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/",
+      "source": "Crunchbase News",
+      "category": "펀딩"
+    },
+    {
+      "title": "퓨리오사AI, 완전자본잠식 속 국민성장펀드로부터 8000억 원 투자 유치",
+      "summary": "국산 AI 반도체 퓨리오사AI가 재무 위기 속에서도 국민성장펀드의 8000억 원 투자를 받아 생존 레이스를 이어간다.",
+      "url": "https://outstanding.kr/",
+      "source": "아웃스탠딩",
+      "category": "펀딩"
+    },
+    {
+      "title": "Anthropic, 연환산 매출 5개월 만에 90억 달러에서 440억 달러로 5배 급증",
+      "summary": "Anthropic의 연환산 매출이 2025년 말 대비 5배 이상 폭등하며 기업 고객 1000개를 돌파, OpenAI를 추월했다.",
+      "url": "https://www.tradingkey.com/kr/analysis/stocks/us-stocks/261951088-anthropic-ipo-claude-ai-tradingkey",
+      "source": "TradingKey",
+      "category": "시장"
+    }
+  ]
+}
