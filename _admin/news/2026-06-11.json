@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-11",
+  "count": 6,
+  "generatedAt": "2026-06-10T23:10:58.429Z",
+  "items": [
+    {
+      "title": "Anthropic, 시리즈 H 650억 달러 유치로 기업가치 9650억 달러 달성",
+      "summary": "Anthropic이 OpenAI를 제치고 민간 AI 기업 1위에 오르며 역대 최고 비상장 밸류에이션을 기록했다.",
+      "url": "https://aifundingtracker.com/top-50-ai-startups/",
+      "source": "AI Funding Tracker",
+      "category": "펀딩"
+    },
+    {
+      "title": "SpaceX IPO 로드쇼 시작, 6월 12일 첫 거래 목표로 1조 7500억 달러 상장 추진",
+      "summary": "SpaceX가 6월 8일 로드쇼를 개시해 750억 달러 조달 및 역대 최대 규모 기술주 IPO를 목표로 공개 시장 입성을 준비 중이다.",
+      "url": "https://aifundingtracker.com/top-50-ai-startups/",
+      "source": "AI Funding Tracker",
+      "category": "IPO"
+    },
+    {
+      "title": "2026년 1분기 글로벌 VC 투자 3300억 달러로 역대 최대 분기 기록",
+      "summary": "KPMG에 따르면 Q1 2026 전체 VC 투자액이 직전 분기 대비 2.5배 폭증하며 역사상 최대 분기 투자액을 달성했다.",
+      "url": "https://aifundingtracker.com/top-50-ai-startups/",
+      "source": "AI Funding Tracker",
+      "category": "시장"
+    },
+    {
+      "title": "PhysicsX, Temasek 주도 3억 달러 시리즈 C 유치, 산업용 AI 군비경쟁 가열",
+      "summary": "항공우주, 반도체, 방산 등 중공업 특화 AI 스타트업 PhysicsX가 엔비디아와 지멘스 등 전략 투자자를 포함한 대형 라운드를 마감했다.",
+      "url": "https://techstartups.com/2026/06/08/venture-capital-startup-funding-roundup-june-9-2026/",
+      "source": "Tech Startups",
+      "category": "펀딩"
+    },
+    {
+      "title": "마이크로소프트, 일본에 4년간 100억 달러 AI 인프라 투자 발표",
+      "summary": "MS가 소버린 AI 전략의 일환으로 소프트뱅크와 협력해 일본 내 AI 데이터센터 확충 및 엔지니어 100만 명 양성에 나선다.",
+      "url": "https://www.crescendo.ai/news/latest-vc-investment-deals-in-ai-startups",
+      "source": "Crescendo AI News",
+      "category": "정책"
+    },
+    {
+      "title": "AI 스타트업 시리즈 A 평균 투자액 5190만 달러로 비AI 기업보다 30% 높아",
+      "summary": "Qubit Capital 분석에 따르면 AI 스타트업의 시리즈 A 규모가 비AI 동종 대비 30% 프리미엄을 받으며 자본 집중 현상이 심화되고 있다.",
+      "url": "https://blog.mean.ceo/ai-startup-funding-news-june-2026/",
+      "source": "Mean CEO Blog",
+      "category": "AI"
+    }
+  ]
+}
