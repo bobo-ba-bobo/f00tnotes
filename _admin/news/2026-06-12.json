@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-12",
+  "count": 6,
+  "generatedAt": "2026-06-11T23:10:57.513Z",
+  "items": [
+    {
+      "title": "퓨리오사AI, 국민성장펀드로부터 8000억원 투자 유치",
+      "summary": "감사보고서에 계속기업 의문이 붙은 퓨리오사AI가 2026년 5월 국민성장펀드로부터 8000억원을 유치하며 생존력을 입증했다.",
+      "url": "https://outstanding.kr/",
+      "source": "아웃스탠딩",
+      "category": "펀딩"
+    },
+    {
+      "title": "젠슨 황·손정의, 같은 날 '피지컬 AI 시대' 동시 선언",
+      "summary": "엔비디아 젠슨 황과 소프트뱅크 손정의가 6월 1일 각각 로봇 AI 시대와 다음 1조 달러 기업은 피지컬 AI에서 나온다고 선언했다.",
+      "url": "https://outstanding.kr/",
+      "source": "아웃스탠딩",
+      "category": "AI"
+    },
+    {
+      "title": "Allen Control Systems, 자율 정밀 로보틱스 분야 2억 달러 시리즈B 클로즈",
+      "summary": "미국 자율 정밀 로보틱스 스타트업 Allen Control Systems가 2억 달러 규모의 시리즈B 펀딩을 마감했다.",
+      "url": "https://vcnewsdaily.com/",
+      "source": "VC News Daily",
+      "category": "펀딩"
+    },
+    {
+      "title": "Cyera, 120억 달러 기업가치로 6억 달러 펀딩 조달",
+      "summary": "사이버보안 스타트업 Cyera가 120억 달러 밸류에이션으로 6억 달러를 조달하며 AI 보안 섹터 최대급 딜로 주목받고 있다.",
+      "url": "https://vcnewsdaily.com/",
+      "source": "VC News Daily",
+      "category": "펀딩"
+    },
+    {
+      "title": "아시아 VC 펀드매니저 69%, AI 투자를 최우선 과제로 선정",
+      "summary": "킨로스 리서치 보고서에 따르면 2026년 아시아 VC 시장은 AI 인프라와 핀테크 중심으로 재편되며 수익성 우선 기조가 강화됐다.",
+      "url": "https://www.itinsight.kr/news/469278",
+      "source": "아이티인사이트",
+      "category": "시장"
+    },
+    {
+      "title": "한국 정부, AI 혁신펀드 1조9800억원으로 확대해 유니콘 육성 본격화",
+      "summary": "정부가 AI혁신펀드와 KIF를 통해 투자 재원을 6월까지 약 1조9800억원으로 확대하고 AI 스타트업 투자 연계를 정례화한다.",
+      "url": "https://www.asiae.co.kr/article/2026042310295283665",
+      "source": "아시아경제",
+      "category": "정책"
+    }
+  ]
+}
