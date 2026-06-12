@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-13",
+  "count": 6,
+  "generatedAt": "2026-06-12T23:10:57.957Z",
+  "items": [
+    {
+      "title": "Q1 2026 글로벌 VC 투자 사상 최고치 3000억 달러 돌파",
+      "summary": "AI 붐에 힘입어 2026년 1분기 글로벌 벤처 투자가 6000개 스타트업에 3000억 달러를 기록하며 역대 최고치를 경신했다.",
+      "url": "https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/",
+      "source": "Crunchbase News",
+      "category": "시장"
+    },
+    {
+      "title": "AI 스타트업, 2026년 1분기 VC 전체의 80%인 2420억 달러 독식",
+      "summary": "AI 스타트업이 2026년 1분기 전 세계 VC 자금의 약 80%를 흡수했고 상위 4개사가 전체의 65%를 차지했다.",
+      "url": "https://www.digitalapplied.com/blog/ai-venture-funding-2026-where-242b-went-data-atlas",
+      "source": "Digital Applied",
+      "category": "AI"
+    },
+    {
+      "title": "Shield AI, 시리즈 G에서 15억 달러 조달해 기업가치 127억 달러 달성",
+      "summary": "자율비행 AI 플랫폼 Shield AI가 15억 달러 시리즈 G를 포함한 22.5억 달러 패키지로 기업가치가 1년 만에 140% 급등했다.",
+      "url": "https://www.crescendo.ai/news/latest-vc-investment-deals-in-ai-startups",
+      "source": "Crescendo AI",
+      "category": "펀딩"
+    },
+    {
+      "title": "자율주행 AI 스타트업 Wayve, AMD·Arm·Qualcomm 벤처 추가 유치",
+      "summary": "영국 자율주행 AI 기업 Wayve가 AMD 등 반도체 3사를 신규 투자자로 맞아 자동차 칩 전 아키텍처 호환 전략을 완성했다.",
+      "url": "https://aifundingtracker.com/ai-startup-funding-news-today/",
+      "source": "AI Funding Tracker",
+      "category": "펀딩"
+    },
+    {
+      "title": "한국 중기부, 비수도권 초격차 스타트업 12개사 신규 선정",
+      "summary": "중소벤처기업부가 2026년 신규 비수도권 초격차 스타트업 12개사를 선정해 사업화 자금 최대 12억 원을 지원한다.",
+      "url": "https://startuprecipe.co.kr/archives/5819548",
+      "source": "스타트업레시피",
+      "category": "정책"
+    },
+    {
+      "title": "한국 정부, 2026년 TIPS 예산 전년 대비 약 40% 증액해 620개사 지원",
+      "summary": "중소벤처기업부가 TIPS 지원 대상을 620개로 늘리고 예산을 6684억 원으로 39.9% 확대해 스타트업 투자 생태계 강화에 나섰다.",
+      "url": "https://www.issueinsight.co.kr/news/articleView.html?idxno=2677",
+      "source": "이슈인사이트",
+      "category": "정책"
+    }
+  ]
+}
