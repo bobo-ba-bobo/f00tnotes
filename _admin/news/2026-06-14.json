@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-14",
+  "count": 6,
+  "generatedAt": "2026-06-13T23:10:56.916Z",
+  "items": [
+    {
+      "title": "앤스로픽, SEC에 비공개 IPO 신청... 기업가치 1조 달러 전망",
+      "summary": "앤스로픽이 SEC에 비공개 IPO를 공식 신청해 AI 스타트업 최초 1조 달러 가치 달성 가능성이 주목된다.",
+      "url": "https://www.tradingkey.com/kr/analysis/stocks/us-stocks/261951088-anthropic-ipo-claude-ai-tradingkey",
+      "source": "TradingKey",
+      "category": "IPO"
+    },
+    {
+      "title": "TensorWave, 엔비디아 벤처스 주도 3억 달러 시리즈B 클로즈",
+      "summary": "AI 인프라 스타트업 TensorWave가 엔비디아 NVentures 주도로 3억 달러 시리즈B를 성공적으로 마무리했다.",
+      "url": "https://startups.gallery/news",
+      "source": "Startups Gallery",
+      "category": "펀딩"
+    },
+    {
+      "title": "PhysicsX, 테마섹 주도 3억 달러 시리즈C 유치... AI 엔지니어링 시뮬레이션 주목",
+      "summary": "딥테크 AI 시뮬레이션 스타트업 PhysicsX가 테마섹 주도로 3억 달러 시리즈C를 조달해 글로벌 관심을 받고 있다.",
+      "url": "https://startups.gallery/news",
+      "source": "Startups Gallery",
+      "category": "펀딩"
+    },
+    {
+      "title": "가트너, 2026년 말 기업 앱의 40%에 AI 에이전트 탑재 예측",
+      "summary": "가트너는 현재 5% 미만인 AI 에이전트 탑재 기업 앱 비중이 2026년 말 40%까지 급증할 것으로 전망했다.",
+      "url": "https://venturebeat.com/",
+      "source": "VentureBeat",
+      "category": "시장"
+    },
+    {
+      "title": "AI 스타트업 평균 딜 규모 5100만 달러... 비AI 대비 약 11배 격차",
+      "summary": "2025년 기준 AI 스타트업 평균 투자 규모가 비AI 스타트업의 약 11배에 달하며 VC 자금 쏠림이 심화되고 있다.",
+      "url": "https://www.techbrew.com/stories/fidelityprivateshares/vc-startup-trends",
+      "source": "Tech Brew",
+      "category": "시장"
+    },
+    {
+      "title": "중기부, 2026년 TIPS 지원 스타트업 620개로 확대하고 예산 40% 증액",
+      "summary": "중소벤처기업부가 TIPS 지원 대상을 620개사로 늘리고 예산을 전년 대비 39.9% 늘린 6684억 원으로 편성했다.",
+      "url": "https://www.issueinsight.co.kr/news/articleView.html?idxno=2677",
+      "source": "이슈인사이트",
+      "category": "정책"
+    }
+  ]
+}
