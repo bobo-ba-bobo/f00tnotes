@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-15",
+  "count": 6,
+  "generatedAt": "2026-06-14T23:10:58.944Z",
+  "items": [
+    {
+      "title": "앤트로픽, 650억달러 Series H 완료로 AI 민간기업 가치평가 1위 등극",
+      "summary": "앤트로픽이 965억달러 밸류에이션으로 Series H를 마감하며 처음으로 OpenAI를 제치고 민간 AI 기업 1위에 올랐다.",
+      "url": "https://aifundingtracker.com/top-50-ai-startups/",
+      "source": "AI Funding Tracker",
+      "category": "펀딩"
+    },
+    {
+      "title": "Q1 2026 글로벌 벤처 투자 3000억달러로 역대 최고 경신, 80%가 AI",
+      "summary": "2026년 1분기 전 세계 VC 투자액이 3000억달러를 기록하며 역대 최고치를 경신했고 그 중 80%가 AI 분야에 집중됐다.",
+      "url": "https://aifundingtracker.com/ai-startup-funding-news-today/",
+      "source": "AI Funding Tracker",
+      "category": "시장"
+    },
+    {
+      "title": "AI 칩 스타트업 Cerebras, IPO 첫날 68% 급등하며 시총 950억달러 달성",
+      "summary": "Cerebras는 5월 14일 나스닥에 상장해 55.5억달러를 조달했고 시총 950억달러로 첫날 68% 상승 마감했다.",
+      "url": "https://aifundingtracker.com/top-50-ai-startups/",
+      "source": "AI Funding Tracker",
+      "category": "IPO"
+    },
+    {
+      "title": "SpaceX, 6월 8일 IPO 로드쇼 개시 목표 기업가치 1.75조달러",
+      "summary": "SpaceX가 기업가치 1.75조달러를 목표로 6월 8일 IPO 로드쇼에 돌입해 AI IPO 슈퍼사이클의 핵심 이벤트로 주목받고 있다.",
+      "url": "https://aifundingtracker.com/top-50-ai-startups/",
+      "source": "AI Funding Tracker",
+      "category": "IPO"
+    },
+    {
+      "title": "휴머노이드 로보틱스, 2026년 최대 투자 카테고리로 부상 연간 200억달러 전망",
+      "summary": "Figure의 아마존 및 메르세데스 대규모 수주 계약을 계기로 휴머노이드 로봇 분야가 올해 200억달러 이상 투자를 유치할 전망이다.",
+      "url": "https://aifundingtracker.com/top-50-ai-startups/",
+      "source": "AI Funding Tracker",
+      "category": "시장"
+    },
+    {
+      "title": "한국 정부 AI혁신펀드 2조원 규모로 확대, AI 유니콘 육성 본격화",
+      "summary": "과기정통부가 AI혁신펀드를 6월까지 1조9800억원으로 늘려 딥테크 AI 스타트업 투자 연계를 강화한다.",
+      "url": "https://www.asiae.co.kr/article/2026042310295283665",
+      "source": "아시아경제",
+      "category": "정책"
+    }
+  ]
+}
