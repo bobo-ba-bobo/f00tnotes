@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-16",
+  "count": 6,
+  "generatedAt": "2026-06-15T23:10:59.071Z",
+  "items": [
+    {
+      "title": "PhoenixAI, 에이전틱 AI 데이터베이스로 시리즈B 8000만 달러 조달",
+      "summary": "멘로파크 기반 PhoenixAI가 자율 AI 에이전트 전용 데이터베이스로 8000만 달러 시리즈B를 클로즈했다.",
+      "url": "https://vcnewsdaily.com/",
+      "source": "VC News Daily",
+      "category": "펀딩"
+    },
+    {
+      "title": "Wayve, AMD·Arm·Qualcomm 참여로 자율주행 AI 6000만 달러 익스텐션 완료",
+      "summary": "영국 자율주행 AI 스타트업 Wayve가 주요 반도체 기업 3곳을 새 투자자로 영입해 칩 생태계 전방위 확장에 나섰다.",
+      "url": "https://aifundingtracker.com/ai-startup-funding-news-today/",
+      "source": "AI Funding Tracker",
+      "category": "펀딩"
+    },
+    {
+      "title": "2026년 Q1 글로벌 벤처 투자 3000억 달러로 사상 최고치 경신",
+      "summary": "크런치베이스 집계 기준 2026년 1분기 VC 투자액이 전분기 대비 150% 급증하며 역대 최대 분기 기록을 세웠다.",
+      "url": "https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/",
+      "source": "Crunchbase News",
+      "category": "시장"
+    },
+    {
+      "title": "OpenAI, 연간 매출 200억 달러 돌파하며 4분기 IPO 추진 관측",
+      "summary": "OpenAI가 연간 반복 매출 200억 달러를 넘어서며 기업가치 1조 달러 목표의 IPO를 4분기로 준비 중인 것으로 알려졌다.",
+      "url": "https://www.crescendo.ai/news/latest-vc-investment-deals-in-ai-startups",
+      "source": "Crescendo AI",
+      "category": "IPO"
+    },
+    {
+      "title": "한국 중기부, 2026년 TIPS 지원 스타트업 620개로 확대하고 예산 40% 증액",
+      "summary": "중소벤처기업부가 TIPS 대상 기업을 100개 늘리고 예산을 6684억 원으로 전년 대비 39.9% 늘려 딥테크 스타트업 육성을 강화한다.",
+      "url": "https://www.issueinsight.co.kr/news/articleView.html?idxno=2677",
+      "source": "이슈인사이트",
+      "category": "정책"
+    },
+    {
+      "title": "마이크로소프트, 일본에 2026~2029년 100억 달러 AI 인프라 투자 계획 발표",
+      "summary": "MS가 소프트뱅크·사쿠라인터넷과 협력해 일본 내 AI 데이터센터 확충 및 엔지니어 100만 명 교육에 총 100억 달러를 투입한다.",
+      "url": "https://www.crescendo.ai/news/latest-vc-investment-deals-in-ai-startups",
+      "source": "Crescendo AI",
+      "category": "AI"
+    }
+  ]
+}
