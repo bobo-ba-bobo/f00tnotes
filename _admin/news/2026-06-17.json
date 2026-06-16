@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-17",
+  "count": 6,
+  "generatedAt": "2026-06-16T23:11:00.046Z",
+  "items": [
+    {
+      "title": "업스테이지, 다음 품고 '업스테이지 컴퍼니' 출범... 누적 투자 7300억 돌파",
+      "summary": "한국 AI 유니콘 업스테이지가 포털 다음 운영사 AXZ를 품어 종합 AI 플랫폼 기업으로 전환하고 누적 투자 7300억원을 확보했다.",
+      "url": "https://www.etoday.co.kr/news/view/2594080",
+      "source": "이투데이",
+      "category": "AI"
+    },
+    {
+      "title": "국내 스타트업 투자 3개월 연속 월 1조 돌파... 딥테크·AI 쏠림 심화",
+      "summary": "국내 벤처투자가 3개월 연속 월 1조원을 넘었지만 100억원 이상 대형 딜의 70~90%가 AI·딥테크 전략산업에 집중되는 양극화가 심화되고 있다.",
+      "url": "https://www.news1.kr/industry/sb-founded/6197426",
+      "source": "뉴스1",
+      "category": "시장"
+    },
+    {
+      "title": "IPO 시장 부활... FAANG 대신 MANGOS(Meta·Anthropic·Nvidia·Google·OpenAI·SpaceX)가 주도",
+      "summary": "글로벌 IPO 시장이 회복세로 돌아서며 기존 빅테크 대신 AI 중심 신흥 대형 테크 기업들이 시장을 이끌고 있다.",
+      "url": "https://techcrunch.com/",
+      "source": "TechCrunch",
+      "category": "IPO"
+    },
+    {
+      "title": "씨엔티테크, 코스닥 상장 도전... 국내 AC(액셀러레이터) 1호 상장사 될까",
+      "summary": "씨엔티테크가 코스닥 상장에 재도전하며 성공 시 국내 액셀러레이터 업계 첫 상장사 탄생이 기대된다.",
+      "url": "https://outstanding.kr/",
+      "source": "아웃스탠딩",
+      "category": "IPO"
+    },
+    {
+      "title": "미국 컨슈머 핀테크 Current, 시리즈 E 8000만 달러 조달... 기업가치 15억 달러",
+      "summary": "미국 소비자 핀테크 플랫폼 Current가 15억 달러 밸류에이션으로 8000만 달러 규모의 시리즈 E를 마무리했다.",
+      "url": "https://vcnewsdaily.com/",
+      "source": "VC News Daily",
+      "category": "펀딩"
+    },
+    {
+      "title": "글로벌 AI 스타트업 평균 딜 사이즈 5100만 달러... 비AI 대비 11배 격차",
+      "summary": "2026년 AI 스타트업의 평균 투자 규모가 비AI 스타트업보다 10.9배 크며 밸류에이션 양극화가 전년 대비 더욱 확대됐다.",
+      "url": "https://www.techbrew.com/stories/fidelityprivateshares/vc-startup-trends",
+      "source": "Tech Brew",
+      "category": "시장"
+    }
+  ]
+}
