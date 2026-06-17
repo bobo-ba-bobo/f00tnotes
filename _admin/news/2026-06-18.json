@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-18",
+  "count": 6,
+  "generatedAt": "2026-06-17T23:10:57.736Z",
+  "items": [
+    {
+      "title": "SpaceX, 커서(Cursor) AI 코딩툴 인수로 엔터프라이즈 소프트웨어 시장 진출",
+      "summary": "SpaceX가 개발자 AI 코딩 플랫폼 Cursor를 인수해 엔터프라이즈 SW 시장에 전격 진입했다.",
+      "url": "https://news.crunchbase.com/venture/us-ai-startup-funding-boom-data/",
+      "source": "Crunchbase News",
+      "category": "M&A"
+    },
+    {
+      "title": "글로벌 VC 펀딩, 2026년 4월 전년 대비 100% 급증한 560억 달러 기록",
+      "summary": "Anthropic 150억 달러, 제프 베이조스의 Project Prometheus 100억 달러가 4월 펀딩을 주도했다.",
+      "url": "https://news.crunchbase.com/venture/global-startup-funding-april-2026-anthropic-jeff-bezos-project-prometheus-biggest-deals/",
+      "source": "Crunchbase News",
+      "category": "펀딩"
+    },
+    {
+      "title": "AI 추론 클라우드 DeepInfra, 엔비디아 참여 Series B 1억 700만 달러 조달",
+      "summary": "주당 5조 토큰 처리하는 AI 추론 전문 클라우드가 엔비디아 Blackwell GPU 우선 접근권까지 확보했다.",
+      "url": "https://aifundingtracker.com/ai-startup-funding-news-today/",
+      "source": "AI Funding Tracker",
+      "category": "펀딩"
+    },
+    {
+      "title": "자율주행 AI 스타트업 Wayve, AMD·Arm·Qualcomm 참여로 6000만 달러 추가 투자 유치",
+      "summary": "주요 반도체 기업들이 모두 Wayve 캡 테이블에 합류해 AV 상용화의 칩 파편화 문제를 해소할 전망이다.",
+      "url": "https://aifundingtracker.com/ai-startup-funding-news-today/",
+      "source": "AI Funding Tracker",
+      "category": "펀딩"
+    },
+    {
+      "title": "퓨리오사AI, 완전자본잠식 경고 속에서도 국민성장펀드로부터 8000억원 투자 유치",
+      "summary": "2025년 순손실 8334억원에 계속기업 의구심을 받으면서도 K-AI 반도체 대표주자로 대규모 투자를 받았다.",
+      "url": "https://outstanding.kr/",
+      "source": "아웃스탠딩",
+      "category": "펀딩"
+    },
+    {
+      "title": "한국 중기부, AI·바이오 등 6대 전략산업 중심 초격차 스타트업 지원 확대 개편",
+      "summary": "기존 10대 분야를 6대 전략산업·12대 신산업으로 재편해 AI 스타트업 집중 육성 정책을 강화했다.",
+      "url": "https://startuprecipe.co.kr/archives/5819548",
+      "source": "스타트업 레시피",
+      "category": "정책"
+    }
+  ]
+}
