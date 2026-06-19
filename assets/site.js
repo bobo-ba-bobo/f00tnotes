@@ -91,6 +91,9 @@
       var post = posts.find(function (p) { return p.id === id; });
       if (!post) { if (titleEl) titleEl.textContent = 'Not found'; fail('해당 글을 찾을 수 없습니다.'); return; }
 
+      // hand-authored posts live at their own page; the generic template can't render them
+      if (post.url) { location.replace(post.url); return; }
+
       document.title = post.title + ' - f00tnotes¹';
       if (titleEl) titleEl.textContent = post.title;
       if (noEl) noEl.textContent = 'No. ' + post.no;
