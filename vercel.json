@@ -2,6 +2,6 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/glossary/:slug", "destination": "/glossary.html" }
+    { "source": "/glossary/:slug", "destination": "/glossary" }
   ]
 }
