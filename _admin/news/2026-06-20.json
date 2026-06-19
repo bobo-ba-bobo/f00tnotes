@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-20",
+  "count": 6,
+  "generatedAt": "2026-06-19T23:10:56.628Z",
+  "items": [
+    {
+      "title": "넥스트라이즈 2026 서울 개막, 540개 스타트업과 글로벌 AI 빅테크 총집결",
+      "summary": "18~19일 코엑스에서 앤트로픽·오픈AI·팔란티어 등이 역대 최대 규모로 참가해 국내 스타트업과 협업을 모색했다.",
+      "url": "https://www.sedaily.com/article/20057651",
+      "source": "서울경제",
+      "category": "시장"
+    },
+    {
+      "title": "젠슨 황·손정의, 같은 날 '피지컬 AI' 시대 선언으로 로봇 투자 열풍 예고",
+      "summary": "엔비디아 젠슨 황과 손정의가 동시에 피지컬 AI를 차세대 1조 달러 기회로 지목하며 시장 주목을 받았다.",
+      "url": "https://outstanding.kr/",
+      "source": "아웃스탠딩",
+      "category": "AI"
+    },
+    {
+      "title": "미국 사이버전 스타트업 Twenty, 시리즈 B 1억 달러 조달로 유니콘 등극",
+      "summary": "미국 최초 VC 지원 사이버전 스타트업 Twenty가 기업가치 10억 달러를 인정받으며 1억 달러 시리즈 B를 완료했다.",
+      "url": "https://vcnewsdaily.com/",
+      "source": "VC News Daily",
+      "category": "펀딩"
+    },
+    {
+      "title": "AI 인프라 스타트업 TensorWave, 엔비디아 주도로 시리즈 B 3억 달러 유치",
+      "summary": "엔비디아 벤처스 NVentures가 리드한 3억 달러 라운드로 TensorWave가 GPU 클라우드 인프라 확장에 속도를 낸다.",
+      "url": "https://startups.gallery/news",
+      "source": "Startups Gallery",
+      "category": "펀딩"
+    },
+    {
+      "title": "Dapple, AI 인프라 OS 구축 위해 시드 라운드 3000만 달러 조달",
+      "summary": "AI 인프라 운영체제를 표방한 Dapple이 시드 단계에서 이례적인 3000만 달러 대규모 투자를 유치했다.",
+      "url": "https://vcnewsdaily.com/",
+      "source": "VC News Daily",
+      "category": "펀딩"
+    },
+    {
+      "title": "AI 보안 투자, 2026년 1분기 글로벌 49억 달러 유치하며 역대 최고 비중 경신",
+      "summary": "전체 투자액의 80%가 AI 기술 보유 사이버보안 스타트업에 집중되며 사상 최고치를 기록했다.",
+      "url": "https://www.youthassembly.kr/news/948099",
+      "source": "유스연합",
+      "category": "시장"
+    }
+  ]
+}
