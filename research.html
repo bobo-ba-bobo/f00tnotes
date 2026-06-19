@@ -315,6 +315,7 @@
       footer { flex-direction: column; gap: 16px; }
     }
   </style>
+  <script src="/assets/i18n.js"></script>
 </head>
 <body>
 
@@ -324,8 +325,10 @@
     <span class="nav-sep"></span>
     <ul class="nav-links">
       <li><a href="/research" class="active">Research</a></li>
+      <li><a href="/notes">Notes</a></li>
       <li><a href="/about">About</a></li>
-      <li><button class="nav-sub">Subscribe</button></li>
+      <li><a class="nav-sub" href="https://www.instagram.com/f00tnotes1/" target="_blank" rel="noopener" style="display:inline-block">Instagram</a></li>
+      <li><button class="lang-toggle"></button></li>
     </ul>
   </nav>
 
@@ -334,9 +337,10 @@
     <!-- ─── HERO ───────────────────────────────────────────── -->
     <section class="hero">
       <p class="hero-eyebrow">Research</p>
-      <h1 class="hero-title">모두가 건너뛴<br><em>각주의 기록.</em></h1>
+      <h1 class="hero-title"><span data-en>A record of the footnotes<br><em>everyone skipped.</em></span><span data-ko>모두가 건너뛴<br><em>각주의 기록.</em></span></h1>
       <p class="hero-desc">
-        매주 한 편씩, 뉴스와 기술과 현상의 본문 뒤에 숨은 각주를 끝까지 파고든 독립 리서치를 모읍니다.
+        <span data-en>One piece a week. Independent research that digs all the way into the footnotes hiding behind the news, the technology, and the way the world works.</span>
+        <span data-ko>매주 한 편씩, 뉴스와 기술과 현상의 본문 뒤에 숨은 각주를 끝까지 파고든 독립 리서치를 모읍니다.</span>
       </p>
     </section>
 

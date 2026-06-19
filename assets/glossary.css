@@ -43,8 +43,9 @@
   transform: translateY(-3px);
   transition: opacity 0.14s ease, transform 0.14s ease;
   pointer-events: none;
+  cursor: pointer;
 }
-#gloss-tip.show { opacity: 1; transform: translateY(0); }
+#gloss-tip.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
 
 #gloss-tip .tip-head {
   display: flex; align-items: baseline; gap: 8px;
@@ -72,6 +73,7 @@
   font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;
   color: var(--accent, #E8F5E0);
 }
+#gloss-tip:hover .tip-foot { text-decoration: underline; text-underline-offset: 3px; }
 
 /* little pointer arrow */
 #gloss-tip::before {

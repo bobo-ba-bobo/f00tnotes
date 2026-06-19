@@ -2,6 +2,10 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/glossary/:slug", "destination": "/glossary" }
+    { "source": "/notes/:slug", "destination": "/notes" }
+  ],
+  "redirects": [
+    { "source": "/glossary", "destination": "/notes", "permanent": true },
+    { "source": "/glossary/:slug", "destination": "/notes/:slug", "permanent": true }
   ]
 }

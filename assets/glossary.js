@@ -18,6 +18,34 @@
   }
   function escReg(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
+  /* ---------- i18n ---------- */
+  function L() { return (window.F00TLang && window.F00TLang.get && window.F00TLang.get() === 'ko') ? 'ko' : 'en'; }
+  function isKo() { return L() === 'ko'; }
+  // pick a localized field: returns <field>_ko in Korean when present
+  function pick(o, field) { var k = field + '_ko'; return (isKo() && o[k] != null) ? o[k] : o[field]; }
+  function aliasesOf(t) { return (isKo() && t.aliases_ko) ? t.aliases_ko : (t.aliases || []); }
+
+  var STR = {
+    en: { openNote: 'Open full note &rarr;', related: 'Related notes', more: 'More notes',
+          appearsIn: 'Appears in: ', thinkLike: 'Think of it like', contents: 'Contents',
+          glossaryAll: 'ALL NOTES', glossary: 'NOTES', notFound: 'Note not found',
+          notExist: 'That note does not exist (yet).',
+          indexLede: 'Plain-language notes for every term that shows up in the writing. Hover an underlined term in an article for the quick version, or read the full note here.',
+          searchPlaceholder: 'Search terms...', noResult: 'No terms match that search.',
+          notes: function (n) { return n + ' notes'; }, articleTitle: 'The Forgetting Problem' },
+    ko: { openNote: '전체 각주 열기 &rarr;', related: '관련 각주', more: '다른 각주',
+          appearsIn: '수록 글: ', thinkLike: '비유하자면', contents: '목차',
+          glossaryAll: '각주 전체', glossary: '각주', notFound: '각주를 찾을 수 없음',
+          notExist: '아직 등록되지 않은 각주입니다.',
+          indexLede: '글에 등장하는 모든 용어를 쉬운 말로 풀어둔 각주입니다. 글 속 밑줄 친 용어에 마우스를 올리면 짧은 설명이, 클릭하면 전체 설명이 열립니다.',
+          searchPlaceholder: '용어 검색...', noResult: '검색과 일치하는 용어가 없습니다.',
+          notes: function (n) { return n + '개'; }, articleTitle: '망각의 문제' }
+  };
+  function S(k) { return (STR[L()] || STR.en)[k]; }
+  var CAT_KO = { 'Foundations': '기초', 'Context': '컨텍스트', 'Memory': '메모리',
+    'Reasoning': '추론', 'Action': '실행', 'Business': '비즈니스', 'Plumbing': '기반' };
+  function catLabel(c) { return isKo() ? (CAT_KO[c] || c) : c; }
+
   /* ---------- 1. AUTOLINK ---------- */
   // Wrap the first occurrence of each term. One link per term across the whole body.
   function autolink(root) {
@@ -25,7 +53,7 @@
     var used = {};
     var aliases = [];
     DATA.forEach(function (t) {
-      (t.aliases || []).forEach(function (a) {
+      aliasesOf(t).forEach(function (a) {
         aliases.push({ slug: t.slug, text: a, len: a.length });
       });
     });
@@ -79,7 +107,7 @@
       if (before) frag.appendChild(document.createTextNode(before));
 
       var link = document.createElement('a');
-      link.href = '/glossary/' + best.a.slug;
+      link.href = '/notes/' + best.a.slug;
       link.className = 'gloss';
       link.setAttribute('data-slug', best.a.slug);
       link.textContent = best.matched;
@@ -104,18 +132,19 @@
       tip.hidden = true;
       document.body.appendChild(tip);
     }
-    var showTimer = null, hideTimer = null, current = null;
+    var showTimer = null, hideTimer = null;
 
     function fill(slug) {
       var t = BY_SLUG[slug];
       if (!t) return false;
+      tip.setAttribute('data-slug', slug);
       tip.innerHTML =
         '<div class="tip-head">' +
-          '<span class="tip-term">' + escHtml(t.term) + '</span>' +
-          '<span class="tip-cat">' + escHtml(t.category) + '</span>' +
+          '<span class="tip-term">' + escHtml(pick(t, 'term')) + '</span>' +
+          '<span class="tip-cat">' + escHtml(catLabel(t.category)) + '</span>' +
         '</div>' +
-        '<div class="tip-body">' + escHtml(t.hover) + '</div>' +
-        '<div class="tip-foot">Open full note &rarr;</div>';
+        '<div class="tip-body">' + escHtml(pick(t, 'hover')) + '</div>' +
+        '<div class="tip-foot">' + S('openNote') + '</div>';
       return true;
     }
 
@@ -144,38 +173,51 @@
       place(linkEl);
       requestAnimationFrame(function () { tip.classList.add('show'); });
     }
-    function hide() {
-      tip.classList.remove('show');
-      hideTimer = setTimeout(function () { tip.hidden = true; }, 140);
+    function cancelHide() { clearTimeout(hideTimer); }
+    function scheduleHide() {
+      clearTimeout(hideTimer);
+      // generous delay so the cursor can travel from the word into the bubble
+      hideTimer = setTimeout(function () {
+        tip.classList.remove('show');
+        setTimeout(function () { if (!tip.classList.contains('show')) tip.hidden = true; }, 160);
+      }, 240);
     }
 
     function onEnter(e) {
       var link = e.target.closest && e.target.closest('a.gloss');
       if (!link) return;
-      clearTimeout(hideTimer);
+      cancelHide();
       clearTimeout(showTimer);
-      current = link;
       showTimer = setTimeout(function () { show(link); }, 110);
     }
     function onLeave(e) {
       var link = e.target.closest && e.target.closest('a.gloss');
       if (!link) return;
       clearTimeout(showTimer);
-      hideTimer = setTimeout(hide, 80);
+      scheduleHide();
     }
 
     root.addEventListener('mouseover', onEnter);
     root.addEventListener('mouseout', onLeave);
+
+    // keep the bubble alive while the cursor is inside it; click opens the note
+    tip.addEventListener('mouseenter', cancelHide);
+    tip.addEventListener('mouseleave', scheduleHide);
+    tip.addEventListener('click', function () {
+      var slug = tip.getAttribute('data-slug');
+      if (slug) location.href = '/notes/' + slug;
+    });
+
     // keyboard accessibility
     root.addEventListener('focusin', function (e) {
       var link = e.target.closest && e.target.closest('a.gloss');
-      if (link) { current = link; show(link); }
+      if (link) { cancelHide(); show(link); }
     });
     root.addEventListener('focusout', function (e) {
       var link = e.target.closest && e.target.closest('a.gloss');
-      if (link) hide();
+      if (link) scheduleHide();
     });
-    window.addEventListener('scroll', function () { if (!tip.hidden) hide(); }, { passive: true });
+    window.addEventListener('scroll', function () { if (tip.classList.contains('show')) scheduleHide(); }, { passive: true });
   }
 
   /* ---------- 3. CONCEPT PAGE ---------- */
@@ -188,55 +230,159 @@
     if (qs.get('term')) return qs.get('term');
     var parts = location.pathname.replace(/\/+$/, '').split('/');
     var last = parts[parts.length - 1];
-    if (last && last !== 'glossary' && last !== 'glossary.html') return last.replace(/\.html$/, '');
+    if (last && last !== 'notes' && last !== 'notes.html') return last.replace(/\.html$/, '');
     return '';
   }
 
   function renderConceptPage() {
     var slug = slugFromUrl();
-    var t = BY_SLUG[slug];
     var titleEl = document.getElementById('g-title');
     var bodyWrap = document.getElementById('g-content');
     if (!bodyWrap) return;
 
+    // no slug -> the glossary index (navigator)
+    if (!slug) { renderIndex(titleEl, bodyWrap); return; }
+
+    var t = BY_SLUG[slug];
     if (!t) {
-      if (titleEl) titleEl.textContent = 'Term not found';
+      if (titleEl) titleEl.textContent = S('notFound');
+      var catEl0 = document.getElementById('g-cat'); if (catEl0) catEl0.textContent = S('glossary');
       bodyWrap.innerHTML =
-        '<p class="g-lede">That glossary entry does not exist (yet).</p>' +
+        '<p class="g-lede">' + escHtml(S('notExist')) + '</p>' +
         relatedList(null);
       return;
     }
 
-    document.title = t.term + ' - f00tnotes glossary';
-    if (titleEl) titleEl.textContent = t.term;
+    document.title = pick(t, 'term') + ' - f00tnotes¹';
+    if (titleEl) titleEl.textContent = pick(t, 'term');
     var catEl = document.getElementById('g-cat');
-    if (catEl) catEl.textContent = 'GLOSSARY / ' + t.category.toUpperCase();
+    if (catEl) catEl.textContent = S('glossary') + ' / ' + catLabel(t.category).toUpperCase();
     var diffEl = document.getElementById('g-diff');
     if (diffEl) diffEl.textContent = stars(t.difficulty);
 
     var html = '';
-    html += '<p class="g-lede">' + escHtml(t.hover) + '</p>';
+    html += '<p class="g-lede">' + escHtml(pick(t, 'hover')) + '</p>';
     if (t.infographic) {
-      html += '<pre class="g-fig">' + escHtml(t.infographic) + '</pre>';
+      html += '<pre class="g-fig">' + escHtml(pick(t, 'infographic')) + '</pre>';
     }
-    (t.body || []).forEach(function (p) { html += '<p>' + escHtml(p) + '</p>'; });
-    if (t.analogy) {
-      html += '<blockquote class="g-analogy"><span class="g-analogy-label">Think of it like</span>' +
-              escHtml(t.analogy) + '</blockquote>';
+    (pick(t, 'body') || []).forEach(function (p) { html += '<p>' + escHtml(p) + '</p>'; });
+    if (pick(t, 'analogy')) {
+      html += '<blockquote class="g-analogy"><span class="g-analogy-label">' + escHtml(S('thinkLike')) + '</span>' +
+              escHtml(pick(t, 'analogy')) + '</blockquote>';
     }
-    html += '<div class="g-appears">Appears in: ' +
-            '<a href="/research/the-forgetting-problem">The Forgetting Problem</a></div>';
+    html += '<div class="g-appears">' + escHtml(S('appearsIn')) +
+            '<a href="/research/the-forgetting-problem">' + escHtml(S('articleTitle')) + '</a></div>';
     html += relatedList(t.slug);
     bodyWrap.innerHTML = html;
   }
 
-  function relatedList(currentSlug) {
-    var items = DATA
-      .filter(function (t) { return t.slug !== currentSlug; })
+  function renderIndex(titleEl, bodyWrap) {
+    document.title = S('glossary').charAt(0) + S('glossary').slice(1).toLowerCase() + ' - f00tnotes¹';
+    if (titleEl) titleEl.textContent = isKo() ? '각주' : 'Notes';
+    var catEl = document.getElementById('g-cat');
+    if (catEl) catEl.textContent = S('glossaryAll');
+    var diffEl = document.getElementById('g-diff');
+    if (diffEl) diffEl.textContent = S('notes')(DATA.length);
+
+    // group by category, preserving first-seen order
+    var order = [], groups = {};
+    DATA.forEach(function (t) {
+      if (!groups[t.category]) { groups[t.category] = []; order.push(t.category); }
+      groups[t.category].push(t);
+    });
+
+    var html = '<p class="g-lede">' + escHtml(S('indexLede')) + '</p>' +
+               '<div class="g-search-wrap">' +
+                 '<input id="g-search" type="search" placeholder="' + escHtml(S('searchPlaceholder')) + '" ' +
+                 'autocomplete="off" spellcheck="false" />' +
+                 '<span class="g-search-count" id="g-search-count"></span>' +
+               '</div>' +
+               '<div class="g-index">';
+    order.forEach(function (cat) {
+      html += '<section class="g-group" data-cat="' + escHtml(cat) + '"><div class="g-group-label">' + escHtml(catLabel(cat)) + '</div>';
+      groups[cat].forEach(function (t) {
+        var hay = (pick(t, 'term') + ' ' + pick(t, 'hover') + ' ' + catLabel(cat) + ' ' +
+                   aliasesOf(t).join(' ') + ' ' + (t.aliases || []).join(' ')).toLowerCase();
+        html += '<a class="g-entry" data-search="' + escHtml(hay) + '" href="/notes/' + t.slug + '">' +
+                  '<span class="g-entry-term">' + escHtml(pick(t, 'term')) + '</span>' +
+                  '<span class="g-entry-hover">' + escHtml(pick(t, 'hover')) + '</span>' +
+                '</a>';
+      });
+      html += '</section>';
+    });
+    html += '</div><p class="g-noresult" id="g-noresult" hidden>' + escHtml(S('noResult')) + '</p>';
+    bodyWrap.innerHTML = html;
+
+    // live search
+    var input = document.getElementById('g-search');
+    var countEl = document.getElementById('g-search-count');
+    var noRes = document.getElementById('g-noresult');
+    var entries = Array.prototype.slice.call(bodyWrap.querySelectorAll('.g-entry'));
+    var groupEls = Array.prototype.slice.call(bodyWrap.querySelectorAll('.g-group'));
+
+    function applyFilter() {
+      var q = (input.value || '').trim().toLowerCase();
+      var shown = 0;
+      entries.forEach(function (el) {
+        var match = !q || el.getAttribute('data-search').indexOf(q) !== -1;
+        el.hidden = !match;
+        if (match) shown++;
+      });
+      // hide groups with no visible entries
+      groupEls.forEach(function (g) {
+        var any = g.querySelector('.g-entry:not([hidden])');
+        g.hidden = !any;
+      });
+      if (noRes) noRes.hidden = shown !== 0;
+      if (countEl) countEl.textContent = q ? (shown + ' / ' + entries.length) : S('notes')(entries.length);
+    }
+    if (input) {
+      input.addEventListener('input', applyFilter);
+      applyFilter();
+    }
+  }
+
+  var STOP = ('the and for that this with from into your you are but not can its it is they them their what ' +
+    'when which will would than then more most some such only just like over even also does done each every ' +
+    'one two thing things kind used uses use real about other another need needs make makes made being been ' +
+    'have has had how why who out off per via across before after both many much very own way ways lot lots ' +
+    'across still keep keeps gets get got let lets').split(' ').reduce(function (m, w) { m[w] = 1; return m; }, {});
+
+  function tokensOf(t) {
+    var text = (t.term + ' ' + t.hover + ' ' + (t.body || []).join(' ') + ' ' +
+                (t.aliases || []).join(' ') + ' ' + (t.analogy || '')).toLowerCase();
+    var set = {};
+    text.split(/[^a-z0-9]+/).forEach(function (w) {
+      if (w.length > 3 && !STOP[w]) set[w] = 1;
+    });
+    return set;
+  }
+
+  // pick the N most related terms: same-category bonus + shared-keyword overlap
+  function relatedTerms(cur, n) {
+    var curTok = tokensOf(cur);
+    return DATA
+      .filter(function (t) { return t.slug !== cur.slug; })
       .map(function (t) {
-        return '<a class="g-chip" href="/glossary/' + t.slug + '">' + escHtml(t.term) + '</a>';
-      }).join('');
-    return '<div class="g-more"><div class="g-more-label">More notes</div>' +
+        var score = (t.category === cur.category) ? 4 : 0;
+        var tok = tokensOf(t);
+        for (var w in tok) { if (curTok[w]) score += 1; }
+        return { t: t, score: score };
+      })
+      .sort(function (a, b) { return b.score - a.score; })
+      .slice(0, n)
+      .map(function (x) { return x.t; });
+  }
+
+  function relatedList(currentSlug) {
+    var cur = BY_SLUG[currentSlug];
+    var list = cur ? relatedTerms(cur, 10)
+                   : DATA.filter(function (t) { return t.slug !== currentSlug; }).slice(0, 10);
+    var label = cur ? S('related') : S('more');
+    var items = list.map(function (t) {
+      return '<a class="g-chip" href="/notes/' + t.slug + '">' + escHtml(pick(t, 'term')) + '</a>';
+    }).join('');
+    return '<div class="g-more"><div class="g-more-label">' + label + '</div>' +
            '<div class="g-chips">' + items + '</div></div>';
   }
 
