@@ -1,0 +1,96 @@
+/* f00tnotes glossary - inline links + footnote bubble (shared by article + concept pages) */
+
+/* the in-text term link */
+.art-body a.gloss {
+  color: var(--text-1);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--text-3);
+  cursor: help;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  padding-bottom: 1px;
+}
+.art-body a.gloss:hover,
+.art-body a.gloss:focus {
+  border-bottom-color: var(--accent);
+  color: #fff;
+  outline: none;
+}
+/* tiny superscript marker, like a footnote */
+.art-body a.gloss::after {
+  content: "\00B9"; /* superscript 1, the f00tnotes wink */
+  font-family: 'IBMPlexMono', monospace;
+  font-size: 0.62em;
+  color: var(--text-3);
+  vertical-align: super;
+  margin-left: 1px;
+  transition: color 0.15s;
+}
+.art-body a.gloss:hover::after { color: var(--accent); }
+
+/* the floating footnote bubble */
+#gloss-tip {
+  position: absolute;
+  z-index: 1000;
+  max-width: 320px;
+  width: max-content;
+  background: var(--bg-elevated, #1C1C1C);
+  border: 1px solid var(--border, #2A2A2A);
+  border-radius: 10px;
+  padding: 13px 15px 12px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.55);
+  font-family: 'Pretendard', -apple-system, sans-serif;
+  opacity: 0;
+  transform: translateY(-3px);
+  transition: opacity 0.14s ease, transform 0.14s ease;
+  pointer-events: none;
+}
+#gloss-tip.show { opacity: 1; transform: translateY(0); }
+
+#gloss-tip .tip-head {
+  display: flex; align-items: baseline; gap: 8px;
+  margin-bottom: 7px;
+}
+#gloss-tip .tip-term {
+  font-size: 13.5px; font-weight: 600; color: var(--text-1, #F0F0F0);
+  letter-spacing: -0.01em;
+}
+#gloss-tip .tip-cat {
+  font-family: 'IBMPlexMono', monospace;
+  font-size: 9px; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--text-3, #4A4A4A);
+  border: 1px solid var(--border-s, #1E1E1E);
+  border-radius: 3px; padding: 1px 5px;
+  white-space: nowrap;
+}
+#gloss-tip .tip-body {
+  font-size: 13px; line-height: 1.62; color: var(--text-2, #888);
+}
+#gloss-tip .tip-foot {
+  margin-top: 9px; padding-top: 8px;
+  border-top: 1px solid var(--border-s, #1E1E1E);
+  font-family: 'IBMPlexMono', monospace;
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--accent, #E8F5E0);
+}
+
+/* little pointer arrow */
+#gloss-tip::before {
+  content: "";
+  position: absolute;
+  left: 50%; transform: translateX(-50%);
+  width: 8px; height: 8px;
+  background: var(--bg-elevated, #1C1C1C);
+  border: 1px solid var(--border, #2A2A2A);
+}
+#gloss-tip[data-pos="below"]::before {
+  top: -5px; border-right: none; border-bottom: none;
+  transform: translateX(-50%) rotate(45deg);
+}
+#gloss-tip[data-pos="above"]::before {
+  bottom: -5px; border-left: none; border-top: none;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+@media (max-width: 600px) {
+  #gloss-tip { max-width: 78vw; }
+}

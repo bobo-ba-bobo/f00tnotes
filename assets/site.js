@@ -44,8 +44,11 @@
       }
       var display = posts.slice().reverse(); // 최신 먼저
       grid.innerHTML = display.map(function (p) {
+        // a post may override its destination with `url` (hand-authored pages);
+        // otherwise it renders through the generic /post?id= template (admin posts)
+        var href = p.url ? p.url : ('/post?id=' + encodeURIComponent(p.id));
         return '' +
-          '<a class="card" href="/post?id=' + encodeURIComponent(p.id) + '">' +
+          '<a class="card" href="' + href + '">' +
             '<div class="card-meta">' +
               '<span class="card-issue">No. ' + p.no + '</span>' +
               '<span class="card-dot"></span>' +

@@ -1,14 +1,13 @@
 [
   {
-    "id": "74da371f-4c6b-4352-9bcd-30d522a0fb54",
-    "title": "어쩌구저쩌구",
-    "subtitle": "어쩌구저쩌구",
-    "category": "어쩌구저쩌구",
-    "cover": "https://raw.githubusercontent.com/bobo-ba-bobo/f00tnotes/main/research/posts/assets/어쩌구저쩌구-cover.png",
+    "id": "the-forgetting-problem",
+    "title": "The Forgetting Problem",
+    "subtitle": "Why the Agent Wars Will Be Won on Memory",
+    "category": "AI / Infrastructure",
     "status": "published",
     "createdBy": "Bobo",
-    "createdAt": "2026-06-07T15:19:15.962Z",
-    "updatedAt": "2026-06-07T15:43:06.153Z",
-    "publishedPath": "research/posts/어쩌구저쩌구.md"
+    "createdAt": "2026-06-11T00:00:00.000Z",
+    "updatedAt": "2026-06-19T00:00:00.000Z",
+    "url": "/research/the-forgetting-problem"
   }
 ]
