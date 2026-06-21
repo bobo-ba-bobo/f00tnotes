@@ -1,17 +1,5 @@
 [
   {
-    "id": "pipeline-test",
-    "title": "파이프라인 테스트",
-    "subtitle": "",
-    "category": "AI / Infra",
-    "cover": "",
-    "status": "published",
-    "createdBy": "bobo",
-    "createdAt": "2026-06-21T08:16:47.005Z",
-    "updatedAt": "2026-06-21T08:16:47.005Z",
-    "url": "/research/pipeline-test"
-  },
-  {
     "id": "the-forgetting-problem",
     "title": "The Forgetting Problem",
     "subtitle": "Why the Agent Wars Will Be Won on Memory",
