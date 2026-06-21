@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-22",
+  "count": 6,
+  "generatedAt": "2026-06-21T23:59:04.009Z",
+  "items": [
+    {
+      "title": "Anthropic, 사상 최대 단일 펀딩 라운드 65억 달러 Series H 완료",
+      "summary": "Anthropic이 역대 최대 규모 단일 라운드인 650억 달러 Series H를 마감하며 AI 프론티어랩 투자 열기를 입증했다.",
+      "url": "https://aifundingtracker.com/ai-startup-funding-news-today/",
+      "source": "AI Funding Tracker",
+      "category": "펀딩"
+    },
+    {
+      "title": "글로벌 벤처 투자 2026 Q1 사상 최고치 3000억 달러 돌파",
+      "summary": "Crunchbase 집계 기준 Q1 글로벌 벤처 투자가 3000억 달러를 기록하며 전년 동기 대비 150% 이상 급증했다.",
+      "url": "https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/",
+      "source": "Crunchbase News",
+      "category": "시장"
+    },
+    {
+      "title": "xAI-SpaceX 사실상 합병, xAI 공개 투자는 SpaceX IPO로 일원화",
+      "summary": "xAI가 SpaceX와 이익 구조를 합치며 투자자들의 xAI 노출은 SpaceX IPO를 통해 이뤄지게 됐다.",
+      "url": "https://news.crunchbase.com/venture/foundational-ai-startup-funding-doubled-openai-anthropic-xai-q1-2026/",
+      "source": "Crunchbase News",
+      "category": "M&A"
+    },
+    {
+      "title": "국민성장펀드 LP 조기 마감, AI·반도체 중심 모험자본 공급 확대",
+      "summary": "국민성장펀드 11개 운용사가 목표 결성액을 초과 달성하며 AI·반도체 스타트업 자금 공급이 크게 늘어날 전망이다.",
+      "url": "https://www.sedaily.com/article/20057651",
+      "source": "서울경제",
+      "category": "펀딩"
+    },
+    {
+      "title": "젠슨 황·손정의 동시에 피지컬 AI 시대 선언, 로봇 투자 대세 확인",
+      "summary": "엔비디아 CEO와 소프트뱅크 회장이 같은 날 피지컬 AI를 차세대 핵심으로 지목하며 로봇 투자 붐을 예고했다.",
+      "url": "https://outstanding.kr/",
+      "source": "아웃스탠딩",
+      "category": "AI"
+    },
+    {
+      "title": "한국 스타트업 2026 Q1 지분투자 34% 증가, 6대 전략산업 집중",
+      "summary": "한국 스타트업 대상 2026년 1분기 투자가 전년 대비 34% 증가하며 AI·반도체 등 전략산업에 76%가 집중됐다.",
+      "url": "https://www.issueinsight.co.kr/news/articleView.html?idxno=2677",
+      "source": "이슈인사이트",
+      "category": "시장"
+    }
+  ]
+}
