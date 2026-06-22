@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-23",
+  "count": 6,
+  "generatedAt": "2026-06-22T23:59:05.541Z",
+  "items": [
+    {
+      "title": "글로벌 벤처 투자 2026년 1분기 사상 최고치 3000억 달러 돌파",
+      "summary": "AI 프론티어 랩 주도로 Q1 글로벌 VC 투자가 역대 최대인 3000억 달러를 기록했고 AI 비중이 전체의 80%에 달했다.",
+      "url": "https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/",
+      "source": "Crunchbase News",
+      "category": "시장"
+    },
+    {
+      "title": "Anthropic 650억 달러 시리즈H 단일 라운드 역사상 최대 규모 달성",
+      "summary": "Anthropic이 기술 역사상 단일 민간 라운드 최대 금액인 650억 달러를 조달하며 프론티어 AI 경쟁이 정점에 이르렀다.",
+      "url": "https://aifundingtracker.com/ai-startup-funding-news-today/",
+      "source": "AI Funding Tracker",
+      "category": "펀딩"
+    },
+    {
+      "title": "젠슨 황과 손정의, 피지컬 AI가 차세대 1조 달러 시장 될 것 동시 선언",
+      "summary": "엔비디아와 소프트뱅크 수장이 같은 날 피지컬 AI 시대 도래를 공개 선언하며 로봇 및 구현형 AI 투자 열기가 급등하고 있다.",
+      "url": "https://outstanding.kr/",
+      "source": "아웃스탠딩",
+      "category": "AI"
+    },
+    {
+      "title": "한국 국민성장펀드 은행권 참여로 LP 모집 조기 마감 및 목표 초과 달성",
+      "summary": "위험가중치 규제 완화로 은행권이 대거 출자자로 참여해 AI 및 반도체 중소기업 대상 모험자본 공급이 확대될 전망이다.",
+      "url": "https://www.sedaily.com/article/20057651",
+      "source": "서울경제",
+      "category": "펀딩"
+    },
+    {
+      "title": "컬리 1분기 매출 7457억원 역대 최대 달성 후 네이버 유상증자 유치 상장 재추진",
+      "summary": "컬리가 분기 기준 최대 실적을 기록하고 네이버로부터 기업가치 2조 8000억원을 인정받아 IPO 재추진 동력을 확보했다.",
+      "url": "https://www.sedaily.com/article/20057651",
+      "source": "서울경제",
+      "category": "IPO"
+    },
+    {
+      "title": "글로벌 국부펀드 AI 최대 투자자로 부상 소버린 웰스가 VC를 대체하다",
+      "summary": "싱가포르 테마섹, 카타르 QIA, 사우디 PIF 등 국부펀드가 수백억 달러 AI 라운드의 핵심 LP로 떠오르며 전통 VC의 역할이 축소되고 있다.",
+      "url": "https://theaiinsider.tech/2026/05/27/ai-funding-in-2026-where-venture-capital-is-going/",
+      "source": "The AI Insider",
+      "category": "시장"
+    }
+  ]
+}
