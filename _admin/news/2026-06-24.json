@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-24",
+  "count": 6,
+  "generatedAt": "2026-06-23T23:59:03.314Z",
+  "items": [
+    {
+      "title": "앤스로픽, 역대 최대 단일 펀딩 시리즈H 650억 달러 마감",
+      "summary": "앤스로픽이 650억 달러 시리즈H를 마감하며 테크 역사상 최대 단일 민간 라운드를 기록했다.",
+      "url": "https://aifundingtracker.com/ai-startup-funding-news-today/",
+      "source": "AI Funding Tracker",
+      "category": "펀딩"
+    },
+    {
+      "title": "2026 Q1 글로벌 VC 투자 3000억 달러 사상 최고치, AI가 80% 점유",
+      "summary": "Crunchbase에 따르면 2026년 1분기 글로벌 벤처 투자가 3000억 달러를 넘어 역대 최고치를 기록했다.",
+      "url": "https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/",
+      "source": "Crunchbase News",
+      "category": "시장"
+    },
+    {
+      "title": "젠슨 황·손정의 동시에 '피지컬 AI' 시대 선언, 차세대 투자 화두 부상",
+      "summary": "엔비디아 CEO와 소프트뱅크 회장이 같은 날 피지컬 AI가 차세대 1조 달러 시장이라고 공개 선언했다.",
+      "url": "https://outstanding.kr/",
+      "source": "아웃스탠딩",
+      "category": "AI"
+    },
+    {
+      "title": "한국 국민성장펀드, AI·반도체 중심으로 LP 조기 마감 초과 달성",
+      "summary": "국민성장펀드 간접투자 운용사 11곳이 LP 모집을 조기 마감하며 AI·반도체 분야 자금 공급 확대가 예고됐다.",
+      "url": "https://www.sedaily.com/article/20057651",
+      "source": "서울경제",
+      "category": "펀딩"
+    },
+    {
+      "title": "컬리, 네이버 유상증자로 기업가치 2조 8000억 인정받고 IPO 재도전",
+      "summary": "컬리가 네이버 유상증자와 AI 솔루션 기업 편입을 통해 기업가치를 재산정하며 상장 재추진 동력을 확보했다.",
+      "url": "https://www.sedaily.com/article/20057651",
+      "source": "서울경제",
+      "category": "IPO"
+    },
+    {
+      "title": "중기부, AI·방산·바이오 등 6대 전략산업 초격차 스타트업 804개사 육성 확대",
+      "summary": "중소벤처기업부가 초격차 스타트업 지원 분야를 6대 전략산업·12대 신산업으로 개편하고 비수도권 비율도 확대했다.",
+      "url": "https://startuprecipe.co.kr/archives/5819548",
+      "source": "스타트업레시피",
+      "category": "정책"
+    }
+  ]
+}
