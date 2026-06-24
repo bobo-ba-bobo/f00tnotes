@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-25",
+  "count": 6,
+  "generatedAt": "2026-06-24T23:59:07.426Z",
+  "items": [
+    {
+      "title": "Shield AI, 시리즈G로 15억 달러 조달해 기업가치 127억 달러 달성",
+      "summary": "방산 AI 스타트업 Shield AI가 22.5억 달러 패키지의 일환으로 15억 달러를 유치하며 1년 새 기업가치 140% 급등했다.",
+      "url": "https://www.crescendo.ai/news/latest-vc-investment-deals-in-ai-startups",
+      "source": "Crescendo AI",
+      "category": "펀딩"
+    },
+    {
+      "title": "글로벌 벤처 투자 1분기 사상 최고 3000억 달러 돌파, AI가 80% 차지",
+      "summary": "2026년 1분기 전 세계 스타트업 투자가 3000억 달러를 기록했으며 그 중 AI 분야가 2420억 달러로 역대 최고 비중을 차지했다.",
+      "url": "https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/",
+      "source": "Crunchbase News",
+      "category": "시장"
+    },
+    {
+      "title": "Eridu, 데이터센터 AI 네트워킹 인프라로 스텔스 탈피 후 2억 달러 이상 시리즈A 확보",
+      "summary": "AI 네트워킹 스타트업 Eridu가 GPU 클러스터 인터커넥트 레이어를 겨냥해 2억 달러 이상의 시리즈A를 조달하며 공식 출범했다.",
+      "url": "https://aifundingtracker.com/ai-startup-funding-news-today/",
+      "source": "AI Funding Tracker",
+      "category": "펀딩"
+    },
+    {
+      "title": "한국 스타트업 투자, AI 딥테크로 쏠림 심화 '호황 속 딜 가뭄' 우려 제기",
+      "summary": "국내 벤처 월 투자가 1조 원을 넘었지만 AI 외 기업은 소외되며 업계에서 시장 왜곡 우려의 목소리가 나오고 있다.",
+      "url": "https://www.news1.kr/industry/sb-founded/6197426",
+      "source": "뉴스1",
+      "category": "시장"
+    },
+    {
+      "title": "국민성장펀드 AI·반도체 LP 모집 조기 마감, 은행권 대거 참여로 공급 확대",
+      "summary": "국민성장펀드 운용사 11곳이 목표를 초과 결성하며 AI·반도체 중소기업 대상 모험자본 공급이 대폭 늘어날 전망이다.",
+      "url": "https://www.sedaily.com/article/20057651",
+      "source": "서울경제",
+      "category": "정책"
+    },
+    {
+      "title": "젠슨 황·손정의, 같은 날 피지컬 AI 시대 동시 선언하며 로봇 투자 열풍 예고",
+      "summary": "엔비디아 CEO와 소프트뱅크 회장이 각각 GTC와 프랑스에서 피지컬 AI를 다음 1조 달러 기회로 지목해 로봇 섹터 투자 가속이 예상된다.",
+      "url": "https://outstanding.kr/",
+      "source": "아웃스탠딩",
+      "category": "AI"
+    }
+  ]
+}
