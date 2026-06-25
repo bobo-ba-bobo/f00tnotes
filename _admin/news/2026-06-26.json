@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-26",
+  "count": 6,
+  "generatedAt": "2026-06-25T23:59:00.788Z",
+  "items": [
+    {
+      "title": "AI 마케팅 기업 매드업, IPO 청약 경쟁률 3305대 1로 올해 최고 기록",
+      "summary": "매드업이 코스닥 상장 청약에서 증거금 6.6조원을 모으며 2026년 IPO 신기록을 달성했다.",
+      "url": "https://www.sedaily.com/article/20059916",
+      "source": "서울경제",
+      "category": "IPO"
+    },
+    {
+      "title": "국민성장펀드 조기 마감, AI·반도체 스타트업으로 모험자본 대거 유입",
+      "summary": "국민성장펀드 운용사 11곳이 LP 모집을 조기 마감하며 AI·반도체 중소기업 자금 공급이 확대된다.",
+      "url": "https://www.sedaily.com/article/20057651",
+      "source": "서울경제",
+      "category": "시장"
+    },
+    {
+      "title": "앤틀러코리아, 글로벌 AI·로보틱스 스타트업 2개사에 각 50만 달러 초기 투자",
+      "summary": "앤틀러코리아 포지 프로그램이 35개국 100개 이상 팀 중 AI·로보틱스 2개사를 최종 선발했다.",
+      "url": "https://startuprecipe.co.kr/archives/invest-newsletter/5822543",
+      "source": "스타트업레시피",
+      "category": "펀딩"
+    },
+    {
+      "title": "AI 번역 스타트업 딥엘, 실시간 오디오 기술 기업 믹스헤일로 인수",
+      "summary": "딥엘이 믹스헤일로를 인수해 행사장 실시간 AI 통역 분야로 사업 영역을 확장했다.",
+      "url": "https://startuprecipe.co.kr/archives/invest-newsletter/5822543",
+      "source": "스타트업레시피",
+      "category": "M&A"
+    },
+    {
+      "title": "Anthropic, 클로드를 슬랙에 통합한 엔터프라이즈 협업툴 베타 출시",
+      "summary": "Anthropic이 슬랙 기존 앱을 대체하는 Claude 엔터프라이즈 에이전트를 베타로 공개했다.",
+      "url": "https://venturebeat.com/",
+      "source": "VentureBeat",
+      "category": "제품"
+    },
+    {
+      "title": "사이버 전쟁 스타트업 Twenty, 시리즈B 1억 달러 유치로 유니콘 등극",
+      "summary": "미국 최초 VC 지원 사이버전 스타트업 Twenty가 기업가치 10억 달러로 1억 달러를 조달했다.",
+      "url": "https://vcnewsdaily.com/",
+      "source": "VC News Daily",
+      "category": "펀딩"
+    }
+  ]
+}
