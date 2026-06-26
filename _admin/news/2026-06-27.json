@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-27",
+  "count": 6,
+  "generatedAt": "2026-06-26T23:59:05.543Z",
+  "items": [
+    {
+      "title": "AI 마케팅 기업 매드업 IPO 청약 경쟁률 3305대 1로 올해 최고 기록",
+      "summary": "매드업이 청약 증거금 6조 6000억원을 모으며 2026년 코스피·코스닥 통틀어 최고 IPO 경쟁률을 달성했다.",
+      "url": "https://www.sedaily.com/article/20059916",
+      "source": "서울경제",
+      "category": "IPO"
+    },
+    {
+      "title": "Baseten, AI 추론 인프라로 15억 달러 Series F 조달하며 주간 최대 딜 달성",
+      "summary": "AI 추론 기술 스타트업 Baseten이 이번 주 글로벌 최대 벤처 딜인 15억 달러 Series F를 클로즈했다.",
+      "url": "https://news.crunchbase.com/venture/biggest-funding-rounds-ai-marketing-robotics-baseten/",
+      "source": "Crunchbase News",
+      "category": "펀딩"
+    },
+    {
+      "title": "General Intuition, 게임플레이 기반 파운데이션 AI 모델로 3억 2000만 달러 Series A 유치",
+      "summary": "Khosla Ventures 주도, 제프 베이조스 참여로 게임 기반 AI 파운데이션 모델 스타트업이 23억 달러 밸류를 인정받았다.",
+      "url": "https://news.crunchbase.com/venture/biggest-funding-rounds-ai-marketing-robotics-baseten/",
+      "source": "Crunchbase News",
+      "category": "펀딩"
+    },
+    {
+      "title": "Groq, Nvidia의 창업팀 인수 이후 6억 5000만 달러 신규 펀딩으로 재기",
+      "summary": "Nvidia에 창업팀을 빼앗긴 Groq가 6개월 만에 6억 5000만 달러를 조달하며 AI 추론 클라우드 확장에 나섰다.",
+      "url": "https://news.crunchbase.com/venture/biggest-funding-rounds-ai-marketing-robotics-baseten/",
+      "source": "Crunchbase News",
+      "category": "펀딩"
+    },
+    {
+      "title": "2026년 6월 글로벌 VC 투자 트렌드, '프로덕션 AI'에 자본 집중",
+      "summary": "범용 AI 소프트웨어 대신 환자 접근 자동화, 금융 의사결정, 에이전트 거버넌스 등 실행형 AI 레이어에 투자가 집중되고 있다.",
+      "url": "https://techstartups.com/2026/06/24/venture-capital-startup-funding-roundup-june-24-2026/",
+      "source": "Tech Startups",
+      "category": "시장"
+    },
+    {
+      "title": "한국 AI 스타트업 투자 Q1 2026년 YoY 34% 증가, 6대 전략산업에 집중",
+      "summary": "2026년 1분기 한국 스타트업 지분 투자가 4억 8200만 달러로 전년 대비 34% 늘었고 AI 등 6대 전략산업이 주도했다.",
+      "url": "https://www.issueinsight.co.kr/news/articleView.html?idxno=2677",
+      "source": "이슈인사이트",
+      "category": "시장"
+    }
+  ]
+}
