@@ -3,3 +3,6 @@
 node_modules/
 *.log
 dev-server.py
+
+# 로컬 카드뉴스 덱(이미지 용량 큼, 배포 안 함)
+cardnews/
