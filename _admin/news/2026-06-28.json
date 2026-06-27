@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-28",
+  "count": 6,
+  "generatedAt": "2026-06-27T23:20:09.328Z",
+  "items": [
+    {
+      "title": "글로벌 VC 투자 2026년 Q1 사상 최대 3000억 달러 돌파",
+      "summary": "Q1 2026 글로벌 벤처 투자액이 3000억 달러로 역대 최고치를 경신했으며 AI가 전체의 80%를 흡수했다.",
+      "url": "https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/",
+      "source": "Crunchbase News",
+      "category": "시장"
+    },
+    {
+      "title": "방산 AI 스타트업 Shield AI, 시리즈G로 15억 달러 조달 기업가치 127억 달러",
+      "summary": "Shield AI가 15억 달러 시리즈G를 포함한 22.5억 달러 패키지로 기업가치 127억 달러를 인정받았다.",
+      "url": "https://www.crescendo.ai/news/latest-vc-investment-deals-in-ai-startups",
+      "source": "Crescendo AI",
+      "category": "펀딩"
+    },
+    {
+      "title": "AI 추론 클라우드 DeepInfra, 엔비디아 지원 받아 시리즈B 1.07억 달러 유치",
+      "summary": "DeepInfra가 엔비디아 백업 받아 시리즈B 1억 700만 달러를 조달하며 주당 5조 토큰 처리 인프라를 확장한다.",
+      "url": "https://aifundingtracker.com/",
+      "source": "AI Funding Tracker",
+      "category": "펀딩"
+    },
+    {
+      "title": "스텔스 AI 네트워킹 스타트업 Eridu, 시리즈A 2억 달러 이상으로 데뷔",
+      "summary": "데이터센터 AI 인터커넥트 레이어를 타겟으로 한 Eridu가 2억 달러 이상 시리즈A로 스텔스 모드를 종료했다.",
+      "url": "https://aifundingtracker.com/",
+      "source": "AI Funding Tracker",
+      "category": "펀딩"
+    },
+    {
+      "title": "OpenAI IPO 목표 기업가치 약 1조 달러, 2026년 4분기 추진 전망",
+      "summary": "주간 활성 사용자 9억 명과 200억 달러 연환산 매출을 보유한 OpenAI가 1조 달러 밸류의 IPO를 준비 중이다.",
+      "url": "https://www.crescendo.ai/news/latest-vc-investment-deals-in-ai-startups",
+      "source": "Crescendo AI",
+      "category": "IPO"
+    },
+    {
+      "title": "한국 정부 AI 혁신펀드 2조 원 규모로 확대, AI 유니콘 육성 본격화",
+      "summary": "한국 정부가 AI혁신펀드와 KIF를 통해 약 2조 원 규모 투자 재원을 확보하고 딥테크 스타트업 투자 연계를 강화한다.",
+      "url": "https://www.asiae.co.kr/article/2026042310295283665",
+      "source": "아시아경제",
+      "category": "정책"
+    }
+  ]
+}
