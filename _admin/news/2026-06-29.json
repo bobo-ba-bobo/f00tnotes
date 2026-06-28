@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-29",
+  "count": 6,
+  "generatedAt": "2026-06-28T23:20:10.001Z",
+  "items": [
+    {
+      "title": "AI 마케팅 기업 매드업, IPO 청약 경쟁률 3305대 1 역대 최고 달성",
+      "summary": "매드업이 코스닥 상장 일반청약에서 올해 코스피·코스닥 통틀어 최고 경쟁률을 기록하며 증거금 6.6조원을 모았다.",
+      "url": "https://www.sedaily.com/article/20059916",
+      "source": "서울경제",
+      "category": "IPO"
+    },
+    {
+      "title": "한국 국민성장펀드, AI·반도체 중심으로 목표 결성액 조기 초과 달성",
+      "summary": "은행권 위험가중치 규제 완화로 LP 모집이 조기 마감되며 AI·반도체 중소기업 자금 공급이 대폭 확대될 전망이다.",
+      "url": "https://www.sedaily.com/article/20057651",
+      "source": "서울경제",
+      "category": "펀딩"
+    },
+    {
+      "title": "글로벌 Q1 2026 VC 투자 3000억 달러 역대 최고, AI가 80% 독식",
+      "summary": "OpenAI·Anthropic·xAI·Waymo 4개사가 전체 벤처 투자의 65%를 흡수하며 AI 메가라운드 시대를 열었다.",
+      "url": "https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/",
+      "source": "Crunchbase News",
+      "category": "시장"
+    },
+    {
+      "title": "AI 네트워킹 인프라 스타트업 Upscale AI, 시리즈 A-1으로 1900만 달러 조달",
+      "summary": "산타클라라 기반 Upscale AI가 데이터센터 AI 네트워킹 인프라 고도화를 위해 1억 9000만 달러를 유치했다.",
+      "url": "https://vcnewsdaily.com/",
+      "source": "VC News Daily",
+      "category": "펀딩"
+    },
+    {
+      "title": "AI 에이전트 확산으로 CPU 전략적 가치 급부상, 인텔 주가 올해 3배 급등",
+      "summary": "GPU 중심 AI 인프라 패러다임이 흔들리며 AI 에이전트 시대에 CPU 재평가와 반도체 시장 경쟁이 점화됐다.",
+      "url": "https://www.sedaily.com/article/20059916",
+      "source": "서울경제",
+      "category": "AI"
+    },
+    {
+      "title": "한국 컬리, 네이버 유상증자로 기업가치 2.8조 인정받고 IPO 재추진 동력 확보",
+      "summary": "컬리가 네이버 330억 규모 제3자 배정 유상증자를 통해 재무 안정성을 개선하며 상장 재추진에 속도를 낸다.",
+      "url": "https://www.sedaily.com/article/20057651",
+      "source": "서울경제",
+      "category": "IPO"
+    }
+  ]
+}
