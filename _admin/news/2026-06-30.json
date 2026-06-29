@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-30",
+  "count": 6,
+  "generatedAt": "2026-06-29T23:31:15.711Z",
+  "items": [
+    {
+      "title": "Anysphere(Cursor), 시리즈D 23억 달러 유치로 기업가치 293억 달러 달성",
+      "summary": "AI 코딩툴 Cursor 운영사 Anysphere가 5개월 만에 기업가치 3배로 뛰며 실리콘밸리 역대 최단기 밸류업 기록을 세웠다.",
+      "url": "https://www.crescendo.ai/news/latest-vc-investment-deals-in-ai-startups",
+      "source": "Crescendo AI",
+      "category": "펀딩"
+    },
+    {
+      "title": "Anduril, 시리즈H 50억 달러 조달로 기업가치 305억 달러 방산 스타트업 1위 굳혀",
+      "summary": "Anduril이 방산 스타트업 사상 최대 라운드를 마감하며 2026년 방산 VC 투자가 이미 2025년 연간 기록을 초과했다.",
+      "url": "https://news.crunchbase.com/defense-tech/startup-venture-funding-all-time-record-ai-anduril/",
+      "source": "Crunchbase News",
+      "category": "펀딩"
+    },
+    {
+      "title": "OpenAI, 브로드컴과 공동 개발한 자체 AI 추론 칩 '할라피뇨(Jalapeño)' 공개",
+      "summary": "OpenAI가 엔비디아 의존 탈피를 위해 자체 설계 추론 칩을 공식 발표하며 빅테크 자체 칩 경쟁이 본격화됐다.",
+      "url": "https://techcrunch.com/",
+      "source": "TechCrunch",
+      "category": "제품"
+    },
+    {
+      "title": "국민성장펀드, 퓨리오사AI에 8000억 원 투자 승인으로 AI 반도체 국가대표 육성 가속",
+      "summary": "정부 주도 국민성장펀드가 국산 AI 반도체 설계사 퓨리오사AI에 역대 최대 단일 투자를 결정해 파장이 크다.",
+      "url": "https://www.fnnews.com/news/202606200837079700",
+      "source": "파이낸셜뉴스",
+      "category": "정책"
+    },
+    {
+      "title": "AI 장기 에이전트 인프라 스타트업 Sail Research, 시드·시리즈A 합산 8000만 달러 확보",
+      "summary": "장기 자율 AI 에이전트 전용 인프라를 구축하는 Sail Research가 4.5억 달러 밸류에이션으로 조기 대규모 자금을 유치했다.",
+      "url": "https://vcnewsdaily.com/",
+      "source": "VC News Daily",
+      "category": "펀딩"
+    },
+    {
+      "title": "AI 스타트업 투자의 88%가 미국 집중, 한국·유럽은 글로벌 AI 붐 수혜 제한적",
+      "summary": "2026년 AI 관련 VC 투자의 88%가 미국 기업으로 편중되며 비미국권 생태계의 구조적 소외가 수치로 확인됐다.",
+      "url": "https://news.crunchbase.com/venture/us-ai-startup-funding-boom-data/",
+      "source": "Crunchbase News",
+      "category": "시장"
+    }
+  ]
+}
