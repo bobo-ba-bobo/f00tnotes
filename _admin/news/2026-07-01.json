@@ -1,0 +1,42 @@
+{
+  "date": "2026-07-01",
+  "count": 5,
+  "generatedAt": "2026-06-30T23:31:16.085Z",
+  "items": [
+    {
+      "title": "Anthropic, 시리즈H 650억 달러 조달 후 SEC에 IPO 비밀 신청",
+      "summary": "기업가치 9650억 달러로 시리즈H를 마감한 Anthropic이 곧바로 SEC에 비밀 상장 신청을 제출하며 IPO 레이스 개막.",
+      "url": "https://builtin.com/articles/top-tech-ipos-2026",
+      "source": "Built In",
+      "category": "IPO"
+    },
+    {
+      "title": "이재명 정부, 반도체·AI·로봇 집약 '1000조 프로젝트' 국민보고회 개최",
+      "summary": "한국 정부가 6월 30일 서남권 첨단산업 투자 보고회를 열고 반도체·AI·로봇을 아우르는 1000조 규모 국가 프로젝트 윤곽을 공개.",
+      "url": "https://view.asiae.co.kr/article/2026062514344846700",
+      "source": "아시아경제",
+      "category": "정책"
+    },
+    {
+      "title": "Taktile, 금융기관 AI 전환 겨냥 시리즈C 1억 1000만 달러 조달",
+      "summary": "금융기관용 AI 의사결정 자동화 플랫폼 Taktile이 시리즈C로 1억 1000만 달러를 확보하며 핀테크 AI 인프라 투자 가속화.",
+      "url": "https://vcnewsdaily.com/",
+      "source": "VC News Daily",
+      "category": "펀딩"
+    },
+    {
+      "title": "OpenAI, SEC에 IPO 서류 비밀 제출하며 2027년 상장 시동",
+      "summary": "OpenAI가 기업가치 852억 달러 상태에서 SEC에 IPO 서류를 비밀 제출해 2027년 공개 상장을 위한 공식 절차에 돌입.",
+      "url": "https://builtin.com/articles/top-tech-ipos-2026",
+      "source": "Built In",
+      "category": "IPO"
+    },
+    {
+      "title": "Crusoe, AI 데이터센터 확장 위해 시리즈E 13억 8000만 달러 조달",
+      "summary": "플레어가스 기반 AI 데이터센터 기업 Crusoe가 Valor·Mubadala·엔비디아 등 참여로 시리즈E 13억 8000만 달러를 확보하며 기업가치 100억 달러 돌파.",
+      "url": "https://www.crescendo.ai/news/latest-vc-investment-deals-in-ai-startups",
+      "source": "Crescendo AI",
+      "category": "펀딩"
+    }
+  ]
+}
