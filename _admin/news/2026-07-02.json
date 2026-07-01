@@ -1,0 +1,49 @@
+{
+  "date": "2026-07-02",
+  "count": 6,
+  "generatedAt": "2026-07-01T23:31:15.223Z",
+  "items": [
+    {
+      "title": "OpenAI, 차세대 추론 모델 'GPT-5.6' 공개 및 플래그십 '솔' 제한 프리뷰 시작",
+      "summary": "OpenAI가 세계 최고 수준을 표방하는 GPT-5.6을 공개하고 플래그십 모델 '솔'의 제한 프리뷰를 시작해 AI 모델 경쟁이 새 국면에 진입했다.",
+      "url": "https://www.aitimes.kr/",
+      "source": "인공지능신문",
+      "category": "AI"
+    },
+    {
+      "title": "데이터브릭스, AI 보안관제 기업 팬서(Panther) 인수 추진해 '시큐리티 레이크하우스' 전략 확대",
+      "summary": "데이터브릭스가 AI 보안관제 스타트업 팬서 인수를 추진하며 데이터+보안 통합 플랫폼 전략을 본격화하고 있다.",
+      "url": "https://www.aitimes.kr/",
+      "source": "인공지능신문",
+      "category": "M&A"
+    },
+    {
+      "title": "퀄컴, AI 인프라 기업 모듈러(Modular) 인수로 CPU·GPU·NPU 통합 시대 선언",
+      "summary": "퀄컴이 모듈러 인수를 통해 이기종 AI 연산 통합 플랫폼을 구축하며 엔비디아 중심의 AI 칩 생태계에 정면 도전장을 냈다.",
+      "url": "https://www.aitimes.kr/",
+      "source": "인공지능신문",
+      "category": "M&A"
+    },
+    {
+      "title": "Patronus AI, 시리즈B 5000만 달러 조달하며 'Digital World Models' 대형 시뮬레이션 환경 공개",
+      "summary": "AI 평가 전문 스타트업 Patronus AI가 5000만 달러를 유치하고 AI 시스템 훈련용 대규모 디지털 월드 모델을 동시에 선보였다.",
+      "url": "https://vcnewsdaily.com/",
+      "source": "VC News Daily",
+      "category": "펀딩"
+    },
+    {
+      "title": "알리바바, AI 조직·모델·인프라 전면 재편하며 2026년 하반기 AI 성장 가속 선언",
+      "summary": "알리바바가 AI 사업 조직과 모델, 인프라를 대대적으로 재정비하며 하반기 글로벌 AI 시장 공략을 공식화했다.",
+      "url": "https://www.aitimes.kr/",
+      "source": "인공지능신문",
+      "category": "시장"
+    },
+    {
+      "title": "매드업, 7월 1일 코스닥 상장 완료, 청약 증거금 6.6조 원으로 올해 IPO 최고 기록",
+      "summary": "AI 마케팅 기업 매드업이 3305대 1 경쟁률과 6.6조 원 증거금으로 올해 코스닥 최대 IPO를 기록하며 오늘 정식 상장했다.",
+      "url": "https://www.sedaily.com/article/20059916",
+      "source": "서울경제",
+      "category": "IPO"
+    }
+  ]
+}
