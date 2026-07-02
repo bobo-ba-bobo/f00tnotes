@@ -1,0 +1,49 @@
+{
+  "date": "2026-07-03",
+  "count": 6,
+  "generatedAt": "2026-07-02T23:31:20.595Z",
+  "items": [
+    {
+      "title": "Anthropic, 클로드 소넷 5 출시로 에이전트 실행 능력을 소넷 가격에 제공",
+      "summary": "6월 30일 공개된 클로드 소넷 5는 Opus급 에이전트 성능을 Sonnet급 비용으로 구현해 AI 에이전트 시장 판도를 흔들 전망이다.",
+      "url": "https://news.hada.io/",
+      "source": "GeekNews",
+      "category": "AI"
+    },
+    {
+      "title": "Baseten, AI 추론 기술로 시리즈F 15억 달러 조달하며 메가딜 주간 최대 규모 기록",
+      "summary": "AI 인퍼런스 인프라 기업 Baseten이 15억 달러 시리즈F를 마감하며 이번 주 글로벌 VC 최대 단일 딜로 부상했다.",
+      "url": "https://news.crunchbase.com/venture/biggest-funding-rounds-ai-marketing-robotics-baseten/",
+      "source": "Crunchbase News",
+      "category": "펀딩"
+    },
+    {
+      "title": "Groq, 창업진 이탈 후 재기 위해 6억 5000만 달러 신규 조달로 AI 추론 클라우드 재도약",
+      "summary": "엔비디아에 핵심 팀을 넘긴 지 반 년 만에 6억 5000만 달러를 조달해 AI 추론 클라우드 사업 재건에 나섰다.",
+      "url": "https://news.crunchbase.com/venture/biggest-funding-rounds-ai-marketing-robotics-baseten/",
+      "source": "Crunchbase News",
+      "category": "펀딩"
+    },
+    {
+      "title": "화웨이 AI 가속기 '어센드', 4분기 한국 상륙 확정으로 엔비디아에 정면 도전",
+      "summary": "화웨이가 H20 대비 추론 성능 2.87배·가격 4분의 1 수준의 어센드 950PR을 4분기 한국에 출시하며 국내 AI 인프라 시장에 진입한다.",
+      "url": "https://www.sptatimeskorea.com/post/%EC%A0%9C20260701-ti-01%ED%98%B8-2026%EB%85%84-7%EC%9B%94-1%EC%9D%BC-%EA%B8%80%EB%A1%9C%EB%B2%8C-%EB%B0%98%EB%8F%84%EC%B2%B4-%EC%82%B0%EC%97%85-%EA%B4%80%EB%A0%A8-%EC%A3%BC%EC%9A%94-%EB%89%B4%EC%8A%A4-%EC%9A%94%EC%95%BD",
+      "source": "전자신문 / SPTA Times Korea",
+      "category": "제품"
+    },
+    {
+      "title": "Mirendil, a16z·클라이너 퍼킨스 주도로 시드 2억 달러 조달하며 AI R&D 프런티어 랩 등장",
+      "summary": "AI 연구개발 특화 프런티어 랩 Mirendil이 최대 VC 연합으로부터 시드 2억 달러를 받으며 차세대 AI 연구 경쟁에 뛰어들었다.",
+      "url": "https://news.crunchbase.com/venture/biggest-funding-rounds-ai-marketing-robotics-baseten/",
+      "source": "Crunchbase News",
+      "category": "펀딩"
+    },
+    {
+      "title": "미국 상무부, 앤트로픽 최신 모델 수출 통제 해제 예고로 글로벌 AI 접근 재개 임박",
+      "summary": "미 상무부 수출 통제 해제 통보로 Claude Fable 5·Mythos 5의 해외 접근이 이르면 오늘부터 재개될 전망이다.",
+      "url": "https://news.hada.io/",
+      "source": "GeekNews",
+      "category": "정책"
+    }
+  ]
+}
