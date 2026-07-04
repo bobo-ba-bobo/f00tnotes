@@ -1,0 +1,49 @@
+{
+  "date": "2026-07-05",
+  "count": 6,
+  "generatedAt": "2026-07-04T23:31:17.499Z",
+  "items": [
+    {
+      "title": "Shield AI, 시리즈G 15억 달러 포함 총 22.5억 달러 패키지 조달로 기업가치 127억 달러 달성",
+      "summary": "미 공군 자율전투기 프로그램 수주한 방산 AI 스타트업이 1년 새 기업가치 140% 급등하며 방산 AI 최대 라운드 경신.",
+      "url": "https://www.crescendo.ai/news/latest-vc-investment-deals-in-ai-startups",
+      "source": "Crescendo AI",
+      "category": "펀딩"
+    },
+    {
+      "title": "한국수출입은행, 퓨리오사AI에 200억 원 직접 투자 단행해 수은 설립 이래 벤처 첫 직접 투자 사례 기록",
+      "summary": "정책금융기관 수출입은행이 AI 반도체 퓨리오사AI에 직접 투자하며 국가 차원의 반도체 육성 금융 지원이 새 단계로 진입.",
+      "url": "https://startuprecipe.co.kr/archives/5824440",
+      "source": "스타트업레시피",
+      "category": "정책"
+    },
+    {
+      "title": "Joulent, AI 컴퓨트 전력 인프라 구축 목적으로 17.5억 달러 조달하며 이번 주 최대 라운드 기록",
+      "summary": "AI 데이터센터 전력 수요 급증을 겨냥한 휴스턴 에너지 인프라 스타트업이 이번 주 글로벌 최대 단일 라운드를 마감.",
+      "url": "https://news.crunchbase.com/venture/biggest-funding-rounds-ai-energy-biotech-joulent/",
+      "source": "Crunchbase News",
+      "category": "펀딩"
+    },
+    {
+      "title": "국내 주간 스타트업 투자 42개사 합산 3226억 원, 시리즈A 비중 1위로 초기 시장 활기 유지",
+      "summary": "이번 주 국내 스타트업 42곳이 투자 유치에 성공하며 제조·바이오·소프트웨어 고른 분포로 국내 VC 시장 건재 확인.",
+      "url": "https://startuprecipe.co.kr/archives/5824440",
+      "source": "스타트업레시피",
+      "category": "시장"
+    },
+    {
+      "title": "Rhoda AI, 스텔스 18개월 만에 시리즈A 4.5억 달러로 공개 등장하며 로보틱 인텔리전스 플랫폼 'FutureVision' 공개",
+      "summary": "18개월 스텔스 끝에 4.5억 달러 시리즈A로 데뷔한 로봇 AI 스타트업이 피지컬 AI 섹터 최대 초기 라운드로 주목.",
+      "url": "https://www.crescendo.ai/news/latest-vc-investment-deals-in-ai-startups",
+      "source": "Crescendo AI",
+      "category": "AI"
+    },
+    {
+      "title": "VC Eclipse, 피지컬 AI 전문 13억 달러 신규 펀드 결성해 인큐베이션과 성장 단계 투자 동시 운영",
+      "summary": "팰로알토 VC Eclipse가 로봇·자율주행·제조 AI 겨냥 13억 달러 펀드를 클로즈하며 피지컬 AI가 다음 VC 메가테마로 부상.",
+      "url": "https://techcrunch.com/2026/04/07/vc-eclipse-has-a-new-1-3b-to-back-and-build-physical-ai-startups/",
+      "source": "TechCrunch",
+      "category": "시장"
+    }
+  ]
+}
