@@ -33,7 +33,7 @@
   </g>
 
   <!-- title -->
-  <text x="90" y="680" font-family="'Pretendard', sans-serif" font-size="60" font-weight="600" letter-spacing="-2" fill="#F0F0F0">The Data Problem</text>
+  <text x="90" y="680" font-family="'Pretendard', sans-serif" font-size="52" font-weight="600" letter-spacing="-2" fill="#F0F0F0">Robots Can&#8217;t Read the Internet</text>
   <text x="92" y="732" font-family="'Pretendard', sans-serif" font-size="26" fill="#888888">Why the RFM wars will be won on data</text>
 
   <!-- footnote mark -->

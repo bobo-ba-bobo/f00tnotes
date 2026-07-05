@@ -1,4 +1,4 @@
-# The Data Problem: Why the Robot Foundation Model Wars Will Be Won on Data
+# Robots Can't Read the Internet: Why the Robot Foundation Model Wars Will Be Won on Data
 
 The industry is pouring its best capital and talent into humanoid hardware and ever-smarter robot models. This is the wrong bet. In RFM, the model is the layer that commoditizes fast, exactly as it did in LLMs, and the hardware is the layer that only burns capital. The one layer that compounds over time and that no one can copy is physical interaction data. The winners of this cycle will not be the company that built the best-walking robot or the smartest model. They will be the company that accumulated the most real-world data.
 
