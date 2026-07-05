@@ -687,6 +687,475 @@
       ],
       "analogy": "Like a detailed table of contents for a 10,000-page book, so you never have to skim the whole thing again.",
       "analogy_ko": "1만 쪽짜리 책의 상세한 목차 같은 것. 덕분에 전체를 다시 훑을 필요가 없다."
+    },
+    {
+      "slug": "rfm",
+      "term": "Robot Foundation Model (RFM)",
+      "term_ko": "로봇 파운데이션 모델 (RFM)",
+      "aliases": [
+        "Robot Foundation Model",
+        "RFM"
+      ],
+      "aliases_ko": [
+        "로봇 파운데이션 모델",
+        "RFM"
+      ],
+      "category": "Robotics",
+      "difficulty": 2,
+      "hover": "A general-purpose AI model that takes a spoken command and camera view and outputs a robot’s actions. The robotics answer to GPT.",
+      "hover_ko": "말로 시키고 눈으로 본 것을 받아 로봇의 행동을 출력하는 범용 AI 모델. 로봇판 GPT를 노린다.",
+      "infographic": "\"clear the table\" + camera feed  ->  [ RFM ]  ->  how to move each joint",
+      "body": [
+        "A robot foundation model is a single policy model pre-trained on large amounts of vision-language-action data. It takes a natural-language instruction, a camera image, and the robot’s joint state, and outputs how the robot should move. Just as an LLM found general capability in text, an RFM tries to find general capability in robot action.",
+        "The term spread after Covariant unveiled RFM-1 in 2024, and became common as NVIDIA shipped GR00T and Physical Intelligence shipped the π series. The central claim is that one model can drive many tasks and, increasingly, many robot bodies."
+      ],
+      "body_ko": [
+        "로봇 파운데이션 모델은 대규모의 영상-언어-행동 데이터로 미리 학습된 하나의 정책 모델이다. 자연어 지시와 카메라 영상, 로봇의 관절 상태를 입력받아 로봇이 어떻게 움직일지를 출력한다. LLM이 텍스트에서 범용성을 얻은 것처럼, RFM은 로봇 행동에서 범용성을 얻으려 한다.",
+        "RFM이라는 말은 Covariant가 2024년 RFM-1을 공개하며 퍼졌고, NVIDIA의 GR00T와 Physical Intelligence의 π 시리즈가 나오며 일반화됐다. 핵심 주장은 하나의 모델이 여러 작업을, 점점 더 여러 로봇 몸을 구동할 수 있다는 것이다."
+      ],
+      "analogy": "One driver’s license that lets you operate many different vehicles, instead of a separate manual for each machine.",
+      "analogy_ko": "기계마다 따로 있는 매뉴얼이 아니라, 여러 차량을 몰 수 있는 하나의 운전면허 같은 것."
+    },
+    {
+      "slug": "physical-ai",
+      "term": "Physical AI",
+      "term_ko": "Physical AI (피지컬 AI)",
+      "aliases": [
+        "Physical AI"
+      ],
+      "aliases_ko": [
+        "Physical AI"
+      ],
+      "category": "Robotics",
+      "difficulty": 1,
+      "hover": "The umbrella term for AI that moves and does work in the real physical world, not just on a screen.",
+      "hover_ko": "화면 안이 아니라 실제 물리 세계에서 움직이고 일을 하는 AI를 묶는 상위 개념.",
+      "infographic": "Digital AI:   writes and draws (inside the screen)\nPhysical AI:  grips, assembles, cleans (in the real world)",
+      "body": [
+        "Physical AI is the broad category for AI that reaches into the real world through a robot body, rather than staying inside a screen like a chatbot. An RFM is the brain that drives Physical AI. Humanoids, farm machines, and industrial arms all fall under it.",
+        "The label matters because it frames the current wave of robotics investment as a distinct category from digital-only AI, one whose defining constraint is that the world is messy, physical, and expensive to gather data from."
+      ],
+      "body_ko": [
+        "Physical AI는 챗봇처럼 화면 안에 머무는 AI가 아니라, 로봇이라는 몸을 통해 실제 세계에 손을 대는 AI를 가리키는 큰 범주다. RFM은 이 Physical AI를 구동하는 두뇌에 해당한다. 휴머노이드, 농기계, 산업 로봇이 모두 여기 속한다.",
+        "이 이름이 중요한 이유는, 지금의 로봇 투자 붐을 디지털 전용 AI와 구분되는 별도 카테고리로 규정하기 때문이다. 그 카테고리의 결정적 제약은 세계가 지저분하고 물리적이며 데이터 수집이 비싸다는 점이다."
+      ],
+      "analogy": "The jump from an office worker who only sends emails to a field crew that actually builds the house.",
+      "analogy_ko": "이메일만 보내는 사무직에서, 실제로 집을 짓는 현장 작업자로 넘어가는 것."
+    },
+    {
+      "slug": "vla",
+      "term": "Vision-Language-Action (VLA)",
+      "term_ko": "비전-언어-행동 (VLA)",
+      "aliases": [
+        "Vision-Language-Action",
+        "VLA"
+      ],
+      "aliases_ko": [
+        "VLA"
+      ],
+      "category": "Robotics",
+      "difficulty": 3,
+      "hover": "A model that turns camera images and words into tokens, feeds them to one network, and decodes actions directly.",
+      "hover_ko": "카메라 영상과 말을 토큰으로 바꿔 하나의 모델에 넣고, 곧장 행동을 뽑아내는 방식.",
+      "infographic": "[camera image] + [instruction]  ->  tokenize  ->  [ Transformer ]  ->  [action tokens]",
+      "body": [
+        "A VLA is a single policy that fuses vision and language into one token sequence and decodes actions from it. Much as an LLM handles text as tokens, a VLA handles a robot’s see-hear-move loop inside one model. Google RT-2, Figure Helix, and OpenVLA are representative.",
+        "The appeal is simplicity and transfer: one architecture, trained once, that can in principle be pointed at new tasks and new robots. It is the closest robotics analogue to the LLM recipe."
+      ],
+      "body_ko": [
+        "VLA는 영상(Vision)과 언어(Language)를 하나의 토큰 시퀀스로 합쳐 넣고, 행동(Action)을 바로 디코딩하는 단일 정책이다. LLM이 텍스트를 토큰으로 다루듯, VLA는 로봇의 보고-듣고-움직이는 과정을 한 모델 안에서 처리한다. Google RT-2, Figure Helix, OpenVLA가 대표 사례다.",
+        "장점은 단순함과 전이성이다. 한 번 학습한 하나의 아키텍처를 원칙적으로 새로운 작업과 새로운 로봇에 겨눌 수 있다. LLM 레시피에 가장 가까운 로보틱스 버전이다."
+      ],
+      "analogy": "One universal translator that reads a scene, hears the request, and speaks back in the language of motion.",
+      "analogy_ko": "장면을 읽고 요청을 듣고 움직임의 언어로 답하는 하나의 만능 통역기."
+    },
+    {
+      "slug": "diffusion-policy",
+      "term": "Diffusion Policy",
+      "term_ko": "확산 정책 (Diffusion Policy)",
+      "aliases": [
+        "Diffusion Policy"
+      ],
+      "aliases_ko": [
+        "Diffusion Policy",
+        "확산 정책"
+      ],
+      "category": "Robotics",
+      "difficulty": 3,
+      "hover": "Borrows the technique behind image generators to shape a robot’s motion out of noise, step by step.",
+      "hover_ko": "그림 생성 AI가 쓰는 기법을 빌려, 로봇 행동을 노이즈에서 조금씩 다듬어 만들어 내는 방식.",
+      "infographic": "random noise -> refine -> refine -> smooth action trajectory",
+      "body": [
+        "Diffusion Policy applies the diffusion models used in image generation to robot action. Instead of fixing a single action, it learns a distribution over possible actions, so the same situation can produce several natural motions. That makes it strong for fine, varied manipulation.",
+        "The approach originated at Toyota Research Institute, and Physical Intelligence’s π0 is in this family. It is one of the two dominant recipes for RFMs alongside VLAs."
+      ],
+      "body_ko": [
+        "확산 정책은 이미지 생성에 쓰이는 확산 모델을 로봇 행동에 적용한 방식이다. 행동을 하나로 딱 정하지 않고 가능한 행동의 분포로 학습해, 같은 상황에서 여러 자연스러운 동작을 표현할 수 있다. 그래서 미세하고 다양한 조작에 강점이 있다.",
+        "이 접근은 Toyota Research Institute에서 시작됐고, Physical Intelligence의 π0가 이 계열이다. VLA와 더불어 RFM의 양대 레시피 중 하나다."
+      ],
+      "analogy": "A sculptor starting from a rough block and refining until a smooth figure emerges.",
+      "analogy_ko": "거친 돌덩이에서 시작해 매끄러운 형상이 드러날 때까지 다듬는 조각가."
+    },
+    {
+      "slug": "hierarchical",
+      "term": "Hierarchical Architecture (System 1 / 2)",
+      "term_ko": "계층형 아키텍처 (System 1 / 2)",
+      "aliases": [
+        "hierarchical architecture",
+        "System 1",
+        "System 2"
+      ],
+      "aliases_ko": [
+        "계층형",
+        "System 1",
+        "System 2"
+      ],
+      "category": "Robotics",
+      "difficulty": 3,
+      "hover": "Splits a slow thinking brain (reasoning) from a fast moving brain (motor control).",
+      "hover_ko": "느리게 생각하는 뇌(추론)와 빠르게 움직이는 뇌(모터 제어)를 나눠 둔 구조.",
+      "infographic": "System 2 (slow): what to do, reasoning  - VLM\n        |\nSystem 1 (fast): how to move, motor control",
+      "body": [
+        "A hierarchical architecture borrows from the human split between fast intuition (System 1) and slow deliberation (System 2). An upper model looks at the scene and instruction and slowly reasons about what to do; a lower policy takes that plan and controls the joints quickly. Figure’s Helix and NVIDIA GR00T use this design.",
+        "The split exists because reasoning and real-time control run at very different speeds. Keeping them in separate loops lets each run at the rate it needs."
+      ],
+      "body_ko": [
+        "계층형 아키텍처는 사람의 빠른 직관(System 1)과 느린 사고(System 2)의 구분에서 빌려 왔다. 상위 모델이 장면과 지시를 보고 무엇을 할지 천천히 추론하면, 하위 정책이 그 계획을 받아 관절을 빠르게 제어한다. Figure의 Helix와 NVIDIA GR00T가 이 방식을 쓴다.",
+        "이렇게 나누는 이유는 추론과 실시간 제어가 매우 다른 속도로 돌기 때문이다. 둘을 별도 루프로 두면 각자 필요한 주기로 돌릴 수 있다."
+      ],
+      "analogy": "A driver deciding the route while reflexes handle the steering, moment to moment.",
+      "analogy_ko": "운전자가 경로를 정하는 동안, 순간순간의 핸들 조작은 반사신경이 맡는 것."
+    },
+    {
+      "slug": "world-model",
+      "term": "World Model",
+      "term_ko": "월드 모델 (World Model)",
+      "aliases": [
+        "world model"
+      ],
+      "aliases_ko": [
+        "월드 모델"
+      ],
+      "category": "Robotics",
+      "difficulty": 3,
+      "hover": "Before learning actions, the model first learns how the world behaves, then plans on top of it.",
+      "hover_ko": "행동을 배우기 전에, 세상이 어떻게 움직이는지부터 학습해 두고 그 위에서 계획하는 방식.",
+      "infographic": "learn \"push the cup -> it rolls -> it falls\"  first, then plan the action",
+      "body": [
+        "A world model first learns the physics and cause-and-effect of an environment (push it and it rolls), then fine-tunes an action policy on top. Because it can predict outcomes in a mental simulation without acting them out, it is more data-efficient. World Labs and DeepMind Genie point in this direction.",
+        "For robotics, where real data is scarce and expensive, a model that can imagine consequences is an appealing way to stretch limited experience further."
+      ],
+      "body_ko": [
+        "월드 모델은 환경의 물리 법칙과 인과(밀면 굴러간다)를 먼저 학습한 뒤, 그 위에서 행동 정책을 미세조정한다. 직접 해 보지 않고도 머릿속 시뮬레이션으로 결과를 예측할 수 있어 데이터 효율이 높다. World Labs, DeepMind Genie 등이 이 방향이다.",
+        "실데이터가 부족하고 비싼 로보틱스에서, 결과를 상상할 수 있는 모델은 제한된 경험을 더 멀리 늘리는 매력적인 방법이다."
+      ],
+      "analogy": "Rehearsing a move in your head before you make it on the board.",
+      "analogy_ko": "판에 두기 전에 머릿속으로 수를 미리 둬 보는 것."
+    },
+    {
+      "slug": "teleoperation",
+      "term": "Teleoperation Demonstration",
+      "term_ko": "텔레오퍼레이션 시연",
+      "aliases": [
+        "teleoperated demonstration",
+        "teleoperation"
+      ],
+      "aliases_ko": [
+        "텔레오퍼레이션"
+      ],
+      "category": "Data",
+      "difficulty": 2,
+      "hover": "A person remotely puppeteers a robot to show the correct action, one demonstration at a time. The most expensive data.",
+      "hover_ko": "사람이 로봇을 직접 원격 조종해 올바른 행동을 한 번 한 번 시범 보이는 일. 가장 비싼 데이터.",
+      "infographic": "person drives robot arm  ->  record the motion  ->  the model’s training label",
+      "body": [
+        "Teleoperation demonstration is when a person directly controls a robot to perform a task, and the resulting trajectory becomes training data. It is the most accurate source, but a human has to make each one, so it is the slowest and most expensive.",
+        "This is the root reason robot data is scarce. Unlike text that simply accumulated on the internet, action data has to be manufactured by hand, which is why the whole field is data-starved."
+      ],
+      "body_ko": [
+        "텔레오퍼레이션 시연은 사람이 로봇을 직접 조종해 작업을 해 보이고, 그 궤적을 학습 데이터로 삼는 방식이다. 가장 정확하지만 사람이 일일이 만들어야 해서 가장 느리고 비싸다.",
+        "로봇 데이터가 부족한 근본 이유가 여기 있다. 인터넷에 그냥 쌓인 텍스트와 달리, 행동 데이터는 손으로 만들어야 하기에 이 분야 전체가 데이터에 굶주려 있다."
+      ],
+      "analogy": "Teaching someone to cook by holding their hands and guiding every motion, dish by dish.",
+      "analogy_ko": "손을 잡고 모든 동작을 이끌며, 요리를 하나하나 가르치는 것."
+    },
+    {
+      "slug": "trajectory",
+      "term": "Trajectory / RT-X",
+      "term_ko": "Trajectory / RT-X",
+      "aliases": [
+        "trajectories",
+        "trajectory",
+        "RT-X"
+      ],
+      "aliases_ko": [
+        "trajectory",
+        "RT-X"
+      ],
+      "category": "Data",
+      "difficulty": 2,
+      "hover": "A trajectory is one full start-to-finish recording of a task. RT-X is the flagship public dataset of them.",
+      "hover_ko": "trajectory는 작업 하나를 처음부터 끝까지 기록한 것. RT-X는 그걸 모은 대표 공개 데이터셋.",
+      "infographic": "LLM training:  trillions of tokens\nRFM training:  RT-X ~1M trajectories, π0 ~10k hours   <- 6-7 orders short",
+      "body": [
+        "A trajectory is one complete record of a robot performing a task from start to finish. RT-X is a well-known public dataset that pools trajectories from many labs, on the order of one million. Next to the trillions of tokens an LLM consumes, robot data is orders of magnitude smaller.",
+        "This scale gap is the single biggest bottleneck for RFMs, and the reason data, not model architecture, is where the durable advantage sits."
+      ],
+      "body_ko": [
+        "Trajectory는 로봇이 한 작업을 처음부터 끝까지 수행한 기록 한 묶음이다. RT-X는 여러 연구실의 trajectory를 합친 대표적 공개 데이터셋으로 100만 건 수준이다. 수조 토큰을 먹는 LLM과 비교하면 로봇 데이터는 자릿수가 한참 모자란다.",
+        "이 규모 격차가 RFM의 가장 큰 병목이고, 지속적 우위가 모델 아키텍처가 아니라 데이터에 있는 이유다."
+      ],
+      "analogy": "A million home videos of one chore versus the entire written internet. The robot got the small pile.",
+      "analogy_ko": "집안일 하나를 찍은 100만 개의 영상 대 인터넷 전체의 글. 로봇에게 온 건 작은 쪽이다."
+    },
+    {
+      "slug": "sim2real",
+      "term": "Sim2Real Gap",
+      "term_ko": "Sim2Real 갭",
+      "aliases": [
+        "Sim2Real gap",
+        "Sim2Real"
+      ],
+      "aliases_ko": [
+        "Sim2Real 갭",
+        "Sim2Real"
+      ],
+      "category": "Data",
+      "difficulty": 3,
+      "hover": "A robot that excelled in simulation drops in performance once it faces the real world.",
+      "hover_ko": "시뮬레이션에서 잘하던 로봇이 진짜 세계에 나오면 성능이 떨어지는 현상.",
+      "infographic": "in simulation:  100 (friction, light, noise all perfect)\nin reality:      70 (full of unforeseen variables)\n        closing this is Sim2Real",
+      "body": [
+        "Simulation can mass-produce data cheaply, but a virtual environment never perfectly reproduces real friction, lighting, and sensor noise. So a policy trained in sim does not transfer cleanly and loses performance in the real world. Narrowing that loss is called Sim2Real, and it is one of the four hard problems of RFMs.",
+        "It matters commercially because simulation is the only obvious way to escape the data bottleneck at scale, and the gap is the toll you pay to use that cheap data."
+      ],
+      "body_ko": [
+        "시뮬레이션은 값싸게 데이터를 대량 생산할 수 있지만, 가상 환경은 실제 마찰, 조명, 센서 노이즈를 완벽히 재현하지 못한다. 그래서 시뮬에서 학습한 정책이 현실에서 그대로 통하지 않고 성능이 떨어진다. 이 차이를 줄이는 일을 Sim2Real이라 부르며, RFM 4대 난제 중 하나다.",
+        "시뮬레이션은 데이터 병목을 대규모로 벗어날 거의 유일한 길이라 이 갭은 상업적으로 중요하다. 값싼 데이터를 쓰기 위해 치르는 통행료인 셈이다."
+      ],
+      "analogy": "Acing every practice on a flight simulator, then feeling the real plane buck in a crosswind.",
+      "analogy_ko": "비행 시뮬레이터에서는 만점이다가, 실제 비행기가 옆바람에 흔들리는 걸 처음 겪는 것."
+    },
+    {
+      "slug": "embodiment-gap",
+      "term": "Embodiment Gap",
+      "term_ko": "하드웨어 이질성 (Embodiment Gap)",
+      "aliases": [
+        "embodiment gap"
+      ],
+      "aliases_ko": [
+        "하드웨어 이질성",
+        "Embodiment"
+      ],
+      "category": "Data",
+      "difficulty": 3,
+      "hover": "A model trained on robot A is hard to move onto robot B with a different arm length or number of fingers.",
+      "hover_ko": "A 로봇으로 배운 모델을, 팔 길이나 손가락 수가 다른 B 로봇에 그대로 옮기기 어려운 문제.",
+      "infographic": "trained body:  2 arms, 5 fingers\nnew body:      1 arm, a gripper   ->  what it learned no longer fits",
+      "body": [
+        "The embodiment gap is the problem that arises when a model is moved to a robot whose form differs from the one it trained on. Different joint counts, arm lengths, and hand shapes make the same command produce different results. When model companies stress that one policy runs on any body, they are claiming to have crossed this gap.",
+        "It is central to the commoditization argument: if a model truly transfers across bodies, it is by definition tied to no single hardware maker, and its value leaks toward whoever owns the data instead."
+      ],
+      "body_ko": [
+        "하드웨어 이질성은 모델이 학습된 로봇과 형태가 다른 로봇으로 옮겨질 때 생기는 문제다. 관절 수, 팔 길이, 손 모양이 다르면 같은 명령이 다른 결과를 낸다. 모델 회사들이 하나의 정책이 어떤 몸에서도 돈다고 강조하는 건 이 격차를 넘었다고 주장하는 것이다.",
+        "이는 commoditization 논점의 핵심이다. 모델이 정말 여러 몸으로 전이된다면, 정의상 특정 하드웨어 제조사에 묶이지 않고, 그 가치는 데이터를 소유한 쪽으로 새어 나간다."
+      ],
+      "analogy": "Learning to drive a sedan, then being handed the keys to a forklift and a motorcycle.",
+      "analogy_ko": "세단으로 운전을 배운 뒤, 지게차와 오토바이 열쇠를 건네받는 것."
+    },
+    {
+      "slug": "zero-shot",
+      "term": "Zero-shot Generalization",
+      "term_ko": "제로샷 일반화",
+      "aliases": [
+        "zero-shot"
+      ],
+      "aliases_ko": [
+        "zero-shot"
+      ],
+      "category": "Data",
+      "difficulty": 2,
+      "hover": "Handling a brand-new object or environment with no extra training, right out of the box.",
+      "hover_ko": "한 번도 배운 적 없는 새 물건이나 환경을, 추가 학습 없이 곧장 처리하는 능력.",
+      "infographic": "never-trained air fryer  ->  still opens and closes it  (zero-shot success)",
+      "body": [
+        "Zero-shot means handling a situation absent from the training data with no additional training. It is the key indicator of whether a model is genuinely general. Physical Intelligence showed π0.5 cleaning a home it had never seen and π0.7 operating an air fryer it had barely encountered, zero-shot.",
+        "In this piece it appears as evidence that model capability is improving and standardizing fast, which is precisely what makes the model layer a commodity."
+      ],
+      "body_ko": [
+        "Zero-shot은 학습 데이터에 없던 상황을 추가 훈련 없이 처리하는 능력이다. 모델이 진짜로 범용적인지 보여 주는 핵심 지표다. Physical Intelligence는 π0.5가 처음 보는 가정을 청소하고, π0.7이 거의 본 적 없는 에어프라이어를 조작하는 것을 zero-shot으로 시연했다.",
+        "이 글에서는 모델 능력이 빠르게 좋아지고 표준화된다는 증거로 등장한다. 그것이 바로 모델 층을 commodity로 만드는 요인이다."
+      ],
+      "analogy": "A chef who nails a dish they have never cooked, just from knowing how cooking works.",
+      "analogy_ko": "요리의 원리를 알기에, 한 번도 만들어 본 적 없는 요리를 곧장 성공시키는 셰프."
+    },
+    {
+      "slug": "fine-tuning-robot",
+      "term": "Fine-tuning",
+      "term_ko": "파인튜닝 (Fine-tuning)",
+      "aliases": [
+        "fine-tuning",
+        "fine-tune"
+      ],
+      "aliases_ko": [
+        "fine-tuning",
+        "파인튜닝"
+      ],
+      "category": "Data",
+      "difficulty": 2,
+      "hover": "Taking an already-trained general model and training it a bit more on your own data to fit your task.",
+      "hover_ko": "이미 학습된 범용 모델을, 내 현장 데이터로 조금 더 훈련해 우리 작업에 맞게 다듬는 일.",
+      "infographic": "general RFM  +  our factory data  ->  a model tuned to our line",
+      "body": [
+        "Fine-tuning takes a general model that was pre-trained at great cost and trains it further on a small amount of domain data to fit a specific setting. It is the point where you can differentiate with your own data without building a model from scratch. Carbon Robotics turned this into an edge by fine-tuning a new weed in minutes rather than days.",
+        "For the thesis of this piece, fine-tuning on proprietary industrial data is the practical mechanism by which a data moat gets built on top of a rented model."
+      ],
+      "body_ko": [
+        "파인튜닝은 큰 비용으로 미리 학습된 범용 모델을, 특정 도메인의 적은 데이터로 추가 훈련해 그 현장에 맞추는 작업이다. 모델을 처음부터 만들지 않고도 자기 데이터로 차별화할 수 있는 지점이다. Carbon Robotics는 새 잡초를 며칠이 아니라 몇 분 만에 파인튜닝하며 이를 강점으로 만들었다.",
+        "이 글의 논점에서 파인튜닝은, 빌려 온 모델 위에 독자 산업 데이터로 데이터 해자를 쌓는 실질적 메커니즘이다."
+      ],
+      "analogy": "Hiring a skilled generalist, then training them for a week on how your specific shop runs.",
+      "analogy_ko": "능력 있는 제너럴리스트를 뽑은 뒤, 우리 가게가 어떻게 돌아가는지 일주일간 교육하는 것."
+    },
+    {
+      "slug": "humanoid",
+      "term": "Humanoid",
+      "term_ko": "휴머노이드 (Humanoid)",
+      "aliases": [
+        "humanoid"
+      ],
+      "aliases_ko": [
+        "휴머노이드"
+      ],
+      "category": "Hardware",
+      "difficulty": 1,
+      "hover": "A human-shaped, two-legged robot, built that way so it can use environments made for people.",
+      "hover_ko": "사람을 닮은 두 발 로봇. 사람이 쓰는 환경을 그대로 쓰려고 사람 형태를 택한다.",
+      "infographic": "world built for humans (doors, stairs, tools)  ->  human-shaped robot uses it as-is",
+      "body": [
+        "A humanoid is a robot with a human-like torso, arms, and legs. The reason for the human shape is that the world is already built for people, so a humanoid can be dropped in without redesigning the environment. Figure, 1X, and Tesla Optimus are the leading examples. It is also the most capital-intensive form.",
+        "In this piece, humanoids stand for the vertically integrated camp that burns the most capital while accumulating the defensible asset, data, only as a byproduct."
+      ],
+      "body_ko": [
+        "휴머노이드는 사람과 비슷한 몸통, 팔, 다리를 가진 로봇이다. 사람 모양인 이유는 세계가 이미 사람에 맞춰 만들어져 있어, 환경을 바꾸지 않고 그대로 투입할 수 있기 때문이다. Figure, 1X, Tesla Optimus가 대표 사례다. 동시에 가장 자본이 많이 드는 형태다.",
+        "이 글에서 휴머노이드는, 자본을 가장 많이 태우면서 정작 방어 가능한 자산인 데이터는 부산물로만 쌓는 수직통합형 진영을 상징한다."
+      ],
+      "analogy": "Designing a worker to fit the existing office, instead of rebuilding the office around the worker.",
+      "analogy_ko": "작업자에 맞춰 사무실을 다시 짓는 대신, 기존 사무실에 맞는 작업자를 만드는 것."
+    },
+    {
+      "slug": "form-factors",
+      "term": "Manipulator / Quadruped",
+      "term_ko": "매니퓰레이터 / 4족 로봇",
+      "aliases": [
+        "manipulator",
+        "quadruped"
+      ],
+      "aliases_ko": [
+        "매니퓰레이터",
+        "4족"
+      ],
+      "category": "Hardware",
+      "difficulty": 1,
+      "hover": "A manipulator is a factory robot arm; a quadruped walks on four legs. There are many bodies besides humanoids.",
+      "hover_ko": "매니퓰레이터는 공장의 로봇 팔, 4족은 네 다리로 걷는 로봇. 휴머노이드 말고도 몸은 많다.",
+      "infographic": "manipulator: fixed robot arm (assembly, welding)\nquadruped:   four-legged walker (inspection, patrol)\nhumanoid:    two legs (general human spaces)",
+      "body": [
+        "RFMs can run on many robot bodies. A manipulator is a fixed industrial arm; a quadruped is strong on rough terrain; a humanoid is general-purpose in human spaces. What the model-only companies chase is putting the same policy on all of them.",
+        "The variety is exactly why the embodiment gap and the \"any body\" claim matter: the prize is one model that spans these form factors."
+      ],
+      "body_ko": [
+        "RFM은 여러 로봇 몸 위에서 돌 수 있다. 매니퓰레이터는 고정된 산업용 팔이고, 4족 로봇은 험지에 강하며, 휴머노이드는 사람 공간에서 범용이다. 모델 전용형 회사들이 노리는 건 이 모두에 같은 정책을 올리는 것이다.",
+        "이 다양성 때문에 하드웨어 이질성과 어떤 몸에든이라는 주장이 중요해진다. 상은 이 형태들을 아우르는 하나의 모델이다."
+      ],
+      "analogy": "The same driver behind the wheel of a truck, a tractor, and a scooter.",
+      "analogy_ko": "트럭과 트랙터와 스쿠터의 운전석에 앉은 같은 운전자."
+    },
+    {
+      "slug": "proprioception",
+      "term": "Proprioception / End-effector",
+      "term_ko": "고유수용감각 / 엔드이펙터",
+      "aliases": [
+        "proprioception",
+        "end-effector"
+      ],
+      "aliases_ko": [
+        "proprioception",
+        "end-effector"
+      ],
+      "category": "Hardware",
+      "difficulty": 3,
+      "hover": "Proprioception is a robot sensing its own joint positions. The end-effector is the hand or gripper at the arm’s tip.",
+      "hover_ko": "proprioception은 로봇이 느끼는 자기 관절의 위치와 각도. end-effector는 팔 끝에 달린 손이나 집게.",
+      "infographic": "proprioception: \"my elbow is bent at 90 degrees\"  (sense of own body)\nend-effector:   the hand/gripper/tool at the very tip  (what touches things)",
+      "body": [
+        "Proprioception is a robot’s sense of its own joint state, the way you know where your arm is with your eyes closed. It is one of the inputs an RFM reads. The end-effector is the part at the tip of the arm that actually contacts objects: a hand, a gripper, or a specialized tool.",
+        "These are the plumbing terms behind the RFM input-output loop: joint state and camera in, joint torques and end-effector motion out."
+      ],
+      "body_ko": [
+        "Proprioception은 사람이 눈을 감고도 팔 위치를 아는 것처럼, 로봇이 자기 관절 상태를 인식하는 감각이다. RFM의 입력 중 하나가 이 관절 상태값이다. End-effector는 로봇 팔 끝에서 실제로 물건과 접촉하는 부분으로, 손이나 집게, 특수 도구가 될 수 있다.",
+        "RFM 입출력 루프의 배경이 되는 용어다. 관절 상태와 카메라가 들어가고, 관절 토크와 엔드이펙터 움직임이 나온다."
+      ],
+      "analogy": "Knowing where your hand is without looking, and the fingertips that finally grip the cup.",
+      "analogy_ko": "보지 않고도 손의 위치를 아는 감각과, 마침내 컵을 쥐는 손끝."
+    },
+    {
+      "slug": "business-models",
+      "term": "The Three RFM Business Models",
+      "term_ko": "RFM 사업 모델 3분류",
+      "aliases": [
+        "model-only",
+        "vertically integrated",
+        "data infrastructure"
+      ],
+      "aliases_ko": [
+        "모델 전용형",
+        "수직통합형",
+        "데이터 인프라형"
+      ],
+      "category": "Business",
+      "difficulty": 2,
+      "hover": "RFM companies split three ways: model only, hardware plus model, or data only.",
+      "hover_ko": "RFM 회사는 셋으로 갈린다. 모델만, 하드웨어까지, 아니면 데이터만.",
+      "infographic": "model-only:   model only (PI, Skild, RLWRLD)    - compute-bound, low capital eff.\nvertical:     hardware + model (Figure, 1X, Tesla)  - CapEx explodes\ndata infra:   data only (Config, Carbon)        - mid capital eff., revenue-capable",
+      "body": [
+        "The RFM market splits into three. Model-only companies focus on the policy model and leave hardware to partners. Vertically integrated companies build both hardware and model. Data-infrastructure companies build neither and instead collect and supply training data. Capital efficiency and defensibility differ sharply across the three.",
+        "This piece argues the first two commoditize or burn capital, while the third owns the layer that compounds. Deciding which camp to back is the spine of the whole argument."
+      ],
+      "body_ko": [
+        "RFM 시장은 셋으로 나뉜다. 모델 전용형은 정책 모델에 집중하고 하드웨어는 파트너에 맡긴다. 수직통합형은 하드웨어와 모델을 둘 다 만든다. 데이터 인프라형은 둘 다 만들지 않고 학습 데이터를 모아 공급한다. 자본 효율과 방어 가능성이 셋이 크게 다르다.",
+        "이 글은 앞의 둘이 commodity가 되거나 자본을 태우는 반면, 셋째가 복리로 쌓이는 층을 소유한다고 본다. 어느 진영에 베팅할지가 글 전체의 뼈대다."
+      ],
+      "analogy": "In a gold rush: prospectors, mine-and-mill operators, and the ones selling shovels and mapping the land.",
+      "analogy_ko": "골드러시에서 채굴자, 광산-제련 운영자, 그리고 삽을 팔고 땅을 측량하는 이들."
+    },
+    {
+      "slug": "raas",
+      "term": "Robot-as-a-Service (RaaS)",
+      "term_ko": "Robot-as-a-Service (RaaS)",
+      "aliases": [
+        "Robot-as-a-Service",
+        "RaaS"
+      ],
+      "aliases_ko": [
+        "Robot-as-a-Service",
+        "RaaS"
+      ],
+      "category": "Business",
+      "difficulty": 2,
+      "hover": "Renting a robot’s brain from the cloud, so you do not have to put an expensive GPU inside each robot.",
+      "hover_ko": "로봇 두뇌를 클라우드에서 빌려 쓰는 방식. 로봇마다 비싼 GPU를 넣지 않아도 된다.",
+      "infographic": "robot  --query-->  [ RFM in the cloud ]  --action-->  robot\n        (called without an onboard GPU)",
+      "body": [
+        "RaaS hosts the RFM in the cloud instead of on the robot body, and the robot calls it over the network. Without a costly GPU on every unit, the per-robot cost drops. Config plans to release its foundation model in this form.",
+        "It is how a data-infrastructure company turns its accumulated data and model into recurring revenue, without ever shipping hardware."
+      ],
+      "body_ko": [
+        "RaaS는 RFM을 로봇 몸체가 아니라 클라우드에서 호스팅하고, 로봇이 네트워크로 호출해 쓰는 방식이다. 로봇마다 값비싼 GPU를 달지 않아도 돼 대당 비용이 낮아진다. Config이 자사 파운데이션 모델을 이런 형태로 출시할 계획이다.",
+        "데이터 인프라형 회사가 하드웨어를 출하하지 않고도, 쌓인 데이터와 모델을 반복 매출로 바꾸는 방식이다."
+      ],
+      "analogy": "Streaming a film instead of buying the disc, and skipping the expensive player entirely.",
+      "analogy_ko": "디스크를 사는 대신 영화를 스트리밍하고, 비싼 재생기 자체를 건너뛰는 것."
     }
   ]
 }

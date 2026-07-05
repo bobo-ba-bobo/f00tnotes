@@ -43,7 +43,8 @@
   };
   function S(k) { return (STR[L()] || STR.en)[k]; }
   var CAT_KO = { 'Foundations': '기초', 'Context': '컨텍스트', 'Memory': '메모리',
-    'Reasoning': '추론', 'Action': '실행', 'Business': '비즈니스', 'Plumbing': '기반' };
+    'Reasoning': '추론', 'Action': '실행', 'Business': '비즈니스', 'Plumbing': '기반',
+    'Robotics': '로보틱스', 'Data': '데이터', 'Hardware': '하드웨어' };
   function catLabel(c) { return isKo() ? (CAT_KO[c] || c) : c; }
 
   /* ---------- 1. AUTOLINK ---------- */

@@ -10,5 +10,17 @@
     "createdAt": "2026-06-11T00:00:00.000Z",
     "updatedAt": "2026-06-19T00:00:00.000Z",
     "url": "/research/the-forgetting-problem"
+  },
+  {
+    "id": "the-data-problem",
+    "title": "The Data Problem",
+    "subtitle": "Why the Robot Foundation Model Wars Will Be Won on Data",
+    "category": "AI / Robotics",
+    "status": "published",
+    "createdBy": "Bobo",
+    "cover": "/assets/cover-data-problem.svg",
+    "createdAt": "2026-06-29T00:00:00.000Z",
+    "updatedAt": "2026-07-05T00:00:00.000Z",
+    "url": "/research/the-data-problem"
   }
 ]

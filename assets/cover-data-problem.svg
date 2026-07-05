@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
+  <rect width="1200" height="800" fill="#0C0C0C"/>
+
+  <!-- subtle grid -->
+  <g stroke="#1A1A1A" stroke-width="1">
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="600" x2="1200" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="800"/>
+    <line x1="600" y1="0" x2="600" y2="800"/>
+    <line x1="900" y1="0" x2="900" y2="800"/>
+  </g>
+
+  <!-- eyebrow -->
+  <text x="90" y="150" font-family="'IBM Plex Mono', monospace" font-size="22" letter-spacing="6" fill="#666666">RESEARCH / No.002</text>
+
+  <!-- three-layer stack: model / hardware / data -->
+  <g font-family="'IBM Plex Mono', monospace" font-size="24" letter-spacing="2">
+    <!-- model layer -->
+    <rect x="90" y="300" width="640" height="88" rx="8" fill="none" stroke="#2A2A2A" stroke-width="1.5"/>
+    <text x="120" y="352" fill="#4A4A4A">MODEL</text>
+    <text x="700" y="352" text-anchor="end" fill="#4A4A4A">commoditizing →</text>
+
+    <!-- hardware layer -->
+    <rect x="90" y="404" width="640" height="88" rx="8" fill="none" stroke="#2A2A2A" stroke-width="1.5"/>
+    <text x="120" y="456" fill="#4A4A4A">HARDWARE</text>
+    <text x="700" y="456" text-anchor="end" fill="#4A4A4A">burning capital ↯</text>
+
+    <!-- data layer (highlighted) -->
+    <rect x="90" y="508" width="640" height="88" rx="8" fill="#141414" stroke="#F0F0F0" stroke-width="2"/>
+    <text x="120" y="560" fill="#F0F0F0">DATA</text>
+    <text x="700" y="560" text-anchor="end" fill="#E8F5E0">compounding ⤢</text>
+  </g>
+
+  <!-- title -->
+  <text x="90" y="680" font-family="'Pretendard', sans-serif" font-size="60" font-weight="600" letter-spacing="-2" fill="#F0F0F0">The Data Problem</text>
+  <text x="92" y="732" font-family="'Pretendard', sans-serif" font-size="26" fill="#888888">Why the RFM wars will be won on data</text>
+
+  <!-- footnote mark -->
+  <text x="1110" y="150" text-anchor="end" font-family="'Pretendard', sans-serif" font-size="40" font-weight="700" fill="#1E1E1E">f00tnotes¹</text>
+</svg>
