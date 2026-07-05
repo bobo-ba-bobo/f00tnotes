@@ -60,7 +60,7 @@
     /* 3-column reading layout */
     .art-layout{display:grid;grid-template-columns:var(--col-side) minmax(0,1fr);gap:var(--col-gap);align-items:start;padding:44px 0 90px;}
     .side-label{font-family:'IBMPlexMono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:var(--text-3);margin-bottom:16px;}
-    .art-toc,.art-author{position:sticky;top:84px;}
+    .art-toc,.art-author{position:sticky;top:84px;background:var(--bg);z-index:2;}
 
     #toc-nav{display:flex;flex-direction:column;}
     .toc-link{display:block;font-size:13px;line-height:1.45;color:var(--text-2);padding:6px 0 6px 14px;border-left:1px solid var(--border-s);transition:color 0.15s,border-color 0.15s;}
