@@ -3,6 +3,7 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/notes/:slug", "destination": "/notes" },
+    { "source": "/research/top-30-unicorns", "destination": "/top-30-unicorns" },
     { "source": "/research/:slug", "destination": "/article" }
   ],
   "redirects": [

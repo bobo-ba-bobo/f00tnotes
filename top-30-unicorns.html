@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0C0C0C" />
+<meta name="description" content="The world's Top 30 unicorns, footnoted." />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="f00tnotes¹" />
+<meta property="og:title" content="The World's Top 30 Unicorns - f00tnotes¹" />
+<meta property="og:image" content="/assets/unicorns/top-30-unicorns.png" />
+<title>세계 Top 30 유니콘 - f00tnotes¹</title>
+<style>
+  @font-face { font-family:'Pretendard'; src:url('/fonts/Pretendard-Light.ttf') format('truetype'); font-weight:300; }
+  @font-face { font-family:'Pretendard'; src:url('/fonts/Pretendard-Regular.ttf') format('truetype'); font-weight:400; }
+  @font-face { font-family:'Pretendard'; src:url('/fonts/Pretendard-Medium.ttf') format('truetype'); font-weight:500; }
+  @font-face { font-family:'Pretendard'; src:url('/fonts/Pretendard-SemiBold.ttf') format('truetype'); font-weight:600; }
+  @font-face { font-family:'Pretendard'; src:url('/fonts/Pretendard-Bold.ttf') format('truetype'); font-weight:700; }
+  @font-face { font-family:'IBMPlexMono'; src:url('/fonts/IBMPlexMono-Regular.ttf') format('truetype'); font-weight:400; }
+  @font-face { font-family:'IBMPlexMono'; src:url('/fonts/IBMPlexMono-Bold.ttf') format('truetype'); font-weight:700; }
+
+  :root{
+    --bg:#0C0C0C; --bg-raised:#141414; --bg-elevated:#1C1C1C;
+    --border-s:#1E1E1E; --border:#2A2A2A; --border-h:#3A3A3A;
+    --text-1:#F0F0F0; --text-2:#888888; --text-3:#4A4A4A;
+    --accent:#E8F5E0; --nav-h:56px; --pad:48px;
+    --col-side:210px; --col-gap:52px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Pretendard',-apple-system,'Apple SD Gothic Neo',sans-serif;font-size:15px;line-height:1.75;color:var(--text-1);background:var(--bg);-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;}
+
+  nav{position:sticky;top:0;z-index:100;height:var(--nav-h);background:var(--bg);border-bottom:1px solid var(--border-s);display:flex;align-items:center;padding:0 var(--pad);}
+  .brand img{height:22px;width:auto;display:block;}
+  .nav-sep{flex:1;}
+  .nav-links{display:flex;gap:28px;list-style:none;align-items:center;}
+  .nav-links a{font-family:'IBMPlexMono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);transition:color .15s;}
+  .nav-links a:hover,.nav-links a.active{color:var(--text-1);}
+  .lang-toggle{font-family:'IBMPlexMono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);background:none;border:1px solid var(--border);border-radius:4px;padding:6px 12px;cursor:pointer;transition:color .15s,border-color .15s;}
+  .lang-toggle:hover{color:var(--text-1);border-color:var(--border-h);}
+
+  .wrap{max-width:1216px;margin:0 auto;padding:0 var(--pad);}
+  .back{display:inline-block;margin-top:44px;font-family:'IBMPlexMono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);transition:color .15s;}
+  .back:hover{color:var(--text-1);}
+  .rule{border:none;border-top:1px solid var(--border-s);margin:0;}
+
+  .art-header{padding:40px 0 30px;}
+  .art-eyebrow{font-family:'IBMPlexMono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--text-2);margin-bottom:22px;}
+  .art-title{font-size:44px;font-weight:600;letter-spacing:-.03em;line-height:1.12;color:var(--text-1);max-width:860px;}
+  .art-lede{margin-top:24px;font-size:18px;line-height:1.7;color:var(--text-2);max-width:740px;}
+  .art-tags{margin-top:26px;display:flex;gap:8px;flex-wrap:wrap;}
+  .art-tag{font-size:12px;color:var(--text-2);background:var(--bg-elevated);border:1px solid var(--border-s);border-radius:20px;padding:4px 12px;}
+
+  .art-cover{margin:8px 0 34px;border:1px solid var(--border);border-radius:14px;background:#0f0f0f;overflow:hidden;text-align:center;}
+  .art-cover img{width:100%;max-width:560px;height:auto;display:inline-block;}
+
+  .art-metarow{display:flex;gap:54px;padding:22px 0;flex-wrap:wrap;}
+  .meta-item{display:flex;flex-direction:column;gap:5px;}
+  .meta-label{font-family:'IBMPlexMono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:var(--text-3);}
+  .meta-val{font-size:14px;color:var(--text-1);}
+
+  .art-layout{display:grid;grid-template-columns:var(--col-side) minmax(0,1fr);gap:var(--col-gap);align-items:start;padding:44px 0 90px;}
+  .side-label{font-family:'IBMPlexMono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--text-3);margin-bottom:16px;}
+  .art-toc{position:sticky;top:84px;}
+  #toc-nav{display:flex;flex-direction:column;}
+  .toc-link{display:block;font-size:13px;line-height:1.45;color:var(--text-2);padding:6px 0 6px 14px;border-left:1px solid var(--border-s);transition:color .15s,border-color .15s;}
+  .toc-link:hover{color:var(--text-1);}
+  .toc-link.active{color:var(--text-1);border-left-color:var(--accent);}
+
+  .art-body>*:first-child{margin-top:0;}
+  .art-body h2{font-size:24px;font-weight:600;letter-spacing:-.02em;color:var(--text-1);margin:52px 0 16px;scroll-margin-top:84px;}
+  .art-body h3{font-size:18px;font-weight:600;color:var(--text-1);margin:34px 0 12px;scroll-margin-top:84px;}
+  .art-body p{font-size:16.5px;color:var(--text-2);line-height:1.9;margin-bottom:22px;}
+  .art-body strong,.art-body b{color:var(--text-1);font-weight:600;}
+  .art-body ul{color:var(--text-2);margin:0 0 22px 2px;line-height:1.9;list-style:none;}
+  .art-body ul li{position:relative;padding-left:20px;margin-bottom:9px;}
+  .art-body ul li::before{content:"";position:absolute;left:2px;top:13px;width:5px;height:5px;border-radius:50%;background:var(--text-3);}
+  .note{color:var(--text-3);font-size:13.5px;font-style:italic;}
+
+  .tablewrap{overflow-x:auto;margin:20px 0;border:1px solid var(--border-s);border-radius:10px;}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;}
+  th,td{padding:9px 13px;text-align:left;border-bottom:1px solid var(--border-s);white-space:nowrap;}
+  th{background:var(--bg-elevated);font-family:'IBMPlexMono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);position:sticky;top:0;}
+  td{color:var(--text-2);}
+  tr:last-child td{border-bottom:0;}
+  td.co-n{color:var(--text-1);font-weight:500;}
+  td.val{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums;}
+  td.ai{text-align:center;color:var(--accent);}
+  tbody tr:hover{background:var(--bg-raised);}
+
+  .co{background:var(--bg-raised);border:1px solid var(--border-s);border-radius:12px;padding:22px 24px;margin:14px 0;}
+  .co .head{display:flex;align-items:center;gap:15px;margin-bottom:14px;}
+  .co .logo{width:46px;height:46px;flex:0 0 auto;background:#fff;border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .co .logo img{max-width:34px;max-height:34px;object-fit:contain;}
+  .co .logo.empty{background:var(--bg-elevated);color:var(--text-2);font-weight:700;font-size:20px;}
+  .co .htext{flex:1;min-width:0;}
+  .co .rank{font-family:'IBMPlexMono',monospace;font-size:11px;letter-spacing:.06em;color:var(--text-3);}
+  .co h3.name{font-size:21px;font-weight:600;letter-spacing:-.02em;color:var(--text-1);margin:2px 0 0;}
+  .co .badge{flex:0 0 auto;font-weight:600;font-size:19px;font-variant-numeric:tabular-nums;color:var(--accent);background:rgba(232,245,224,.05);border:1px solid var(--border);border-radius:8px;padding:6px 14px;}
+  .co .tag{display:inline-block;font-family:'IBMPlexMono',monospace;font-size:10px;letter-spacing:.08em;color:var(--accent);background:var(--bg-elevated);border:1px solid var(--border-s);border-radius:4px;padding:1px 6px;margin-left:7px;vertical-align:middle;}
+  .co dl{margin:0;display:grid;grid-template-columns:128px 1fr;gap:0 16px;}
+  .co dt{font-family:'IBMPlexMono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);padding:9px 0;border-top:1px solid var(--border-s);}
+  .co dd{font-size:14.5px;color:var(--text-2);line-height:1.7;padding:9px 0;border-top:1px solid var(--border-s);}
+  .co dt:first-of-type,.co dd:first-of-type{border-top:0;}
+  .co dd.why{color:var(--accent);}
+  .co dd a{color:var(--text-1);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border-h);}
+  .co dd a:hover{text-decoration-color:var(--text-1);}
+
+  footer{max-width:1216px;margin:0 auto;border-top:1px solid var(--border-s);padding:32px var(--pad);display:flex;align-items:center;justify-content:space-between;}
+  .footer-brand img{height:20px;width:auto;display:block;}
+  .footer-copy{font-family:'IBMPlexMono',monospace;font-size:11px;color:var(--text-3);letter-spacing:.04em;}
+  .footer-links{display:flex;gap:24px;list-style:none;}
+  .footer-links a{font-family:'IBMPlexMono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);transition:color .15s;}
+  .footer-links a:hover{color:var(--text-1);}
+
+  @media(max-width:1120px){ .art-layout{grid-template-columns:minmax(0,1fr);} .art-toc{display:none;} }
+  @media(max-width:900px){ :root{--pad:24px;} .art-title{font-size:34px;} }
+  @media(max-width:600px){ :root{--pad:20px;} .art-title{font-size:27px;} .art-lede{font-size:16px;} .art-body p{font-size:15.5px;} .co dl{grid-template-columns:1fr;} .co dt{border-top:1px solid var(--border-s);padding-bottom:0;} .co dd{border-top:0;padding-top:2px;} footer{flex-direction:column;gap:16px;} }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="brand"><img src="/assets/f00tnotes-logo.png" alt="f00tnotes¹"></a>
+  <span class="nav-sep"></span>
+  <ul class="nav-links">
+    <li><a href="/research" class="active">Research</a></li>
+    <li><a href="/notes">Notes</a></li>
+    <li><a href="/about">About</a></li>
+    <li><button class="lang-toggle" id="langbtn">한글</button></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+  <a href="/research" class="back">← Research</a>
+  <header class="art-header">
+    <div class="art-eyebrow" id="eyebrow"></div>
+    <h1 class="art-title" id="title"></h1>
+    <p class="art-lede" id="lede"></p>
+    <div class="art-tags"><span class="art-tag">Markets</span><span class="art-tag">Unicorns</span><span class="art-tag">AI</span><span class="art-tag">Valuation</span></div>
+  </header>
+  <figure class="art-cover"><img src="/assets/unicorns/top-30-unicorns.png" alt="World's Top 30 Unicorns infographic" /></figure>
+  <hr class="rule" />
+  <div class="art-metarow">
+    <div class="meta-item"><div class="meta-label" id="ml-date">Date</div><div class="meta-val">2026. 06</div></div>
+    <div class="meta-item"><div class="meta-label" id="ml-source">Source</div><div class="meta-val">Crunchbase Unicorn Board</div></div>
+    <div class="meta-item"><div class="meta-label" id="ml-author">Author</div><div class="meta-val">Bobo</div></div>
+  </div>
+  <hr class="rule" />
+
+  <div class="art-layout">
+    <aside class="art-toc">
+      <div class="side-label" id="toc-title">목차</div>
+      <nav id="toc-nav">
+        <a class="toc-link" href="#intro" id="toc-intro"></a>
+        <a class="toc-link" href="#overview" id="toc-overview"></a>
+        <a class="toc-link" href="#companies" id="toc-companies"></a>
+        <a class="toc-link" href="#how" id="toc-how"></a>
+      </nav>
+    </aside>
+
+    <main class="art-body">
+      <h2 id="intro"></h2>
+      <p id="intro-p1"></p>
+      <ul id="intro-ul"></ul>
+      <p id="intro-p2"></p>
+
+      <h2 id="overview"></h2>
+      <div class="tablewrap"><table><thead><tr id="thead-row"></tr></thead><tbody id="tbody"></tbody></table></div>
+      <p class="note" id="table-note"></p>
+
+      <h2 id="companies"></h2>
+      <div id="cards"></div>
+
+      <h2 id="how"></h2>
+      <h3 id="how-h1"></h3>
+      <p id="how-p1"></p>
+      <ul id="how-ul1"></ul>
+      <p id="how-p1b"></p>
+      <h3 id="how-h2"></h3>
+      <ul id="how-ul2"></ul>
+      <h3 id="how-h3"></h3>
+      <p id="how-p3"></p>
+      <h3 id="how-h4"></h3>
+      <p id="how-p4"></p>
+    </main>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-brand"><img src="/assets/f00tnotes-logo.png" alt="f00tnotes¹"></span>
+  <span class="footer-copy">Crunchbase Unicorn Board, June 2026 &nbsp;/&nbsp; © 2026</span>
+  <ul class="footer-links"><li><a href="/research">Research</a></li><li><a href="/about">About</a></li></ul>
+</footer>
+
+<script>
+const CTRY = {"미국":"USA","중국":"China","인도":"India","영국":"UK","싱가포르":"Singapore","호주":"Australia","세이셸":"Seychelles"};
+const LINKLBL = {"공식 사이트":"Website","보도":"Report","뉴스룸":"Newsroom"};
+
+const UI = {
+ ko:{
+  eyebrow:"Research / Markets",
+  title:"세계 Top 30 유니콘",
+  lede:"기업가치 10억 달러 이상 비상장 기업 상위 30곳. AI가 전체 가치의 약 60%를 차지하는 2026년의 지형을 한 장으로 봐요.",
+  mlDate:"날짜", mlSource:"출처", mlAuthor:"글쓴이", tocTitle:"목차",
+  tocIntro:"들어가며", tocOverview:"한눈에 보기", tocCompanies:"기업별 정리", tocHow:"가치가 매겨지는 원리",
+  hIntro:"들어가며", hOverview:"한눈에 보기", hCompanies:"기업별 정리", hHow:"어떻게 몇십조, 몇백조짜리 가치가 매겨질까",
+  introP1:"유니콘(unicorn)은 기업가치 10억 달러 이상의 비상장 기업을 뜻해요. 이 표는 그중 가치가 가장 높은 30곳을 모은 것이고, 눈에 띄는 특징이 셋 있어요.",
+  introLi:["<b>AI 쏠림.</b> 상위 30곳 합산 가치의 약 60%가 AI 기업에서 나와요. 1위 Anthropic, 2위 OpenAI가 각각 1조 달러에 육박해요.",
+    "<b>미국 압도.</b> 30곳 중 절반 이상이 미국 기업이에요. 그다음이 중국(ByteDance, Ant Group)과 인도(Reliance, Jio)의 거대 내수 기업, 영국 핀테크예요.",
+    "<b>사모 자본의 시대.</b> 이들은 IPO를 미룬 채 사모 시장에서 수십조 원대 가치를 인정받아요."],
+  introP2:"한 가지 주의할 점이 있어요. 비상장 기업의 가치는 공개 시장가가 아니라 <strong>가장 최근의 투자 라운드(post-money)나 구주 거래(secondary, tender offer)에서 매겨진 값</strong>이에요. 그래서 일부 수치는 과거의 정점이거나(예: Checkout.com의 $40B는 2022년 정점이고 2025년 내부 평가액은 약 $12B) 집계 기관의 추정치예요. 아래 각 항목에 근거와 시점을 함께 적었고, 불확실한 값에는 (추정)을 붙였어요.",
+  th:["#","기업","가치","국가","분야","AI"],
+  tableNote:"* Checkout.com의 $40B는 2022년 정점이며, 2025년 내부 평가액은 약 $12B예요. 그 외 SHEIN, JUUL, Epic Games도 정점 대비 하락한 값이에요.",
+  howH1:'비상장 가치는 "시장가"가 아니에요',
+  howP1:"먼저 짚을 것은, 이 숫자들이 주식시장에서 실시간으로 매겨지는 시가총액이 아니라는 점이에요. 비상장 기업의 valuation은 보통 셋 중 하나에서 나와요.",
+  howUl1:["<b>신규 투자 라운드(post-money).</b> 새 투자자가 일부 지분을 사면서 매긴 값에 전체 지분을 곱한 것. 예: Anthropic $965B, Anduril $61B.",
+    "<b>구주 거래(secondary / tender offer).</b> 기존 주주나 직원이 지분을 파는 거래 가격 기준. 예: Stripe $159B, Revolut $75B, Canva $42B.",
+    "<b>집계 기관 추정.</b> 후룬, 크런치베이스 등이 여러 정보를 종합한 값. 최신 라운드가 없을 때 쓰여요. 예: FNZ, JUUL."],
+  howP1b:'즉 "지분 몇 %가 특정 시점에 거래된 가격"을 전체로 환산한 것이라, 그 전체 지분을 실제로 그 값에 팔 수 있다는 뜻은 아니에요.',
+  howH2:"그런데 왜 이렇게 커졌을까요",
+  howUl2:["<b>AI 슈퍼사이클.</b> 상위 30곳 가치의 약 60%가 AI에서 나와요. 투자자들은 AI를 승자독식 시장으로 보고, 아직 작은 매출에도 수십 배의 런레이트 배수를 얹어요.",
+    "<b>옵션 가치.</b> SSI($32B)와 Project Prometheus($38B)는 제품도 매출도 없이 창업자 명성만으로 수십조 원 가치를 인정받았어요. 성공했을 때의 잠재 크기에 베팅하는, 사실상 콜옵션에 가까운 평가예요.",
+    "<b>전략적 자본과 국부펀드.</b> 빅테크(Microsoft, NVIDIA, Amazon, Alphabet, Meta)와 국부펀드(사우디 PIF, Mubadala, GIC, ADIA)가 라운드를 주도하며 가격을 지지해요.",
+    "<b>IPO 지연과 사모 유동성.</b> 상장을 미루는 대신 세컨더리와 tender offer로 직원, 초기 투자자에게 유동성을 주면서 valuation을 갱신해요.",
+    "<b>지역 거인.</b> 중국(ByteDance, Ant Group)과 인도(Reliance, Jio)는 거대한 내수 시장과 국가 자본을 등에 업고 비상장 상태로 몸집을 키워요."],
+  howH3:"반대로, 가치는 내려가기도 해요",
+  howP3:"같은 논리가 반대로 작동하면 valuation은 급락해요. Checkout.com은 2022년 $40B에서 2025년 내부 평가 $12B로 떨어졌고, SHEIN은 $100B에서 $66B로, JUUL과 Epic Games도 정점 대비 크게 낮아졌어요. 저금리기의 과열, 규제, 소송, 성장 둔화가 겹치면 사모 가치는 공개시장보다 더 크게, 그리고 조용히 조정돼요.",
+  howH4:"정리",
+  howP4:'인포그래픽의 숫자 한 줄은 "가장 최근 어떤 거래에서 매겨진 값"일 뿐, 확정된 시장가가 아니에요. 그래서 각 기업을 볼 때는 (1) 그 값이 신규 라운드인지 세컨더리인지 추정인지, (2) 매출 대비 몇 배인지, (3) 누가 그 가격에 돈을 넣었는지를 함께 봐야 실체가 보여요. 이 표에서 확실한 흐름 하나는, 2026년 현재 자본이 압도적으로 AI로 쏠려 있다는 거예요.',
+  lbl:{f:"설립 / 본사",c:"분류",biz:"사업",inv:"주요 투자자",val:"valuation 근거",imp:"임팩트",why:"왜 이 가치인가",x:"참고",links:"링크"}
+ },
+ en:{
+  eyebrow:"Research / Markets",
+  title:"The World's Top 30 Unicorns",
+  lede:"The 30 most valuable private companies worth $1 billion or more. A single snapshot of the 2026 landscape, where AI accounts for roughly 60% of the total value.",
+  mlDate:"Date", mlSource:"Source", mlAuthor:"Author", tocTitle:"Contents",
+  tocIntro:"Introduction", tocOverview:"At a Glance", tocCompanies:"Company by Company", tocHow:"How Valuations Are Set",
+  hIntro:"Introduction", hOverview:"At a Glance", hCompanies:"Company by Company", hHow:"How Do You Arrive at Valuations in the Tens or Hundreds of Billions?",
+  introP1:"A unicorn is a private company valued at $1 billion or more. This table gathers the 30 most valuable of them, and three features stand out.",
+  introLi:["<b>AI dominance.</b> About 60% of the combined value of the top 30 comes from AI companies. No. 1 Anthropic and No. 2 OpenAI each approach $1 trillion.",
+    "<b>US supremacy.</b> More than half of the 30 are American. Next come the vast domestic-market giants of China (ByteDance, Ant Group) and India (Reliance, Jio), along with UK fintech.",
+    "<b>The age of private capital.</b> These companies command sky-high valuations on the private market while deferring an IPO."],
+  introP2:"One caveat is worth noting. The value of a private company is not a public-market price but <strong>the figure set in its most recent funding round (post-money) or a secondary trade (secondary sale, tender offer)</strong>. As a result, some figures are past peaks (for example, Checkout.com's $40B was a 2022 peak, while its 2025 internal valuation is about $12B) or estimates by data providers. For each entry below we note the basis and the timing, and we mark uncertain figures with \"(est.)\".",
+  th:["#","Company","Value","Country","Sector","AI"],
+  tableNote:"* Checkout.com's $40B was a 2022 peak; its 2025 internal valuation is about $12B. SHEIN, JUUL, and Epic Games are likewise down from their peaks.",
+  howH1:'Private valuations are not "market prices"',
+  howP1:"The first thing to note is that these numbers are not market capitalizations set in real time on the stock exchange. A private company's valuation usually comes from one of three sources.",
+  howUl1:["<b>New funding round (post-money).</b> The price a new investor sets when buying a stake, multiplied across the entire equity base. Examples: Anthropic $965B, Anduril $61B.",
+    "<b>Secondary trade (secondary sale / tender offer).</b> Based on the price at which existing shareholders or employees sell their stakes. Examples: Stripe $159B, Revolut $75B, Canva $42B.",
+    "<b>Data-provider estimate.</b> A figure that firms such as Hurun and Crunchbase synthesize from multiple sources. Used when there is no recent round. Examples: FNZ, JUUL."],
+  howP1b:"In other words, it takes \"the price at which some percentage of the equity traded at a given moment\" and scales it to the whole. That does not mean the entire stake could actually be sold at that price.",
+  howH2:"So why have they grown this large?",
+  howUl2:["<b>The AI supercycle.</b> About 60% of the top 30's value comes from AI. Investors see AI as a winner-take-all market and apply run-rate multiples of tens of times even to still-small revenue.",
+    "<b>Option value.</b> SSI ($32B) and Project Prometheus ($38B) command enormous valuations with no product and no revenue, on founder reputation alone. It is a bet on the potential upside if they succeed, closer to a call option.",
+    "<b>Strategic capital and sovereign wealth funds.</b> Big Tech (Microsoft, NVIDIA, Amazon, Alphabet, Meta) and sovereign wealth funds (Saudi Arabia's PIF, Mubadala, GIC, ADIA) lead rounds and support prices.",
+    "<b>Delayed IPOs and private liquidity.</b> Instead of going public, companies refresh their valuations by giving employees and early investors liquidity through secondaries and tender offers.",
+    "<b>Regional giants.</b> Backed by huge domestic markets and state capital, China (ByteDance, Ant Group) and India (Reliance, Jio) scale up while staying private."],
+  howH3:"Conversely, valuations can also fall",
+  howP3:"When the same logic runs in reverse, valuations drop sharply. Checkout.com fell from $40B in 2022 to an internal valuation of $12B in 2025; SHEIN went from $100B to $66B; and JUUL and Epic Games are also well below their peaks. When the excesses of the low-rate era combine with regulation, litigation, and slowing growth, private valuations adjust more sharply, and more quietly, than public-market ones.",
+  howH4:"In summary",
+  howP4:"A single number in the infographic is only \"the value set in the most recent trade,\" not a settled market price. So when looking at each company, you see the reality only by considering (1) whether that figure is a new round, a secondary, or an estimate, (2) how many times revenue it represents, and (3) who put money in at that price. The one clear trend in this table is that, as of 2026, capital is overwhelmingly concentrated in AI.",
+  lbl:{f:"Founded / HQ",c:"Category",biz:"Business",inv:"Key investors",val:"Valuation basis",imp:"Impact",why:"Why this valuation",x:"Note",links:"Links"}
+ }
+};
+
+const COS = [
+ {r:1,n:"Anthropic",v:"$965B",ai:1,logo:"anthropic",ctry:"미국",l:[["공식 사이트","https://www.anthropic.com"],["Series H","https://www.anthropic.com/news"]],
+  ko:{sec:"AI 안전 연구",f:"2021년 설립 / 창업자 Dario Amodei, Daniela Amodei 남매를 포함한 전 OpenAI 연구진 / 본사 미국 샌프란시스코",c:"AI 안전 연구, 파운데이션 모델",biz:"대화형 AI 모델 Claude를 개발하는 AI 안전 연구소예요. API와 구독 서비스(Claude 유료 플랜), 기업용 라이선스로 매출을 내요.",inv:"Capital Group, Coatue, D1 Capital, GIC, ICONIQ, 이전 라운드의 Microsoft, NVIDIA, Google, Accel",val:"2026년 5월 마감한 Series H에서 $65B를 조달하며 post-money $965B를 기록했어요. 이 라운드로 OpenAI를 제치고 세계 최고가 AI 스타트업이 됐어요.",imp:"Claude는 코딩, 문서 작성, 에이전트 자동화 전반에서 널리 쓰이며 실무 생산성 도구로 자리 잡았어요. AI 안전을 핵심 가치로 내세워 책임 있는 개발 기준 논의를 주도해요.",why:"런레이트 매출이 빠르게 성장하며 최상위 모델 성능과 안전 브랜드가 해자로 작동해요."},
+  en:{sec:"AI safety research",f:"Founded 2021 / Founders include the sibling pair Dario Amodei and Daniela Amodei along with other former OpenAI researchers / HQ San Francisco, USA",c:"AI safety research, foundation models",biz:"An AI safety lab that develops Claude, a conversational AI model. It generates revenue through its API, subscription services (paid Claude plans), and enterprise licensing.",inv:"Capital Group, Coatue, D1 Capital, GIC, ICONIQ, and prior-round backers Microsoft, NVIDIA, Google, Accel",val:"Its Series H, which closed in May 2026, raised $65B at a post-money valuation of $965B. The round made it the world's most valuable AI startup, surpassing OpenAI.",imp:"Claude is widely used across coding, document drafting, and agentic automation, establishing itself as a practical productivity tool. By positioning AI safety as a core value, the company leads the debate on responsible development standards.",why:"Run-rate revenue is growing rapidly, and its top-tier model performance and safety-focused brand act as a moat."}},
+ {r:2,n:"OpenAI",v:"$852B",ai:1,logo:"openai",ctry:"미국",l:[["공식 사이트","https://openai.com"],["OpenAI News","https://openai.com/news/"]],
+  ko:{sec:"생성형 AI",f:"2015년 설립 / 창업자 Sam Altman, Greg Brockman, Elon Musk, Ilya Sutskever 등 / 본사 미국 샌프란시스코",c:"파운데이션 모델, 생성형 AI",biz:"ChatGPT와 GPT 계열 모델을 만드는 AI 기업이에요. ChatGPT 구독, API 사용료, 기업 계약으로 매출을 올려요.",inv:"Microsoft, NVIDIA, SoftBank, Amazon, Andreessen Horowitz, Sequoia, Thrive Capital, Fidelity 등",val:"2026년 3월 마감한 라운드에서 대규모 자금을 조달하며 약 $852B로 평가됐어요. IPO 시 $1T 목표가 거론되나 상장 시점은 미뤄질 가능성이 보도됐어요.",imp:"ChatGPT는 생성형 AI를 대중화시킨 대표 제품으로 검색, 업무, 교육 방식을 바꿨어요. 전 세계 AI 도입 흐름과 규제 논의의 중심에 있어요.",why:"압도적 사용자 규모와 브랜드, 급성장하는 매출이 강력한 해자예요. 다만 Anthropic에 최고 valuation 자리를 내준 상태예요."},
+  en:{sec:"Generative AI",f:"Founded 2015 / Founders include Sam Altman, Greg Brockman, Elon Musk, and Ilya Sutskever / HQ San Francisco, USA",c:"Foundation models, generative AI",biz:"An AI company that builds ChatGPT and the GPT family of models. It earns revenue from ChatGPT subscriptions, API usage fees, and enterprise contracts.",inv:"Microsoft, NVIDIA, SoftBank, Amazon, Andreessen Horowitz, Sequoia, Thrive Capital, Fidelity, and others",val:"A round that closed in March 2026 raised a substantial sum, valuing the company at roughly $852B. A $1T target has been floated for its IPO, though reports suggest the listing could be delayed.",imp:"ChatGPT is the landmark product that brought generative AI to the mainstream, reshaping how people search, work, and learn. It sits at the center of global AI adoption trends and regulatory debate.",why:"Its overwhelming user scale, brand, and fast-growing revenue form a powerful moat, though it has ceded the top valuation spot to Anthropic."}},
+ {r:3,n:"ByteDance",v:"$480B",ai:1,logo:"bytedance",ctry:"중국",l:[["공식 사이트","https://www.bytedance.com"],["보도","https://americanbazaaronline.com/2026/02/25/tiktoks-parent-bytedance-valued-at-550-billion-in-a-proposed-sale-475860/"]],
+  ko:{sec:"소셜/콘텐츠",f:"2012년 설립 / 창업자 장이밍(Zhang Yiming), 량루보(Liang Rubo) / 본사 중국 베이징 (싱가포르 국제 본부)",c:"소셜미디어, 콘텐츠 플랫폼",biz:"숏폼 영상 플랫폼 틱톡(TikTok)과 중국 내수판 더우인을 운영하는 세계 최대 비상장 인터넷 기업이에요. 뉴스 앱 진르터우탸오, 영상편집 CapCut 등을 함께 서비스하며 추천 알고리즘 AI가 핵심 경쟁력이에요.",inv:"SoftBank, General Atlantic, HongShan(구 Sequoia China), KKR, Coatue, Tiger Global",val:"2025년 약 $330B 규모 자사주 매입에 이어, 2026년 세컨더리 거래에서 약 $550B로 평가됐다는 보도가 있어요 (인포그래픽 기준가 $480B, $550B는 추정).",imp:"틱톡은 전 세계 10억 명 이상이 쓰는 대표 숏폼 플랫폼으로 콘텐츠 소비와 광고, 커머스 생태계를 바꿔놓았어요. 데이터 안보를 둘러싼 미중 갈등의 상징이기도 해요.",why:"압도적 사용자 기반과 광고 매출, AI 추천 역량이 결합돼 비상장 기업 중 최고 수준의 가치를 인정받아요."},
+  en:{sec:"Social/content",f:"Founded 2012 / Founders Zhang Yiming and Liang Rubo / HQ Beijing, China (international HQ in Singapore)",c:"Social media, content platform",biz:"The world's largest private internet company, operating the short-form video platform TikTok and its China-market counterpart Douyin. It also runs the news app Toutiao and the video editor CapCut, with its recommendation-algorithm AI as its core competitive edge.",inv:"SoftBank, General Atlantic, HongShan (formerly Sequoia China), KKR, Coatue, Tiger Global",val:"Following a share buyback of about $330B in 2025, reports indicate a 2026 secondary transaction valued the company at around $550B (the infographic uses $480B; the $550B figure is an estimate).",imp:"TikTok is the flagship short-form platform used by more than a billion people worldwide, reshaping the content-consumption, advertising, and commerce ecosystem. It is also a symbol of US-China tensions over data security.",why:"An overwhelming user base combined with advertising revenue and AI recommendation capabilities earns it the highest valuation among private companies."}},
+ {r:4,n:"Stripe",v:"$159B",ai:0,logo:"stripe",ctry:"미국",l:[["공식 사이트","https://stripe.com"],["CNBC","https://www.cnbc.com/2026/02/24/stripe-value-stock-sale-tender-offer.html"]],
+  ko:{sec:"핀테크(결제)",f:"2010년 설립 / 창업자 John Collison, Patrick Collison 형제 / 본사 미국 샌프란시스코(더블린 공동 본사)",c:"결제 인프라 핀테크",biz:"온라인 결제 처리 API를 핵심으로 하는 결제 인프라 기업이에요. 결제 게이트웨이, 구독 청구(Billing), 부정거래 방지(Radar), 대금 정산(Connect) 등 개발자 친화적 금융 인프라를 제공해요. 연간 처리액이 1조 달러를 넘어요.",inv:"Thrive Capital, Coatue, Andreessen Horowitz, Sequoia, General Catalyst",val:"2026년 2월 직원, 주주 대상 공개매수(tender offer)에서 $159B로 평가됐어요. 1년 전 $91.5B 대비 74% 상승한 수치예요.",imp:"인터넷 경제의 결제 배관 역할을 하며, 스타트업이 몇 줄의 코드로 결제를 붙일 수 있게 만들었어요. 전 세계 전자상거래 성장의 기반 인프라예요.",why:"자체 자금으로 성장하는 고성장, 고마진 결제 인프라로 IPO 없이도 valuation이 계속 올라요."},
+  en:{sec:"Fintech (payments)",f:"Founded 2010 / Founders the brothers John Collison and Patrick Collison / HQ San Francisco, USA (co-HQ in Dublin)",c:"Payments-infrastructure fintech",biz:"A payments-infrastructure company built around its online payment-processing API. It offers developer-friendly financial infrastructure including a payment gateway, subscription billing (Billing), fraud prevention (Radar), and payouts (Connect). Its annual processing volume exceeds $1 trillion.",inv:"Thrive Capital, Coatue, Andreessen Horowitz, Sequoia, General Catalyst",val:"A February 2026 tender offer for employees and shareholders valued the company at $159B, a 74% increase from $91.5B a year earlier.",imp:"It serves as the payment plumbing of the internet economy, letting startups add payments with just a few lines of code. It is foundational infrastructure for global e-commerce growth.",why:"As high-growth, high-margin payments infrastructure funded largely by its own operations, its valuation keeps rising even without an IPO."}},
+ {r:5,n:"Ant Group",v:"$150B",ai:1,logo:"ant-group",ctry:"중국",l:[["공식 사이트","https://www.antgroup.com"],["Wikipedia","https://en.wikipedia.org/wiki/Ant_Group"]],
+  ko:{sec:"핀테크",f:"2014년 법인화(알리페이 자체는 2004년) / 창업자 마윈(Jack Ma), 펑레이(Lucy Peng) / 본사 중국 항저우",c:"핀테크, 결제",biz:"10억 명 이상이 쓰는 모바일 결제 플랫폼 알리페이를 운영하는 알리바바 계열 핀테크예요. 결제와 송금뿐 아니라 대출(화베이, 제베이), 자산관리(위어바오), 보험, 신용평가(즈마신용)를 아우르는 종합 금융 플랫폼이에요.",inv:"알리바바그룹(약 33%), 직원 지주회사, 중국 사회보장기금(NSSF), 중국생명(China Life)",val:"2020년 IPO 무산 이후 규제와 재편을 거쳐 가치가 크게 하향됐어요. 2025년 자사주 매입 기준 약 $100B 안팎으로 평가됐어요 (인포그래픽 기준가 $150B, 집계 방식 차이).",imp:"중국의 현금 없는 사회를 사실상 앤트가 구축했고, QR 결제와 소액 신용 모델은 신흥국 핀테크의 원형이 됐어요. 2020년 사상 최대 IPO의 전격 중단은 중국 빅테크 규제의 분수령으로 기록돼요.",why:"거대한 결제, 신용 데이터와 사용자 락인은 강력하나, 규제 리스크가 가치의 상단을 눌러요."},
+  en:{sec:"Fintech",f:"Incorporated 2014 (Alipay itself dates to 2004) / Founders Jack Ma and Lucy Peng / HQ Hangzhou, China",c:"Fintech, payments",biz:"An Alibaba-affiliated fintech that operates Alipay, a mobile payments platform used by more than a billion people. Beyond payments and transfers, it is a comprehensive financial platform spanning lending (Huabei, Jiebei), wealth management (Yu'ebao), insurance, and credit scoring (Zhima Credit).",inv:"Alibaba Group (about 33%), an employee holding company, China's National Social Security Fund (NSSF), and China Life",val:"After its 2020 IPO was scrapped, its value fell sharply through regulation and restructuring. Based on a 2025 share buyback, it was valued at around $100B (the infographic uses $150B; the difference reflects methodology).",imp:"Ant effectively built China's cashless society, and its QR-payment and micro-credit models became the template for fintech in emerging markets. The abrupt halt of its 2020 record-breaking IPO stands as a watershed moment in China's Big Tech regulation.",why:"Its vast payments and credit data plus user lock-in are powerful, but regulatory risk caps the upside on its value."}},
+ {r:6,n:"Databricks",v:"$134B",ai:1,logo:"databricks",ctry:"미국",l:[["공식 사이트","https://www.databricks.com"],["Newsroom","https://www.databricks.com/company/newsroom"]],
+  ko:{sec:"데이터/AI",f:"2013년 설립 / 창업자 Ali Ghodsi, Matei Zaharia, Ion Stoica 등 UC Berkeley AMPLab 출신 7인 / 본사 미국 샌프란시스코",c:"데이터, AI 플랫폼(레이크하우스)",biz:"데이터 엔지니어링, 분석, 머신러닝을 하나로 묶는 Lakehouse 플랫폼을 클라우드 구독으로 제공해요. 최근에는 AI 에이전트용 서버리스 Postgres인 Lakebase, 대화형 분석 도구 Genie로 확장 중이에요.",inv:"Thrive Capital, Andreessen Horowitz, DST Global, GIC, Insight Partners, T. Rowe Price",val:"2026년 초 Series L에서 약 $5B 지분 조달로 $134B를 기록했어요. 이후 $5.4B 런레이트를 달성하며 더 높은 신규 라운드를 논의 중이라 실제 가치는 이보다 높을 수 있어요.",imp:"기업의 데이터 통합과 AI 도입을 뒷받침하는 핵심 인프라예요. 오픈소스 Apache Spark 생태계를 이끌며 데이터 아키텍처 표준화에 영향을 줘요.",why:"55~65% 고성장과 대규모 엔터프라이즈 락인이 해자예요. 기업 AI 수요의 직접 수혜주로 평가돼요."},
+  en:{sec:"Data/AI",f:"Founded 2013 / Founders Ali Ghodsi, Matei Zaharia, Ion Stoica, and four others from UC Berkeley's AMPLab / HQ San Francisco, USA",c:"Data and AI platform (lakehouse)",biz:"It delivers a Lakehouse platform that unifies data engineering, analytics, and machine learning, sold as a cloud subscription. It is expanding into Lakebase, a serverless Postgres for AI agents, and Genie, a conversational analytics tool.",inv:"Thrive Capital, Andreessen Horowitz, DST Global, GIC, Insight Partners, T. Rowe Price",val:"In early 2026 its Series L raised about $5B in equity at a $134B valuation. It has since reached a $5.4B run-rate and is reportedly in talks for a higher new round, so its actual value may be greater.",imp:"It is core infrastructure underpinning enterprise data integration and AI adoption. As a leader of the open-source Apache Spark ecosystem, it influences the standardization of data architecture.",why:"Growth of 55-65% and large-scale enterprise lock-in form its moat. It is viewed as a direct beneficiary of enterprise AI demand."}},
+ {r:7,n:"Waymo",v:"$126B",ai:1,logo:"waymo",ctry:"미국",l:[["공식 사이트","https://waymo.com"],["Waymo Blog","https://waymo.com/blog/2026/02/waymo-raises-usd16-billion-investment-round/"]],
+  ko:{sec:"자율주행",f:"2009년 구글 프로젝트로 시작, 2016년 분사 / 공동 CEO Tekedra Mawakana, Dmitri Dolgov / 본사 미국 마운틴뷰",c:"자율주행, 모빌리티",biz:"알파벳 산하 자율주행 자회사로, 완전 무인 로보택시 서비스 Waymo One을 운영해요. 피닉스, 샌프란시스코, LA, 오스틴 등에서 상용 운행 중이며 도쿄, 런던 등으로 확장을 추진해요.",inv:"알파벳(최대 주주), Dragoneer, DST Global, Sequoia, Andreessen Horowitz, Mubadala, Silver Lake, Tiger Global, T. Rowe Price, Fidelity",val:"2026년 2월 자율주행 기업 사상 최대인 $16B를 조달하며 post-money $126B로 평가됐어요. 2024년 10월 Series C($5.6B, $45B) 대비 2배 이상 상승했어요.",imp:"세계 최초로 대규모 무인 로보택시 상용화를 실현하며 도시 교통과 물류 구조를 바꾸고 있어요. 자율주행의 실현 가능성을 입증한 사실상의 업계 표준이에요.",why:"모회사를 넘어 외부 대형 자본을 유치해 독립 성장성을 인정받았고, 실제 매출을 내는 유일한 대규모 자율주행 서비스라는 희소성이 반영됐어요."},
+  en:{sec:"Autonomous driving",f:"Began as a Google project in 2009 and spun off in 2016 / Co-CEOs Tekedra Mawakana and Dmitri Dolgov / HQ Mountain View, USA",c:"Autonomous driving, mobility",biz:"An Alphabet autonomous-driving subsidiary that operates Waymo One, a fully driverless robotaxi service. It runs commercially in Phoenix, San Francisco, LA, and Austin, and is pursuing expansion to Tokyo, London, and other cities.",inv:"Alphabet (largest shareholder), Dragoneer, DST Global, Sequoia, Andreessen Horowitz, Mubadala, Silver Lake, Tiger Global, T. Rowe Price, Fidelity",val:"In February 2026 it raised $16B, the largest round ever for an autonomous-driving company, at a post-money valuation of $126B, more than double the $45B from its October 2024 Series C ($5.6B).",imp:"By achieving the world's first large-scale commercial driverless robotaxi service, it is reshaping urban transportation and logistics. It is the de facto industry benchmark that proved autonomous driving is viable.",why:"By attracting large outside capital beyond its parent, it has won recognition for independent growth potential, reflecting its scarcity as the only large-scale autonomous-driving service generating real revenue."}},
+ {r:8,n:"Reliance Retail",v:"$101B",ai:0,logo:"reliance",ctry:"인도",l:[["공식 사이트","https://relianceretail.com"],["TechCrunch","https://techcrunch.com/2023/09/11/kkr-invests-250-million-in-reliance-retail-at-100-billion-valuation/"]],
+  ko:{sec:"리테일",f:"2006년 설립 / 무케시 암바니(Mukesh Ambani) / 본사 인도 뭄바이",c:"리테일, 이커머스",biz:"릴라이언스 인더스트리의 리테일 부문(지주사 RRVL)으로 인도 최대 유통 기업이에요. 식료품, 전자제품, 패션(트렌즈, Ajio), 통신 유통을 아우르며 오프라인 1만 8천여 매장과 온라인 커머스를 함께 운영해요. 이 항목은 상장사가 아닌 비상장 지주회사 RRVL을 가리켜요.",inv:"KKR, 사우디 국부펀드(PIF), General Atlantic, Mubadala, Silver Lake, GIC, ADIA, TPG",val:"2020년 지분 매각과 2023년 KKR 추가 투자에서 약 $100B로 평가됐어요. 2026년 들어 약 $200B 밸류로 IPO를 검토 중이라는 보도가 있어요.",imp:"인도 오프라인, 온라인 유통을 통합해 아마존, 월마트(플립카트)와 정면 경쟁하며 인도 소비 시장의 디지털 전환을 주도해요. 수십만 명 고용과 소상공인 공급망 연계로 내수 경제에 큰 비중을 차지해요.",why:"인도 최대 매장망과 빠른 이커머스 성장, 글로벌 국부펀드의 대규모 투자가 뒷받침해요."},
+  en:{sec:"Retail",f:"Founded 2006 / Mukesh Ambani / HQ Mumbai, India",c:"Retail, e-commerce",biz:"The retail arm of Reliance Industries (holding company RRVL) and India's largest retailer. It spans groceries, electronics, fashion (Trends, Ajio), and telecom distribution, operating more than 18,000 offline stores alongside online commerce. This entry refers to the unlisted holding company RRVL rather than a public company.",inv:"KKR, Saudi Arabia's sovereign wealth fund (PIF), General Atlantic, Mubadala, Silver Lake, GIC, ADIA, TPG",val:"It was valued at around $100B in a 2020 stake sale and KKR's additional 2023 investment. Reports in 2026 indicate it is weighing an IPO at a valuation of about $200B.",imp:"By integrating India's offline and online retail, it competes head-on with Amazon and Walmart (Flipkart) and is driving the digital transformation of India's consumer market. Employing hundreds of thousands of people and linking small-merchant supply chains, it holds significant weight in the domestic economy.",why:"India's largest store network, fast e-commerce growth, and major investments from global sovereign wealth funds provide support."}},
+ {r:9,n:"Revolut",v:"$75B",ai:0,logo:"revolut",ctry:"영국",l:[["공식 사이트","https://www.revolut.com"],["Crunchbase News","https://news.crunchbase.com/fintech/revolut-valuation-spikes-secondary-share-sale/"]],
+  ko:{sec:"핀테크(네오뱅크)",f:"2015년 설립 / 창업자 Nikolay Storonsky, Vlad Yatsenko / 본사 영국 런던",c:"네오뱅크(디지털 은행) 핀테크",biz:"앱 기반 디지털 은행으로 환전, 송금, 카드, 주식과 암호화폐 거래, 저축을 단일 앱에서 제공해요. 소매 고객이 6,500만 명을 넘었고 2024년 매출은 72% 증가한 $4B예요.",inv:"Coatue, Greenoaks, Dragoneer, Andreessen Horowitz, NVIDIA(벤처부문), Fidelity, T. Rowe Price",val:"2025년 11월 구주 매각(secondary)에서 $75B로 평가됐어요. 직전 $45B 대비 67% 상승했어요.",imp:"유럽에서 시작해 전통 은행 대비 저렴한 환전과 국경 간 금융을 대중화했어요. 단일 앱으로 다국적 금융을 처리하는 슈퍼앱 모델로 소매 금융 접근성을 넓혔어요.",why:"흑자 전환에 성공한 고성장 네오뱅크로, IPO를 앞두고 6,500만 이용자 기반과 사업 다각화가 프리미엄을 뒷받침해요."},
+  en:{sec:"Fintech (neobank)",f:"Founded 2015 / Founders Nikolay Storonsky and Vlad Yatsenko / HQ London, UK",c:"Neobank (digital bank) fintech",biz:"An app-based digital bank offering currency exchange, transfers, cards, stock and cryptocurrency trading, and savings in a single app. Its retail customer base exceeds 65 million, and 2024 revenue rose 72% to $4B.",inv:"Coatue, Greenoaks, Dragoneer, Andreessen Horowitz, NVIDIA (venture arm), Fidelity, T. Rowe Price",val:"A November 2025 secondary sale valued the company at $75B, a 67% increase from the prior $45B.",imp:"Starting in Europe, it popularized cheaper currency exchange and cross-border finance versus traditional banks. Its super-app model, handling multi-country finance in a single app, has broadened access to retail banking.",why:"As a high-growth neobank that has turned profitable, its 65-million user base and business diversification support a premium ahead of an IPO."}},
+ {r:10,n:"SHEIN",v:"$66B",ai:0,logo:"shein",ctry:"싱가포르",l:[["공식 사이트","https://www.shein.com"],["Business of Fashion","https://www.businessoffashion.com/briefings/retail/sheins-winding-path-to-an-ipo/"]],
+  ko:{sec:"이커머스",f:"2012년 설립(전신 2008년) / 창업자 크리스 쉬(Chris Xu, Sky Xu) / 본사 싱가포르(법인 Roadget Business)",c:"패스트패션, 이커머스",biz:"초저가, 초고속 신상품 출시로 유명한 글로벌 패스트패션 이커머스예요. 중국 광저우 기반 공급망에서 소량 생산과 데이터 기반 수요예측으로 하루 수천 종의 신제품을 온라인 전용으로 판매해요. 최근 뷰티, 생활용품 마켓플레이스로 확장했어요.",inv:"HongShan(구 Sequoia China), Tiger Global, General Atlantic, Mubadala",val:"2022년 $100B까지 평가됐으나 2023년 5월 라운드에서 약 $66B로 하향됐어요. 이후 홍콩 IPO 과정에서 $30B~50B 수준까지 추가 하향 논의가 있었어요(하향치 추정).",imp:"글로벌 Z세대를 겨냥한 초저가 패션으로 자라, H&M의 패스트패션 모델을 한 단계 더 압축했어요. 동시에 과잉생산, 노동, 환경 문제와 소액 수입 면세 제도를 둘러싼 규제 논쟁의 중심에 있어요.",why:"데이터 기반 온디맨드 공급망과 압도적 신제품 회전율이 강점이나, 규제와 상장 지연이 가치를 눌러왔어요."},
+  en:{sec:"E-commerce",f:"Founded 2012 (predecessor in 2008) / Founder Chris Xu (Sky Xu) / HQ Singapore (corporate entity Roadget Business)",c:"Fast fashion, e-commerce",biz:"A global fast-fashion e-commerce company known for ultra-low prices and ultra-fast new-product releases. Using a Guangzhou-based supply chain, it applies small-batch production and data-driven demand forecasting to sell thousands of new items a day, online only. It has recently expanded into a beauty and household-goods marketplace.",inv:"HongShan (formerly Sequoia China), Tiger Global, General Atlantic, Mubadala",val:"Valued as high as $100B in 2022, it was marked down to about $66B in a May 2023 round. Its Hong Kong IPO process later prompted talk of further markdowns to the $30B-50B range (markdown figures are estimates).",imp:"With ultra-cheap fashion aimed at global Gen Z, it compressed the fast-fashion model of Zara and H&M a step further. At the same time, it sits at the center of regulatory disputes over overproduction, labor, environmental issues, and low-value import duty exemptions.",why:"Its data-driven on-demand supply chain and overwhelming new-product turnover are strengths, but regulation and a delayed listing have weighed on its value."}},
+ {r:11,n:"Anduril",v:"$61B",ai:1,logo:"anduril",ctry:"미국",l:[["공식 사이트","https://www.anduril.com"],["TechCrunch","https://techcrunch.com/2026/05/13/anduril-raises-5b-doubles-valuation-to-61b/"]],
+  ko:{sec:"방위/자율시스템",f:"2017년 설립 / 창업자 Palmer Luckey, Trae Stephens, Brian Schimpf, Matt Grimm, Joe Chen / 본사 미국 코스타메사",c:"방위산업(디펜스 테크), 자율 시스템",biz:"소프트웨어 중심의 자율 방위 시스템을 개발해요. AI 통합 지휘통제 플랫폼 Lattice를 기반으로 감시 타워, 자율 수중정, 요격 드론, 전투 드론을 통합 운용해요. 2025년 매출은 $2.2B로 전년 대비 2배 성장했어요.",inv:"Founders Fund, Andreessen Horowitz, Thrive Capital, Lux Capital",val:"2026년 5월 Thrive Capital과 a16z가 주도한 $5B 규모 Series H를 유치하며 $61.1B로 확정됐어요. 1년 전 $30.5B에서 2배 이상 상승했어요.",imp:"실리콘밸리식 소프트웨어 개발 방식을 방위산업에 이식해 전통 방산업체의 원가가산 계약 모델에 도전해요. 미국과 우방국의 자율무기 및 국경 감시 체계 확산에 핵심 역할을 하며 방위 조달 방식 자체를 바꾸고 있어요.",why:"우크라이나 전쟁 이후 자율무기 수요 급증과 미국 국방예산의 소프트웨어 전환 흐름 속에서 유일한 대형 신흥 방산 플랫폼으로 평가받아요."},
+  en:{sec:"Defense / autonomous systems",f:"Founded 2017 / Founders Palmer Luckey, Trae Stephens, Brian Schimpf, Matt Grimm, Joe Chen / HQ Costa Mesa, USA",c:"Defense (defense tech), autonomous systems",biz:"Develops software-defined autonomous defense systems. Built on Lattice, its AI-integrated command-and-control platform, it operates surveillance towers, autonomous underwater vehicles, interceptor drones, and combat drones as a single system. 2025 revenue reached $2.2B, doubling year over year.",inv:"Founders Fund, Andreessen Horowitz, Thrive Capital, Lux Capital",val:"In May 2026 it raised a $5B Series H led by Thrive Capital and a16z, setting its valuation at $61.1B, more than doubling from $30.5B a year earlier.",imp:"By bringing a Silicon Valley software-development approach to the defense industry, it challenges the cost-plus contracting model of traditional defense contractors. It plays a central role in the spread of autonomous weapons and border-surveillance systems across the US and allied nations, reshaping how defense procurement itself works.",why:"Amid surging demand for autonomous weapons since the war in Ukraine and a shift of US defense spending toward software, it is regarded as the only large emerging defense platform."}},
+ {r:12,n:"Jio Platforms",v:"$58B",ai:0,logo:"jio",ctry:"인도",l:[["공식 사이트","https://www.jioplatforms.com"],["Wikipedia","https://en.wikipedia.org/wiki/Jio_Platforms"]],
+  ko:{sec:"통신/디지털",f:"2019년 설립 / 무케시 암바니(Mukesh Ambani) / 본사 인도 뭄바이",c:"통신, 디지털 플랫폼",biz:"릴라이언스 인더스트리의 디지털, 통신 지주회사로, 인도 최대 이동통신 사업자 Jio를 비롯해 광대역, 디지털 결제, 콘텐츠, 클라우드를 묶어 운영해요. 저가 데이터 요금제로 인도의 모바일 인터넷 보급을 폭발적으로 확대했어요.",inv:"Meta(9.98%), Google(7.73%), KKR, Vista Equity, 사우디 PIF, ADIA, Mubadala",val:"2020년 메타, 구글 등의 대규모 투자 당시 약 $58B로 평가됐어요. 2026년 6월 IPO 상장 서류를 제출했으며, 투자은행들은 상장 후 가치를 $130B~180B로 추정해요.",imp:"초저가 데이터로 수억 명을 온라인으로 끌어들여 인도 디지털 경제의 인프라 역할을 했어요. 통신, 결제, 커머스를 아우르는 슈퍼앱 전략으로 인도 디지털 생활 전반에 침투해 있어요.",why:"세계 최대급 가입자 기반과 글로벌 빅테크, 국부펀드 투자, 임박한 대형 IPO 기대가 가치를 뒷받침해요."},
+  en:{sec:"Telecom / digital",f:"Founded 2019 / Mukesh Ambani / HQ Mumbai, India",c:"Telecom, digital platforms",biz:"The digital and telecom holding company of Reliance Industries, it operates India's largest mobile carrier, Jio, alongside broadband, digital payments, content, and cloud services. Its low-cost data plans drove an explosive expansion of mobile internet access across India.",inv:"Meta (9.98%), Google (7.73%), KKR, Vista Equity, Saudi PIF, ADIA, Mubadala",val:"It was valued at roughly $58B during the large 2020 investments from Meta, Google, and others. In June 2026 it filed for an IPO, with investment banks estimating a post-listing value of $130B to $180B.",imp:"By bringing hundreds of millions of people online with ultra-cheap data, it served as core infrastructure for India's digital economy. Its super-app strategy spanning telecom, payments, and commerce has penetrated nearly every aspect of digital life in India.",why:"One of the world's largest subscriber bases, backing from global big tech and sovereign wealth funds, and anticipation of an imminent large IPO underpin its valuation."}},
+ {r:13,n:"Ramp",v:"$44B",ai:1,logo:"ramp",ctry:"미국",l:[["공식 사이트","https://ramp.com"],["TechCrunch","https://techcrunch.com/2026/06/04/ramp-raises-750m-at-44b-valuation-as-investors-hunger-for-fintechs-with-an-ai-story/"]],
+  ko:{sec:"핀테크/AI",f:"2019년 3월 설립 / 창업자 Eric Glyman, Karim Atiyeh, Gene Lee / 본사 미국 뉴욕",c:"법인카드, 지출관리 핀테크",biz:"법인 카드와 지출관리, 비용정산, 청구서 결제(AP) 소프트웨어를 결합해 기업의 지출을 자동으로 절감하도록 설계됐어요. AI 에이전트를 활용한 자동 경비 처리와 이상 지출 탐지가 핵심 성장 동력이에요. 연 환산 매출 $1B를 넘겼어요.",inv:"ICONIQ Growth, GIC, Ontario Teachers' Pension Plan, Founders Fund, Thrive Capital, Sequoia, Goldman Sachs Alternatives",val:"2026년 6월 ICONIQ Growth, GIC 등이 주도한 $750M(Series F)를 조달하며 $44B로 평가됐어요. 약 1년 만에 가치가 세 배로 뛰었어요.",imp:"AI로 기업의 낭비성 지출을 자동으로 찾아 없애는 모델을 제시하며 전통 경비관리, 법인카드 시장을 재편하고 있어요. 돈을 더 쓰게 만드는 기존 카드사와 반대로 절감을 수익 논리로 삼는 점이 차별점이에요.",why:"핀테크에 강력한 AI 자동화 스토리가 결합돼 투자자 수요가 몰렸고, 매출 급성장이 프리미엄을 정당화해요."},
+  en:{sec:"Fintech / AI",f:"Founded March 2019 / Founders Eric Glyman, Karim Atiyeh, Gene Lee / HQ New York, USA",c:"Corporate cards, spend-management fintech",biz:"Combines corporate cards with spend management, expense reconciliation, and accounts-payable (AP) bill-payment software, designed to automatically cut companies' spending. Automated expense processing and anomalous-spend detection powered by AI agents are its core growth drivers. It has surpassed $1B in annualized revenue.",inv:"ICONIQ Growth, GIC, Ontario Teachers' Pension Plan, Founders Fund, Thrive Capital, Sequoia, Goldman Sachs Alternatives",val:"In June 2026 it raised $750M (Series F) led by ICONIQ Growth and GIC at a $44B valuation, tripling its value in about a year.",imp:"By offering a model that uses AI to automatically find and eliminate wasteful corporate spending, it is reshaping the traditional expense-management and corporate-card markets. Unlike incumbent card issuers that push customers to spend more, it makes savings its revenue logic, a key differentiator.",why:"A strong AI-automation story layered onto fintech drew heavy investor demand, and rapid revenue growth justifies the premium."}},
+ {r:14,n:"Canva",v:"$42B",ai:1,logo:"canva",ctry:"호주",l:[["공식 사이트","https://www.canva.com"],["Fortune","https://fortune.com/2025/08/22/canva-billionaire-founders-minting-overnight-millionaires-employee-share-sale/"]],
+  ko:{sec:"디자인 SW",f:"2013년 설립 / 창업자 Melanie Perkins, Cliff Obrecht, Cameron Adams / 본사 호주 시드니",c:"디자인 소프트웨어(SaaS)",biz:"드래그 앤드 드롭 방식의 온라인 그래픽 디자인 플랫폼으로 프레젠테이션, SNS 이미지, 문서, 영상 등을 비전문가도 제작할 수 있게 해요. 최근 Magic Studio 등 생성형 AI 기능을 대거 통합했고, 프리미엄 구독과 팀 협업 기능으로 수익을 내요.",inv:"Fidelity, J.P. Morgan Asset Management, Sequoia, Blackbird Ventures, Felicis",val:"2025년 8월 직원 주식 매각(secondary) 기준 약 $42B로 평가됐으며, 같은 해 7월 $37B에서 상향된 수치예요. 2026년 IPO 가능성이 거론돼요.",imp:"전문 디자이너가 아니어도 마케팅, 교육, 업무용 시각물을 손쉽게 만들 수 있게 하면서 디자인 접근성을 크게 낮췄어요. 전 세계 수억 명의 사용자와 학교, 기업 워크플로에 자리 잡았어요.",why:"높은 구독 매출 성장과 흑자 기조, 생성형 AI 확장성이 결합돼 SaaS 중 최상위 밸류에이션을 정당화해요."},
+  en:{sec:"Design software",f:"Founded 2013 / Founders Melanie Perkins, Cliff Obrecht, Cameron Adams / HQ Sydney, Australia",c:"Design software (SaaS)",biz:"A drag-and-drop online graphic-design platform that lets non-professionals create presentations, social media images, documents, and video. It has recently integrated a wide range of generative AI features such as Magic Studio, and monetizes through premium subscriptions and team-collaboration tools.",inv:"Fidelity, J.P. Morgan Asset Management, Sequoia, Blackbird Ventures, Felicis",val:"It was valued at roughly $42B based on an August 2025 employee share sale (secondary), up from $37B that July. An IPO in 2026 has been floated as a possibility.",imp:"By enabling non-designers to easily produce marketing, educational, and business visuals, it has dramatically lowered the barrier to design. It has embedded itself in the workflows of hundreds of millions of users worldwide as well as schools and enterprises.",why:"Strong subscription-revenue growth, profitability, and generative-AI scalability combine to justify a top-tier SaaS valuation."}},
+ {r:15,n:"Ripple",v:"$40B",ai:0,logo:"ripple",ctry:"미국",l:[["공식 사이트","https://ripple.com"],["CNBC","https://www.cnbc.com/2025/11/05/ripple-gets-40-billion-valuation-after-500-million-funding-round.html"]],
+  ko:{sec:"크립토 결제",f:"2012년 설립 / 창업자 Chris Larsen, Jed McCaleb / 본사 미국 샌프란시스코",c:"크립토, 블록체인 결제",biz:"XRP 원장(XRP Ledger)을 기반으로 국경 간 결제, 정산 인프라를 제공하는 블록체인 기업이에요. 금융기관 대상 송금 네트워크(RippleNet), 스테이블코인(RLUSD), 기관용 수탁(custody) 사업을 운영해요. CEO는 Brad Garlinghouse예요.",inv:"Fortress Investment Group, Citadel Securities, Pantera Capital, Galaxy Digital, Brevan Howard, Marshall Wace",val:"2025년 11월 Fortress, Citadel Securities 주도의 $500M 투자에서 $40B로 평가됐어요. 이후 2026년 3월 자사주 매입에서는 약 $50B로 평가됐어요(추정).",imp:"SEC와의 장기 소송을 사실상 마무리한 뒤 제도권 편입이 빨라졌고, 블록체인 기반 국경 간 결제와 기관용 디지털 자산 인프라의 대표 주자로 부상했어요.",why:"규제 불확실성 해소와 크립토 강세장 속에서 기관 결제, 스테이블코인 사업이 재평가받으며 밸류에이션이 급등했어요."},
+  en:{sec:"Crypto payments",f:"Founded 2012 / Founders Chris Larsen, Jed McCaleb / HQ San Francisco, USA",c:"Crypto, blockchain payments",biz:"A blockchain company providing cross-border payment and settlement infrastructure built on the XRP Ledger. It operates a financial-institution remittance network (RippleNet), a stablecoin (RLUSD), and an institutional custody business. Its CEO is Brad Garlinghouse.",inv:"Fortress Investment Group, Citadel Securities, Pantera Capital, Galaxy Digital, Brevan Howard, Marshall Wace",val:"It was valued at $40B in a November 2025 $500M investment led by Fortress and Citadel Securities. A subsequent share buyback in March 2026 valued it at roughly $50B (estimated).",imp:"After effectively resolving its long-running lawsuit with the SEC, its move into the regulated mainstream accelerated, and it has emerged as a leading player in blockchain-based cross-border payments and institutional digital-asset infrastructure.",why:"With regulatory uncertainty cleared and amid a crypto bull market, its institutional payments and stablecoin businesses were re-rated, sending its valuation sharply higher."}},
+ {r:16,n:"Checkout.com",v:"$40B*",ai:0,logo:"checkout",ctry:"영국",l:[["공식 사이트","https://www.checkout.com"],["CNBC","https://www.cnbc.com/2025/09/26/fintech-checkoutcoms-valuation-falls-to-12-billion.html"]],
+  ko:{sec:"핀테크(결제)",f:"2009년 창업(2012년 개명) / 창업자 Guillaume Pousaz / 본사 영국 런던",c:"결제 처리 핀테크",biz:"기업 대상 온라인 결제 처리, 게이트웨이, 정산 인프라를 제공해요. 국경 간 카드 결제 승인과 정산을 최적화하고, 최근에는 AI 쇼핑 에이전트 기반 결제를 차세대 성장축으로 내세워요. 창업자 Pousaz가 지분 약 3분의 2를 보유해요.",inv:"Franklin Templeton, Tiger Global, Qatar Investment Authority(2022년 라운드 기준)",val:"인포그래픽의 $40B는 2022년 1월 정점 밸류에이션이에요. 이후 시장 조정으로 크게 하향돼, 2025년 9월 직원 자사주 매입 기준 내부 평가액은 $12B예요(정점과 큰 괴리).",imp:"유럽 최대급 결제 처리사로 글로벌 이커머스의 국경 간 결제를 지원하며, 승인율 최적화 기술로 대형 가맹점의 결제 인프라를 담당해요.",why:"2022년 $40B는 저금리기 핀테크 버블의 정점 평가로, 현재 실질 가치(약 $12B)와는 상당한 차이가 있어요. 비상장 가치가 시점에 따라 얼마나 흔들리는지 보여주는 사례예요."},
+  en:{sec:"Fintech (payments)",f:"Founded 2009 (renamed 2012) / Founder Guillaume Pousaz / HQ London, UK",c:"Payment-processing fintech",biz:"Provides online payment processing, gateway, and settlement infrastructure for businesses. It optimizes authorization and settlement of cross-border card payments and has recently positioned AI shopping-agent-based payments as its next growth axis. Founder Pousaz holds roughly two-thirds of the equity.",inv:"Franklin Templeton, Tiger Global, Qatar Investment Authority (as of the 2022 round)",val:"The $40B in the infographic is its peak valuation from January 2022. It has since been marked down sharply amid the market correction, with an internal valuation of $12B based on a September 2025 employee share buyback (a wide gap from the peak).",imp:"As one of Europe's largest payment processors, it supports cross-border payments for global e-commerce and handles payment infrastructure for large merchants through its authorization-rate optimization technology.",why:"The $40B from 2022 was a peak valuation at the top of the low-rate fintech bubble and differs substantially from its current real value (about $12B). It is a case study in how much private valuations can swing depending on the point in time."}},
+ {r:17,n:"Figure",v:"$39B",ai:1,logo:"figure",ctry:"미국",l:[["공식 사이트","https://www.figure.ai"],["Series C","https://www.figure.ai/news/series-c"]],
+  ko:{sec:"휴머노이드 로봇",f:"2022년 설립 / 창업자 Brett Adcock / 본사 미국 서니베일",c:"휴머노이드 로보틱스",biz:"범용 휴머노이드 로봇을 개발하는 로보틱스 기업이에요. 물류, 제조 현장에 투입되는 인간형 로봇 Figure 03, 자체 비전-언어-행동(VLA) 모델 Helix, 연 1.2만 대 생산을 목표로 한 제조 시설 BotQ를 운영해요.",inv:"Parkway Venture Capital, Brookfield, NVIDIA, Macquarie Capital, Intel Capital, LG Technology Ventures, Salesforce, T-Mobile Ventures, Qualcomm Ventures",val:"2025년 Series C에서 $1B 이상을 조달하며 post-money $39B로 평가됐어요. 2024년 2월 Series B($2.6B) 대비 약 15배, 2023년 Series A($0.5B) 대비 약 78배 상승했어요.",imp:"노동력 부족 문제 해결 수단으로 휴머노이드 로봇의 상업화 가능성을 앞당기고 있어요. 엔비디아, 마이크로소프트 등 빅테크 자본이 집중되며 물리 AI를 대표하는 기업으로 자리 잡았어요.",why:"아직 초기 상용화 단계지만 자체 하드웨어, AI 모델, 제조 역량을 수직 통합한 소수 기업이라는 점과 휴머노이드 시장의 폭발적 성장 기대가 프리미엄으로 반영됐어요."},
+  en:{sec:"Humanoid robotics",f:"Founded 2022 / Founder Brett Adcock / HQ Sunnyvale, USA",c:"Humanoid robotics",biz:"A robotics company developing general-purpose humanoid robots. It operates Figure 03, a humanoid robot deployed in logistics and manufacturing settings; Helix, its in-house vision-language-action (VLA) model; and BotQ, a manufacturing facility targeting output of 12,000 units per year.",inv:"Parkway Venture Capital, Brookfield, NVIDIA, Macquarie Capital, Intel Capital, LG Technology Ventures, Salesforce, T-Mobile Ventures, Qualcomm Ventures",val:"It raised more than $1B in a 2025 Series C at a post-money valuation of $39B, roughly 15x its February 2024 Series B ($2.6B) and about 78x its 2023 Series A ($0.5B).",imp:"It is accelerating the commercial viability of humanoid robots as a solution to labor shortages. With concentrated big-tech capital from the likes of NVIDIA and Microsoft, it has established itself as a leading physical-AI company.",why:"Though still in early commercialization, its status as one of the few companies to vertically integrate its own hardware, AI models, and manufacturing, together with expectations of explosive growth in the humanoid market, is reflected in the premium."}},
+ {r:18,n:"Project Prometheus",v:"$38B",ai:1,logo:"prometheus",ctry:"미국",l:[["Bloomberg","https://www.bloomberg.com/news/articles/2026-04-23/bezos-s-physical-ai-lab-has-closed-round-at-38-billion-value"]],
+  ko:{sec:"물리 AI",f:"2025년 11월 설립 / 창업자 Jeff Bezos, Vik Bajaj / 본사 미국 샌프란시스코(런던, 취리히 거점)",c:"물리 AI(Physical AI)",biz:"제트엔진부터 신약 화합물까지 복잡한 물리 시스템의 설계와 제조를 자동화하는 이른바 인공 일반 엔지니어(artificial general engineer)를 개발해요. 베이조스와 전 구글 X 출신 화학, 물리학자 Vik Bajaj가 공동 CEO를 맡아요.",inv:"BlackRock, JPMorgan(2026년 4월 라운드 주도)",val:"2026년 4월 $10B 규모 라운드를 마감하며 post-money 약 $38B로 확정했어요. 이후 2026년 6월 $12B를 추가 유치하며 약 $41B로 상승했어요.",imp:"창업 5개월 만에 사상 최대급 초기 스타트업으로 부상했어요. AI를 소프트웨어 생성이 아닌 물리 세계의 엔지니어링과 제조 자동화에 적용하려는 대표 시도로, 제조, 소재, 바이오 R&D 방식을 바꿀 잠재력을 지녀요.",why:"베이조스의 직접 참여와 물리 AI라는 미개척 대형 시장, 실적 이전 단계임에도 초대형 자본이 몰린 결과예요.",x:"동명 기업이 여럿 있어 유의. 와이오밍의 데이터센터 기업 Prometheus Hyperscale과는 다른 회사예요."},
+  en:{sec:"Physical AI",f:"Founded November 2025 / Founders Jeff Bezos, Vik Bajaj / HQ San Francisco, USA (London and Zurich hubs)",c:"Physical AI",biz:"Develops what it calls an artificial general engineer to automate the design and manufacturing of complex physical systems, from jet engines to novel drug compounds. Bezos and former Google X chemist and physicist Vik Bajaj serve as co-CEOs.",inv:"BlackRock, JPMorgan (led the April 2026 round)",val:"It closed a $10B round in April 2026 at a post-money valuation of about $38B, then raised an additional $12B in June 2026, rising to roughly $41B.",imp:"Just five months after its founding, it has emerged as one of the largest early-stage startups ever. As a leading attempt to apply AI not to generating software but to engineering and manufacturing automation in the physical world, it holds the potential to change how manufacturing, materials, and bio R&D are done.",why:"The result of Bezos's direct involvement, the vast untapped market of physical AI, and a rush of mega-scale capital despite being pre-revenue.",x:"Note that several companies share this name. It is distinct from Prometheus Hyperscale, the Wyoming data-center company."}},
+ {r:19,n:"Safe Superintelligence (SSI)",v:"$32B",ai:1,logo:"ssi",ctry:"미국",l:[["공식 사이트","https://ssi.inc"],["Wikipedia","https://en.wikipedia.org/wiki/Safe_Superintelligence_Inc."]],
+  ko:{sec:"AI 연구",f:"2024년 설립 / 창업자 Ilya Sutskever(전 OpenAI 수석과학자), Daniel Gross, Daniel Levy / 본사 미국 팔로알토, 이스라엘 텔아비브",c:"AI 안전 연구소(초지능 개발)",biz:"단 하나의 목표인 안전한 초지능(safe superintelligence) 개발에만 집중하는 연구소예요. 아직 상용 제품이나 매출이 없고, 중간 상품을 내지 않겠다고 공언한 순수 연구 조직이에요.",inv:"Greenoaks, Andreessen Horowitz, Lightspeed, DST Global, Alphabet, NVIDIA",val:"2025년 추가 $2B를 조달하며 $32B로 평가됐고 누적 조달액은 약 $6B예요. 제품이 전혀 없는 상태에서 Sutskever의 명성과 미공개 연구 방향만으로 매겨진 가치예요.",imp:"제품 없이 초지능 안전에만 베팅하는 이례적 모델로, AI 안전 담론과 인재 지형에 상징적 영향을 줘요.",why:"매출이나 시장 지표가 아니라 창업자 명성과 초지능 잠재력에 대한 기대가 근거인, 순수 옵션 가치에 가까운 평가예요."},
+  en:{sec:"AI research",f:"Founded 2024 / Founders Ilya Sutskever (former OpenAI chief scientist), Daniel Gross, Daniel Levy / HQ Palo Alto, USA, and Tel Aviv, Israel",c:"AI safety lab (superintelligence)",biz:"A lab focused on a single goal: developing safe superintelligence. It has no commercial product or revenue yet and is a pure research organization that has publicly pledged not to release interim products.",inv:"Greenoaks, Andreessen Horowitz, Lightspeed, DST Global, Alphabet, NVIDIA",val:"It raised an additional $2B in 2025 at a $32B valuation, bringing cumulative funding to about $6B. With no product at all, the valuation rests solely on Sutskever's reputation and an undisclosed research direction.",imp:"With its unusual model of betting purely on superintelligence safety without a product, it has a symbolic influence on AI-safety discourse and the talent landscape.",why:"A valuation grounded not in revenue or market metrics but in founder reputation and expectations for superintelligence potential, closer to pure option value."}},
+ {r:20,n:"Fanatics",v:"$31B",ai:0,logo:"fanatics",ctry:"미국",l:[["공식 사이트","https://www.fanatics.com"],["Sacra","https://sacra.com/c/fanatics/"]],
+  ko:{sec:"스포츠 커머스",f:"1995년 전신 설립, 2011년 Michael Rubin 인수 후 재편 / 현 지배주주 Michael Rubin / 본사 미국 잭슨빌",c:"스포츠 커머스, 수집품, 베팅",biz:"프로 스포츠 리그, 팀, 선수노조와의 독점 라이선스를 기반으로 유니폼과 굿즈를 판매하는 스포츠 커머스가 본업이에요. 여기에 트레이딩 카드와 사인 수집품, 스포츠 베팅, 게이밍으로 사업을 확장했어요.",inv:"SoftBank, Silver Lake, Fidelity, BlackRock, Clearlake Capital, 주요 스포츠 리그 및 선수노조",val:"2022년 12월 $700M 라운드에서 약 $31B로 평가됐고, 2025년 Fidelity 펀드 보유가액 기준 약 $33.5B로 상향됐다는 보도가 있어요(추정).",imp:"스포츠 상품 유통을 수직 통합해 리그, 팀, 팬을 잇는 단일 커머스 생태계를 구축했고, 수집품과 베팅까지 아우르며 팬 경제를 재편하고 있어요.",why:"리그 독점 라이선스라는 진입장벽과 커머스, 수집품, 게이밍으로 다각화된 매출(2025년 약 $13B)이 높은 밸류에이션을 뒷받침해요."},
+  en:{sec:"Sports commerce",f:"Predecessor founded 1995, restructured after Michael Rubin's 2011 acquisition / Controlling shareholder Michael Rubin / HQ Jacksonville, USA",c:"Sports commerce, collectibles, betting",biz:"Its core business is sports commerce, selling jerseys and merchandise on the strength of exclusive licenses with professional sports leagues, teams, and players' unions. It has expanded into trading cards and autographed collectibles, sports betting, and gaming.",inv:"SoftBank, Silver Lake, Fidelity, BlackRock, Clearlake Capital, major sports leagues and players' unions",val:"It was valued at about $31B in a December 2022 $700M round, and reports indicate this was marked up to roughly $33.5B based on the carrying value in a Fidelity fund in 2025 (estimated).",imp:"By vertically integrating sports-merchandise distribution, it has built a single commerce ecosystem connecting leagues, teams, and fans, and it is reshaping the fan economy by extending into collectibles and betting.",why:"The entry barrier of exclusive league licenses and revenue diversified across commerce, collectibles, and gaming (about $13B in 2025) support the high valuation."}},
+ {r:21,n:"VAST Data",v:"$30B",ai:1,logo:"vast",ctry:"미국",l:[["공식 사이트","https://www.vastdata.com"],["Series F","https://www.vastdata.com/press-releases/vast-series-f-financing-at-30-billion-valuation"]],
+  ko:{sec:"AI 데이터 인프라",f:"2016년 설립 / 창업자 Renen Hallak, Shachar Fienblit / 본사 미국 뉴욕",c:"AI 데이터 인프라, 스토리지",biz:"이 항목은 우주정거장 회사 Vast Space가 아니라 AI 데이터 인프라 기업 VAST Data예요. 컴퓨트와 스토리지 사이에 위치하는 단일 계층, 플래시 우선 아키텍처를 제공해 데이터 이동을 없애고 데이터베이스와 컴퓨트를 통합한 AI 데이터 플랫폼을 판매해요.",inv:"Drive Capital, Access Industries, NVIDIA, Fidelity, NEA",val:"2026년 4월 Series F(약 $1B 규모)를 마감하며 $30B로 평가됐어요. 2023년 말 Series E($9.1B) 대비 3배 이상 상승했어요. 누적 부킹 $4B 이상, 확정 ARR $500M 이상을 기록했어요.",imp:"AI 학습, 추론에 필요한 대규모 데이터 처리 병목을 해소하는 인프라로, 엔비디아 GPU 생태계와 긴밀히 결합해 AI 데이터 스택의 핵심 계층으로 부상했어요.",why:"AI 인프라 수요 폭증의 직접 수혜주이며, 엔비디아가 투자자로 참여할 만큼 GPU 시대 데이터 계층의 표준 지위를 인정받은 점이 반영됐어요."},
+  en:{sec:"AI data infrastructure",f:"Founded 2016 / Founders Renen Hallak, Shachar Fienblit / HQ New York, USA",c:"AI data infrastructure, storage",biz:"This entry refers to VAST Data, the AI data infrastructure company, not the space-station firm Vast Space. It sells an AI data platform built on a single-tier, flash-first architecture that sits between compute and storage, eliminating data movement and unifying the database and compute layers.",inv:"Drive Capital, Access Industries, NVIDIA, Fidelity, NEA",val:"In April 2026 it closed a Series F (roughly $1B) at a $30B valuation, more than triple its late-2023 Series E ($9.1B). Cumulative bookings exceed $4B and committed ARR tops $500M.",imp:"As infrastructure that removes the large-scale data bottleneck in AI training and inference, it has become a core layer of the AI data stack through tight integration with NVIDIA's GPU ecosystem.",why:"A direct beneficiary of surging AI infrastructure demand, its standing as the standard data layer for the GPU era is underscored by NVIDIA's participation as an investor."}},
+ {r:22,n:"Xiaohongshu (RED)",v:"$30B",ai:0,logo:"xiaohongshu",ctry:"중국",l:[["공식 사이트","https://www.xiaohongshu.com"],["Sacra","https://sacra.com/c/xiaohongshu/"]],
+  ko:{sec:"소셜 커머스",f:"2013년 6월 설립 / 창업자 마오원차오(Charlwin Mao), 취팡(Miranda Qu) / 본사 중국 상하이",c:"소셜 커머스, 콘텐츠 커뮤니티",biz:"라이프스타일 콘텐츠 공유 커뮤니티로 시작해 소셜 커머스로 확장했어요. 사용자가 뷰티, 패션, 여행, 맛집 후기를 이미지와 영상으로 공유하고 이를 상품 구매로 연결하는 종초(种草) 소비 문화를 만들었어요.",inv:"Tencent, Alibaba, HongShan(구 Sequoia China), ZhenFund, GGV Capital",val:"2025년 9월 세컨더리 거래에서 약 $31B로 평가됐어요(2025년 6월 약 $26B 대비 상승). 인포그래픽의 붉은 $30B 버블과 잘 부합해요. 홍콩 IPO를 준비 중이에요.",imp:"중국 젊은 여성 소비자의 실질적 검색과 구매 결정 플랫폼으로 자리 잡아 중국판 인스타그램+구글로 불려요. 2025년 초 미국 틱톡 금지 논란 때 미국 사용자가 대거 유입(TikTok refugee)되며 글로벌 인지도가 급상승했어요.",why:"3억 명 이상 월간 활성 사용자와 흑자 전환, 임박한 홍콩 IPO 기대가 뒷받침해요."},
+  en:{sec:"Social commerce",f:"Founded June 2013 / Founders Charlwin Mao, Miranda Qu / HQ Shanghai, China",c:"Social commerce, content community",biz:"Starting as a lifestyle content-sharing community, it expanded into social commerce. Users share beauty, fashion, travel, and dining reviews through images and video, creating the 'zhongcao' (种草) consumer culture that converts discovery into product purchases.",inv:"Tencent, Alibaba, HongShan (formerly Sequoia China), ZhenFund, GGV Capital",val:"A September 2025 secondary transaction valued it at about $31B, up from roughly $26B in June 2025, aligning with the red $30B bubble in the infographic. It is preparing for a Hong Kong IPO.",imp:"It has established itself as the de facto search and purchase-decision platform for young Chinese women, earning the nickname 'China's Instagram plus Google.' During the early-2025 US TikTok ban controversy, an influx of American 'TikTok refugees' sharply raised its global profile.",why:"More than 300 million monthly active users, a swing to profitability, and expectations for an imminent Hong Kong IPO support the valuation."}},
+ {r:23,n:"Scale AI",v:"$29B",ai:1,logo:"scale-ai",ctry:"미국",l:[["공식 사이트","https://scale.com"],["Wikipedia","https://en.wikipedia.org/wiki/Scale_AI"]],
+  ko:{sec:"AI 데이터",f:"2016년 설립 / 창업자 Alexandr Wang, Lucy Guo / 본사 미국 샌프란시스코",c:"AI 데이터 인프라(데이터 라벨링, 모델 평가)",biz:"AI 학습에 필요한 데이터 어노테이션, 모델 평가, 얼라인먼트 서비스를 제공해요. 전 세계 계약직 인력이 이미지, 텍스트, 영상을 라벨링해 학습 데이터를 만들고 이를 AI 기업과 정부에 판매해요. 국방부와도 $500M 규모 계약을 맺었어요.",inv:"Meta(약 $14.3B로 49% 지분), Accel, Index Ventures, Founders Fund, Tiger Global",val:"2025년 Meta의 대규모 투자로 $29B로 평가됐어요. 이때 창업자 Alexandr Wang은 Meta로 이동했고 Scale은 독립 기업으로 유지돼요.",imp:"고품질 학습 데이터가 AI 발전의 핵심 병목이 된 현실을 보여주는 대표 기업이에요. 주요 AI 모델의 데이터 파이프라인을 뒷받침하며 국방, 정부 AI로도 확장 중이에요.",why:"매출이 빠르게 성장하고 Meta의 전략적 베팅이 데이터의 희소가치를 입증했어요. 대형 고객 관계와 데이터 운영 규모가 해자예요."},
+  en:{sec:"AI data",f:"Founded 2016 / Founders Alexandr Wang, Lucy Guo / HQ San Francisco, USA",c:"AI data infrastructure (labeling, model evaluation)",biz:"It provides data annotation, model evaluation, and alignment services for AI training. A global contract workforce labels images, text, and video to create training data, which it sells to AI companies and governments. It has also signed a $500M contract with the US Department of Defense.",inv:"Meta (roughly $14.3B for a 49% stake), Accel, Index Ventures, Founders Fund, Tiger Global",val:"Meta's large 2025 investment valued it at $29B. As part of the deal, founder Alexandr Wang moved to Meta while Scale remains an independent company.",imp:"It is the leading example of how high-quality training data has become a key bottleneck in AI progress. It underpins the data pipelines of major AI models and is expanding into defense and government AI.",why:"Rapidly growing revenue and Meta's strategic bet have proven the scarcity value of data. Its large customer relationships and the scale of its data operations form its moat."}},
+ {r:24,n:"Anysphere (Cursor)",v:"$29B",ai:1,logo:"anysphere",ctry:"미국",l:[["공식 사이트","https://cursor.com"],["CNBC","https://www.cnbc.com/2025/11/13/cursor-ai-startup-funding-round-valuation.html"]],
+  ko:{sec:"AI 개발도구",f:"2022년 설립 / 창업자 Michael Truell, Sualeh Asif, Arvid Lunnemark, Aman Sanger / 본사 미국 샌프란시스코",c:"AI 개발자 도구(SaaS)",biz:"AI 코드 에디터 Cursor를 개발해요(법인명 Anysphere, 제품명 Cursor). 자연어 명령으로 코드를 편집, 검색하고 명령을 실행하며 프로그래밍 작업을 수행하는 AI 코딩 에이전트를 제공해요.",inv:"Accel, Coatue, Thrive Capital, Andreessen Horowitz, DST Global, NVIDIA, Google",val:"2025년 11월 Series D에서 $2.3B를 조달하며 $29.3B로 평가됐어요. 2025년 초 Series C($9B, $9.9B) 대비 3배 상승했어요.",imp:"AI 페어 프로그래밍을 대중화하며 개발자 생산성 도구 시장을 재편했어요. 창업 3년 만에 ARR $2B를 돌파해 SaaS 역사상 가장 빠른 성장 속도로 꼽혀요.",why:"코딩 AI 시장의 사실상 선두 제품으로 폭발적 유료 매출 성장을 입증했고, 개발 워크플로 장악력이 프리미엄으로 이어졌어요."},
+  en:{sec:"AI developer tools",f:"Founded 2022 / Founders Michael Truell, Sualeh Asif, Arvid Lunnemark, Aman Sanger / HQ San Francisco, USA",c:"AI developer tools (SaaS)",biz:"It develops the AI code editor Cursor (corporate name Anysphere, product name Cursor). Cursor is an AI coding agent that edits and searches code, runs commands, and carries out programming tasks from natural-language instructions.",inv:"Accel, Coatue, Thrive Capital, Andreessen Horowitz, DST Global, NVIDIA, Google",val:"In November 2025 it raised $2.3B in a Series D at a $29.3B valuation, triple its early-2025 Series C ($9B, $9.9B).",imp:"It has popularized AI pair programming and reshaped the developer-productivity tools market. Surpassing $2B in ARR within three years of founding, it is regarded as one of the fastest-growing companies in SaaS history.",why:"As the effective market leader in coding AI, it has proven explosive paid-revenue growth, and its grip on developer workflows translates into a premium."}},
+ {r:25,n:"Cognition (Devin)",v:"$26B",ai:1,logo:"cognition",ctry:"미국",l:[["공식 사이트","https://cognition.com"],["TechCrunch","https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/"]],
+  ko:{sec:"AI 소프트웨어",f:"2023년 11월 설립 / 창업자 Scott Wu(CEO), Steven Hao(CTO), Walden Yan(CPO) / 본사 미국 샌프란시스코",c:"AI 소프트웨어 엔지니어링",biz:"자율형 AI 소프트웨어 엔지니어 Devin을 개발해요. Devin은 작업 지시를 받아 코드 작성, 디버깅, 배포를 스스로 수행하며, 2025년 7월 AI 코드 에디터 Windsurf를 인수해 제품군을 확장했어요.",inv:"8VC, Lux Capital, General Catalyst, Founders Fund, Ribbit Capital, Atreides, Elad Gil",val:"2026년 5월 $1B 이상을 조달하며 pre-money $25B, post-money $26B로 평가됐어요. 2025년 9월 라운드($400M, $10.2B) 대비 2.5배 상승했어요.",imp:"소프트웨어 개발을 자동화하는 에이전트형 AI의 선두주자로, Devin의 엔터프라이즈 사용량이 6개월 연속 월 50% 성장했어요. 자사 코드의 약 89%를 AI가 작성할 만큼 개발 자동화의 실증 사례를 제시해요.",why:"Windsurf 인수로 제품, 고객, 매출을 단번에 확보했고, 엔지니어를 대체하는 AI라는 서사와 급성장하는 ARR이 결합돼 높은 가치를 정당화해요."},
+  en:{sec:"AI software",f:"Founded November 2023 / Founders Scott Wu (CEO), Steven Hao (CTO), Walden Yan (CPO) / HQ San Francisco, USA",c:"AI software engineering",biz:"It develops Devin, an autonomous AI software engineer. Given task instructions, Devin writes, debugs, and deploys code on its own. In July 2025 the company acquired the AI code editor Windsurf to expand its product lineup.",inv:"8VC, Lux Capital, General Catalyst, Founders Fund, Ribbit Capital, Atreides, Elad Gil",val:"In May 2026 it raised more than $1B at a $25B pre-money, $26B post-money valuation, 2.5 times its September 2025 round ($400M, $10.2B).",imp:"As a frontrunner in agentic AI that automates software development, its enterprise usage of Devin grew 50% month over month for six consecutive months. With AI writing roughly 89% of its own code, it offers a proof point for development automation.",why:"The Windsurf acquisition secured products, customers, and revenue in a single move, and the narrative of AI replacing engineers, combined with fast-growing ARR, justifies the high valuation."}},
+ {r:26,n:"OKX",v:"$25B",ai:0,logo:"okx",ctry:"세이셸",l:[["공식 사이트","https://www.okx.com"],["Wikipedia","https://en.wikipedia.org/wiki/OKX"]],
+  ko:{sec:"크립토 거래소",f:"2017년 설립(전신 OKCoin 2013년) / 창업자 Star Xu(徐明星) / 본사 세이셸 등록, 글로벌(미국 본부 산호세)",c:"암호화폐 거래소(핀테크, 크립토)",biz:"현물과 파생상품 거래를 제공하는 세계 최대급 암호화폐 거래소 중 하나로, 자체 Web3 지갑과 온체인 서비스, 자체 토큰(OKB) 생태계를 운영해요. 2025년 4월 미국 시장에 재진입하며 본부를 산호세로 옮겼어요.",inv:"Intercontinental Exchange(ICE, NYSE 모기업), 창업자 Star Xu 등 내부 지분",val:"2026년 3월 ICE가 OKX에 지분 투자하면서 약 $25B로 평가됐어요.",imp:"글로벌 거래량 상위 거래소로서 암호화폐 시장 유동성과 파생상품 인프라의 핵심 축을 담당하며, Web3 지갑을 통해 온체인 대중화에도 영향을 줘요.",why:"대규모 거래량과 파생상품 점유율, 전통 금융 대기업 ICE의 전략적 투자가 $25B를 정당화해요."},
+  en:{sec:"Crypto exchange",f:"Founded 2017 (predecessor OKCoin in 2013) / Founder Star Xu / Registered in Seychelles, global operations (US HQ in San Jose)",c:"Cryptocurrency exchange (fintech, crypto)",biz:"One of the world's largest cryptocurrency exchanges, offering spot and derivatives trading, it operates its own Web3 wallet, on-chain services, and native token (OKB) ecosystem. In April 2025 it re-entered the US market and relocated its headquarters to San Jose.",inv:"Intercontinental Exchange (ICE, parent of the NYSE), founder Star Xu and other insiders",val:"ICE's equity investment in OKX in March 2026 valued the company at about $25B.",imp:"As one of the top exchanges by global trading volume, it anchors crypto-market liquidity and derivatives infrastructure, and its Web3 wallet also influences the mainstreaming of on-chain activity.",why:"Large trading volumes, derivatives market share, and a strategic investment from traditional-finance giant ICE justify the $25B valuation."}},
+ {r:27,n:"FNZ",v:"$24B",ai:0,logo:"fnz",ctry:"영국",l:[["공식 사이트","https://www.fnz.com"],["PitchBook","https://pitchbook.com/profiles/company/25594-48"]],
+  ko:{sec:"웰스테크",f:"2003년 설립 / 창업자 Adrian Durham / 본사 영국 런던(창업지 뉴질랜드 웰링턴)",c:"핀테크, 웰스테크(자산관리 플랫폼)",biz:"금융기관과 자산관리사를 위한 엔드투엔드 웰스 매니지먼트 플랫폼을 제공해요. 계좌 개설, 거래, 정산, 리포팅을 아우르는 SaaS형 인프라로, 은행과 보험사, 자산운용사가 자체 브랜드 자산관리 서비스를 운영하도록 지원해요. 650개 이상 금융기관과 제휴해 $2조 이상 자산을 관리해요.",inv:"La Caisse(CDPQ), Generation Investment Management, CPP Investments, Motive Partners, Temasek",val:"마지막 공개 valuation은 2022년 약 $20B예요. 2025년 11월 기존 주주로부터 $650M 지분 투자를 유치했으나 최신 valuation은 비공개예요. 인포그래픽의 $24B는 추정으로 보는 것이 타당해요(추정).",imp:"자산관리 산업의 보이지 않는 인프라로, 소규모 금융사도 대형사 수준의 디지털 자산관리 서비스를 제공할 수 있게 만들었어요. 영국, 유럽, 호주, 뉴질랜드 리테일 자산관리 시장의 백엔드를 상당 부분 담당해요.",why:"$2조 이상 위탁자산과 안정적 반복 매출 기반의 글로벌 웰스테크 인프라라는 희소성이 뒷받침해요."},
+  en:{sec:"Wealthtech",f:"Founded 2003 / Founder Adrian Durham / HQ London, UK (founded in Wellington, New Zealand)",c:"Fintech, wealthtech (wealth management platform)",biz:"It provides an end-to-end wealth management platform for financial institutions and wealth managers. Its SaaS infrastructure spans account opening, trading, settlement, and reporting, enabling banks, insurers, and asset managers to run their own branded wealth management services. It partners with more than 650 financial institutions and administers over $2 trillion in assets.",inv:"La Caisse (CDPQ), Generation Investment Management, CPP Investments, Motive Partners, Temasek",val:"Its last disclosed valuation was about $20B in 2022. In November 2025 it raised a $650M equity investment from existing shareholders, but the latest valuation is undisclosed. The infographic's $24B is best treated as an estimate.",imp:"As the invisible infrastructure of the wealth management industry, it enables even small financial firms to offer digital wealth services on par with large institutions. It handles much of the back end of retail wealth management markets in the UK, Europe, Australia, and New Zealand.",why:"Its scarcity as global wealthtech infrastructure, with more than $2 trillion in assets under administration and a stable recurring-revenue base, supports the valuation."}},
+ {r:28,n:"Yangtze Memory (YMTC)",v:"$23B",ai:0,logo:"ymtc",ctry:"중국",l:[["공식 사이트","https://www.ymtc.com"],["Wikipedia","https://en.wikipedia.org/wiki/Yangtze_Memory_Technologies"]],
+  ko:{sec:"반도체(NAND)",f:"2016년 7월 설립 / 칭화유니그룹과 국가 반도체 펀드가 설립(초대 CEO Simon Yang) / 본사 중국 우한",c:"반도체, NAND 플래시 메모리",biz:"3D 낸드(NAND) 플래시 메모리와 SSD를 설계, 생산하는 중국 대표 메모리 반도체 기업이에요. 국가 주도로 설립돼 해외 메모리 의존도를 낮추는 것을 목표로 하며, 로직과 셀 웨이퍼를 접합하는 독자 아키텍처 Xtacking을 앞세워요. 2022년 미국 수출통제 리스트에 오르며 장비 조달 제약을 받고 있어요.",inv:"후베이성 국유 커지투자, 국가집적회로산업투자기금(빅펀드), 국유은행 계열 투자기구",val:"2025~2026년 약 1,600억 위안(약 $23.5B) 수준으로 평가됐어요. 상하이 스타마켓(Star Market) IPO를 추진하며 최대 약 $40B대 밸류를 목표로 한다는 보도가 있어요(IPO 목표치 추정).",imp:"삼성, SK하이닉스, 마이크론이 장악한 낸드 시장에서 중국 자립을 상징하는 기업으로, 미중 반도체 패권 경쟁의 핵심 축이에요. 저가 낸드 공급 확대로 글로벌 메모리 가격 구조에도 영향을 줘요.",why:"중국 유일의 대형 낸드 양산 능력과 국가 자금 지원이 근거이나, 수출통제로 인한 성장 제약이 상단을 제한해요."},
+  en:{sec:"Semiconductors (NAND)",f:"Founded July 2016 / Established by Tsinghua Unigroup and the national semiconductor fund (first CEO Simon Yang) / HQ Wuhan, China",c:"Semiconductors, NAND flash memory",biz:"A leading Chinese memory chipmaker that designs and manufactures 3D NAND flash memory and SSDs. Established under state direction to reduce reliance on foreign memory, it leads with Xtacking, its proprietary architecture that bonds logic and cell wafers. Added to the US export-control list in 2022, it faces constraints in procuring equipment.",inv:"Hubei provincial state-owned Keji Investment, the National Integrated Circuit Industry Investment Fund (the 'Big Fund'), and state bank-affiliated investment vehicles",val:"In 2025-2026 it was valued at roughly 160 billion yuan (about $23.5B). Reports say it is pursuing an IPO on Shanghai's STAR Market targeting a valuation of up to around $40B (IPO target is an estimate).",imp:"In a NAND market dominated by Samsung, SK Hynix, and Micron, it symbolizes China's push for self-sufficiency and is a central axis of the US-China semiconductor rivalry. Its expansion of low-cost NAND supply also affects the global memory pricing structure.",why:"China's only large-scale NAND mass-production capability and state funding provide the basis, though export-control-driven growth constraints cap the upside."}},
+ {r:29,n:"JUUL",v:"$23B",ai:0,logo:"juul",ctry:"미국",l:[["공식 사이트","https://www.juul.com"],["Wikipedia","https://en.wikipedia.org/wiki/Juul"]],
+  ko:{sec:"전자담배",f:"2015년 Pax Labs에서 분사, 2017년 독립 법인화 / 창업자 Adam Bowen, James Monsees / 본사 미국 워싱턴 D.C.",c:"전자담배, 베이핑(소비재)",biz:"니코틴 소금(nicotine salt) 기술을 적용한 폐쇄형 팟 방식 전자담배를 만들어요. 2025년에는 블루투스와 연령 인증 앱을 지원하는 신형 Juul2 기기를 출시하며 규제 준수형 제품으로 재정비하고 있어요.",inv:"Coatue, 1789 Capital, Tiger Global, Fidelity(과거 최대주주 Altria는 2023년 철수)",val:"인포그래픽의 $23B는 2018년 정점($38B, Altria 투자 당시) 대비 크게 하향된 값으로, FDA 규제 리스크와 소송 이후 재평가된 밸류에이션이에요(추정).",imp:"2010년대 후반 미국 베이핑 시장을 폭발적으로 키웠으나 청소년 사용 급증으로 대규모 규제와 소송을 촉발했고, 전자담배 규제 프레임 전반을 바꿔놓았어요.",why:"여전히 강한 브랜드 인지도와 시장 점유율을 보유하나, 규제와 법적 불확실성이 밸류에이션을 정점 대비 크게 억눌러요."},
+  en:{sec:"E-cigarettes",f:"Spun out of Pax Labs in 2015, incorporated independently in 2017 / Founders Adam Bowen, James Monsees / HQ Washington, D.C., USA",c:"E-cigarettes, vaping (consumer goods)",biz:"It makes closed pod-based e-cigarettes using nicotine-salt technology. In 2025 it launched the new Juul2 device with Bluetooth and an age-verification app, repositioning around a compliance-focused product.",inv:"Coatue, 1789 Capital, Tiger Global, Fidelity (former largest shareholder Altria exited in 2023)",val:"The infographic's $23B is sharply below its 2018 peak ($38B, at the time of Altria's investment), reflecting a valuation reset after FDA regulatory risk and litigation (estimate).",imp:"It explosively grew the US vaping market in the late 2010s, but a surge in youth use triggered sweeping regulation and lawsuits, reshaping the entire regulatory framework for e-cigarettes.",why:"It still holds strong brand recognition and market share, but regulatory and legal uncertainty keeps its valuation well below its peak."}},
+ {r:30,n:"Epic Games",v:"$23B",ai:0,logo:"epic-games",ctry:"미국",l:[["공식 사이트","https://www.epicgames.com"],["Sacra","https://sacra.com/c/epic-games/"]],
+  ko:{sec:"게임/엔진",f:"1991년 설립 / 창업자 Tim Sweeney / 본사 미국 노스캐롤라이나주 캐리(Cary)",c:"게임, 게임엔진",biz:"대표 게임 Fortnite와 게임 개발 엔진 Unreal Engine을 만들어요. Fortnite는 V-Bucks 가상화폐와 배틀패스로 수익을 내는 대형 무료 게임이며, Unreal Engine은 게임, 영화, 건축 등 산업 전반의 실시간 3D 표준 엔진이에요. Epic Games Store도 운영해요.",inv:"The Walt Disney Company, Sony, KIRKBI(레고 지주회사), Tencent",val:"2024년 2월 Disney가 $1.5B를 투자하면서 post-money 약 $22.5B로 평가됐어요. 2022년 정점(약 $31.5B) 대비 하향된 수치예요.",imp:"Fortnite로 메타버스형 소셜 게임 경험을 대중화했고, Unreal Engine은 게임을 넘어 영상, 가상프로덕션 산업의 핵심 인프라가 됐어요. 앱스토어 수수료를 둘러싼 반독점 소송으로 플랫폼 정책 변화도 이끌었어요.",why:"Fortnite의 안정적 수익과 Unreal Engine의 산업 표준 지위, Disney 등 전략 파트너십이 밸류에이션을 뒷받침해요."},
+  en:{sec:"Gaming / engines",f:"Founded 1991 / Founder Tim Sweeney / HQ Cary, North Carolina, USA",c:"Games, game engines",biz:"It makes the flagship game Fortnite and the game development engine Unreal Engine. Fortnite is a major free-to-play game monetized through its V-Bucks virtual currency and Battle Pass, while Unreal Engine is the standard real-time 3D engine across gaming, film, architecture, and other industries. It also operates the Epic Games Store.",inv:"The Walt Disney Company, Sony, KIRKBI (the Lego holding company), Tencent",val:"Disney's $1.5B investment in February 2024 valued it at about $22.5B post-money, down from its 2022 peak of roughly $31.5B.",imp:"Fortnite popularized metaverse-style social gaming experiences, and Unreal Engine has become core infrastructure for the film and virtual-production industries beyond gaming. Its antitrust litigation over app store fees has also driven changes in platform policy.",why:"Fortnite's steady revenue, Unreal Engine's status as an industry standard, and strategic partnerships with the likes of Disney underpin the valuation."}},
+];
+
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const setT = (id,html)=>{const el=document.getElementById(id); if(el) el.innerHTML=html;};
+
+function render(lang){
+  const u = UI[lang];
+  document.documentElement.lang = lang;
+  document.body.className = "lang-"+lang;
+  setT("langbtn", lang==="ko" ? "EN" : "한글");
+  setT("eyebrow",esc(u.eyebrow)); setT("title",esc(u.title)); setT("lede",esc(u.lede));
+  setT("ml-date",esc(u.mlDate)); setT("ml-source",esc(u.mlSource)); setT("ml-author",esc(u.mlAuthor)); setT("toc-title",esc(u.tocTitle));
+  setT("toc-intro",esc(u.tocIntro)); setT("toc-overview",esc(u.tocOverview)); setT("toc-companies",esc(u.tocCompanies)); setT("toc-how",esc(u.tocHow));
+  setT("intro",esc(u.hIntro)); setT("overview",esc(u.hOverview)); setT("companies",esc(u.hCompanies)); setT("how",esc(u.hHow));
+  setT("intro-p1",esc(u.introP1)); setT("intro-ul",u.introLi.map(x=>`<li>${x}</li>`).join("")); setT("intro-p2",u.introP2);
+  setT("table-note",esc(u.tableNote));
+  setT("thead-row",u.th.map(h=>`<th>${esc(h)}</th>`).join(""));
+  setT("tbody",COS.map(o=>`<tr><td>${o.r}</td><td class="co-n">${esc(o.n)}</td><td class="val">${esc(o.v)}</td><td>${esc(lang==="ko"?o.ctry:(CTRY[o.ctry]||o.ctry))}</td><td>${esc(o[lang].sec)}</td><td class="ai">${o.ai?"●":""}</td></tr>`).join(""));
+  setT("how-h1",esc(u.howH1)); setT("how-p1",esc(u.howP1)); setT("how-ul1",u.howUl1.map(x=>`<li>${x}</li>`).join("")); setT("how-p1b",esc(u.howP1b));
+  setT("how-h2",esc(u.howH2)); setT("how-ul2",u.howUl2.map(x=>`<li>${x}</li>`).join(""));
+  setT("how-h3",esc(u.howH3)); setT("how-p3",esc(u.howP3)); setT("how-h4",esc(u.howH4)); setT("how-p4",esc(u.howP4));
+
+  setT("cards",COS.map(o=>{
+    const d=o[lang];
+    const links = o.l.map(([t,url])=>`<a href="${url}" target="_blank" rel="noopener">${esc(lang==="en"?(LINKLBL[t]||t):t)}</a>`).join(" &nbsp;/&nbsp; ");
+    const xtra = d.x ? `<dt>${esc(u.lbl.x)}</dt><dd class="note">${esc(d.x)}</dd>` : "";
+    const initial = (o.n.replace(/[^A-Za-z0-9]/,"").charAt(0)||"?").toUpperCase();
+    return `<article class="co">
+      <div class="head">
+        <span class="logo"><img src="/assets/unicorns/logos/${o.logo}.png" alt="${esc(o.n)}" ${o.logo==='ant-group'?'style="max-width:none;max-height:none;width:100%;height:100%;object-fit:cover;object-position:left center"':''} onerror="var b=this.parentNode;b.classList.add('empty');b.textContent='${initial}'"/></span>
+        <div class="htext"><div class="rank">#${o.r}${o.ai?' <span class="tag">AI</span>':''}</div><h3 class="name">${esc(o.n)}</h3></div>
+        <span class="badge">${esc(o.v)}</span>
+      </div>
+      <dl>
+        <dt>${esc(u.lbl.f)}</dt><dd>${esc(d.f)}</dd>
+        <dt>${esc(u.lbl.c)}</dt><dd>${esc(d.c)}</dd>
+        <dt>${esc(u.lbl.biz)}</dt><dd>${esc(d.biz)}</dd>
+        <dt>${esc(u.lbl.inv)}</dt><dd>${esc(d.inv)}</dd>
+        <dt>${esc(u.lbl.val)}</dt><dd>${esc(d.val)}</dd>
+        <dt>${esc(u.lbl.imp)}</dt><dd>${esc(d.imp)}</dd>
+        <dt>${esc(u.lbl.why)}</dt><dd class="why">${esc(d.why)}</dd>
+        ${xtra}
+        <dt>${esc(u.lbl.links)}</dt><dd>${links}</dd>
+      </dl>
+    </article>`;
+  }).join(""));
+}
+
+let LANG = (localStorage.getItem("f00t-lang")==="en") ? "en" : "ko";
+render(LANG);
+document.getElementById("langbtn").addEventListener("click",()=>{
+  LANG = LANG==="ko" ? "en" : "ko";
+  localStorage.setItem("f00t-lang",LANG);
+  render(LANG);
+});
+
+// 목차 active
+const tl = {}; document.querySelectorAll("#toc-nav .toc-link").forEach(a=>tl[a.getAttribute("href").slice(1)]=a);
+if("IntersectionObserver" in window){
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ Object.values(tl).forEach(a=>a.classList.remove("active")); if(tl[e.target.id]) tl[e.target.id].classList.add("active"); }}),{rootMargin:"-84px 0px -68% 0px",threshold:0});
+  ["intro","overview","companies","how"].forEach(id=>{const el=document.getElementById(id); if(el) obs.observe(el);});
+}
+</script>
+</body>
+</html>
