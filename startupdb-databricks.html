@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0C0C0C" />
+<meta name="description" content="What Databricks actually sells, how the lakehouse happened, and why a data company is worth $190B." />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="f00tnotes¹" />
+<meta property="og:title" content="Databricks - f00tnotes¹" />
+<meta property="og:description" content="What Databricks actually sells, how the lakehouse happened, and why a data company is worth $190B." />
+<meta property="og:image" content="/assets/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<title>Databricks - f00tnotes¹</title>
+<script src="/assets/i18n.js"></script>
+<style>
+  @font-face { font-family:'Pretendard'; src:url('/fonts/Pretendard-Light.ttf') format('truetype'); font-weight:300; }
+  @font-face { font-family:'Pretendard'; src:url('/fonts/Pretendard-Regular.ttf') format('truetype'); font-weight:400; }
+  @font-face { font-family:'Pretendard'; src:url('/fonts/Pretendard-Medium.ttf') format('truetype'); font-weight:500; }
+  @font-face { font-family:'Pretendard'; src:url('/fonts/Pretendard-SemiBold.ttf') format('truetype'); font-weight:600; }
+  @font-face { font-family:'Pretendard'; src:url('/fonts/Pretendard-Bold.ttf') format('truetype'); font-weight:700; }
+  @font-face { font-family:'IBMPlexMono'; src:url('/fonts/IBMPlexMono-Regular.ttf') format('truetype'); font-weight:400; }
+  @font-face { font-family:'IBMPlexMono'; src:url('/fonts/IBMPlexMono-Bold.ttf') format('truetype'); font-weight:700; }
+
+  :root{
+    --bg:#0C0C0C; --bg-raised:#141414; --bg-elevated:#1C1C1C;
+    --border-s:#1E1E1E; --border:#2A2A2A; --border-h:#3A3A3A;
+    --text-1:#F0F0F0; --text-2:#A8A8A8; --text-3:#6E6E6E;
+    --accent:#E8F5E0; --nav-h:56px; --pad:48px;
+    --col-side:210px; --col-gap:52px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Pretendard',-apple-system,'Apple SD Gothic Neo',sans-serif;font-size:15px;line-height:1.75;color:var(--text-1);background:var(--bg);-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;}
+
+  nav{position:sticky;top:0;z-index:100;height:var(--nav-h);background:var(--bg);border-bottom:1px solid var(--border-s);display:flex;align-items:center;padding:0 var(--pad);}
+  .brand img{height:22px;width:auto;display:block;}
+  .nav-sep{flex:1;}
+  .nav-links{display:flex;gap:28px;list-style:none;align-items:center;}
+  .nav-links a{font-family:'IBMPlexMono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);transition:color .15s;}
+  .nav-links a:hover,.nav-links a.active{color:var(--text-1);}
+
+  .wrap{max-width:1216px;margin:0 auto;padding:0 var(--pad);}
+  .back{display:inline-block;margin-top:44px;font-family:'IBMPlexMono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);transition:color .15s;}
+  .back:hover{color:var(--text-1);}
+  .rule{border:none;border-top:1px solid var(--border-s);margin:0;}
+
+  .art-header{padding:40px 0 30px;}
+  .art-eyebrow{font-family:'IBMPlexMono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--text-2);margin-bottom:22px;}
+  .art-title{font-size:44px;font-weight:600;letter-spacing:-.03em;line-height:1.12;color:var(--text-1);}
+  .art-lede{margin-top:24px;font-size:18px;line-height:1.75;color:var(--text-2);max-width:760px;}
+  .art-tags{margin-top:26px;display:flex;gap:8px;flex-wrap:wrap;}
+  .art-tag{font-size:12px;color:var(--text-2);background:var(--bg-elevated);border:1px solid var(--border-s);border-radius:20px;padding:4px 12px;}
+
+  .art-metarow{display:flex;gap:54px;padding:22px 0;flex-wrap:wrap;}
+  .meta-item{display:flex;flex-direction:column;gap:5px;}
+  .meta-label{font-family:'IBMPlexMono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:var(--text-3);}
+  .meta-val{font-size:14px;color:var(--text-1);}
+  .meta-val.hl{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums;}
+
+  .art-layout{display:grid;grid-template-columns:var(--col-side) minmax(0,1fr);gap:var(--col-gap);align-items:start;padding:44px 0 90px;}
+  .side-label{font-family:'IBMPlexMono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--text-3);margin-bottom:16px;}
+  .art-toc{position:sticky;top:84px;}
+  #toc-nav{display:flex;flex-direction:column;}
+  .toc-link{display:block;font-size:13px;line-height:1.45;color:var(--text-2);padding:6px 0 6px 14px;border-left:1px solid var(--border-s);transition:color .15s,border-color .15s;}
+  .toc-link:hover{color:var(--text-1);}
+  .toc-link.active{color:var(--text-1);border-left-color:var(--accent);}
+
+  .art-body>*:first-child{margin-top:0;}
+  .art-body h2{font-size:24px;font-weight:600;letter-spacing:-.02em;color:var(--text-1);margin:52px 0 16px;scroll-margin-top:84px;}
+  .art-body h3{font-size:18px;font-weight:600;color:var(--text-1);margin:34px 0 12px;scroll-margin-top:84px;}
+  .art-body p{font-size:16.5px;color:var(--text-2);line-height:1.9;margin-bottom:22px;}
+  .art-body strong,.art-body b{color:var(--text-1);font-weight:600;}
+  .art-body em{color:var(--accent);font-style:normal;}
+  .art-body ul{color:var(--text-2);margin:0 0 22px 2px;line-height:1.9;list-style:none;}
+  .art-body ul li{position:relative;padding-left:20px;margin-bottom:10px;}
+  .art-body ul li::before{content:"";position:absolute;left:2px;top:13px;width:5px;height:5px;border-radius:50%;background:var(--text-3);}
+  .art-body a.ext{color:var(--text-1);border-bottom:1px solid var(--border-h);transition:border-color .15s;}
+  .art-body a.ext:hover{border-bottom-color:var(--accent);color:var(--accent);}
+
+  .tl{border-left:1px solid var(--border-s);padding-left:26px;margin:0 0 22px;}
+  .tl-item{position:relative;padding-bottom:26px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{content:"";position:absolute;left:-30px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--bg);border:1px solid var(--border-h);}
+  .tl-item.key::before{background:var(--accent);border-color:var(--accent);}
+  .tl-year{font-family:'IBMPlexMono',monospace;font-size:12px;letter-spacing:.08em;color:var(--text-1);margin-bottom:5px;}
+  .tl-item.key .tl-year{color:var(--accent);}
+  .tl-body{font-size:15px;line-height:1.85;color:var(--text-2);}
+
+  .tablewrap{overflow-x:auto;margin:20px 0 26px;border:1px solid var(--border-s);border-radius:10px;}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;}
+  th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--border-s);white-space:nowrap;}
+  th{background:var(--bg-elevated);font-family:'IBMPlexMono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);}
+  td{color:var(--text-2);vertical-align:top;}
+  tbody tr:last-child td{border-bottom:0;}
+  tbody tr:hover{background:var(--bg-raised);}
+  td.k{color:var(--text-1);font-weight:500;}
+  td.yr{font-family:'IBMPlexMono',monospace;font-size:11.5px;color:var(--text-3);width:64px;}
+  td.n{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums;}
+  td.d{color:var(--text-3);white-space:normal;min-width:230px;}
+  td.dash{color:var(--text-3);}
+
+  .sources{padding:24px 0 0;border-top:1px solid var(--border-s);margin-top:56px;font-size:12.5px;line-height:1.95;color:var(--text-3);}
+  .sources a{color:var(--text-2);border-bottom:1px solid var(--border-s);}
+  .sources a:hover{color:var(--text-1);border-bottom-color:var(--border-h);}
+
+  footer{max-width:1216px;margin:0 auto;border-top:1px solid var(--border-s);padding:32px var(--pad);display:flex;align-items:center;justify-content:space-between;}
+  .footer-brand img{height:20px;width:auto;display:block;}
+  .footer-copy{font-family:'IBMPlexMono',monospace;font-size:11px;color:var(--text-3);letter-spacing:.04em;}
+  .footer-links{display:flex;gap:24px;list-style:none;}
+  .footer-links a{font-family:'IBMPlexMono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);transition:color .15s;}
+  .footer-links a:hover{color:var(--text-1);}
+
+  @media(max-width:1120px){ .art-layout{grid-template-columns:minmax(0,1fr);} .art-toc{display:none;} }
+  @media(max-width:900px){ :root{--pad:24px;} .art-title{font-size:34px;} .art-metarow{gap:28px;} }
+  @media(max-width:600px){ :root{--pad:20px;} .art-title{font-size:27px;} .art-lede{font-size:16px;} .art-body p{font-size:15.5px;} td.d{display:none;} footer{flex-direction:column;gap:16px;} }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="brand"><img src="/assets/f00tnotes-logo.png" alt="f00tnotes¹"></a>
+  <span class="nav-sep"></span>
+  <ul class="nav-links">
+    <li><a href="/research">Research</a></li>
+    <li><a href="/notes">Notes</a></li>
+    <li><a href="/about">About</a></li>
+    <li><button class="lang-toggle"></button></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+  <a href="/startupdb" class="back">← Startup DB</a>
+
+  <header class="art-header">
+    <div class="art-eyebrow"><span data-en>Company Note</span><span data-ko>기업 노트</span></div>
+    <h1 class="art-title">Databricks</h1>
+    <p class="art-lede">
+      <span data-en>Databricks sells the place where a company keeps all of its data and does all of its computing on top of it. The pitch is that this used to be two separate purchases, and that you should only have to make one.</span>
+      <span data-ko>Databricks는 기업이 데이터를 전부 모아두고 그 위에서 모든 연산을 돌리는 자리를 판다. 원래 따로 사야 했던 두 가지를 하나로 합쳤다는 것이 이 회사의 주장이다.</span>
+    </p>
+    <div class="art-tags">
+      <span class="art-tag">Data</span><span class="art-tag">AI</span>
+      <span class="art-tag">Enterprise</span><span class="art-tag">Lakehouse</span>
+    </div>
+  </header>
+
+  <hr class="rule" />
+  <div class="art-metarow">
+    <div class="meta-item"><div class="meta-label"><span data-en>Valuation</span><span data-ko>기업가치</span></div><div class="meta-val hl">$190B</div></div>
+    <div class="meta-item"><div class="meta-label"><span data-en>Run-rate</span><span data-ko>매출 런레이트</span></div><div class="meta-val hl">$7B</div></div>
+    <div class="meta-item"><div class="meta-label"><span data-en>Growth</span><span data-ko>성장률</span></div><div class="meta-val">80%+ YoY</div></div>
+    <div class="meta-item"><div class="meta-label"><span data-en>Customers</span><span data-ko>고객사</span></div><div class="meta-val">20,000+</div></div>
+    <div class="meta-item"><div class="meta-label"><span data-en>Founded</span><span data-ko>설립</span></div><div class="meta-val">2013</div></div>
+    <div class="meta-item"><div class="meta-label"><span data-en>Status</span><span data-ko>상태</span></div><div class="meta-val"><span data-en>Private</span><span data-ko>비상장</span></div></div>
+  </div>
+  <hr class="rule" />
+
+  <div class="art-layout">
+    <aside class="art-toc">
+      <div class="side-label"><span data-en>Contents</span><span data-ko>목차</span></div>
+      <nav id="toc-nav">
+        <a class="toc-link" href="#what"><span data-en>What it does</span><span data-ko>뭘 하는 회사인가</span></a>
+        <a class="toc-link" href="#history"><span data-en>History</span><span data-ko>연혁</span></a>
+        <a class="toc-link" href="#funding"><span data-en>Funding</span><span data-ko>투자 유치</span></a>
+        <a class="toc-link" href="#ma"><span data-en>Acquisitions</span><span data-ko>인수</span></a>
+        <a class="toc-link" href="#competition"><span data-en>Competition</span><span data-ko>경쟁</span></a>
+        <a class="toc-link" href="#why"><span data-en>Why it matters</span><span data-ko>왜 보고 있나</span></a>
+      </nav>
+    </aside>
+
+    <main class="art-body">
+
+      <h2 id="what"><span data-en>What it actually does</span><span data-ko>뭘 하는 회사인가</span></h2>
+
+      <p>
+        <span data-en>Start with the problem. A large company generates data in a hundred places: transactions, app logs, sensors, support tickets, documents, video. Historically it went to two homes. A <strong>data warehouse</strong> (Teradata, later Snowflake) held clean, structured tables - fast, governed, expensive, and useless for anything that isn't a row and a column. A <strong>data lake</strong> (Hadoop, later S3) held everything else as raw files - cheap and flexible, but with no transactions, no guarantees, and no real governance. Analysts lived in the warehouse, data scientists lived in the lake, and companies paid to copy data back and forth between them forever.</span>
+        <span data-ko>문제부터 보자. 큰 회사는 수백 군데에서 데이터를 만든다. 거래 기록, 앱 로그, 센서, 상담 티켓, 문서, 영상. 이 데이터는 전통적으로 두 곳으로 갔다. <strong>데이터 웨어하우스</strong>(Teradata, 이후 Snowflake)는 정제된 테이블을 담았다. 빠르고 통제되지만 비싸고, 행과 열이 아닌 데이터는 다루지 못한다. <strong>데이터 레이크</strong>(Hadoop, 이후 S3)는 나머지 전부를 원본 파일로 담았다. 싸고 유연하지만 트랜잭션도, 보장도, 제대로 된 거버넌스도 없다. 분석가는 웨어하우스에, 데이터 사이언티스트는 레이크에 살았고, 회사는 그 사이로 데이터를 계속 복사하는 비용을 영원히 냈다.</span>
+      </p>
+
+      <p>
+        <span data-en>Databricks' answer is to leave the data in cheap object storage in open file formats, and then add the parts that made a warehouse worth paying for - transactions, schema, permissions, fast SQL - as a layer on top. One copy of the data, one permission model, and every workload pointed at it. That is the <em>lakehouse</em>.</span>
+        <span data-ko>Databricks의 답은 이렇다. 데이터는 싼 오브젝트 스토리지에 개방형 포맷으로 그대로 두고, 웨어하우스에 돈을 낼 만하게 만들었던 부분(트랜잭션, 스키마, 권한, 빠른 SQL)만 그 위에 레이어로 얹는다. 데이터는 한 벌, 권한 체계도 하나, 모든 워크로드가 그것을 바라본다. 이것이 <em>레이크하우스</em>다.</span>
+      </p>
+
+      <h3><span data-en>The pieces</span><span data-ko>구성 요소</span></h3>
+      <ul>
+        <li><strong>Apache Spark</strong> <span data-en>- the distributed compute engine the founders wrote before the company existed. Still the engine underneath much of the platform.</span><span data-ko>- 창업자들이 회사를 세우기 전에 만든 분산 연산 엔진. 지금도 플랫폼 상당 부분의 엔진이다.</span></li>
+        <li><strong>Delta Lake</strong> <span data-en>- a transaction log written alongside Parquet files. This is the trick that gives a pile of files in S3 the behaviour of a database table.</span><span data-ko>- Parquet 파일 옆에 트랜잭션 로그를 함께 기록한다. S3에 쌓인 파일 더미가 데이터베이스 테이블처럼 동작하게 만드는 장치다.</span></li>
+        <li><strong>Unity Catalog</strong> <span data-en>- one permission and lineage system covering tables, files, models, and dashboards. The governance layer is what makes a large enterprise willing to consolidate.</span><span data-ko>- 테이블, 파일, 모델, 대시보드를 한 권한/계보 체계로 묶는다. 대기업이 플랫폼을 하나로 합칠 결심을 하게 만드는 건 결국 이 거버넌스 레이어다.</span></li>
+        <li><strong>Databricks SQL / Photon</strong> <span data-en>- a warehouse-grade SQL surface with a C++ vectorized engine, built to take BI workloads off Snowflake.</span><span data-ko>- C++ 벡터화 엔진을 얹은 웨어하우스급 SQL. Snowflake로부터 BI 워크로드를 빼앗아 오려고 만든 제품이다.</span></li>
+        <li><strong>MLflow / Mosaic AI</strong> <span data-en>- experiment tracking, model serving, fine-tuning and agent tooling. The AI half of the product.</span><span data-ko>- 실험 추적, 모델 서빙, 파인튜닝, 에이전트 도구. 제품의 AI 쪽 절반이다.</span></li>
+        <li><strong>Lakebase</strong> <span data-en>- serverless Postgres, bought in via Neon. An operational database sitting next to the analytical one, aimed at applications and agents.</span><span data-ko>- Neon을 인수해 들여온 서버리스 Postgres. 분석용 DB 옆에 두는 운영 DB로, 애플리케이션과 에이전트를 노린다.</span></li>
+      </ul>
+
+      <h3><span data-en>How it makes money</span><span data-ko>수익 구조</span></h3>
+      <p>
+        <span data-en>Consumption, not seats. Customers buy compute measured in DBUs, and the software runs inside the customer's own AWS, Azure, or GCP account rather than on Databricks infrastructure. Two consequences are worth noticing. The cloud vendors become distribution partners rather than pure enemies - Azure Databricks is a first-party Microsoft service. And revenue expands automatically as a customer moves more workloads onto the platform: land with data engineering, expand into BI, then ML, then AI.</span>
+        <span data-ko>좌석 수가 아니라 사용량 과금이다. 고객은 DBU 단위로 연산을 사고, 소프트웨어는 Databricks 인프라가 아니라 고객 자신의 AWS, Azure, GCP 계정 안에서 돈다. 여기서 두 가지가 따라온다. 클라우드 3사가 순수한 적이 아니라 유통 파트너가 된다. Azure Databricks는 마이크로소프트가 직접 파는 퍼스트파티 서비스다. 그리고 고객이 워크로드를 더 올릴수록 매출이 자동으로 커진다. 데이터 엔지니어링으로 진입해 BI로, 다시 ML로, 다시 AI로 확장하는 구조다.</span>
+      </p>
+
+      <h2 id="history"><span data-en>History</span><span data-ko>연혁</span></h2>
+
+      <div class="tl">
+        <div class="tl-item">
+          <div class="tl-year">2009</div>
+          <div class="tl-body">
+            <span data-en>Matei Zaharia starts Spark as a research project at UC Berkeley's AMPLab, as a faster answer to Hadoop MapReduce. Open-sourced the following year.</span>
+            <span data-ko>Matei Zaharia가 UC Berkeley AMPLab에서 Hadoop MapReduce보다 빠른 대안으로 Spark를 연구 과제로 시작한다. 이듬해 오픈소스로 공개.</span>
+          </div>
+        </div>
+        <div class="tl-item key">
+          <div class="tl-year">2013</div>
+          <div class="tl-body">
+            <span data-en>Seven people out of AMPLab found Databricks: Ali Ghodsi, Matei Zaharia, Ion Stoica, Reynold Xin, Patrick Wendell, Andy Konwinski, Arsalan Tavakoli-Shiraji. Spark is donated to the Apache Software Foundation the same year, and Andreessen Horowitz puts in $14M. Give away the engine, sell the platform - the strategy is set from day one.</span>
+            <span data-ko>AMPLab 출신 7명이 Databricks를 창업한다. Ali Ghodsi, Matei Zaharia, Ion Stoica, Reynold Xin, Patrick Wendell, Andy Konwinski, Arsalan Tavakoli-Shiraji. 같은 해 Spark를 아파치 재단에 기부하고, a16z가 $14M을 넣는다. 엔진은 공짜로 주고 플랫폼을 판다는 전략이 첫날부터 정해져 있었다.</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2015</div>
+          <div class="tl-body">
+            <span data-en>The commercial product ships on AWS: hosted Spark clusters plus collaborative notebooks. For years this is essentially "managed Spark".</span>
+            <span data-ko>상용 제품이 AWS 위에서 출시된다. 호스팅되는 Spark 클러스터와 협업 노트북. 몇 년간 이 회사는 사실상 "매니지드 Spark"였다.</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2016</div>
+          <div class="tl-body">
+            <span data-en>Ali Ghodsi takes over as CEO from Ion Stoica, who returns to Berkeley.</span>
+            <span data-ko>Ion Stoica가 버클리로 돌아가고 Ali Ghodsi가 CEO를 맡는다.</span>
+          </div>
+        </div>
+        <div class="tl-item key">
+          <div class="tl-year">2017</div>
+          <div class="tl-body">
+            <span data-en>Azure Databricks launches as a first-party Microsoft service, sold and billed by Microsoft. An unusually good distribution deal, and a large part of why the company scaled in the enterprise as fast as it did.</span>
+            <span data-ko>Azure Databricks가 마이크로소프트 퍼스트파티 서비스로 출시된다. 판매와 청구를 마이크로소프트가 직접 한다. 보기 드물게 좋은 유통 계약이었고, 이 회사가 엔터프라이즈에서 그렇게 빨리 커진 이유의 큰 부분이다.</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2018</div>
+          <div class="tl-body">
+            <span data-en>MLflow released as open source. Delta Lake introduced.</span>
+            <span data-ko>MLflow를 오픈소스로 공개. Delta Lake 발표.</span>
+          </div>
+        </div>
+        <div class="tl-item key">
+          <div class="tl-year">2019</div>
+          <div class="tl-body">
+            <span data-en>Delta Lake is open-sourced under the Linux Foundation. Two rounds in one year take the valuation from $2.75B to $6.2B.</span>
+            <span data-ko>Delta Lake를 리눅스 재단 산하 오픈소스로 공개. 한 해에 두 번 라운드를 돌며 밸류가 $2.75B에서 $6.2B로 올라간다.</span>
+          </div>
+        </div>
+        <div class="tl-item key">
+          <div class="tl-year">2020</div>
+          <div class="tl-body">
+            <span data-en>The company publishes the lakehouse argument and starts naming the category rather than describing a product. Redash is acquired to fill in dashboards, and SQL Analytics launches - the first direct move onto warehouse territory.</span>
+            <span data-ko>레이크하우스 논문을 내면서 제품을 설명하는 대신 카테고리를 명명하기 시작한다. 대시보드를 메우려 Redash를 인수하고 SQL Analytics를 출시한다. 웨어하우스 영역으로 들어가는 첫 직접 공격이었다.</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2021</div>
+          <div class="tl-body">
+            <span data-en>$1B at $28B in February, $1.6B at $38B in August. Photon ships, Unity Catalog is announced, GCP support lands. Snowflake, public since 2020, becomes the reference competitor in both companies' pitches.</span>
+            <span data-ko>2월에 $28B로 $1B, 8월에 $38B로 $1.6B를 조달한다. Photon 출시, Unity Catalog 발표, GCP 지원 추가. 2020년 상장한 Snowflake가 양사 세일즈 피치의 기준 경쟁자가 된다.</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2022</div>
+          <div class="tl-body">
+            <span data-en>Crosses $1B in annualized revenue.</span>
+            <span data-ko>연환산 매출 $1B를 넘어선다.</span>
+          </div>
+        </div>
+        <div class="tl-item key">
+          <div class="tl-year">2023</div>
+          <div class="tl-body">
+            <span data-en>ChatGPT resets the category. Databricks buys MosaicML for about $1.3B to own model training and serving rather than rent it, and raises $500M at $43B.</span>
+            <span data-ko>ChatGPT가 카테고리를 리셋한다. Databricks는 모델 학습과 서빙을 빌리지 않고 소유하기 위해 MosaicML을 약 $1.3B에 인수하고, $43B 밸류로 $500M을 조달한다.</span>
+          </div>
+        </div>
+        <div class="tl-item key">
+          <div class="tl-year">2024</div>
+          <div class="tl-body">
+            <span data-en>Releases DBRX, an open model, as proof the AI story is real. Acquires Tabular, founded by the creators of Apache Iceberg - the rival table format - effectively ending the format war by buying both sides. Closes a $10B Series J at $62B in December, one of the largest venture rounds ever raised.</span>
+            <span data-ko>AI 스토리가 실제라는 증거로 오픈 모델 DBRX를 공개한다. 경쟁 테이블 포맷인 Apache Iceberg를 만든 사람들이 세운 Tabular를 인수해, 양쪽을 다 사버리는 방식으로 포맷 전쟁을 끝낸다. 12월에는 $62B 밸류로 $10B 규모 Series J를 마감한다. 역대 최대급 벤처 라운드다.</span>
+          </div>
+        </div>
+        <div class="tl-item key">
+          <div class="tl-year">2025</div>
+          <div class="tl-body">
+            <span data-en>Buys Neon for about $1B and turns it into Lakebase, moving from analytics into the operational database that applications and agents actually write to. Tecton follows for around $900M. Series K in September raises $1B at over $100B, and a $5B round at $134B is announced in December.</span>
+            <span data-ko>Neon을 약 $1B에 인수해 Lakebase로 만든다. 분석에서, 애플리케이션과 에이전트가 실제로 쓰기를 하는 운영 DB 영역으로 넘어가는 수순이다. 이어서 Tecton을 약 $900M에 인수한다. 9월 Series K에서 $100B 이상 밸류로 $1B을 조달하고, 12월에는 $134B 밸류의 $5B 라운드가 발표된다.</span>
+          </div>
+        </div>
+        <div class="tl-item key">
+          <div class="tl-year">2026</div>
+          <div class="tl-body">
+            <span data-en>The $134B round closes in February. In July a strategic round led by Coatue marks the company at $188B, closing in August near $190B with revenue run-rate at $7B growing more than 80% year over year. Ghodsi calls 2026 a bad year to go public and points at 2027 at the earliest.</span>
+            <span data-ko>2월에 $134B 라운드가 마감된다. 7월에는 Coatue가 주도한 전략적 라운드가 회사를 $188B로 평가하고, 8월에 약 $190B로 마감된다. 이때 매출 런레이트는 $7B, 전년 대비 80% 이상 성장이다. Ghodsi는 2026년은 상장하기 나쁜 해라며 빨라야 2027년을 언급한다.</span>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="funding"><span data-en>Funding</span><span data-ko>투자 유치</span></h2>
+      <div class="tablewrap">
+        <table>
+          <thead><tr>
+            <th><span data-en>Year</span><span data-ko>연도</span></th>
+            <th><span data-en>Round</span><span data-ko>라운드</span></th>
+            <th><span data-en>Raised</span><span data-ko>조달액</span></th>
+            <th><span data-en>Valuation</span><span data-ko>기업가치</span></th>
+            <th><span data-en>Lead</span><span data-ko>리드</span></th>
+          </tr></thead>
+          <tbody>
+            <tr><td class="yr">2013</td><td class="k">Series A</td><td>$14M</td><td class="dash">-</td><td class="d">Andreessen Horowitz</td></tr>
+            <tr><td class="yr">2014</td><td class="k">Series B</td><td>$33M</td><td class="dash">-</td><td class="d">NEA</td></tr>
+            <tr><td class="yr">2016</td><td class="k">Series C</td><td>$60M</td><td class="dash">-</td><td class="d">NEA</td></tr>
+            <tr><td class="yr">2017</td><td class="k">Series D</td><td>$140M</td><td class="dash">-</td><td class="d">Andreessen Horowitz</td></tr>
+            <tr><td class="yr">2019</td><td class="k">Series E</td><td>$250M</td><td class="n">$2.75B</td><td class="d">Andreessen Horowitz</td></tr>
+            <tr><td class="yr">2019</td><td class="k">Series F</td><td>$400M</td><td class="n">$6.2B</td><td class="d">Andreessen Horowitz</td></tr>
+            <tr><td class="yr">2021</td><td class="k">Series G</td><td>$1B</td><td class="n">$28B</td><td class="d">Franklin Templeton</td></tr>
+            <tr><td class="yr">2021</td><td class="k">Series H</td><td>$1.6B</td><td class="n">$38B</td><td class="d">Morgan Stanley Counterpoint</td></tr>
+            <tr><td class="yr">2023</td><td class="k">Series I</td><td>$500M</td><td class="n">$43B</td><td class="d">T. Rowe Price</td></tr>
+            <tr><td class="yr">2024</td><td class="k">Series J</td><td>$10B</td><td class="n">$62B</td><td class="d">Thrive Capital</td></tr>
+            <tr><td class="yr">2025</td><td class="k">Series K</td><td>$1B</td><td class="n">$100B+</td><td class="d">a16z, Insight, MGX, Thrive, WCM</td></tr>
+            <tr><td class="yr">2026</td><td class="k">Series L</td><td>$5B</td><td class="n">$134B</td><td class="d"><span data-en>Closed Feb 2026, includes $2B debt</span><span data-ko>2026년 2월 마감, $2B 부채 포함</span></td></tr>
+            <tr><td class="yr">2026</td><td class="k"><span data-en>Strategic</span><span data-ko>전략적</span></td><td>~$3B</td><td class="n">$188-190B</td><td class="d">Coatue</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="ma"><span data-en>Acquisitions</span><span data-ko>인수</span></h2>
+      <p>
+        <span data-en>Databricks buys primitives rather than revenue. Almost every deal below closes a specific gap in the platform, and several of them bought a team that had already won an open-source standard.</span>
+        <span data-ko>Databricks는 매출이 아니라 부품을 산다. 아래 거의 모든 딜이 플랫폼의 특정 구멍을 메우는 인수이고, 그중 몇 건은 이미 오픈소스 표준을 이긴 팀을 통째로 사온 것이다.</span>
+      </p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr>
+            <th><span data-en>Year</span><span data-ko>연도</span></th>
+            <th><span data-en>Target</span><span data-ko>대상</span></th>
+            <th><span data-en>Price</span><span data-ko>금액</span></th>
+            <th><span data-en>What it bought</span><span data-ko>확보한 것</span></th>
+          </tr></thead>
+          <tbody>
+            <tr><td class="yr">2020</td><td class="k">Redash</td><td class="dash">-</td><td class="d"><span data-en>Open-source dashboards and SQL visualisation</span><span data-ko>오픈소스 대시보드와 SQL 시각화</span></td></tr>
+            <tr><td class="yr">2021</td><td class="k">8080 Labs</td><td class="dash">-</td><td class="d"><span data-en>Low-code exploratory analysis for Python users</span><span data-ko>파이썬 사용자를 위한 로우코드 탐색적 분석</span></td></tr>
+            <tr><td class="yr">2022</td><td class="k">Cortex Labs</td><td class="dash">-</td><td class="d"><span data-en>Model deployment and serving</span><span data-ko>모델 배포와 서빙</span></td></tr>
+            <tr><td class="yr">2023</td><td class="k">Okera</td><td class="dash">-</td><td class="d"><span data-en>Data governance, folded into Unity Catalog</span><span data-ko>데이터 거버넌스, Unity Catalog에 흡수</span></td></tr>
+            <tr><td class="yr">2023</td><td class="k">MosaicML</td><td class="n">~$1.3B</td><td class="d"><span data-en>Model training and serving, became Mosaic AI</span><span data-ko>모델 학습과 서빙, Mosaic AI가 됨</span></td></tr>
+            <tr><td class="yr">2023</td><td class="k">Arcion</td><td class="n">~$100M</td><td class="d"><span data-en>Change data capture and replication</span><span data-ko>CDC와 데이터 복제</span></td></tr>
+            <tr><td class="yr">2024</td><td class="k">Einblick</td><td class="dash">-</td><td class="d"><span data-en>Natural language analytics</span><span data-ko>자연어 기반 분석</span></td></tr>
+            <tr><td class="yr">2024</td><td class="k">Lilac AI</td><td class="dash">-</td><td class="d"><span data-en>Unstructured data curation for model training</span><span data-ko>모델 학습용 비정형 데이터 큐레이션</span></td></tr>
+            <tr><td class="yr">2024</td><td class="k">Tabular</td><td class="n">$1B+</td><td class="d"><span data-en>Apache Iceberg creators, ended the table format war</span><span data-ko>Apache Iceberg 창시자들, 테이블 포맷 전쟁 종결</span></td></tr>
+            <tr><td class="yr">2025</td><td class="k">BladeBridge</td><td class="dash">-</td><td class="d"><span data-en>Automated migration off legacy warehouses</span><span data-ko>레거시 웨어하우스 자동 마이그레이션</span></td></tr>
+            <tr><td class="yr">2025</td><td class="k">Neon</td><td class="n">~$1B</td><td class="d"><span data-en>Serverless Postgres, became Lakebase</span><span data-ko>서버리스 Postgres, Lakebase가 됨</span></td></tr>
+            <tr><td class="yr">2025</td><td class="k">Tecton</td><td class="n">~$900M</td><td class="d"><span data-en>Real-time ML feature platform</span><span data-ko>실시간 ML 피처 플랫폼</span></td></tr>
+            <tr><td class="yr">2025</td><td class="k">Mooncake Labs</td><td class="dash">-</td><td class="d"><span data-en>Postgres to lakehouse transactional bridge</span><span data-ko>Postgres와 레이크하우스를 잇는 트랜잭션 브리지</span></td></tr>
+            <tr><td class="yr">2026</td><td class="k">Electric</td><td class="dash">-</td><td class="d"><span data-en>PGlite, embeddable Postgres for agent sandboxes</span><span data-ko>PGlite, 에이전트 샌드박스에 심는 임베디드 Postgres</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="competition"><span data-en>Competition</span><span data-ko>경쟁</span></h2>
+      <ul>
+        <li><strong>Snowflake</strong> <span data-en>- the mirror image. Snowflake started as a warehouse and grew down into data science and open formats; Databricks started as an engine over a lake and grew up into SQL and governance. They now sell against each other in nearly every enterprise deal.</span><span data-ko>- 거울상이다. Snowflake는 웨어하우스에서 시작해 데이터 사이언스와 개방형 포맷으로 내려왔고, Databricks는 레이크 위의 엔진에서 시작해 SQL과 거버넌스로 올라왔다. 지금은 거의 모든 엔터프라이즈 딜에서 서로를 상대로 판다.</span></li>
+        <li><strong><span data-en>The cloud vendors</span><span data-ko>클라우드 3사</span></strong> <span data-en>- Microsoft Fabric, Google BigQuery, and AWS all ship competing first-party stacks while also hosting and reselling Databricks. Partner and competitor at the same time.</span><span data-ko>- Microsoft Fabric, Google BigQuery, AWS 모두 경쟁하는 퍼스트파티 스택을 팔면서 동시에 Databricks를 호스팅하고 리셀한다. 파트너이자 경쟁자다.</span></li>
+        <li><strong><span data-en>The AI labs</span><span data-ko>AI 랩</span></strong> <span data-en>- as buyers shift budget from "store and query our data" to "build agents on our data", OpenAI and Anthropic sit adjacent to part of the same wallet.</span><span data-ko>- 구매자의 예산이 "데이터를 저장하고 조회한다"에서 "데이터 위에 에이전트를 만든다"로 옮겨가면서, OpenAI와 Anthropic이 같은 지갑의 일부를 옆에서 노린다.</span></li>
+      </ul>
+
+      <h2 id="why"><span data-en>Why it matters</span><span data-ko>왜 보고 있나</span></h2>
+      <p>
+        <span data-en>Four things I think transfer to much earlier-stage companies.</span>
+        <span data-ko>훨씬 초기 단계 회사에도 옮겨 붙는다고 보는 것 네 가지.</span>
+      </p>
+      <ul>
+        <li>
+          <strong><span data-en>Open source as distribution, not as product.</span><span data-ko>오픈소스는 제품이 아니라 유통 채널.</span></strong>
+          <span data-en> Spark, Delta Lake, and MLflow were given away and became defaults. The company never sold them. It sold the operational burden of running them, which is the part enterprises will actually pay for.</span>
+          <span data-ko> Spark, Delta Lake, MLflow는 공짜로 뿌려져 기본값이 됐다. 회사는 그것들을 판 적이 없다. 대신 그것을 운영하는 부담을 팔았다. 기업이 실제로 돈을 내는 건 그 부분이다.</span>
+        </li>
+        <li>
+          <strong><span data-en>Naming the category is a competitive act.</span><span data-ko>카테고리를 명명하는 것 자체가 경쟁 행위.</span></strong>
+          <span data-en> "Lakehouse" was a positioning decision before it was a working product, and it forced every competitor to argue on Databricks' terms.</span>
+          <span data-ko> "레이크하우스"는 작동하는 제품이기 전에 포지셔닝 결정이었고, 모든 경쟁자가 Databricks의 용어로 반박하게 만들었다.</span>
+        </li>
+        <li>
+          <strong><span data-en>M&amp;A to buy standards.</span><span data-ko>표준을 사는 M&amp;A.</span></strong>
+          <span data-en> Tabular is the sharpest example: rather than winning the Delta versus Iceberg format war, they bought the other side's founders and made the fight irrelevant. Neon and Electric are the same move aimed at the agent era.</span>
+          <span data-ko> Tabular가 가장 선명한 사례다. Delta 대 Iceberg 포맷 전쟁을 이기는 대신, 상대편 창업자들을 사서 싸움 자체를 무의미하게 만들었다. Neon과 Electric은 에이전트 시대를 겨냥한 같은 수다.</span>
+        </li>
+        <li>
+          <strong><span data-en>Staying private is now a strategy.</span><span data-ko>비상장 유지가 이제는 전략.</span></strong>
+          <span data-en> Thirteen years old, $7B run-rate, thirteen priced rounds, still no S-1. Private capital is deep enough that an IPO has become optional, which changes how a seed investor should think about the length of the hold.</span>
+          <span data-ko> 창업 13년, 런레이트 $7B, 프라이싱 라운드 13번, 아직 S-1 없음. 사모 자금이 충분히 깊어져 상장이 선택 사항이 됐다. 시드 투자자가 회수까지의 보유 기간을 어떻게 잡아야 하는지가 달라지는 대목이다.</span>
+        </li>
+      </ul>
+      <p>
+        <span data-en>The open question is whether the lakehouse stays the centre of gravity. Databricks is betting that agents need governed access to enterprise data, so whoever owns the data plane owns the agent layer too. The counter-case is that the model providers push down into the data plane themselves. The Neon, Tecton, and Electric purchases are the company placing that bet with cash.</span>
+        <span data-ko>남은 질문은 레이크하우스가 계속 무게중심으로 남느냐다. Databricks는 에이전트가 기업 데이터에 통제된 방식으로 접근해야 하므로, 데이터 플레인을 가진 쪽이 에이전트 레이어도 가진다는 데 걸고 있다. 반대 시나리오는 모델 제공자들이 스스로 데이터 플레인까지 내려오는 것이다. Neon, Tecton, Electric 인수는 회사가 그 베팅에 현금을 건 것이다.</span>
+      </p>
+
+      <div class="sources">
+        <span data-en>Figures from Databricks press releases and reporting through August 2026. Private-round valuations are as reported at the time of each round. Early-round leads and undisclosed acquisition prices are press estimates, not confirmed deal terms.</span>
+        <span data-ko>수치는 2026년 8월까지의 Databricks 보도자료와 언론 보도 기준입니다. 비상장 라운드 밸류는 각 라운드 당시 보도된 값입니다. 초기 라운드 리드 투자자와 비공개 인수 금액은 언론 추정치이며 확정된 계약 조건이 아닙니다.</span>
+        <br>
+        <a class="ext" href="https://www.databricks.com/company/newsroom/press-releases/databricks-raising-strategic-round-funding-188-billion-valuation" target="_blank" rel="noopener">Databricks newsroom, $188B</a> /
+        <a class="ext" href="https://www.databricks.com/company/newsroom/press-releases/databricks-surpasses-4b-revenue-run-rate-exceeding-1b-ai-revenue" target="_blank" rel="noopener">Databricks newsroom, run-rate</a> /
+        <a class="ext" href="https://www.cnbc.com/2026/02/09/databricks-completes-5-billion-funding-round-with-2-billion-in-debt.html" target="_blank" rel="noopener">CNBC, $134B close</a> /
+        <a class="ext" href="https://techcrunch.com/2026/07/17/databricks-hits-188b-valuation-extending-its-run-as-ais-favorite-second-act/" target="_blank" rel="noopener">TechCrunch, $188B</a> /
+        <a class="ext" href="https://www.cnbc.com/2025/05/14/databricks-is-buying-database-startup-neon-for-about-1-billion.html" target="_blank" rel="noopener">CNBC, Neon</a> /
+        <a class="ext" href="https://www.techtarget.com/data-technologies/news/366649200/Databricks-Electric-acquisition-adds-embeddable-PostgreSQL" target="_blank" rel="noopener">TechTarget, Electric</a>
+        <br>
+        <span data-en>Last updated 2026.08</span><span data-ko>최종 업데이트 2026.08</span>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-brand"><img src="/assets/f00tnotes-logo.png" alt="f00tnotes¹"></span>
+  <span class="footer-copy">© 2026</span>
+  <ul class="footer-links">
+    <li><a href="/startupdb">Startup DB</a></li>
+    <li><a href="/research">Research</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</footer>
+
+<script>
+(function () {
+  var links = document.querySelectorAll('.toc-link');
+  var heads = [];
+  for (var i = 0; i < links.length; i++) {
+    var h = document.getElementById(links[i].getAttribute('href').slice(1));
+    if (h) heads.push({ link: links[i], el: h });
+  }
+  function onScroll() {
+    var active = null;
+    for (var i = 0; i < heads.length; i++) {
+      if (heads[i].el.getBoundingClientRect().top <= 120) active = heads[i];
+    }
+    for (var j = 0; j < heads.length; j++) {
+      heads[j].link.classList.toggle('active', heads[j] === active);
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+</body>
+</html>

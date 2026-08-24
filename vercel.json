@@ -4,6 +4,7 @@
   "rewrites": [
     { "source": "/notes/:slug", "destination": "/notes" },
     { "source": "/research/top-30-unicorns", "destination": "/top-30-unicorns" },
+    { "source": "/startupdb/databricks", "destination": "/startupdb-databricks" },
     { "source": "/research/:slug", "destination": "/article" }
   ],
   "redirects": [

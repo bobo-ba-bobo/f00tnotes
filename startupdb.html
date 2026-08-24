@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0C0C0C" />
+<meta name="description" content="Companies that crossed $1B, and what happened to them next. Footnoted." />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="f00tnotes¹" />
+<meta property="og:title" content="Startup DB - f00tnotes¹" />
+<meta property="og:description" content="Companies that crossed $1B, and what happened to them next." />
+<meta property="og:image" content="/assets/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<title>Startup DB - f00tnotes¹</title>
+<script src="/assets/i18n.js"></script>
+<style>
+  @font-face { font-family:'Pretendard'; src:url('/fonts/Pretendard-Light.ttf') format('truetype'); font-weight:300; }
+  @font-face { font-family:'Pretendard'; src:url('/fonts/Pretendard-Regular.ttf') format('truetype'); font-weight:400; }
+  @font-face { font-family:'Pretendard'; src:url('/fonts/Pretendard-Medium.ttf') format('truetype'); font-weight:500; }
+  @font-face { font-family:'Pretendard'; src:url('/fonts/Pretendard-SemiBold.ttf') format('truetype'); font-weight:600; }
+  @font-face { font-family:'Pretendard'; src:url('/fonts/Pretendard-Bold.ttf') format('truetype'); font-weight:700; }
+  @font-face { font-family:'IBMPlexMono'; src:url('/fonts/IBMPlexMono-Regular.ttf') format('truetype'); font-weight:400; }
+  @font-face { font-family:'IBMPlexMono'; src:url('/fonts/IBMPlexMono-Bold.ttf') format('truetype'); font-weight:700; }
+
+  :root{
+    --bg:#0C0C0C; --bg-raised:#141414; --bg-elevated:#1C1C1C;
+    --border-s:#1E1E1E; --border:#2A2A2A; --border-h:#3A3A3A;
+    --text-1:#F0F0F0; --text-2:#A8A8A8; --text-3:#6E6E6E;
+    --accent:#E8F5E0; --nav-h:56px; --pad:48px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Pretendard',-apple-system,'Apple SD Gothic Neo',sans-serif;font-size:15px;line-height:1.75;color:var(--text-1);background:var(--bg);-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;}
+
+  nav{position:sticky;top:0;z-index:100;height:var(--nav-h);background:var(--bg);border-bottom:1px solid var(--border-s);display:flex;align-items:center;padding:0 var(--pad);}
+  .brand img{height:22px;width:auto;display:block;}
+  .nav-sep{flex:1;}
+  .nav-links{display:flex;gap:28px;list-style:none;align-items:center;}
+  .nav-links a{font-family:'IBMPlexMono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);transition:color .15s;}
+  .nav-links a:hover,.nav-links a.active{color:var(--text-1);}
+
+  .wrap{max-width:1216px;margin:0 auto;padding:0 var(--pad);}
+  .rule{border:none;border-top:1px solid var(--border-s);margin:0;}
+
+  .hd{padding:52px 0 30px;}
+  .hd-eyebrow{font-family:'IBMPlexMono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--text-2);margin-bottom:22px;}
+  .hd-title{font-size:44px;font-weight:600;letter-spacing:-.03em;line-height:1.12;color:var(--text-1);}
+  .hd-lede{margin-top:22px;font-size:17px;line-height:1.75;color:var(--text-2);max-width:720px;}
+
+  .stats{display:flex;gap:54px;padding:24px 0;flex-wrap:wrap;}
+  .stat{display:flex;flex-direction:column;gap:5px;}
+  .stat-num{font-size:24px;font-weight:600;letter-spacing:-.02em;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1.2;}
+  .stat-label{font-family:'IBMPlexMono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:var(--text-3);}
+
+  .ctrl{padding:30px 0 0;}
+  .search{width:100%;background:var(--bg-raised);border:1px solid var(--border-s);border-radius:10px;padding:13px 16px;font-family:'Pretendard',sans-serif;font-size:15px;font-weight:400;color:var(--text-1);outline:none;transition:border-color .15s;}
+  .search::placeholder{color:var(--text-3);}
+  .search:focus{border-color:var(--border-h);}
+
+  .filters{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:16px;}
+  .chip{font-family:'IBMPlexMono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);background:var(--bg-raised);border:1px solid var(--border-s);border-radius:6px;padding:7px 13px;cursor:pointer;transition:color .15s,border-color .15s,background .15s;}
+  .chip:hover{color:var(--text-1);border-color:var(--border-h);}
+  .chip.on{color:var(--bg);background:var(--accent);border-color:var(--accent);}
+  .fsep{flex:1;}
+  .sel{font-family:'IBMPlexMono',monospace;font-size:11px;letter-spacing:.05em;color:var(--text-2);background:var(--bg-raised);border:1px solid var(--border-s);border-radius:6px;padding:7px 10px;cursor:pointer;outline:none;transition:color .15s,border-color .15s;max-width:190px;}
+  .sel:hover,.sel:focus{color:var(--text-1);border-color:var(--border-h);}
+
+  .count{font-family:'IBMPlexMono',monospace;font-size:11px;letter-spacing:.06em;color:var(--text-3);margin:22px 0 10px;font-variant-numeric:tabular-nums;}
+
+  .tablewrap{overflow-x:auto;margin-bottom:30px;border:1px solid var(--border-s);border-radius:10px;}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;}
+  th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--border-s);white-space:nowrap;}
+  th{background:var(--bg-elevated);font-family:'IBMPlexMono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);position:sticky;top:0;z-index:2;}
+  td{color:var(--text-2);vertical-align:middle;}
+  tbody tr:last-child td{border-bottom:0;}
+  tbody tr:hover{background:var(--bg-raised);}
+
+  td.c-num{color:var(--text-3);font-family:'IBMPlexMono',monospace;font-size:11px;width:44px;}
+  td.c-name{color:var(--text-1);font-weight:500;}
+  .hq{display:block;font-family:'IBMPlexMono',monospace;font-size:10px;letter-spacing:.06em;color:var(--text-3);margin-top:2px;font-weight:400;}
+  .outcome-sm{display:none;font-size:11px;color:var(--text-3);margin-top:3px;font-weight:400;white-space:normal;}
+  td.c-val{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums;text-align:right;}
+  td.c-note{color:var(--text-3);font-size:12.5px;white-space:normal;min-width:190px;}
+
+  a.deep{border-bottom:1px solid var(--border-h);padding-bottom:1px;transition:border-color .15s;}
+  a.deep:hover{border-bottom-color:var(--accent);color:var(--accent);}
+  a.deep::after{content:'\2192';margin-left:6px;color:var(--text-3);font-size:11px;}
+
+  .badge{display:inline-block;font-family:'IBMPlexMono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;border-radius:4px;padding:3px 8px;border:1px solid var(--border);color:var(--text-3);}
+  .badge.ipo{color:var(--accent);border-color:var(--accent);}
+  .badge.acquired{color:var(--text-2);border-color:var(--border-h);background:var(--bg-elevated);}
+  .badge.defunct{color:#6E6E6E;border-color:var(--border-s);}
+
+  .empty{padding:60px 0;text-align:center;color:var(--text-3);font-size:14px;}
+  .note{color:var(--text-3);font-size:12.5px;line-height:1.9;padding:22px 0 90px;max-width:840px;}
+
+  footer{max-width:1216px;margin:0 auto;border-top:1px solid var(--border-s);padding:32px var(--pad);display:flex;align-items:center;justify-content:space-between;}
+  .footer-brand img{height:20px;width:auto;display:block;}
+  .footer-copy{font-family:'IBMPlexMono',monospace;font-size:11px;color:var(--text-3);letter-spacing:.04em;}
+  .footer-links{display:flex;gap:24px;list-style:none;}
+  .footer-links a{font-family:'IBMPlexMono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);transition:color .15s;}
+  .footer-links a:hover{color:var(--text-1);}
+
+  @media(max-width:900px){ :root{--pad:24px;} .hd-title{font-size:34px;} .stats{gap:30px;} td.c-note{display:none;} .outcome-sm{display:block;} }
+  @media(max-width:600px){ :root{--pad:20px;} .hd-title{font-size:27px;} .hd-lede{font-size:15.5px;} td.c-val,.hq{display:none;} .fsep{display:none;} .sel{flex:1 1 45%;max-width:none;} footer{flex-direction:column;gap:16px;} }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="brand"><img src="/assets/f00tnotes-logo.png" alt="f00tnotes¹"></a>
+  <span class="nav-sep"></span>
+  <ul class="nav-links">
+    <li><a href="/research">Research</a></li>
+    <li><a href="/notes">Notes</a></li>
+    <li><a href="/about">About</a></li>
+    <li><button class="lang-toggle"></button></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+
+  <header class="hd">
+    <div class="hd-eyebrow"><span data-en>Database</span><span data-ko>데이터베이스</span></div>
+    <h1 class="hd-title">Startup DB</h1>
+    <p class="hd-lede">
+      <span data-en>Companies that crossed $1B, and what happened to them next. The ones still private, the ones that made it out through an IPO or an acquisition, and the ones that didn't.</span>
+      <span data-ko>기업가치 $1B를 넘긴 회사들과, 그 다음에 무슨 일이 있었는지. 아직 비상장으로 남은 곳, IPO나 인수로 빠져나간 곳, 그리고 그러지 못한 곳.</span>
+    </p>
+  </header>
+
+  <hr class="rule" />
+  <div class="stats" id="stats"></div>
+  <hr class="rule" />
+
+  <div class="ctrl">
+    <input type="text" class="search" id="q" autocomplete="off">
+
+    <div class="filters">
+      <button class="chip on" data-status="all"></button>
+      <button class="chip" data-status="private"></button>
+      <button class="chip" data-status="ipo"></button>
+      <button class="chip" data-status="acquired"></button>
+      <button class="chip" data-status="defunct"></button>
+      <span class="fsep"></span>
+      <select class="sel" id="fsector"></select>
+      <select class="sel" id="fregion"></select>
+      <select class="sel" id="fsort"></select>
+    </div>
+  </div>
+
+  <div class="count" id="count"></div>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr id="thead"></tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <div class="empty" id="empty" style="display:none"></div>
+
+  <p class="note">
+    <span data-en>Valuation is the peak or last reported figure. Private marks come from the most recent priced round or secondary, so treat them as approximate rather than current. For companies that exited, the number is the valuation at the time of the IPO or the deal. Selection is curated, not exhaustive: roughly 1,200 companies have crossed $1B worldwide, and this list keeps the ones an early-stage investor should be able to name on the spot. Last updated 2026.08.</span>
+    <span data-ko>기업가치는 최고 시점 또는 마지막으로 보도된 수치입니다. 비상장사는 가장 최근 프라이싱 라운드나 세컨더리 기준이라 현재가가 아니라 근사치로 봐야 합니다. 엑싯한 회사는 IPO 또는 딜 당시 기준입니다. 전수 조사가 아니라 선별한 목록입니다. 전 세계에서 $1B를 넘긴 기업은 약 1,200곳이고, 이 목록은 초기투자자가 바로 이름을 댈 수 있어야 하는 회사들만 담았습니다. 최종 업데이트 2026.08.</span>
+  </p>
+
+</div>
+
+<footer>
+  <span class="footer-brand"><img src="/assets/f00tnotes-logo.png" alt="f00tnotes¹"></span>
+  <span class="footer-copy">© 2026</span>
+  <ul class="footer-links">
+    <li><a href="/research">Research</a></li>
+    <li><a href="/notes">Notes</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</footer>
+
+<script src="/assets/startupdb-data.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var L = (window.F00TLang && window.F00TLang.get() === 'ko') ? 'ko' : 'en';
+  var T = {
+    en: {
+      search: 'Search company, sector, country...',
+      chips: { all: 'All', private: 'Private', ipo: 'IPO', acquired: 'Acquired', defunct: 'Dead' },
+      sectors: 'All sectors', regions: 'All regions',
+      sortVal: 'Sort by valuation', sortName: 'Sort by name',
+      head: ['#', 'Company', 'Sector', 'Valuation', 'Status', 'Outcome'],
+      badge: { private: 'Private', ipo: 'IPO', acquired: 'Acquired', defunct: 'Dead' },
+      stats: ['Companies', 'Still private', 'Went public', 'Acquired', "Didn't make it"],
+      of: ' of ', empty: 'No match.', failed: 'Database failed to load.'
+    },
+    ko: {
+      search: '회사, 섹터, 국가 검색...',
+      chips: { all: '전체', private: '비상장', ipo: 'IPO', acquired: '피인수', defunct: '실패' },
+      sectors: '전체 섹터', regions: '전체 지역',
+      sortVal: '기업가치순', sortName: '이름순',
+      head: ['#', '회사', '섹터', '기업가치', '상태', '결과'],
+      badge: { private: '비상장', ipo: 'IPO', acquired: '피인수', defunct: '실패' },
+      stats: ['전체 기업', '비상장', 'IPO', '피인수', '실패'],
+      of: ' / ', empty: '검색 결과 없음.', failed: '데이터를 불러오지 못했습니다.'
+    }
+  }[L];
+
+  var el = {
+    q: document.getElementById('q'), stats: document.getElementById('stats'),
+    thead: document.getElementById('thead'), tbody: document.getElementById('tbody'),
+    count: document.getElementById('count'), empty: document.getElementById('empty'),
+    sector: document.getElementById('fsector'), region: document.getElementById('fregion'),
+    sort: document.getElementById('fsort')
+  };
+
+  if (typeof STARTUPS === 'undefined') {
+    el.empty.textContent = T.failed;
+    el.empty.style.display = 'block';
+    return;
+  }
+
+  var REGION_KO = {
+    'North America': '북미', 'Europe': '유럽', 'Asia': '아시아',
+    'Latin America': '중남미', 'Middle East & Africa': '중동/아프리카',
+    'Oceania': '오세아니아', 'Other': '기타'
+  };
+
+  function regionOf(c) { return REGIONS[c] || 'Other'; }
+  function regionLabel(r) { return L === 'ko' ? (REGION_KO[r] || r) : r; }
+  function fmtVal(v) { return v < 1 ? '$' + Math.round(v * 1000) + 'M' : '$' + v + 'B'; }
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  var state = { q: '', status: 'all', sector: 'all', region: 'all', sort: 'val' };
+
+  // static labels
+  el.q.placeholder = T.search;
+  el.empty.textContent = T.empty;
+  el.thead.innerHTML = T.head.map(function (h, i) {
+    return '<th' + (i === 3 ? ' style="text-align:right"' : '') + '>' + h + '</th>';
+  }).join('');
+
+  var chips = document.querySelectorAll('.chip');
+  Array.prototype.forEach.call(chips, function (c) {
+    c.textContent = T.chips[c.dataset.status];
+    c.addEventListener('click', function () {
+      Array.prototype.forEach.call(chips, function (x) { x.classList.remove('on'); });
+      c.classList.add('on');
+      state.status = c.dataset.status;
+      render();
+    });
+  });
+
+  var counts = STARTUPS.reduce(function (a, s) { a[s.st] = (a[s.st] || 0) + 1; return a; }, {});
+  el.stats.innerHTML = [
+    [T.stats[0], STARTUPS.length], [T.stats[1], counts.private || 0],
+    [T.stats[2], counts.ipo || 0], [T.stats[3], counts.acquired || 0],
+    [T.stats[4], counts.defunct || 0]
+  ].map(function (p) {
+    return '<div class="stat"><div class="stat-num">' + p[1] + '</div>' +
+           '<div class="stat-label">' + p[0] + '</div></div>';
+  }).join('');
+
+  function uniq(arr) { var s = {}; return arr.filter(function (v) { return s[v] ? false : (s[v] = true); }); }
+
+  el.sector.innerHTML = '<option value="all">' + T.sectors + '</option>' +
+    uniq(STARTUPS.map(function (s) { return s.s; })).sort().map(function (v) {
+      return '<option value="' + esc(v) + '">' + esc(v) + '</option>';
+    }).join('');
+
+  el.region.innerHTML = '<option value="all">' + T.regions + '</option>' +
+    uniq(STARTUPS.map(function (s) { return regionOf(s.c); })).sort().map(function (v) {
+      return '<option value="' + esc(v) + '">' + esc(regionLabel(v)) + '</option>';
+    }).join('');
+
+  el.sort.innerHTML = '<option value="val">' + T.sortVal + '</option>' +
+                      '<option value="name">' + T.sortName + '</option>';
+
+  function render() {
+    var rows = STARTUPS.filter(function (s) {
+      if (state.status !== 'all' && s.st !== state.status) return false;
+      if (state.sector !== 'all' && s.s !== state.sector) return false;
+      if (state.region !== 'all' && regionOf(s.c) !== state.region) return false;
+      if (state.q) {
+        var hay = (s.n + ' ' + s.c + ' ' + s.s + ' ' + (s.note || '')).toLowerCase();
+        if (hay.indexOf(state.q) === -1) return false;
+      }
+      return true;
+    });
+
+    rows.sort(state.sort === 'name'
+      ? function (a, b) { return a.n.localeCompare(b.n); }
+      : function (a, b) { return b.vn - a.vn; });
+
+    el.tbody.innerHTML = rows.map(function (s, i) {
+      var name = s.url
+        ? '<a class="deep" href="' + s.url + '">' + esc(s.n) + '</a>'
+        : esc(s.n);
+      return '<tr>' +
+        '<td class="c-num">' + (i + 1) + '</td>' +
+        '<td class="c-name">' + name +
+          '<span class="hq">' + esc(s.c) + '</span>' +
+          (s.note ? '<span class="outcome-sm">' + esc(s.note) + '</span>' : '') + '</td>' +
+        '<td>' + esc(s.s) + '</td>' +
+        '<td class="c-val">' + fmtVal(s.vn) + '</td>' +
+        '<td><span class="badge ' + s.st + '">' + T.badge[s.st] + '</span></td>' +
+        '<td class="c-note">' + esc(s.note || '') + '</td>' +
+      '</tr>';
+    }).join('');
+
+    el.count.textContent = rows.length + T.of + STARTUPS.length;
+    el.empty.style.display = rows.length ? 'none' : 'block';
+  }
+
+  el.q.addEventListener('input', function (e) { state.q = e.target.value.trim().toLowerCase(); render(); });
+  el.sector.addEventListener('change', function (e) { state.sector = e.target.value; render(); });
+  el.region.addEventListener('change', function (e) { state.region = e.target.value; render(); });
+  el.sort.addEventListener('change', function (e) { state.sort = e.target.value; render(); });
+
+  render();
+})();
+</script>
+</body>
+</html>
