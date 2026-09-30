@@ -85,6 +85,7 @@
     while (walker.nextNode()) nodes.push(walker.currentNode);
 
     nodes.forEach(processNode);
+    renderMarginNotes(root);
 
     function processNode(node) {
       var text = node.nodeValue;
@@ -271,8 +272,10 @@
       html += '<blockquote class="g-analogy"><span class="g-analogy-label">' + escHtml(S('thinkLike')) + '</span>' +
               escHtml(pick(t, 'analogy')) + '</blockquote>';
     }
-    html += '<div class="g-appears">' + escHtml(S('appearsIn')) +
-            '<a href="/research/the-forgetting-problem">' + escHtml(S('articleTitle')) + '</a></div>';
+    var robotics = ['Robotics','Data','Hardware'].indexOf(t.category) !== -1 || ['raas','business-models'].indexOf(t.slug) !== -1;
+    html += '<div class="g-appears">' + (isKo() ? '관련 리서치: ' : 'Explore the research: ') +
+      '<a href="/research/' + (robotics ? 'robots-cant-read-the-internet' : 'the-forgetting-problem') + '">' +
+      escHtml(robotics ? (isKo() ? '로봇은 인터넷을 읽을 수 없다' : "Robots Can't Read the Internet") : S('articleTitle')) + '</a></div>';
     html += relatedList(t.slug);
     bodyWrap.innerHTML = html;
   }
@@ -287,18 +290,22 @@
 
     // group by category, preserving first-seen order
     var order = [], groups = {};
+    var preferred = ['Foundations','Context','Memory','Reasoning','Action','Plumbing','Data','Robotics','Hardware','Business'];
     DATA.forEach(function (t) {
       if (!groups[t.category]) { groups[t.category] = []; order.push(t.category); }
       groups[t.category].push(t);
     });
 
+    order.sort(function(a,b){return preferred.indexOf(a)-preferred.indexOf(b);});
+    order.forEach(function(cat){groups[cat].sort(function(a,b){return pick(a,'term').localeCompare(pick(b,'term'), L());});});
     var html = '<p class="g-lede">' + escHtml(S('indexLede')) + '</p>' +
+               '<div class="g-start"><div class="g-start-label">' + (isKo() ? '처음이라면 여기부터' : 'START HERE') + '</div><div class="g-start-links">' + ['ai-agent','llm','context-window','memory-types'].filter(function(slug){return BY_SLUG[slug];}).map(function(slug){return '<a href="/notes/' + slug + '">' + escHtml(pick(BY_SLUG[slug],'term')) + ' ↗</a>';}).join('') + '</div></div>' +
                '<div class="g-search-wrap">' +
                  '<input id="g-search" type="search" placeholder="' + escHtml(S('searchPlaceholder')) + '" ' +
-                 'autocomplete="off" spellcheck="false" />' +
+                 'aria-label="' + escHtml(S('searchPlaceholder')) + '" autocomplete="off" spellcheck="false" />' +
                  '<span class="g-search-count" id="g-search-count"></span>' +
                '</div>' +
-               '<div class="g-index">';
+               '<div class="g-topics" aria-label="' + (isKo() ? '주제 선택' : 'Filter by topic') + '"><button class="g-topic" data-topic="" aria-pressed="true">' + (isKo() ? '전체' : 'All topics') + '</button>' + order.map(function(cat){return '<button class="g-topic" data-topic="' + escHtml(cat) + '" aria-pressed="false">' + escHtml(catLabel(cat)) + ' · ' + groups[cat].length + '</button>';}).join('') + '</div><div class="g-index">';
     order.forEach(function (cat) {
       html += '<section class="g-group" data-cat="' + escHtml(cat) + '"><div class="g-group-label">' + escHtml(catLabel(cat)) + '</div>';
       groups[cat].forEach(function (t) {
@@ -321,11 +328,14 @@
     var entries = Array.prototype.slice.call(bodyWrap.querySelectorAll('.g-entry'));
     var groupEls = Array.prototype.slice.call(bodyWrap.querySelectorAll('.g-group'));
 
+    var activeTopic = '';
+    bodyWrap.querySelectorAll('.g-topic').forEach(function(button){button.addEventListener('click',function(){activeTopic=button.getAttribute('data-topic');bodyWrap.querySelectorAll('.g-topic').forEach(function(b){b.setAttribute('aria-pressed',String(b===button));});applyFilter();});});
+    countEl.setAttribute('aria-live','polite');
     function applyFilter() {
       var q = (input.value || '').trim().toLowerCase();
       var shown = 0;
       entries.forEach(function (el) {
-        var match = !q || el.getAttribute('data-search').indexOf(q) !== -1;
+        var match = (!q || el.getAttribute('data-search').indexOf(q) !== -1) && (!activeTopic || el.closest('.g-group').getAttribute('data-cat') === activeTopic);
         el.hidden = !match;
         if (match) shown++;
       });
@@ -335,12 +345,40 @@
         g.hidden = !any;
       });
       if (noRes) noRes.hidden = shown !== 0;
-      if (countEl) countEl.textContent = q ? (shown + ' / ' + entries.length) : S('notes')(entries.length);
+      if (countEl) countEl.textContent = (q || activeTopic) ? (shown + ' / ' + entries.length) : S('notes')(entries.length);
     }
     if (input) {
       input.addEventListener('input', applyFilter);
       applyFilter();
     }
+  }
+
+  function sizeMarginNotes() {
+    document.querySelectorAll('.margin-note-row').forEach(function(row){
+      var notes=row.querySelector('.margin-notes');
+      row.style.minHeight = notes && window.innerWidth > 1100 ? (notes.offsetHeight + 4) + 'px' : '';
+    });
+  }
+  window.addEventListener('resize',sizeMarginNotes);
+  if(document.fonts)document.fonts.ready.then(sizeMarginNotes);
+  function renderMarginNotes(root) {
+    root.querySelectorAll('.margin-notes').forEach(function(n){n.remove();});
+    var number = 0;
+    root.querySelectorAll('a.gloss').forEach(function(link){
+      var term = BY_SLUG[link.getAttribute('data-slug')];
+      if (!term) return;
+      number++;
+      link.setAttribute('data-number', number);
+      var row = link.closest('p, li');
+      if (!row) return;
+      row.classList.add('margin-note-row');
+      var notes = Array.prototype.find.call(row.children, function(n){return n.classList.contains('margin-notes');});
+      if (!notes) { notes=document.createElement('span'); notes.className='margin-notes no-gloss'; row.appendChild(notes); }
+      var note=document.createElement('span');note.className='margin-note';
+      note.innerHTML='<a href="/notes/'+term.slug+'">'+String(number).padStart(2,'0')+' / '+escHtml(pick(term,'term'))+'</a>'+escHtml(pick(term,'hover'));
+      notes.appendChild(note);
+    });
+    requestAnimationFrame(sizeMarginNotes);
   }
 
   var STOP = ('the and for that this with from into your you are but not can its it is they them their what ' +

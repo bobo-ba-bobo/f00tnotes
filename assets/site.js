@@ -49,15 +49,17 @@
         var href = p.url ? p.url : ('/post?id=' + encodeURIComponent(p.id));
         return '' +
           '<a class="card" href="' + href + '">' +
+            (p.cover ? '<div class="card-cover"><img src="' + esc(p.cover) + '" alt="" loading="lazy"></div>' : '') +
             '<div class="card-meta">' +
               '<span class="card-issue">No. ' + p.no + '</span>' +
               '<span class="card-dot"></span>' +
               '<span class="card-issue">' + fmtDate(p.createdAt) + '</span>' +
             '</div>' +
             '<div class="card-title">' + esc(p.title) + '</div>' +
+            (p.subtitle ? '<p class="card-summary">' + esc(p.subtitle) + '</p>' : '') +
             '<div class="card-footer">' +
               '<div class="card-tags">' +
-                (p.createdBy ? '<span class="tag">' + esc(p.createdBy) + '</span>' : '') +
+                (p.createdBy ? '<span class="tag">' + esc(p.category || p.createdBy) + '</span>' : '') +
               '</div>' +
               '<span class="card-arrow">↗</span>' +
             '</div>' +

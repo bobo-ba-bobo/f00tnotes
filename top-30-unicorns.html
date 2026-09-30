@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="theme-color" content="#0C0C0C" />
+<meta name="theme-color" content="#111413" />
 <meta name="description" content="The world's Top 30 unicorns, footnoted." />
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
 <meta property="og:type" content="article" />
@@ -119,6 +119,7 @@
   @media(max-width:900px){ :root{--pad:24px;} .art-title{font-size:34px;} }
   @media(max-width:600px){ :root{--pad:20px;} .art-title{font-size:27px;} .art-lede{font-size:16px;} .art-body p{font-size:15.5px;} .co dl{grid-template-columns:1fr;} .co dt{border-top:1px solid var(--border-s);padding-bottom:0;} .co dd{border-top:0;padding-top:2px;} footer{flex-direction:column;gap:16px;} }
 </style>
+  <link rel="stylesheet" href="/assets/editorial.css" />
 </head>
 <body>
 
@@ -420,5 +421,6 @@ if("IntersectionObserver" in window){
   ["intro","overview","companies","how"].forEach(id=>{const el=document.getElementById(id); if(el) obs.observe(el);});
 }
 </script>
+  <script src="/assets/editorial.js"></script>
 </body>
 </html>
