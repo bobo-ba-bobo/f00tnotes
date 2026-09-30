@@ -16,30 +16,6 @@
 window.F00T_GLOSSARY = {
   terms: [
     {
-      slug: 'ai-agent',
-      term: 'AI Agent',
-      term_ko: 'AI 에이전트',
-      aliases: ['AI agent'],
-      aliases_ko: ['AI 에이전트'],
-      category: 'Foundations',
-      difficulty: 1,
-      hover: 'An AI that does not just answer, it acts: it uses tools, takes steps, and keeps going until a goal is done.',
-      hover_ko: '답만 하는 게 아니라 직접 움직이는 AI다. 툴을 쓰고, 단계를 밟고, 목표가 끝날 때까지 계속 진행한다.',
-      infographic:
-        'Chatbot:  you ask  ->  it answers.  (stop)\n' +
-        'Agent:    you ask  ->  plan -> use a tool -> check -> act -> repeat until finished',
-      body: [
-        'An AI agent is a system built around a language model that can pursue a goal over multiple steps rather than producing a single reply. A plain chatbot answers once and stops. An agent breaks a request into smaller steps, takes actions through tools (searching the web, editing a file, sending a message, querying a database), reads the result of each action, and decides what to do next. It repeats that loop until the task is finished or it decides it cannot continue.',
-        'The important thing to understand is that the agent is not the model. The model supplies the reasoning, but the ability to remember, to act, and to stay on task across many steps comes from the layers of software wrapped around it. That is why two products built on the exact same model can feel completely different.'
-      ],
-      body_ko: [
-        'AI 에이전트는 언어 모델을 중심으로 짜인 시스템으로, 한 번 답하고 끝나는 대신 여러 단계에 걸쳐 목표를 추구한다. 일반 챗봇은 한 번 대답하고 멈춘다. 에이전트는 요청을 작은 단계로 쪼개고, 툴을 통해 행동하며(웹 검색, 파일 편집, 메시지 발송, 데이터베이스 조회), 각 행동의 결과를 읽고 다음에 무엇을 할지 결정한다. 작업이 끝나거나 더 진행할 수 없다고 판단할 때까지 이 루프를 반복한다.',
-        '핵심은 에이전트가 곧 모델은 아니라는 점이다. 모델은 추론을 제공하지만, 기억하고 행동하고 여러 단계에 걸쳐 작업을 이어가는 능력은 모델을 감싸고 있는 소프트웨어 레이어에서 나온다. 똑같은 모델 위에 만든 두 제품이 전혀 다르게 느껴지는 이유가 여기에 있다.'
-      ],
-      analogy: 'The difference between asking someone for directions and hiring a driver to actually get you there.',
-      analogy_ko: '길을 물어보는 것과, 목적지까지 실제로 데려다줄 기사를 고용하는 것의 차이.'
-    },
-    {
       slug: 'llm',
       term: 'Large Language Model (LLM)',
       term_ko: '대규모 언어 모델 (LLM)',
@@ -61,32 +37,6 @@ window.F00T_GLOSSARY = {
       ],
       analogy: 'A brilliant improviser who is also a complete amnesiac: dazzling in the moment, with no idea what happened five minutes ago.',
       analogy_ko: '뛰어난 즉흥 연기자이면서 동시에 완전한 기억상실증 환자. 순간은 눈부시지만 5분 전 일은 전혀 기억하지 못한다.'
-    },
-    {
-      slug: 'foundation-model',
-      term: 'Foundation Model / Foundation Labs',
-      term_ko: '파운데이션 모델 / 파운데이션 랩',
-      aliases: ['foundation labs', 'foundation models'],
-      aliases_ko: ['파운데이션 랩', '파운데이션 모델'],
-      category: 'Foundations',
-      difficulty: 2,
-      hover: 'The few giant, general-purpose models (and the companies that make them) that everyone else builds on top of.',
-      hover_ko: '나머지 모두가 그 위에 무언가를 쌓아 올리는, 소수의 거대한 범용 모델(과 그것을 만드는 회사들).',
-      infographic:
-        'Foundation labs (OpenAI, Anthropic, Google)\n' +
-        '        | build the base models\n' +
-        '        v\n' +
-        '   thousands of apps rent them and build on top',
-      body: [
-        'A foundation model is a large, general-purpose model trained at great expense to be capable across many tasks at once, rather than tuned for one narrow job. Only a handful of companies, often called the foundation labs, have the data, compute, and capital to make them. Most AI products do not train their own; they rent one through an API.',
-        'This structure matters for strategy. When a foundation lab ships a new capability, it tends to reach every product built on that model at roughly the same time. So any advantage that lives at the model layer is shared by all of a company’s competitors almost immediately. The article’s phrase "the labs own reasoning" means exactly this: the labs, not the apps on top, control that layer.'
-      ],
-      body_ko: [
-        '파운데이션 모델은 하나의 좁은 용도에 맞춘 게 아니라 한 번에 여러 작업을 두루 해내도록, 막대한 비용을 들여 학습한 대형 범용 모델이다. 이런 모델을 만들 데이터와 연산, 자본을 가진 회사는 흔히 파운데이션 랩이라 불리는 소수뿐이다. 대부분의 AI 제품은 자체 모델을 학습하지 않고 API로 하나를 빌려 쓴다.',
-        '이 구조는 전략적으로 중요하다. 파운데이션 랩이 새 기능을 내놓으면 그 모델을 쓰는 모든 제품에 거의 동시에 도달한다. 따라서 모델 레이어에 있는 우위는 경쟁사 전부가 거의 즉시 공유한다. 이 글에서 "랩이 추론을 소유한다"는 말이 바로 이 뜻이다. 위에 얹힌 앱이 아니라 랩이 그 레이어를 쥐고 있다.'
-      ],
-      analogy: 'Like power utilities: a few players generate the electricity, and countless businesses plug in and build on top of it.',
-      analogy_ko: '전력 회사와 비슷하다. 소수가 전기를 생산하고, 수많은 사업체가 거기에 코드를 꽂아 그 위에 사업을 짓는다.'
     },
     {
       slug: 'token',
@@ -161,53 +111,6 @@ window.F00T_GLOSSARY = {
       ],
       analogy: 'Like talking to someone with no short-term memory: every sentence, you have to remind them what you were discussing.',
       analogy_ko: '단기 기억이 없는 사람과 대화하는 것과 같다. 매 문장마다 무슨 얘기를 하고 있었는지 다시 일러줘야 한다.'
-    },
-    {
-      slug: 'api',
-      term: 'API',
-      term_ko: 'API',
-      aliases: ['through an API', 'an API'],
-      aliases_ko: ['API'],
-      category: 'Foundations',
-      difficulty: 1,
-      hover: 'A standard doorway that lets one piece of software use another. Apps reach the model through its API.',
-      hover_ko: '한 소프트웨어가 다른 소프트웨어를 쓰게 해주는 표준 출입구. 앱은 모델의 API를 통해 모델에 닿는다.',
-      infographic:
-        'your app  --request-->  [ model’s API ]  --answer-->  your app',
-      body: [
-        'An API (application programming interface) is an agreed-upon way for one piece of software to request something from another. Instead of building a model yourself, you send your text to the model provider’s API and get the answer back over the internet.',
-        'It is the rented doorway that makes "renting a model" possible, and it is why switching from one model to another can be as simple as changing which API you call. Low switching cost at this layer is part of why model capability commoditizes.'
-      ],
-      body_ko: [
-        'API(application programming interface)는 한 소프트웨어가 다른 소프트웨어에 무언가를 요청하는, 약속된 방식이다. 모델을 직접 만드는 대신, 텍스트를 모델 제공사의 API로 보내고 인터넷을 통해 답을 돌려받는다.',
-        '"모델을 빌려 쓴다"를 가능하게 하는 임대 출입구이고, 한 모델에서 다른 모델로 갈아타는 일이 어느 API를 부를지만 바꾸는 정도로 간단해지는 이유다. 이 레이어의 낮은 전환 비용이 모델 성능이 범용재화되는 한 원인이다.'
-      ],
-      analogy: 'Like a restaurant’s order window: you do not enter the kitchen, you hand a ticket through the slot and get a plate back.',
-      analogy_ko: '식당의 주문 창구와 같다. 주방에 들어가지 않고, 창구로 주문표를 건네면 음식이 나온다.'
-    },
-    {
-      slug: 'prompt',
-      term: 'Prompt / Prompt Engineering',
-      term_ko: '프롬프트 / 프롬프트 엔지니어링',
-      aliases: ['prompt engineering', 'the cleverest prompt'],
-      aliases_ko: ['프롬프트 엔지니어링'],
-      category: 'Context',
-      difficulty: 1,
-      hover: 'The prompt is everything you send the model. Prompt engineering is wording it well to get better answers.',
-      hover_ko: '프롬프트는 모델에 보내는 모든 것. 프롬프트 엔지니어링은 더 나은 답을 얻으려 그 표현을 잘 다듬는 일이다.',
-      infographic:
-        'prompt = instructions + background + your question\n' +
-        '"You are a lawyer. Here is the contract: [...]. Find the risky clauses."',
-      body: [
-        'A prompt is the full block of text handed to the model on a given call, including any role instructions ("you are a lawyer"), background material, and the actual request. Prompt engineering is the craft of structuring that text so the model responds better, since small changes in wording can move the quality of the output noticeably.',
-        'For the first couple of years of the generative-AI wave, prompt engineering was treated as a core, almost magical skill. The article’s argument is that this hand-tuning is a depreciating asset: as models get better and windows get larger, they need less coaxing, and the clever prompt that gave you an edge today is easier to copy and less necessary tomorrow.'
-      ],
-      body_ko: [
-        '프롬프트는 한 번의 호출에서 모델에 건네는 텍스트 전체다. 역할 지시("당신은 변호사다"), 배경 자료, 그리고 실제 요청이 모두 포함된다. 프롬프트 엔지니어링은 모델이 더 잘 답하도록 그 텍스트를 구성하는 기술이다. 표현의 작은 차이가 결과 품질을 눈에 띄게 바꾸기 때문이다.',
-        '생성형 AI 붐의 첫 1, 2년 동안 프롬프트 엔지니어링은 거의 마법 같은 핵심 기술로 대접받았다. 이 글의 주장은 이 손튜닝이 감가상각되는 자산이라는 것이다. 모델이 좋아지고 윈도우가 커질수록 달래줄 필요가 줄고, 오늘 우위를 준 영리한 프롬프트는 내일이면 더 베끼기 쉽고 덜 필요해진다.'
-      ],
-      analogy: 'Like phrasing a question to a brilliant but very literal expert: ask well and you get gold, ask sloppily and you get nonsense.',
-      analogy_ko: '뛰어나지만 곧이곧대로 받아들이는 전문가에게 질문하는 것과 같다. 잘 물으면 금을 얻고, 대충 물으면 헛소리를 얻는다.'
     },
     {
       slug: 'context-engineering',
@@ -529,80 +432,6 @@ window.F00T_GLOSSARY = {
       analogy_ko: '상자를 직접 들지는 못해도, 어느 작업자에게 어떤 상자를 옮기라고 정확히 지시하는 유능한 관리자와 같다.'
     },
     {
-      slug: 'moat',
-      term: 'Moat',
-      term_ko: '해자 (Moat)',
-      aliases: ['the moat', 'a moat'],
-      aliases_ko: ['해자'],
-      category: 'Business',
-      difficulty: 2,
-      hover: 'A business term for whatever makes you hard to copy. The wider the moat, the safer the castle.',
-      hover_ko: '베끼기 어렵게 만드는 모든 것을 가리키는 경영 용어. 해자가 넓을수록 성은 더 안전하다.',
-      infographic:
-        'castle = your business\n' +
-        'moat   = what stops rivals copying you\n' +
-        '         (proprietary data, lock-in, scale)\n' +
-        'wider moat  ->  safer business',
-      body: [
-        'A moat is a durable advantage that protects a business from competitors, named after the ring of water that protects a castle. Common moats include a strong brand, proprietary data, network effects, or high switching costs that make customers reluctant to leave.',
-        'The entire article is an argument about which layer of an AI agent provides a real moat versus a copyable one. Its claim is that reasoning is a shallow moat that the labs keep refilling for everyone, while accumulated memory is a deep moat that gets wider the longer a customer stays.'
-      ],
-      body_ko: [
-        '해자(moat)는 경쟁사로부터 사업을 지키는 지속적인 우위로, 성을 둘러싼 물길에서 따온 말이다. 흔한 해자로는 강한 브랜드, 독점 데이터, 네트워크 효과, 또는 고객이 떠나기 꺼리게 만드는 높은 전환 비용이 있다.',
-        '이 글 전체가 AI 에이전트의 어느 레이어가 진짜 해자이고 어느 것이 베낄 수 있는 것인지에 대한 논증이다. 핵심 주장은, 추론은 랩이 모두에게 계속 다시 채워주는 얕은 해자인 반면, 쌓인 메모리는 고객이 오래 머물수록 더 넓어지는 깊은 해자라는 것이다.'
-      ],
-      analogy: 'The wider the water around the castle, the harder it is for attackers to reach the walls.',
-      analogy_ko: '성을 두른 물길이 넓을수록, 공격자가 성벽에 닿기 어렵다.'
-    },
-    {
-      slug: 'commoditization',
-      term: 'Commoditization',
-      term_ko: '범용재화 (Commoditization)',
-      aliases: ['resists commoditization', 'commoditization', 'commoditizing', 'a commodity'],
-      aliases_ko: ['범용재화', '코모디티화', '범용재'],
-      category: 'Business',
-      difficulty: 2,
-      hover: 'When something special becomes a cheap, interchangeable, buy-it-anywhere product. Great for buyers, hard on sellers’ margins.',
-      hover_ko: '특별하던 것이 싸고, 서로 바꿔 쓸 수 있고, 어디서나 살 수 있는 물건이 되는 것. 사는 쪽엔 좋고 파는 쪽 마진엔 가혹하다.',
-      infographic:
-        'scarce and special   ---- over time ---->   cheap and interchangeable\n' +
-        '(high price, an edge)                        (low price, no edge)',
-      body: [
-        'Commoditization is the process by which a product that was once rare and differentiated becomes standardized and widely available, so prices fall and no single seller keeps an edge. It is excellent for buyers and brutal for sellers’ margins.',
-        'The article argues that AI reasoning is commoditizing: every competitor can buy the same quality from the same few labs on the same afternoon, so it stops being a source of advantage. Once a layer commoditizes, value moves to whatever has not, which is the heart of the memory thesis.'
-      ],
-      body_ko: [
-        '범용재화(commoditization)는 한때 희소하고 차별화됐던 제품이 표준화되고 널리 공급되면서, 가격이 떨어지고 어느 판매자도 우위를 지키지 못하게 되는 과정이다. 사는 쪽엔 더없이 좋고 파는 쪽 마진엔 가혹하다.',
-        '이 글은 AI 추론이 범용재화되고 있다고 본다. 경쟁사 누구나 같은 오후에 같은 소수 랩에서 같은 품질을 살 수 있으니, 더는 우위의 원천이 못 된다. 한 레이어가 범용재화되면 가치는 그렇지 않은 쪽으로 옮겨간다. 이것이 메모리 논지의 핵심이다.'
-      ],
-      analogy: 'Like bottled water or USB cables: once special, now identical and cheap on every shelf.',
-      analogy_ko: '생수나 USB 케이블 같은 것. 한때 특별했지만 이제는 어느 매대에서나 똑같고 싸다.'
-    },
-    {
-      slug: 'parsing',
-      term: 'Parsing',
-      term_ko: '파싱 (Parsing)',
-      aliases: ['parsing'],
-      aliases_ko: ['파싱'],
-      category: 'Plumbing',
-      difficulty: 2,
-      hover: 'Reading messy raw input and turning it into a clean, structured form a program can use.',
-      hover_ko: '지저분한 원시 입력을 읽어, 프로그램이 쓸 수 있는 깔끔하고 구조화된 형태로 바꾸는 것.',
-      infographic:
-        'raw:    "Name: Bob; Age: 30"\n' +
-        'parsed: { name: "Bob", age: 30 }',
-      body: [
-        'Parsing is the step of taking raw input, a file, a webpage, a blob of text, and pulling it apart into organized pieces a program can work with. It is the unglamorous first stage of handling almost any input an agent receives.',
-        'It rarely gets attention, but it sets a ceiling on everything downstream: if parsing is sloppy, every later layer inherits the mess. In the article it appears as part of the ingestion layer, where raw signals are turned into something the agent can process.'
-      ],
-      body_ko: [
-        '파싱은 원시 입력, 즉 파일이나 웹페이지나 텍스트 덩어리를 받아, 프로그램이 다룰 수 있는 정리된 조각으로 분해하는 단계다. 에이전트가 받는 거의 모든 입력을 처리하는, 화려하지 않은 첫 단계다.',
-        '주목받는 일은 드물지만, 이후 모든 것의 상한선을 정한다. 파싱이 엉성하면 뒤따르는 모든 레이어가 그 엉망을 물려받는다. 이 글에서는 원시 신호를 에이전트가 처리할 수 있는 무언가로 바꾸는 인제스션 레이어의 일부로 등장한다.'
-      ],
-      analogy: 'Like unpacking a messy grocery bag and sorting items onto the right shelves before you can cook.',
-      analogy_ko: '요리하기 전에 뒤죽박죽 장바구니를 풀어 물건을 알맞은 선반에 정리하는 것과 같다.'
-    },
-    {
       slug: 'codebase-indexing',
       term: 'Codebase Indexing',
       term_ko: '코드베이스 인덱싱',
@@ -649,30 +478,6 @@ window.F00T_GLOSSARY = {
       ],
       analogy: 'One driver’s license that lets you operate many different vehicles, instead of a separate manual for each machine.',
       analogy_ko: '기계마다 따로 있는 매뉴얼이 아니라, 여러 차량을 몰 수 있는 하나의 운전면허 같은 것.'
-    },
-    {
-      slug: 'physical-ai',
-      term: 'Physical AI',
-      term_ko: 'Physical AI (피지컬 AI)',
-      aliases: ['Physical AI'],
-      aliases_ko: ['Physical AI'],
-      category: 'Robotics',
-      difficulty: 1,
-      hover: 'The umbrella term for AI that moves and does work in the real physical world, not just on a screen.',
-      hover_ko: '화면 안이 아니라 실제 물리 세계에서 움직이고 일을 하는 AI를 묶는 상위 개념.',
-      infographic:
-        'Digital AI:   writes and draws (inside the screen)\n' +
-        'Physical AI:  grips, assembles, cleans (in the real world)',
-      body: [
-        'Physical AI is the broad category for AI that reaches into the real world through a robot body, rather than staying inside a screen like a chatbot. An RFM is the brain that drives Physical AI. Humanoids, farm machines, and industrial arms all fall under it.',
-        'The label matters because it frames the current wave of robotics investment as a distinct category from digital-only AI, one whose defining constraint is that the world is messy, physical, and expensive to gather data from.'
-      ],
-      body_ko: [
-        'Physical AI는 챗봇처럼 화면 안에 머무는 AI가 아니라, 로봇이라는 몸을 통해 실제 세계에 손을 대는 AI를 가리키는 큰 범주다. RFM은 이 Physical AI를 구동하는 두뇌에 해당한다. 휴머노이드, 농기계, 산업 로봇이 모두 여기 속한다.',
-        '이 이름이 중요한 이유는, 지금의 로봇 투자 붐을 디지털 전용 AI와 구분되는 별도 카테고리로 규정하기 때문이다. 그 카테고리의 결정적 제약은 세계가 지저분하고 물리적이며 데이터 수집이 비싸다는 점이다.'
-      ],
-      analogy: 'The jump from an office worker who only sends emails to a field crew that actually builds the house.',
-      analogy_ko: '이메일만 보내는 사무직에서, 실제로 집을 짓는 현장 작업자로 넘어가는 것.'
     },
     {
       slug: 'vla',
@@ -911,54 +716,6 @@ window.F00T_GLOSSARY = {
       analogy_ko: '능력 있는 제너럴리스트를 뽑은 뒤, 우리 가게가 어떻게 돌아가는지 일주일간 교육하는 것.'
     },
     {
-      slug: 'humanoid',
-      term: 'Humanoid',
-      term_ko: '휴머노이드 (Humanoid)',
-      aliases: ['humanoid'],
-      aliases_ko: ['휴머노이드'],
-      category: 'Hardware',
-      difficulty: 1,
-      hover: 'A human-shaped, two-legged robot, built that way so it can use environments made for people.',
-      hover_ko: '사람을 닮은 두 발 로봇. 사람이 쓰는 환경을 그대로 쓰려고 사람 형태를 택한다.',
-      infographic:
-        'world built for humans (doors, stairs, tools)  ->  human-shaped robot uses it as-is',
-      body: [
-        'A humanoid is a robot with a human-like torso, arms, and legs. The reason for the human shape is that the world is already built for people, so a humanoid can be dropped in without redesigning the environment. Figure, 1X, and Tesla Optimus are the leading examples. It is also the most capital-intensive form.',
-        'In this piece, humanoids stand for the vertically integrated camp that burns the most capital while accumulating the defensible asset, data, only as a byproduct.'
-      ],
-      body_ko: [
-        '휴머노이드는 사람과 비슷한 몸통, 팔, 다리를 가진 로봇이다. 사람 모양인 이유는 세계가 이미 사람에 맞춰 만들어져 있어, 환경을 바꾸지 않고 그대로 투입할 수 있기 때문이다. Figure, 1X, Tesla Optimus가 대표 사례다. 동시에 가장 자본이 많이 드는 형태다.',
-        '이 글에서 휴머노이드는, 자본을 가장 많이 태우면서 정작 방어 가능한 자산인 데이터는 부산물로만 쌓는 수직통합형 진영을 상징한다.'
-      ],
-      analogy: 'Designing a worker to fit the existing office, instead of rebuilding the office around the worker.',
-      analogy_ko: '작업자에 맞춰 사무실을 다시 짓는 대신, 기존 사무실에 맞는 작업자를 만드는 것.'
-    },
-    {
-      slug: 'form-factors',
-      term: 'Manipulator / Quadruped',
-      term_ko: '매니퓰레이터 / 4족 로봇',
-      aliases: ['manipulator', 'quadruped'],
-      aliases_ko: ['매니퓰레이터', '4족'],
-      category: 'Hardware',
-      difficulty: 1,
-      hover: 'A manipulator is a factory robot arm; a quadruped walks on four legs. There are many bodies besides humanoids.',
-      hover_ko: '매니퓰레이터는 공장의 로봇 팔, 4족은 네 다리로 걷는 로봇. 휴머노이드 말고도 몸은 많다.',
-      infographic:
-        'manipulator: fixed robot arm (assembly, welding)\n' +
-        'quadruped:   four-legged walker (inspection, patrol)\n' +
-        'humanoid:    two legs (general human spaces)',
-      body: [
-        'RFMs can run on many robot bodies. A manipulator is a fixed industrial arm; a quadruped is strong on rough terrain; a humanoid is general-purpose in human spaces. What the model-only companies chase is putting the same policy on all of them.',
-        'The variety is exactly why the embodiment gap and the "any body" claim matter: the prize is one model that spans these form factors.'
-      ],
-      body_ko: [
-        'RFM은 여러 로봇 몸 위에서 돌 수 있다. 매니퓰레이터는 고정된 산업용 팔이고, 4족 로봇은 험지에 강하며, 휴머노이드는 사람 공간에서 범용이다. 모델 전용형 회사들이 노리는 건 이 모두에 같은 정책을 올리는 것이다.',
-        '이 다양성 때문에 하드웨어 이질성과 어떤 몸에든이라는 주장이 중요해진다. 상은 이 형태들을 아우르는 하나의 모델이다.'
-      ],
-      analogy: 'The same driver behind the wheel of a truck, a tractor, and a scooter.',
-      analogy_ko: '트럭과 트랙터와 스쿠터의 운전석에 앉은 같은 운전자.'
-    },
-    {
       slug: 'proprioception',
       term: 'Proprioception / End-effector',
       term_ko: '고유수용감각 / 엔드이펙터',
@@ -981,55 +738,6 @@ window.F00T_GLOSSARY = {
       ],
       analogy: 'Knowing where your hand is without looking, and the fingertips that finally grip the cup.',
       analogy_ko: '보지 않고도 손의 위치를 아는 감각과, 마침내 컵을 쥐는 손끝.'
-    },
-    {
-      slug: 'business-models',
-      term: 'The Three RFM Business Models',
-      term_ko: 'RFM 사업 모델 3분류',
-      aliases: ['model-only', 'vertically integrated', 'data infrastructure'],
-      aliases_ko: ['모델 전용형', '수직통합형', '데이터 인프라형'],
-      category: 'Business',
-      difficulty: 2,
-      hover: 'RFM companies split three ways: model only, hardware plus model, or data only.',
-      hover_ko: 'RFM 회사는 셋으로 갈린다. 모델만, 하드웨어까지, 아니면 데이터만.',
-      infographic:
-        'model-only:   model only (PI, Skild, RLWRLD)    - compute-bound, low capital eff.\n' +
-        'vertical:     hardware + model (Figure, 1X, Tesla)  - CapEx explodes\n' +
-        'data infra:   data only (Config, Carbon)        - mid capital eff., revenue-capable',
-      body: [
-        'The RFM market splits into three. Model-only companies focus on the policy model and leave hardware to partners. Vertically integrated companies build both hardware and model. Data-infrastructure companies build neither and instead collect and supply training data. Capital efficiency and defensibility differ sharply across the three.',
-        'This piece argues the first two commoditize or burn capital, while the third owns the layer that compounds. Deciding which camp to back is the spine of the whole argument.'
-      ],
-      body_ko: [
-        'RFM 시장은 셋으로 나뉜다. 모델 전용형은 정책 모델에 집중하고 하드웨어는 파트너에 맡긴다. 수직통합형은 하드웨어와 모델을 둘 다 만든다. 데이터 인프라형은 둘 다 만들지 않고 학습 데이터를 모아 공급한다. 자본 효율과 방어 가능성이 셋이 크게 다르다.',
-        '이 글은 앞의 둘이 commodity가 되거나 자본을 태우는 반면, 셋째가 복리로 쌓이는 층을 소유한다고 본다. 어느 진영에 베팅할지가 글 전체의 뼈대다.'
-      ],
-      analogy: 'In a gold rush: prospectors, mine-and-mill operators, and the ones selling shovels and mapping the land.',
-      analogy_ko: '골드러시에서 채굴자, 광산-제련 운영자, 그리고 삽을 팔고 땅을 측량하는 이들.'
-    },
-    {
-      slug: 'raas',
-      term: 'Robot-as-a-Service (RaaS)',
-      term_ko: 'Robot-as-a-Service (RaaS)',
-      aliases: ['Robot-as-a-Service', 'RaaS'],
-      aliases_ko: ['Robot-as-a-Service', 'RaaS'],
-      category: 'Business',
-      difficulty: 2,
-      hover: 'Renting a robot’s brain from the cloud, so you do not have to put an expensive GPU inside each robot.',
-      hover_ko: '로봇 두뇌를 클라우드에서 빌려 쓰는 방식. 로봇마다 비싼 GPU를 넣지 않아도 된다.',
-      infographic:
-        'robot  --query-->  [ RFM in the cloud ]  --action-->  robot\n' +
-        '        (called without an onboard GPU)',
-      body: [
-        'RaaS hosts the RFM in the cloud instead of on the robot body, and the robot calls it over the network. Without a costly GPU on every unit, the per-robot cost drops. Config plans to release its foundation model in this form.',
-        'It is how a data-infrastructure company turns its accumulated data and model into recurring revenue, without ever shipping hardware.'
-      ],
-      body_ko: [
-        'RaaS는 RFM을 로봇 몸체가 아니라 클라우드에서 호스팅하고, 로봇이 네트워크로 호출해 쓰는 방식이다. 로봇마다 값비싼 GPU를 달지 않아도 돼 대당 비용이 낮아진다. Config이 자사 파운데이션 모델을 이런 형태로 출시할 계획이다.',
-        '데이터 인프라형 회사가 하드웨어를 출하하지 않고도, 쌓인 데이터와 모델을 반복 매출로 바꾸는 방식이다.'
-      ],
-      analogy: 'Streaming a film instead of buying the disc, and skipping the expensive player entirely.',
-      analogy_ko: '디스크를 사는 대신 영화를 스트리밍하고, 비싼 재생기 자체를 건너뛰는 것.'
     }
   ]
 };

@@ -299,7 +299,7 @@
     order.sort(function(a,b){return preferred.indexOf(a)-preferred.indexOf(b);});
     order.forEach(function(cat){groups[cat].sort(function(a,b){return pick(a,'term').localeCompare(pick(b,'term'), L());});});
     var html = '<p class="g-lede">' + escHtml(S('indexLede')) + '</p>' +
-               '<div class="g-start"><div class="g-start-label">' + (isKo() ? '처음이라면 여기부터' : 'START HERE') + '</div><div class="g-start-links">' + ['ai-agent','llm','context-window','memory-types'].filter(function(slug){return BY_SLUG[slug];}).map(function(slug){return '<a href="/notes/' + slug + '">' + escHtml(pick(BY_SLUG[slug],'term')) + ' ↗</a>';}).join('') + '</div></div>' +
+               '<div class="g-start"><div class="g-start-label">' + (isKo() ? '처음이라면 여기부터' : 'START HERE') + '</div><div class="g-start-links">' + ['llm','context-window','embedding','memory-types'].filter(function(slug){return BY_SLUG[slug];}).map(function(slug){return '<a href="/notes/' + slug + '">' + escHtml(pick(BY_SLUG[slug],'term')) + ' ↗</a>';}).join('') + '</div></div>' +
                '<div class="g-search-wrap">' +
                  '<input id="g-search" type="search" placeholder="' + escHtml(S('searchPlaceholder')) + '" ' +
                  'aria-label="' + escHtml(S('searchPlaceholder')) + '" autocomplete="off" spellcheck="false" />' +
@@ -353,32 +353,31 @@
     }
   }
 
-  function sizeMarginNotes() {
-    document.querySelectorAll('.margin-note-row').forEach(function(row){
-      var notes=row.querySelector('.margin-notes');
-      row.style.minHeight = notes && window.innerWidth > 1100 ? (notes.offsetHeight + 4) + 'px' : '';
-    });
-  }
-  window.addEventListener('resize',sizeMarginNotes);
-  if(document.fonts)document.fonts.ready.then(sizeMarginNotes);
   function renderMarginNotes(root) {
-    root.querySelectorAll('.margin-notes').forEach(function(n){n.remove();});
-    var number = 0;
+    var parent = root.parentElement;
+    var old = parent.querySelector('.article-notes');
+    if (old) old.remove();
+    var rail = document.createElement('aside');
+    rail.className = 'article-notes no-gloss';
+    rail.setAttribute('aria-label', isKo() ? '기술 각주' : 'Technical notes');
+    var label=document.createElement('div');label.className='side-label';
+    label.textContent=isKo() ? '기술 각주' : 'Technical notes';rail.appendChild(label);
+    var number=0;
     root.querySelectorAll('a.gloss').forEach(function(link){
-      var term = BY_SLUG[link.getAttribute('data-slug')];
-      if (!term) return;
-      number++;
-      link.setAttribute('data-number', number);
-      var row = link.closest('p, li');
-      if (!row) return;
-      row.classList.add('margin-note-row');
-      var notes = Array.prototype.find.call(row.children, function(n){return n.classList.contains('margin-notes');});
-      if (!notes) { notes=document.createElement('span'); notes.className='margin-notes no-gloss'; row.appendChild(notes); }
-      var note=document.createElement('span');note.className='margin-note';
-      note.innerHTML='<a href="/notes/'+term.slug+'">'+String(number).padStart(2,'0')+' / '+escHtml(pick(term,'term'))+'</a>'+escHtml(pick(term,'hover'));
-      notes.appendChild(note);
+      var term=BY_SLUG[link.getAttribute('data-slug')];if(!term)return;
+      number++;link.setAttribute('data-number',number);
+      var note=document.createElement('details');note.className='rail-note';
+      var summary=document.createElement('summary');
+      summary.textContent=String(number).padStart(2,'0')+' / '+pick(term,'term');
+      note.appendChild(summary);
+      var text=document.createElement('p');text.textContent=pick(term,'hover');note.appendChild(text);
+      var more=document.createElement('a');more.href='/notes/'+term.slug;more.textContent=isKo() ? '전체 설명 →' : 'Full explanation →';note.appendChild(more);
+      if(number===1)note.open=true;
+      function reveal(){rail.querySelectorAll('details').forEach(function(d){d.open=d===note;});}
+      link.addEventListener('mouseenter',reveal);link.addEventListener('focus',reveal);
+      rail.appendChild(note);
     });
-    requestAnimationFrame(sizeMarginNotes);
+    if(number){parent.classList.add('has-article-notes');parent.appendChild(rail);}
   }
 
   var STOP = ('the and for that this with from into your you are but not can its it is they them their what ' +
